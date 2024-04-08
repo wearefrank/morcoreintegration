@@ -1,0 +1,316 @@
+<Module xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../FrankConfig.xsd">
+    <Adapter name="ESB_DeleteZaak">
+        <Receiver name="ESB_DeleteZaak">
+            <JavaListener name="ESB_DeleteZaak" />
+        </Receiver>
+
+        <Pipeline>
+            <Exits>
+                <Exit name="Exit" state="SUCCESS" code="201" />
+                <Exit name="BadRequest" state="ERROR" code="400" />
+                <Exit name="Forbidden" state="ERROR" code="403" />
+                <Exit name="Conflict" state="ERROR" code="409" />
+                <Exit name="ServerError" state="ERROR" code="500" />
+            </Exits>
+
+            <PutSystemDateInSessionPipe name="StoreSystemDate">
+                <Forward name="success" path="StoreToelichting" />
+                <Forward name="exception" path="exception" />
+            </PutSystemDateInSessionPipe>
+
+            <XsltPipe name="StoreToelichting" getInputFromSessionKey="originalMessage"
+                xpathExpression="//reden" storeResultInSessionKey="toelichtingHeader">
+                <Forward name="success" path="RequestGetMelding" />
+                <Forward name="exception" path="exception" />
+            </XsltPipe>
+
+            <!-- TODO: Currently, this sender exists to ask for extra info regarding the zaak in
+            question. Need to investigate if MorCore stores info. Potentially add the uuid as a param to the
+            senderpipe.
+            However, it is unclear whether MorCore stores any information relating to the case in the storage
+            application (Esuites).
+            If MorCore does not store any information or references, we are unable to link their delete request
+            to a specific case. -->
+            <SenderPipe name="RequestGetMelding" getInputFromSessionKey="originalMessage">
+                <IbisLocalSender name="RequestGetMelding" javaListener="MorCore_GetMelding" />
+                <Forward name="success" path="Json2Xml" />
+                <Forward name="exception" path="exception" />
+            </SenderPipe>
+
+            <JsonPipe name="Json2Xml" prettyPrint="true">
+                <Forward name="success" path="StoreEsuitesReference" />
+                <Forward name="exception" path="Exception" />
+            </JsonPipe>
+
+            <XsltPipe name="StoreEsuitesReference" xpathExpression="//self/href"
+                storeResultInSessionKey="esuitesReference">
+                <Forward name="success" path="CreateDeleteZaakRequest" />
+                <Forward name="exception" path="exception" />
+            </XsltPipe>
+
+            <XsltPipe name="CreateDeleteZaakRequest" getInputFromSessionKey="originalMessage"
+                styleSheetName="xsl/ESBZGWApi/DeleteZaakRequest.xsl">
+                <Param name="esuitesReference" sessionKey="esuitesReference" />
+                <Param name="currentDate" sessionKey="systemDate" />
+                <Forward name="success" path="XmlToJson" />
+                <Forward name="exception" path="exception" />
+            </XsltPipe>
+
+            <JsonPipe name="XmlToJson" direction="XML2JSON">
+                <Forward name="success" path="SendToESB" />
+                <Forward name="exception" path="exception" />
+            </JsonPipe>
+
+            <SenderPipe name="SendToESB">
+                <HttpSender name="SendToESB" methodType="POST"
+                    headersParams="X-Audit-Toelichting"
+                    keystore="${Esuites.keystore}"
+                    keystoreType="${Esuites.keystoreType}"
+                    keystoreAuthAlias="${Esuites.keystoreAuthAlias}"
+                    keystorePassword="${Esuites.keystorePassword}"
+                    keystoreAlias="${Esuites.keystoreAlias}"
+                    keystoreAliasAuthAlias="${Esuites.keystoreAliasAuthAlias}"
+                    keystoreAliasPassword="${Esuites.keystoreAliasPassword}"
+                    truststore="${Esuites.truststore}"
+                    truststoreAuthAlias="${Esuites.truststoreAuthAlias}"
+                    truststorePassword="${Esuites.truststorePassword}"
+                    truststoreType="${Esuites.truststoreType}">
+                    <Param name="X-Audit-Toelichting" sessionKey="toelichtingHeader" />
+                    <Param name="url" value="${Esuites.ESB.root-url}/statussen" />
+                </HttpSender>
+                <Forward name="success" path="Exit" />
+                <Forward name="exception" path="exception" />
+                <Forward name="timeout" path="timeout" />
+                <Forward name="illegalResult" path="illegalResult" />
+                <Forward name="interrupt" path="interrupt" />
+            </SenderPipe>
+
+            <FixedResultPipe name="exception" filename="ErrorResponses/BadRequest.json">
+                <Forward name="success" path="BadRequest" />
+            </FixedResultPipe>
+
+            <FixedResultPipe name="timeout" filename="ErrorResponses/ServerError.json">
+                <Forward name="success" path="ServerError" />
+            </FixedResultPipe>
+
+            <FixedResultPipe name="illegalResult" filename="ErrorResponses/Forbidden.json">
+                <Forward name="success" path="Forbidden" />
+            </FixedResultPipe>
+
+            <FixedResultPipe name="interrupt" filename="ErrorResponses/Conflict.json">
+                <Forward name="success" path="Conflict" />
+            </FixedResultPipe>
+
+        </Pipeline>
+    </Adapter>
+
+    <Adapter name="ESB_PostZaak">
+        <Receiver name="ESB_PostZaak">
+            <JavaListener name="ESB_PostZaak" />
+        </Receiver>
+
+        <Pipeline>
+            <Exits>
+                <Exit name="Exit" state="SUCCESS" code="201" />
+                <Exit name="BadRequest" state="ERROR" code="400" />
+                <Exit name="Forbidden" state="ERROR" code="403" />
+                <Exit name="Conflict" state="ERROR" code="409" />
+                <Exit name="ServerError" state="ERROR" code="500" />
+            </Exits>
+
+            <PutSystemDateInSessionPipe name="StoreSystemDate" />
+
+            <SenderPipe name="RequestMeldingInfo" storeResultInSessionKey="meldingInfo"
+                getInputFromFixedValue="&lt;defaultInputMessage/>">
+                <IbisLocalSender name="RequestGetMelding" javaListener="MorCore_GetMelding">
+                    <Param name="meldingUuid"
+                        xpathExpression="substring-after(//melding, 'https://mor-core.tld/melding/')" />
+                </IbisLocalSender>
+                <Forward name="success" path="RequestOpdrachtInfo" />
+                <Forward name="exception" path="exception" />
+            </SenderPipe>
+
+            <SenderPipe name="RequestOpdrachtInfo" storeResultInSessionKey="opdrachtInfo"
+                getInputFromFixedValue="&lt;defaultInputMessage/>">
+                <IbisLocalSender name="RequestGetMelding" javaListener="MorCore_GetTaakOpdracht">
+                    <Param name="meldingUuid"
+                        xpathExpression="substring-after(//melding, 'https://mor-core.tld/melding/')" />
+                    <Param name="opdrachtUuid"
+                        xpathExpression="substring-after(//taakopdracht, '/taakopdracht/')" />
+                </IbisLocalSender>
+                <Forward name="success" path="CreatePostZaakRequest" />
+                <Forward name="exception" path="exception" />
+            </SenderPipe>
+
+            <XsltPipe name="CreatePostZaakRequest"
+                styleSheetName="xsl/ESBZGWApi/PostZaakRequest.xsl"
+                getInputFromSessionKey="originalMessage">
+                <Param name="currentDate" sessionKey="systemDate" />
+                <Param name="meldingInfo" sessionKey="meldingInfo" />
+                <Param name="opdrachtInfo" sessionKey="opdrachtInfo" />
+            </XsltPipe>
+
+            <JsonPipe name="XmlToJson" direction="XML2JSON">
+                <Forward name="success" path="SendToESB" />
+                <Forward name="exception" path="exception" />
+            </JsonPipe>
+
+            <SenderPipe name="SendToESB">
+                <HttpSender name="SendToESB" methodType="POST"
+                    headersParams="Accept-Crs,Content-Crs"
+                    keystore="${Esuites.keystore}"
+                    keystoreType="${Esuites.keystoreType}"
+                    keystoreAuthAlias="${Esuites.keystoreAuthAlias}"
+                    keystorePassword="${Esuites.keystorePassword}"
+                    keystoreAlias="${Esuites.keystoreAlias}"
+                    keystoreAliasAuthAlias="${Esuites.keystoreAliasAuthAlias}"
+                    keystoreAliasPassword="${Esuites.keystoreAliasPassword}"
+                    truststore="${Esuites.truststore}"
+                    truststoreAuthAlias="${Esuites.truststoreAuthAlias}"
+                    truststorePassword="${Esuites.truststorePassword}"
+                    truststoreType="${Esuites.truststoreType}">
+                    <Param name="Accept-Crs" value="EPSG:4326" />
+                    <Param name="Content-Crs" value="EPSG:4326" />
+                    <Param name="url" value="${Esuites.ESB.root-url}/zaken" />
+                </HttpSender>
+                <Forward name="success" path="Exit" />
+                <Forward name="exception" path="exception" />
+                <Forward name="timeout" path="timeout" />
+                <Forward name="illegalResult" path="illegalResult" />
+                <Forward name="interrupt" path="interrupt" />
+            </SenderPipe>
+
+            <FixedResultPipe name="exception" filename="ErrorResponses/BadRequest.json">
+                <Forward name="success" path="BadRequest" />
+            </FixedResultPipe>
+
+            <FixedResultPipe name="timeout" filename="ErrorResponses/ServerError.json">
+                <Forward name="success" path="ServerError" />
+            </FixedResultPipe>
+
+            <FixedResultPipe name="illegalResult" filename="ErrorResponses/Forbidden.json">
+                <Forward name="success" path="Forbidden" />
+            </FixedResultPipe>
+
+            <FixedResultPipe name="interrupt" filename="ErrorResponses/Conflict.json">
+                <Forward name="success" path="Conflict" />
+            </FixedResultPipe>
+
+        </Pipeline>
+    </Adapter>
+
+    <Adapter name="ESB_GetZaak">
+        <Receiver name="ESB_GetZaak">
+            <JavaListener name="ESB_GetZaak" />
+        </Receiver>
+
+        <Receiver name="ESB_GetZaak_Internal">
+            <JavaListener name="ESB_GetZaak_Internal" />
+        </Receiver>
+
+        <Pipeline>
+            <Exits>
+                <Exit name="Exit" state="SUCCESS" code="200" />
+                <Exit name="BadRequest" state="ERROR" code="400" />
+                <Exit name="Forbidden" state="ERROR" code="403" />
+                <Exit name="Conflict" state="ERROR" code="409" />
+                <Exit name="ServerError" state="ERROR" code="500" />
+            </Exits>
+
+            <SenderPipe name="SendToESB">
+                <HttpSender name="SendToESB" methodType="GET"
+                    headersParams="Accept-Crs,Content-Crs"
+                    keystore="${Esuites.keystore}"
+                    keystoreType="${Esuites.keystoreType}"
+                    keystoreAuthAlias="${Esuites.keystoreAuthAlias}"
+                    keystorePassword="${Esuites.keystorePassword}"
+                    keystoreAlias="${Esuites.keystoreAlias}"
+                    keystoreAliasAuthAlias="${Esuites.keystoreAliasAuthAlias}"
+                    keystoreAliasPassword="${Esuites.keystoreAliasPassword}"
+                    truststore="${Esuites.truststore}"
+                    truststoreAuthAlias="${Esuites.truststoreAuthAlias}"
+                    truststorePassword="${Esuites.truststorePassword}"
+                    truststoreType="${Esuites.truststoreType}">
+                    <Param name="Accept-Crs"
+                        value="EPSG:4326" />
+                    <Param name="Content-Crs" value="EPSG:4326" />
+                    <Param
+                        name="uuid" sessionKey="uuid" />
+                    <Param name="url"
+                        value="${Esuites.ESB.root-url}/zaken/${uuid}" />
+                </HttpSender>
+                <Forward name="success" path="Json2XML" />
+                <Forward name="exception" path="exception" />
+                <Forward name="timeout" path="timeout" />
+                <Forward name="illegalResult" path="illegalResult" />
+                <Forward name="interrupt" path="interrupt" />
+            </SenderPipe>
+
+            <JsonPipe name="Json2XML">
+                <Forward name="success" path="CreateGetZaakRequest" />
+                <Forward name="exception" path="exception" />
+            </JsonPipe>
+
+            <XsltPipe name="CreateGetZaakRequest" styleSheetName="xsl/ESBZGWApi/GetZaakResponse.xsl">
+                <Param name="currentDate" sessionKey="systemDate" />
+                <Forward name="success" path="Xml2Json" />
+                <Forward name="exception" path="exception" />
+            </XsltPipe>
+
+            <JsonPipe name="Xml2Json" direction="XML2JSON">
+                <Forward name="success" path="Exit" />
+                <Forward name="exception" path="exception" />
+            </JsonPipe>
+
+            <FixedResultPipe name="exception" filename="ErrorResponses/BadRequest.json">
+                <Forward name="success" path="BadRequest" />
+            </FixedResultPipe>
+
+            <FixedResultPipe name="timeout" filename="ErrorResponses/ServerError.json">
+                <Forward name="success" path="ServerError" />
+            </FixedResultPipe>
+
+            <FixedResultPipe name="illegalResult" filename="ErrorResponses/Forbidden.json">
+                <Forward name="success" path="Forbidden" />
+            </FixedResultPipe>
+
+            <FixedResultPipe name="interrupt" filename="ErrorResponses/Conflict.json">
+                <Forward name="success" path="Conflict" />
+            </FixedResultPipe>
+
+        </Pipeline>
+    </Adapter>
+
+    <Adapter name="PingEsuites">
+        <Receiver>
+            <JavaListener name="PingEsuites" />
+        </Receiver>
+
+        <Pipeline>
+            <!-- Due to a lack of a ping functionality within Esuites, this pipeline can be used as
+            a replacement.
+            It requests a lists of Zaken in Esuites and returns the result. -->
+            <SenderPipe name="PingEsuitesSender">
+                <HttpSender name="PingEsuitesSender" methodType="POST"
+                    headersParams="Accept-Crs,Content-Crs"
+                    keystore="${Esuites.keystore}"
+                    keystoreType="${Esuites.keystoreType}"
+                    keystoreAuthAlias="${Esuites.keystoreAuthAlias}"
+                    keystorePassword="${Esuites.keystorePassword}"
+                    keystoreAlias="${Esuites.keystoreAlias}"
+                    keystoreAliasAuthAlias="${Esuites.keystoreAliasAuthAlias}"
+                    keystoreAliasPassword="${Esuites.keystoreAliasPassword}"
+                    truststore="${Esuites.truststore}"
+                    truststoreAuthAlias="${Esuites.truststoreAuthAlias}"
+                    truststorePassword="${Esuites.truststorePassword}"
+                    truststoreType="${Esuites.truststoreType}">
+                    <Param name="Accept-Crs" value="EPSG:4326" />
+                    <Param name="Content-Crs" value="EPSG:4326" />
+                    <Param name="url" value="${Esuites.ESB.root-url}/zaken" />
+                </HttpSender>
+            </SenderPipe>
+        </Pipeline>
+    </Adapter>
+
+</Module>

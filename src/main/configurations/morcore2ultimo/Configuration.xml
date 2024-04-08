@@ -1,7 +1,13 @@
 <!DOCTYPE Configuration [
-
-	]>
+	<!ENTITY TaakApplicatieApi SYSTEM "./Configuration_TaakApplicatieApi.xml">
+	<!ENTITY TaakApi SYSTEM "./Configuration_TaakApi.xml">
+	<!ENTITY ESBZGWApi SYSTEM "./Configuration_ESBZGWApi.xml">
+	<!ENTITY NotificatieApi SYSTEM "./Configuration_NotificatieApi.xml">
+]>
 
 <Configuration name="morcore2ultimo">
-
+	&TaakApplicatieApi;
+	&TaakApi;
+	&ESBZGWApi;
+	&NotificatieApi;
 </Configuration>

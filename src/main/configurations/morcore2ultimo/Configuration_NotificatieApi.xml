@@ -1,0 +1,54 @@
+<Module xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../FrankConfig.xsd">
+
+    <!-- Pipeline only sends a notification of a change. Can not validate message because there is
+    no body. -->
+
+    <Adapter name="Frank_PostNotificatie">
+        <Receiver name="Frank_PostNotificatie">
+            <JavaListener name="Frank_PostNotificatie" />
+        </Receiver>
+
+        <Pipeline>
+
+            <Exits>
+                <Exit name="Exit" state="SUCCESS" code="204" />
+                <Exit name="Exception" state="ERROR" code="500" />
+                <Exit name="Reject" state="REJECTED" />
+            </Exits>
+
+            <JsonPipe name="RequestJson2Xml" />
+
+            <SenderPipe name="RequestGetZaak" storeResultInSessionKey="JsonMessage">
+                <IbisLocalSender name="RequestGetZaak" javaListener="ESB_GetZaak_Internal" />
+            </SenderPipe>
+
+            <JsonPipe name="ResponseJson2Xml" />
+
+            <!-- TODO: Check that uuid values are correctly filled -->
+            <SenderPipe name="Send2MorCore">
+                <HttpSender name="Send2MorCore" methodType="POST"
+                    keystore="${MorCore.keystore}"
+                    keystoreType="${MorCore.keystoreType}"
+                    keystoreAuthAlias="${MorCore.keystoreAuthAlias}"
+                    keystorePassword="${MorCore.keystorePassword}"
+                    keystoreAlias="${MorCore.keystoreAlias}"
+                    keystoreAliasAuthAlias="${MorCore.keystoreAliasAuthAlias}"
+                    keystoreAliasPassword="${MorCore.keystoreAliasPassword}"
+                    truststore="${MorCore.truststore}"
+                    truststoreAuthAlias="${MorCore.truststoreAuthAlias}"
+                    truststorePassword="${MorCore.truststorePassword}"
+                    truststoreType="${MorCore.truststoreType}" />
+                <Param name="url"
+                    value="${MorCore.taak.API.root-url}/melding/${meldingUuid}/taakopdracht/${taakOpdrachtUuid}/notificatie" />
+                <Param name="meldingUuid"
+                    xpathExpression="//meldingUuid" />
+                <Param name="taakOpdrachtUuid"
+                    xpathExpression="//taakOpdrachtUuid" />
+                <Forward name="success" path="Exit" />
+                <Forward name="exception" path="Exception" />
+            </SenderPipe>
+
+        </Pipeline>
+    </Adapter>
+</Module>
