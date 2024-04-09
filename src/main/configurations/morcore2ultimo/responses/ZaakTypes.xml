@@ -7,8 +7,30 @@
             </self>
         </_links>
         <uuid>xxxx-yyyy-zzz</uuid>
-        <omschrijving>Ophalen grofvuil groot</omschrijving>
-        <toelichting>Grofvuil wordt opgehaald met een knijpkraan. Geschikt voor bijvoorbeeld grote kasten, koelkast, wasmachine.</toelichting>
+        <omschrijving>rioolaansluiting verstopping</omschrijving>
+        <toelichting>rioolaansluiting verstopping</toelichting>
+        <additionele_informatie />
+    </items>
+    <items>
+        <_links>
+            <self>
+                <href>https://taakapplicatie.tld/taaktypes/xxxx-yyyy-zzz</href>
+            </self>
+        </_links>
+        <uuid>xxxx-yyyy-zzz</uuid>
+        <omschrijving>hoofdriool</omschrijving>
+        <toelichting>hoofdriool</toelichting>
+        <additionele_informatie />
+    </items>
+    <items>
+        <_links>
+            <self>
+                <href>https://taakapplicatie.tld/taaktypes/xxxx-yyyy-zzz</href>
+            </self>
+        </_links>
+        <uuid>xxxx-yyyy-zzz</uuid>
+        <omschrijving>stankoverlast</omschrijving>
+        <toelichting>stankoverlast</toelichting>
         <additionele_informatie />
     </items>
     <items>
@@ -18,13 +40,13 @@
             </self>
         </_links>
         <uuid>aaaa-ssss-dddd</uuid>
-        <omschrijving>Repareren straatverlichting</omschrijving>
-        <toelichting>Verlichting in lichtmast doet het niet. Niet gebruiken voor gevaarlijke situaties.</toelichting>
+        <omschrijving>straatkolk verstopt</omschrijving>
+        <toelichting>straatkolk verstopt</toelichting>
         <additionele_informatie>
-            <veld>lichtmast nummer</veld>
+            <veld>example value</veld>
         </additionele_informatie>
         <additionele_informatie>
-            <veld>werking gecontroleerd in observ</veld>
+            <veld>example value</veld>
         </additionele_informatie>
     </items>
 </root>
