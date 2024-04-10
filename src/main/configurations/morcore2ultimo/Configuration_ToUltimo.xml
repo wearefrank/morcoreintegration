@@ -1,8 +1,8 @@
 <Module xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="../FrankConfig.xsd">
-    <Adapter name="ESB_DeleteZaak">
-        <Receiver name="ESB_DeleteZaak">
-            <JavaListener name="ESB_DeleteZaak" />
+    <Adapter name="Ultimo_DeleteZaak">
+        <Receiver name="Ultimo_DeleteZaak">
+            <JavaListener name="Ultimo_DeleteZaak" />
         </Receiver>
 
         <Pipeline>
@@ -50,7 +50,7 @@
             </XsltPipe>
 
             <XsltPipe name="CreateDeleteZaakRequest" getInputFromSessionKey="originalMessage"
-                styleSheetName="xsl/ESBZGWApi/DeleteZaakRequest.xsl">
+                styleSheetName="xsl/Ultimo/DeleteZaakRequest.xsl">
                 <Param name="esuitesReference" sessionKey="esuitesReference" />
                 <Param name="currentDate" sessionKey="systemDate" />
                 <Forward name="success" path="XmlToJson" />
@@ -58,12 +58,12 @@
             </XsltPipe>
 
             <JsonPipe name="XmlToJson" direction="XML2JSON">
-                <Forward name="success" path="SendToESB" />
+                <Forward name="success" path="SendToUltimo" />
                 <Forward name="exception" path="exception" />
             </JsonPipe>
 
-            <SenderPipe name="SendToESB">
-                <HttpSender name="SendToESB" methodType="POST"
+            <SenderPipe name="SendToUltimo">
+                <HttpSender name="SendToUltimo" methodType="POST"
                     headersParams="X-Audit-Toelichting"
                     keystore="${Esuites.keystore}"
                     keystoreType="${Esuites.keystoreType}"
@@ -77,7 +77,7 @@
                     truststorePassword="${Esuites.truststorePassword}"
                     truststoreType="${Esuites.truststoreType}">
                     <Param name="X-Audit-Toelichting" sessionKey="toelichtingHeader" />
-                    <Param name="url" value="${Esuites.ESB.root-url}/statussen" />
+                    <Param name="url" value="${Esuites.Ultimo.root-url}/statussen" />
                 </HttpSender>
                 <Forward name="success" path="Exit" />
                 <Forward name="exception" path="exception" />
@@ -105,9 +105,9 @@
         </Pipeline>
     </Adapter>
 
-    <Adapter name="ESB_PostZaak">
-        <Receiver name="ESB_PostZaak">
-            <JavaListener name="ESB_PostZaak" />
+    <Adapter name="Ultimo_PostZaak">
+        <Receiver name="Ultimo_PostZaak">
+            <JavaListener name="Ultimo_PostZaak" />
         </Receiver>
 
         <Pipeline>
@@ -144,7 +144,7 @@
             </SenderPipe>
 
             <XsltPipe name="CreatePostZaakRequest"
-                styleSheetName="xsl/ESBZGWApi/PostZaakRequest.xsl"
+                styleSheetName="xsl/Ultimo/PostZaakRequest.xsl"
                 getInputFromSessionKey="originalMessage">
                 <Param name="currentDate" sessionKey="systemDate" />
                 <Param name="meldingInfo" sessionKey="meldingInfo" />
@@ -152,12 +152,12 @@
             </XsltPipe>
 
             <JsonPipe name="XmlToJson" direction="XML2JSON">
-                <Forward name="success" path="SendToESB" />
+                <Forward name="success" path="SendToUltimo" />
                 <Forward name="exception" path="exception" />
             </JsonPipe>
 
-            <SenderPipe name="SendToESB">
-                <HttpSender name="SendToESB" methodType="POST"
+            <SenderPipe name="SendToUltimo">
+                <HttpSender name="SendToUltimo" methodType="POST"
                     headersParams="Accept-Crs,Content-Crs"
                     keystore="${Esuites.keystore}"
                     keystoreType="${Esuites.keystoreType}"
@@ -172,7 +172,7 @@
                     truststoreType="${Esuites.truststoreType}">
                     <Param name="Accept-Crs" value="EPSG:4326" />
                     <Param name="Content-Crs" value="EPSG:4326" />
-                    <Param name="url" value="${Esuites.ESB.root-url}/zaken" />
+                    <Param name="url" value="${Esuites.Ultimo.root-url}/zaken" />
                 </HttpSender>
                 <Forward name="success" path="Exit" />
                 <Forward name="exception" path="exception" />
@@ -200,13 +200,13 @@
         </Pipeline>
     </Adapter>
 
-    <Adapter name="ESB_GetZaak">
-        <Receiver name="ESB_GetZaak">
-            <JavaListener name="ESB_GetZaak" />
+    <Adapter name="Ultimo_GetZaak">
+        <Receiver name="Ultimo_GetZaak">
+            <JavaListener name="Ultimo_GetZaak" />
         </Receiver>
 
-        <Receiver name="ESB_GetZaak_Internal">
-            <JavaListener name="ESB_GetZaak_Internal" />
+        <Receiver name="Ultimo_GetZaak_Internal">
+            <JavaListener name="Ultimo_GetZaak_Internal" />
         </Receiver>
 
         <Pipeline>
@@ -218,8 +218,8 @@
                 <Exit name="ServerError" state="ERROR" code="500" />
             </Exits>
 
-            <SenderPipe name="SendToESB">
-                <HttpSender name="SendToESB" methodType="GET"
+            <SenderPipe name="SendToUltimo">
+                <HttpSender name="SendToUltimo" methodType="GET"
                     headersParams="Accept-Crs,Content-Crs"
                     keystore="${Esuites.keystore}"
                     keystoreType="${Esuites.keystoreType}"
@@ -238,7 +238,7 @@
                     <Param
                         name="uuid" sessionKey="uuid" />
                     <Param name="url"
-                        value="${Esuites.ESB.root-url}/zaken/${uuid}" />
+                        value="${Esuites.Ultimo.root-url}/zaken/${uuid}" />
                 </HttpSender>
                 <Forward name="success" path="Json2XML" />
                 <Forward name="exception" path="exception" />
@@ -252,7 +252,7 @@
                 <Forward name="exception" path="exception" />
             </JsonPipe>
 
-            <XsltPipe name="CreateGetZaakRequest" styleSheetName="xsl/ESBZGWApi/GetZaakResponse.xsl">
+            <XsltPipe name="CreateGetZaakRequest" styleSheetName="xsl/Ultimo/GetZaakResponse.xsl">
                 <Param name="currentDate" sessionKey="systemDate" />
                 <Forward name="success" path="Xml2Json" />
                 <Forward name="exception" path="exception" />
@@ -307,7 +307,7 @@
                     truststoreType="${Esuites.truststoreType}">
                     <Param name="Accept-Crs" value="EPSG:4326" />
                     <Param name="Content-Crs" value="EPSG:4326" />
-                    <Param name="url" value="${Esuites.ESB.root-url}/zaken" />
+                    <Param name="url" value="${Esuites.Ultimo.root-url}/zaken" />
                 </HttpSender>
             </SenderPipe>
         </Pipeline>

@@ -88,7 +88,7 @@
             </XmlValidatorPipe>
 
             <SenderPipe name="SwitchConfiguration">
-                <IbisLocalSender javaListener="ESB_PostZaak" />
+                <IbisLocalSender javaListener="Ultimo_PostZaak" />
             </SenderPipe>
         </Pipeline>
     </Adapter>
@@ -118,7 +118,7 @@
             </XmlValidatorPipe>
 
             <SenderPipe name="SwitchConfiguration">
-                <IbisLocalSender javaListener="ESB_DeleteZaak">
+                <IbisLocalSender javaListener="Ultimo_DeleteZaak">
                     <Param name="uuid" sessionKey="uuid" />
                 </IbisLocalSender>
             </SenderPipe>
@@ -139,7 +139,7 @@
             </Exits>
 
             <SenderPipe name="SwitchConfiguration">
-                <IbisLocalSender javaListener="ESB_GetZaak">
+                <IbisLocalSender javaListener="Ultimo_GetZaak">
                     <Param name="uuid" sessionKey="uuid" />
                 </IbisLocalSender>
             </SenderPipe>
