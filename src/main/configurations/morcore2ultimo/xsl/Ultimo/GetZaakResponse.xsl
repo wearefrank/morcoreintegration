@@ -19,11 +19,11 @@
                     </href>
                 </taaktype>
                 <melding>
-                    <!-- TODO: See if Esuites returns this after storing. -->
+                    <!-- TODO: See if Ultimo returns this after storing. -->
                     <href>https://mor-core.tld/melding/1234-1234-1234</href>
                 </melding>
                 <communcatie>
-                    <!-- TODO: See if Esuites returns this after storing. -->
+                    <!-- TODO: See if Ultimo returns this after storing. -->
                     <href>https://taakapplicatie.tld/taak/aaaa-bbbb-cccc/communcatie</href>
                 </communcatie>
             </_links>
@@ -38,7 +38,7 @@
             </bericht>
 
             <!-- TODO: Make everything below this comment dynamic depending on what information
-            Esuites returns. -->
+            Ultimo returns. -->
             <additionele_informatie>
                 <veld>lichtmast_nummer</veld>
                 <waarde>2381-3</waarde>

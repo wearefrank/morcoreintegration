@@ -29,7 +29,7 @@
             question. Need to investigate if MorCore stores info. Potentially add the uuid as a param to the
             senderpipe.
             However, it is unclear whether MorCore stores any information relating to the case in the storage
-            application (Esuites).
+            application (Ultimo).
             If MorCore does not store any information or references, we are unable to link their delete request
             to a specific case. -->
             <SenderPipe name="RequestGetMelding" getInputFromSessionKey="originalMessage">
@@ -39,19 +39,19 @@
             </SenderPipe>
 
             <JsonPipe name="Json2Xml" prettyPrint="true">
-                <Forward name="success" path="StoreEsuitesReference" />
+                <Forward name="success" path="StoreUltimoReference" />
                 <Forward name="exception" path="Exception" />
             </JsonPipe>
 
-            <XsltPipe name="StoreEsuitesReference" xpathExpression="//self/href"
-                storeResultInSessionKey="esuitesReference">
+            <XsltPipe name="StoreUltimoReference" xpathExpression="//self/href"
+                storeResultInSessionKey="UltimoReference">
                 <Forward name="success" path="CreateDeleteZaakRequest" />
                 <Forward name="exception" path="exception" />
             </XsltPipe>
 
             <XsltPipe name="CreateDeleteZaakRequest" getInputFromSessionKey="originalMessage"
                 styleSheetName="xsl/Ultimo/DeleteZaakRequest.xsl">
-                <Param name="esuitesReference" sessionKey="esuitesReference" />
+                <Param name="UltimoReference" sessionKey="UltimoReference" />
                 <Param name="currentDate" sessionKey="systemDate" />
                 <Forward name="success" path="XmlToJson" />
                 <Forward name="exception" path="exception" />
@@ -65,19 +65,19 @@
             <SenderPipe name="SendToUltimo">
                 <HttpSender name="SendToUltimo" methodType="POST"
                     headersParams="X-Audit-Toelichting"
-                    keystore="${Esuites.keystore}"
-                    keystoreType="${Esuites.keystoreType}"
-                    keystoreAuthAlias="${Esuites.keystoreAuthAlias}"
-                    keystorePassword="${Esuites.keystorePassword}"
-                    keystoreAlias="${Esuites.keystoreAlias}"
-                    keystoreAliasAuthAlias="${Esuites.keystoreAliasAuthAlias}"
-                    keystoreAliasPassword="${Esuites.keystoreAliasPassword}"
-                    truststore="${Esuites.truststore}"
-                    truststoreAuthAlias="${Esuites.truststoreAuthAlias}"
-                    truststorePassword="${Esuites.truststorePassword}"
-                    truststoreType="${Esuites.truststoreType}">
+                    keystore="${Ultimo.keystore}"
+                    keystoreType="${Ultimo.keystoreType}"
+                    keystoreAuthAlias="${Ultimo.keystoreAuthAlias}"
+                    keystorePassword="${Ultimo.keystorePassword}"
+                    keystoreAlias="${Ultimo.keystoreAlias}"
+                    keystoreAliasAuthAlias="${Ultimo.keystoreAliasAuthAlias}"
+                    keystoreAliasPassword="${Ultimo.keystoreAliasPassword}"
+                    truststore="${Ultimo.truststore}"
+                    truststoreAuthAlias="${Ultimo.truststoreAuthAlias}"
+                    truststorePassword="${Ultimo.truststorePassword}"
+                    truststoreType="${Ultimo.truststoreType}">
                     <Param name="X-Audit-Toelichting" sessionKey="toelichtingHeader" />
-                    <Param name="url" value="${Esuites.Ultimo.root-url}/statussen" />
+                    <Param name="url" value="${Ultimo.Ultimo.root-url}/statussen" />
                 </HttpSender>
                 <Forward name="success" path="Exit" />
                 <Forward name="exception" path="exception" />
@@ -159,20 +159,20 @@
             <SenderPipe name="SendToUltimo">
                 <HttpSender name="SendToUltimo" methodType="POST"
                     headersParams="Accept-Crs,Content-Crs"
-                    keystore="${Esuites.keystore}"
-                    keystoreType="${Esuites.keystoreType}"
-                    keystoreAuthAlias="${Esuites.keystoreAuthAlias}"
-                    keystorePassword="${Esuites.keystorePassword}"
-                    keystoreAlias="${Esuites.keystoreAlias}"
-                    keystoreAliasAuthAlias="${Esuites.keystoreAliasAuthAlias}"
-                    keystoreAliasPassword="${Esuites.keystoreAliasPassword}"
-                    truststore="${Esuites.truststore}"
-                    truststoreAuthAlias="${Esuites.truststoreAuthAlias}"
-                    truststorePassword="${Esuites.truststorePassword}"
-                    truststoreType="${Esuites.truststoreType}">
+                    keystore="${Ultimo.keystore}"
+                    keystoreType="${Ultimo.keystoreType}"
+                    keystoreAuthAlias="${Ultimo.keystoreAuthAlias}"
+                    keystorePassword="${Ultimo.keystorePassword}"
+                    keystoreAlias="${Ultimo.keystoreAlias}"
+                    keystoreAliasAuthAlias="${Ultimo.keystoreAliasAuthAlias}"
+                    keystoreAliasPassword="${Ultimo.keystoreAliasPassword}"
+                    truststore="${Ultimo.truststore}"
+                    truststoreAuthAlias="${Ultimo.truststoreAuthAlias}"
+                    truststorePassword="${Ultimo.truststorePassword}"
+                    truststoreType="${Ultimo.truststoreType}">
                     <Param name="Accept-Crs" value="EPSG:4326" />
                     <Param name="Content-Crs" value="EPSG:4326" />
-                    <Param name="url" value="${Esuites.Ultimo.root-url}/zaken" />
+                    <Param name="url" value="${Ultimo.Ultimo.root-url}/zaken" />
                 </HttpSender>
                 <Forward name="success" path="Exit" />
                 <Forward name="exception" path="exception" />
@@ -221,24 +221,24 @@
             <SenderPipe name="SendToUltimo">
                 <HttpSender name="SendToUltimo" methodType="GET"
                     headersParams="Accept-Crs,Content-Crs"
-                    keystore="${Esuites.keystore}"
-                    keystoreType="${Esuites.keystoreType}"
-                    keystoreAuthAlias="${Esuites.keystoreAuthAlias}"
-                    keystorePassword="${Esuites.keystorePassword}"
-                    keystoreAlias="${Esuites.keystoreAlias}"
-                    keystoreAliasAuthAlias="${Esuites.keystoreAliasAuthAlias}"
-                    keystoreAliasPassword="${Esuites.keystoreAliasPassword}"
-                    truststore="${Esuites.truststore}"
-                    truststoreAuthAlias="${Esuites.truststoreAuthAlias}"
-                    truststorePassword="${Esuites.truststorePassword}"
-                    truststoreType="${Esuites.truststoreType}">
+                    keystore="${Ultimo.keystore}"
+                    keystoreType="${Ultimo.keystoreType}"
+                    keystoreAuthAlias="${Ultimo.keystoreAuthAlias}"
+                    keystorePassword="${Ultimo.keystorePassword}"
+                    keystoreAlias="${Ultimo.keystoreAlias}"
+                    keystoreAliasAuthAlias="${Ultimo.keystoreAliasAuthAlias}"
+                    keystoreAliasPassword="${Ultimo.keystoreAliasPassword}"
+                    truststore="${Ultimo.truststore}"
+                    truststoreAuthAlias="${Ultimo.truststoreAuthAlias}"
+                    truststorePassword="${Ultimo.truststorePassword}"
+                    truststoreType="${Ultimo.truststoreType}">
                     <Param name="Accept-Crs"
                         value="EPSG:4326" />
                     <Param name="Content-Crs" value="EPSG:4326" />
                     <Param
                         name="uuid" sessionKey="uuid" />
                     <Param name="url"
-                        value="${Esuites.Ultimo.root-url}/zaken/${uuid}" />
+                        value="${Ultimo.Ultimo.root-url}/zaken/${uuid}" />
                 </HttpSender>
                 <Forward name="success" path="Json2XML" />
                 <Forward name="exception" path="exception" />
@@ -282,32 +282,32 @@
         </Pipeline>
     </Adapter>
 
-    <Adapter name="PingEsuites">
+    <Adapter name="PingUltimo">
         <Receiver>
-            <JavaListener name="PingEsuites" />
+            <JavaListener name="PingUltimo" />
         </Receiver>
 
         <Pipeline>
-            <!-- Due to a lack of a ping functionality within Esuites, this pipeline can be used as
+            <!-- Due to a lack of a ping functionality within Ultimo, this pipeline can be used as
             a replacement.
-            It requests a lists of Zaken in Esuites and returns the result. -->
-            <SenderPipe name="PingEsuitesSender">
-                <HttpSender name="PingEsuitesSender" methodType="POST"
+            It requests a lists of Zaken in Ultimo and returns the result. -->
+            <SenderPipe name="PingUltimoSender">
+                <HttpSender name="PingUltimoSender" methodType="POST"
                     headersParams="Accept-Crs,Content-Crs"
-                    keystore="${Esuites.keystore}"
-                    keystoreType="${Esuites.keystoreType}"
-                    keystoreAuthAlias="${Esuites.keystoreAuthAlias}"
-                    keystorePassword="${Esuites.keystorePassword}"
-                    keystoreAlias="${Esuites.keystoreAlias}"
-                    keystoreAliasAuthAlias="${Esuites.keystoreAliasAuthAlias}"
-                    keystoreAliasPassword="${Esuites.keystoreAliasPassword}"
-                    truststore="${Esuites.truststore}"
-                    truststoreAuthAlias="${Esuites.truststoreAuthAlias}"
-                    truststorePassword="${Esuites.truststorePassword}"
-                    truststoreType="${Esuites.truststoreType}">
+                    keystore="${Ultimo.keystore}"
+                    keystoreType="${Ultimo.keystoreType}"
+                    keystoreAuthAlias="${Ultimo.keystoreAuthAlias}"
+                    keystorePassword="${Ultimo.keystorePassword}"
+                    keystoreAlias="${Ultimo.keystoreAlias}"
+                    keystoreAliasAuthAlias="${Ultimo.keystoreAliasAuthAlias}"
+                    keystoreAliasPassword="${Ultimo.keystoreAliasPassword}"
+                    truststore="${Ultimo.truststore}"
+                    truststoreAuthAlias="${Ultimo.truststoreAuthAlias}"
+                    truststorePassword="${Ultimo.truststorePassword}"
+                    truststoreType="${Ultimo.truststoreType}">
                     <Param name="Accept-Crs" value="EPSG:4326" />
                     <Param name="Content-Crs" value="EPSG:4326" />
-                    <Param name="url" value="${Esuites.Ultimo.root-url}/zaken" />
+                    <Param name="url" value="${Ultimo.Ultimo.root-url}/zaken" />
                 </HttpSender>
             </SenderPipe>
         </Pipeline>

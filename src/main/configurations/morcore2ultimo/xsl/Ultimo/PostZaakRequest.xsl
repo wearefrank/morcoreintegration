@@ -23,7 +23,7 @@
             </zaaktype>
 
             <!-- TODO: Make everything below this comment dynamic depending on what information
-            Esuites returns. -->
+            Ultimo returns. -->
             <toelichting>string</toelichting>
             <bronorganisatie>string</bronorganisatie>
             <registratiedatum>2023-11-21</registratiedatum>
