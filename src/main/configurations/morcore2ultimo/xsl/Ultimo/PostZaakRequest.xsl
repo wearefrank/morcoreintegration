@@ -8,59 +8,33 @@
 
     <xsl:template match="/">
         <root>
-            <!-- TODO: On the T environment validate if uuid is used for idenification and if this
-            is the correct value. -->
-            <identificatie>
+            <meldingId>
                 <xsl:value-of select="//uuid" />
-            </identificatie>
-            <!-- TODO: On the T environment validate if this is the correct value. -->
-            <omschrijving>
+            </meldingId>
+            <behandelaar>G.Bruiker</behandelaar>
+            <afdeling>Tester</afdeling>
+            <opmerkingBehandelaar>taak opmerkingen</opmerkingBehandelaar>
+            <omschrijvingMelding>
                 <xsl:value-of select="//bericht" />
-            </omschrijving>
-            <!-- TODO: On the T environment validate if this is the correct value. -->
-            <zaaktype>
+            </omschrijvingMelding>
+            <datumMeldingUtc>09-09-2024</datumMeldingUtc>
+            <emailMelder>g.bruiker@test.nl</emailMelder>
+            <telefoonMelder>0612345678</telefoonMelder>
+            <adres>teststraat 1234AB teststad</adres>
+            <plaatsbepaling></plaatsbepaling>
+            <onderwerpCode>
                 <xsl:value-of select="//taaktype" />
-            </zaaktype>
-
-            <!-- TODO: Make everything below this comment dynamic depending on what information
-            Ultimo returns. -->
-            <toelichting>string</toelichting>
-            <bronorganisatie>string</bronorganisatie>
-            <registratiedatum>2023-11-21</registratiedatum>
-            <verantwoordelijkeOrganisatie>string</verantwoordelijkeOrganisatie>
-            <startdatum>2023-11-21</startdatum>
-            <einddatumGepland>2023-11-21</einddatumGepland>
-            <uiterlijkeEinddatumAfdoening>2023-11-21</uiterlijkeEinddatumAfdoening>
-            <publicatiedatum>2023-11-21</publicatiedatum>
-            <communicatiekanaal>string</communicatiekanaal>
-            <productenOfDiensten>string</productenOfDiensten>
-            <vertrouwelijkheidaanduiding>openbaar</vertrouwelijkheidaanduiding>
-            <betalingsindicatie>nvt</betalingsindicatie>
-            <laatsteBetaaldatum>2023-11-21T14:25:35.511Z</laatsteBetaaldatum>
-            <zaakgeometrie>
-                <type>Point</type>
-            </zaakgeometrie>
-            <verlenging>
-                <reden>string</reden>
-                <duur>string</duur>
-            </verlenging>
-            <opschorting>
-                <indicatie>true</indicatie>
-                <reden>string</reden>
-            </opschorting>
-            <selectielijstklasse>string</selectielijstklasse>
-            <hoofdzaak>string</hoofdzaak>
-            <relevanteAndereZaken>
-                <url>string</url>
-                <aardRelatie>vervolg</aardRelatie>
-            </relevanteAndereZaken>
-            <kenmerken>
-                <kenmerk>string</kenmerk>
-                <bron>string</bron>
-            </kenmerken>
-            <archiefnominatie>blijvend_bewaren</archiefnominatie>
-            <archiefstatus>nog_te_archiveren</archiefstatus>
-            <archiefactiedatum>2023-11-21</archiefactiedatum>
+            </onderwerpCode>
+            <onderwerpOmschrijving>afhankelijk van taaktype</onderwerpOmschrijving>
+            <spoed>false</spoed>
+            <decimal_x>overnemen vanuit melding, RD waarde ipv WGS84, gebruik locatie met hoogste
+        waarde</decimal_x>
+            <decimal_y>overnemen vanuit melding, RD waarde ipv WGS84, gebruik locatie met hoogste
+        waarde</decimal_y>
+            <foto1>base64</foto1>
+            <foto1_filename>nummer_1.jpg</foto1_filename>
+            <foto2>base64</foto2>
+            <foto2_filename>nummer_2.jpg</foto2_filename>
         </root>
     </xsl:template>
 </xsl:stylesheet>
