@@ -1,0 +1,56 @@
+{
+    "_links": {
+        "self": {
+            "href": "string"
+        },
+        "taaktype": {
+            "href": "string"
+        },
+        "melding": {
+            "href": "https://mor-core.tld/melding/1234-1234-1234"
+        },
+        "communcatie": {
+            "href": "https://taakapplicatie.tld/taak/aaaa-bbbb-cccc/communcatie"
+        }
+    },
+    "uuid": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "titel": "string",
+    "bericht": "string",
+    "additionele_informatie": {
+        "veld": "lichtmast_nummer",
+        "waarde": "2381-3"
+    },
+    "status": "OPEN",
+    "verloop": {
+        "ontvangstsdatum": "",
+        "streefdatum": "",
+        "plandatum": "",
+        "start_behandeling": "",
+        "afgesloten": ""
+    },
+    "communicatie": [
+        {
+            "gemaakt": "",
+            "richting": "Melding naar Taak",
+            "auteur": "Jason Foo",
+            "bericht": "Wat is de status van deze reparatie"
+        },
+        {
+            "gemaakt": "",
+            "richting": "Taak naar Melding",
+            "bericht": "We wachten op een onderdeel, naar verwachting komt deze volgende week binnen"
+        }
+    ],
+    "resultaat": [
+        {
+            "toegang": "intern",
+            "tekst": "",
+            "fotos": "https://...."
+        },
+        {
+            "toegang": "publiek",
+            "tekst": "Opgelost",
+            "fotos": "https://...."
+        }
+    ]
+}

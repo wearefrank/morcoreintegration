@@ -1,0 +1,55 @@
+{
+    "items": [
+        {
+            "_links": {
+                "self": {
+                    "href": "https://taakapplicatie.tld/taaktypes/xxxx-yyyy-zzz"
+                }
+            },
+            "uuid": "xxxx-yyyy-zzz",
+            "omschrijving": "rioolaansluiting verstopping",
+            "toelichting": "rioolaansluiting verstopping",
+            "additionele_informatie": ""
+        },
+        {
+            "_links": {
+                "self": {
+                    "href": "https://taakapplicatie.tld/taaktypes/xxxx-yyyy-zzz"
+                }
+            },
+            "uuid": "xxxx-yyyy-zzz",
+            "omschrijving": "hoofdriool",
+            "toelichting": "hoofdriool",
+            "additionele_informatie": ""
+        },
+        {
+            "_links": {
+                "self": {
+                    "href": "https://taakapplicatie.tld/taaktypes/xxxx-yyyy-zzz"
+                }
+            },
+            "uuid": "xxxx-yyyy-zzz",
+            "omschrijving": "stankoverlast",
+            "toelichting": "stankoverlast",
+            "additionele_informatie": ""
+        },
+        {
+            "_links": {
+                "self": {
+                    "href": "https://taakapplicatie.tld/taaktypes/aaaa-ssss-dddd"
+                }
+            },
+            "uuid": "aaaa-ssss-dddd",
+            "omschrijving": "straatkolk verstopt",
+            "toelichting": "straatkolk verstopt",
+            "additionele_informatie": [
+                {
+                    "veld": "example value"
+                },
+                {
+                    "veld": "example value"
+                }
+            ]
+        }
+    ]
+}
