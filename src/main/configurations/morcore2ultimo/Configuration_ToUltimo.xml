@@ -158,18 +158,7 @@
 
             <SenderPipe name="SendToUltimo">
                 <HttpSender name="SendToUltimo" methodType="POST"
-                    headersParams="Accept-Crs,Content-Crs"
-                    keystore="${Ultimo.keystore}"
-                    keystoreType="${Ultimo.keystoreType}"
-                    keystoreAuthAlias="${Ultimo.keystoreAuthAlias}"
-                    keystorePassword="${Ultimo.keystorePassword}"
-                    keystoreAlias="${Ultimo.keystoreAlias}"
-                    keystoreAliasAuthAlias="${Ultimo.keystoreAliasAuthAlias}"
-                    keystoreAliasPassword="${Ultimo.keystoreAliasPassword}"
-                    truststore="${Ultimo.truststore}"
-                    truststoreAuthAlias="${Ultimo.truststoreAuthAlias}"
-                    truststorePassword="${Ultimo.truststorePassword}"
-                    truststoreType="${Ultimo.truststoreType}">
+                    headersParams="ApiKey,ApplicationElementId">
                     <Param name="Accept-Crs" value="EPSG:4326" />
                     <Param name="Content-Crs" value="EPSG:4326" />
                     <Param name="url" value="${Ultimo.Ultimo.root-url}/zaken" />
@@ -220,18 +209,7 @@
 
             <SenderPipe name="SendToUltimo">
                 <HttpSender name="SendToUltimo" methodType="GET"
-                    headersParams="Accept-Crs,Content-Crs"
-                    keystore="${Ultimo.keystore}"
-                    keystoreType="${Ultimo.keystoreType}"
-                    keystoreAuthAlias="${Ultimo.keystoreAuthAlias}"
-                    keystorePassword="${Ultimo.keystorePassword}"
-                    keystoreAlias="${Ultimo.keystoreAlias}"
-                    keystoreAliasAuthAlias="${Ultimo.keystoreAliasAuthAlias}"
-                    keystoreAliasPassword="${Ultimo.keystoreAliasPassword}"
-                    truststore="${Ultimo.truststore}"
-                    truststoreAuthAlias="${Ultimo.truststoreAuthAlias}"
-                    truststorePassword="${Ultimo.truststorePassword}"
-                    truststoreType="${Ultimo.truststoreType}">
+                    headersParams="ApiKey,ApplicationElementId">
                     <Param name="Accept-Crs"
                         value="EPSG:4326" />
                     <Param name="Content-Crs" value="EPSG:4326" />
@@ -293,18 +271,7 @@
             It requests a lists of Zaken in Ultimo and returns the result. -->
             <SenderPipe name="PingUltimoSender">
                 <HttpSender name="PingUltimoSender" methodType="POST"
-                    headersParams="Accept-Crs,Content-Crs"
-                    keystore="${Ultimo.keystore}"
-                    keystoreType="${Ultimo.keystoreType}"
-                    keystoreAuthAlias="${Ultimo.keystoreAuthAlias}"
-                    keystorePassword="${Ultimo.keystorePassword}"
-                    keystoreAlias="${Ultimo.keystoreAlias}"
-                    keystoreAliasAuthAlias="${Ultimo.keystoreAliasAuthAlias}"
-                    keystoreAliasPassword="${Ultimo.keystoreAliasPassword}"
-                    truststore="${Ultimo.truststore}"
-                    truststoreAuthAlias="${Ultimo.truststoreAuthAlias}"
-                    truststorePassword="${Ultimo.truststorePassword}"
-                    truststoreType="${Ultimo.truststoreType}">
+                    headersParams="ApiKey,ApplicationElementId">
                     <Param name="Accept-Crs" value="EPSG:4326" />
                     <Param name="Content-Crs" value="EPSG:4326" />
                     <Param name="url" value="${Ultimo.Ultimo.root-url}/zaken" />
