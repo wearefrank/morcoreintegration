@@ -260,24 +260,4 @@
         </Pipeline>
     </Adapter>
 
-    <Adapter name="PingUltimo">
-        <Receiver>
-            <JavaListener name="PingUltimo" />
-        </Receiver>
-
-        <Pipeline>
-            <!-- Due to a lack of a ping functionality within Ultimo, this pipeline can be used as
-            a replacement.
-            It requests a lists of Zaken in Ultimo and returns the result. -->
-            <SenderPipe name="PingUltimoSender">
-                <HttpSender name="PingUltimoSender" methodType="POST"
-                    headersParams="ApiKey,ApplicationElementId">
-                    <Param name="Accept-Crs" value="EPSG:4326" />
-                    <Param name="Content-Crs" value="EPSG:4326" />
-                    <Param name="url" value="${Ultimo.Ultimo.root-url}/zaken" />
-                </HttpSender>
-            </SenderPipe>
-        </Pipeline>
-    </Adapter>
-
 </Module>
