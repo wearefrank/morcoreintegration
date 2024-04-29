@@ -121,15 +121,21 @@
 
             <PutSystemDateInSessionPipe name="StoreSystemDate" />
 
-            <SenderPipe name="RequestMeldingInfo" storeResultInSessionKey="meldingInfo"
+            <SenderPipe name="RequestMeldingInfo"
                 getInputFromFixedValue="&lt;defaultInputMessage/>">
                 <IbisLocalSender name="RequestGetMelding" javaListener="MorCore_GetMelding">
                     <Param name="meldingUuid"
                         xpathExpression="substring-after(//melding, 'https://mor-core.tld/melding/')" />
                 </IbisLocalSender>
-                <Forward name="success" path="RequestOpdrachtInfo" />
+                <Forward name="success" path="MakeMeldingInfoXML" />
                 <Forward name="exception" path="exception" />
             </SenderPipe>
+
+            <JsonPipe name="MakeMeldingInfoXML" direction="JSON2XML"
+                storeResultInSessionKey="meldingInfo">
+                <Forward name="success" path="RequestOpdrachtInfo" />
+                <Forward name="exception" path="exception" />
+            </JsonPipe>
 
             <SenderPipe name="RequestOpdrachtInfo" storeResultInSessionKey="opdrachtInfo"
                 getInputFromFixedValue="&lt;defaultInputMessage/>">
@@ -139,22 +145,38 @@
                     <Param name="opdrachtUuid"
                         xpathExpression="substring-after(//taakopdracht, '/taakopdracht/')" />
                 </IbisLocalSender>
-                <Forward name="success" path="CreatePostZaakRequest" />
+                <Forward name="success" path="MakeOpdrachtInfoXML" />
                 <Forward name="exception" path="exception" />
             </SenderPipe>
+
+            <JsonPipe name="MakeOpdrachtInfoXML" direction="JSON2XML"
+                storeResultInSessionKey="opdrachtInfo">
+                <Forward name="success" path="StoreDateTime" />
+                <Forward name="exception" path="exception" />
+            </JsonPipe>
+
+            <PutSystemDateInSessionPipe name="StoreDateTime" preserveInput="true" dateFormat="yyyy-MM-dd'T'HH:mm:ss"/>
 
             <XsltPipe name="CreatePostZaakRequest"
                 styleSheetName="xsl/Ultimo/PostZaakRequest.xsl"
                 getInputFromSessionKey="originalMessage">
-                <Param name="currentDate" sessionKey="systemDate" />
-                <Param name="meldingInfo" sessionKey="meldingInfo" />
-                <Param name="opdrachtInfo" sessionKey="opdrachtInfo" />
+                <Param name="systemDate" sessionKey="systemDate" />
+                <Param name="meldingInfo" sessionKey="meldingInfo" type="DOMDOC"/>
+                <Param name="opdrachtInfo" sessionKey="opdrachtInfo" type="DOMDOC"/>
             </XsltPipe>
 
-            <JsonPipe name="XmlToJson" direction="XML2JSON">
-                <Forward name="success" path="SendToUltimo" />
+            <JsonPipe name="XmlToJson" direction="XML2JSON" storeResultInSessionKey="jsonMessage">
+                <Forward name="success" path="ChangeXYValueTypesSender" />
                 <Forward name="exception" path="exception" />
             </JsonPipe>
+
+            <SenderPipe name="ChangeXYValueTypesSender" storeResultInSessionKey="jsonMessage"
+                logIntermediaryResults="true">
+                <JavascriptSender name="ChangeXYValueTypesSender"
+                    jsFileName="js/ChangeXYValueTypes.js" jsFunctionName="changeValueTypes">
+                    <Param name="jsonMessage" sessionKey="jsonMessage" />
+                </JavascriptSender>
+            </SenderPipe>
 
             <SenderPipe name="SendToUltimo">
                 <HttpSender name="SendToUltimo" methodType="POST"

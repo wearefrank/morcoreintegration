@@ -5,36 +5,56 @@
     <xsl:param name="currentDate" />
     <xsl:param name="meldingInfo" />
     <xsl:param name="opdrachtInfo" />
+    <xsl:param name="systemDate" />
 
     <xsl:template match="/">
         <root>
+            <!-- Consists of 7 numbers, required -->
             <meldingId>
-                <xsl:value-of select="//uuid" />
+                <xsl:value-of select="substring-after($opdrachtInfo/root/_links/melding/href, 'https://mor-core.tld/melding/')" />
             </meldingId>
-            <behandelaar>G.Bruiker</behandelaar>
-            <afdeling>Tester</afdeling>
-            <opmerkingBehandelaar>taak opmerkingen</opmerkingBehandelaar>
+            <!-- Required -->
+            <behandelaar>MSB</behandelaar>
+            <!-- No spec -->
+            <afdeling></afdeling>
+            <!-- No spec -->
+            <opmerkingBehandelaar></opmerkingBehandelaar>
+            <!-- No spec -->
             <omschrijvingMelding>
                 <xsl:value-of select="//bericht" />
             </omschrijvingMelding>
-            <datumMeldingUtc>09-09-2024</datumMeldingUtc>
-            <emailMelder>g.bruiker@test.nl</emailMelder>
-            <telefoonMelder>0612345678</telefoonMelder>
-            <adres>teststraat 1234AB teststad</adres>
+            <!-- Required, Format: YYYY-MM-DDTHH:MM:SSZ -->
+            <datumMeldingUtc>
+                <xsl:value-of select="$systemDate" />
+            </datumMeldingUtc>
+            <!-- No spec -->
+            <emailMelder></emailMelder>
+            <!-- No spec -->
+            <telefoonMelder></telefoonMelder>
+            <!-- No spec -->
+            <adres></adres>
+            <!-- No spec -->
             <plaatsbepaling></plaatsbepaling>
+            <!-- No spec -->
             <onderwerpCode>
                 <xsl:value-of select="//taaktype" />
             </onderwerpCode>
-            <onderwerpOmschrijving>afhankelijk van taaktype</onderwerpOmschrijving>
-            <spoed>false</spoed>
-            <decimal_x>overnemen vanuit melding, RD waarde ipv WGS84, gebruik locatie met hoogste
-        waarde</decimal_x>
-            <decimal_y>overnemen vanuit melding, RD waarde ipv WGS84, gebruik locatie met hoogste
-        waarde</decimal_y>
-            <foto1>base64</foto1>
-            <foto1_filename>nummer_1.jpg</foto1_filename>
-            <foto2>base64</foto2>
-            <foto2_filename>nummer_2.jpg</foto2_filename>
+            <!-- No spec -->
+            <onderwerpOmschrijving>stankoverlast</onderwerpOmschrijving>
+            <!-- "Ja" or "Nee" -->
+            <spoed>Nee</spoed>
+            <!-- Required, Must be a numeric value -->
+            <x>4.55368104026331</x>
+            <!-- Required, Must be a numeric value -->
+            <y>51.9322265279724</y>
+            <!-- No spec -->
+            <foto1></foto1>
+            <!-- Base64 string -->
+            <foto1_filename></foto1_filename>
+            <!-- No spec -->
+            <foto2></foto2>
+            <!-- Base64 string -->
+            <foto2_filename></foto2_filename>
         </root>
     </xsl:template>
 </xsl:stylesheet>
