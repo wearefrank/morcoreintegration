@@ -64,18 +64,7 @@
 
             <SenderPipe name="SendToUltimo">
                 <HttpSender name="SendToUltimo" methodType="POST"
-                    headersParams="X-Audit-Toelichting"
-                    keystore="${Ultimo.keystore}"
-                    keystoreType="${Ultimo.keystoreType}"
-                    keystoreAuthAlias="${Ultimo.keystoreAuthAlias}"
-                    keystorePassword="${Ultimo.keystorePassword}"
-                    keystoreAlias="${Ultimo.keystoreAlias}"
-                    keystoreAliasAuthAlias="${Ultimo.keystoreAliasAuthAlias}"
-                    keystoreAliasPassword="${Ultimo.keystoreAliasPassword}"
-                    truststore="${Ultimo.truststore}"
-                    truststoreAuthAlias="${Ultimo.truststoreAuthAlias}"
-                    truststorePassword="${Ultimo.truststorePassword}"
-                    truststoreType="${Ultimo.truststoreType}">
+                    headersParams="X-Audit-Toelichting">
                     <Param name="X-Audit-Toelichting" sessionKey="toelichtingHeader" />
                     <Param name="url" value="${Ultimo.Ultimo.root-url}/statussen" />
                 </HttpSender>
