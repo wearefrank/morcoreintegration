@@ -1,0 +1,21 @@
+{
+    "meldingId": "1234-5678",
+    "behandelaar": "MSB",
+    "afdeling": "",
+    "opmerkingBehandelaar": "",
+    "omschrijvingMelding": "Graag oppakken",
+    "datumMeldingUtc": "2001-12-17T09:30:47",
+    "emailMelder": "",
+    "telefoonMelder": "",
+    "adres": "",
+    "plaatsbepaling": "",
+    "onderwerpCode": "https://taakapplicatie.tld/taaktypes/xxxx-yyyy-zzz",
+    "onderwerpOmschrijving": "stankoverlast",
+    "spoed": "Nee",
+    "x": 4.55368104026331,
+    "y": 51.9322265279724,
+    "foto1": "",
+    "foto1_filename": "",
+    "foto2": "",
+    "foto2_filename": ""
+}

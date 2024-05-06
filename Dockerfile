@@ -1,4 +1,4 @@
-ARG FF_VERSION=latest
+ARG FF_VERSION=8.1.0-RC2-20240428.004720
 
 FROM frankframework/frankframework:${FF_VERSION} as ff-base
 
@@ -15,12 +15,12 @@ COPY --from=ff-base /usr/local/tomcat/lib/ /usr/local/tomcat/lib/
 COPY --from=ff-base /usr/local/tomcat/webapps/ROOT /usr/local/tomcat/webapps/ROOT
 
 # Copy custom class
-COPY src/main/java /tmp/java
-RUN mkdir /tmp/classes && \
-    javac \
-    /tmp/java/org/<path-to-customcode-file>.java \
-    -classpath "/usr/local/tomcat/webapps/ROOT/WEB-INF/lib/*:/usr/local/tomcat/lib/*" \
-    -verbose -d /tmp/classes
+# COPY src/main/java /tmp/java
+# RUN mkdir /tmp/classes && \
+#     javac \
+#     /tmp/java/org/<path-to-customcode-file>.java \
+#     -classpath "/usr/local/tomcat/webapps/ROOT/WEB-INF/lib/*:/usr/local/tomcat/lib/*" \
+#     -verbose -d /tmp/classes
 
 FROM ff-base
 

@@ -1,0 +1,13 @@
+<!DOCTYPE Configuration [
+	<!ENTITY FromMorCore SYSTEM "./Configuration_FromMorCore.xml">
+	<!ENTITY ToMorCore SYSTEM "./Configuration_ToMorCore.xml">
+	<!ENTITY ToUltimo SYSTEM "./Configuration_ToUltimo.xml">
+	<!ENTITY FromUltimo SYSTEM "./Configuration_FromUltimo.xml">
+]>
+
+<Configuration name="morcore2ultimo">
+	&FromMorCore;
+	&ToMorCore;
+	&ToUltimo;
+	&FromUltimo;
+</Configuration>

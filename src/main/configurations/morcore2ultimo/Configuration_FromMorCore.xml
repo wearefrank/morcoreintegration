@@ -1,0 +1,170 @@
+<Module xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../FrankConfig.xsd">
+    <Adapter name="Frank_ListTaakTypes">
+        <Receiver name="Frank_ListTaakTypes">
+            <ApiListener
+                name="Frank_ListTaakTypes"
+                uriPattern="/taaktypes" />
+        </Receiver>
+
+        <Pipeline>
+            <Exits>
+                <Exit name="Exit" state="SUCCESS" />
+                <Exit name="Reject" state="REJECTED" />
+                <Exit name="Exception" state="ERROR" />
+            </Exits>
+
+            <FixedResultPipe name="InputTaaktypesLijst" filename="responses/ZaakTypes.xml" />
+
+            <XmlValidatorPipe name="ValidateInputMessage" schema="xsd/ValidateGetTaakTypes.xsd"
+                root="root">
+                <Forward name="success" path="XmlToJson" />
+                <Forward name="exception" path="Exception" />
+                <Forward name="failure" path="Reject" />
+            </XmlValidatorPipe>
+
+            <JsonPipe name="XmlToJson" direction="XML2JSON">
+                <Forward name="success" path="Exit" />
+                <Forward name="failure" path="Exception" />
+            </JsonPipe>
+        </Pipeline>
+    </Adapter>
+
+    <Adapter name="Frank_GetTaakType">
+        <Receiver name="Frank_GetTaakType">
+            <ApiListener
+                name="Frank_GetTaakType"
+                uriPattern="/taaktypes/{uuid}" />
+        </Receiver>
+
+        <Pipeline>
+            <Exits>
+                <Exit name="Exit" state="SUCCESS" />
+                <Exit name="Reject" state="REJECTED" />
+                <Exit name="Exception" state="ERROR" />
+            </Exits>
+
+            <FixedResultPipe name="InputTaakType" filename="responses/ZaakTypes.xml" />
+
+            <XmlValidatorPipe name="ValidateInputMessage" schema="xsd/ValidateGetTaakTypes.xsd"
+                root="root">
+                <Forward name="success" path="GetTaakType" />
+                <Forward name="failure" path="Reject" />
+            </XmlValidatorPipe>
+
+            <!-- TODO: Set up proper TaakType system. Currently we just return a static result. -->
+            <XsltPipe name="GetTaakType" styleSheetName="xsl/TaakApplicatieApi/GetTaakType.xsl">
+                <Param name="uuid" sessionKey="uuid" />
+            </XsltPipe>
+
+            <JsonPipe name="XmlToJson" direction="XML2JSON">
+                <Forward name="success" path="Exit" />
+                <Forward name="failure" path="Exception" />
+            </JsonPipe>
+        </Pipeline>
+    </Adapter>
+
+    <Adapter name="Frank_PostTaak">
+        <Receiver name="Frank_PostTaak">
+            <ApiListener
+                name="Frank_PostTaak"
+                method="POST"
+                uriPattern="/taak" />
+        </Receiver>
+
+        <Pipeline>
+            <Exits>
+                <Exit name="Exit" state="SUCCESS" />
+                <Exit name="Reject" state="REJECTED" />
+                <Exit name="Exception" state="ERROR" />
+            </Exits>
+
+            <JsonPipe name="JsonToXml" />
+
+            <XmlValidatorPipe name="ValidateInputMessage" root="root"
+                schema="xsd/ValidatePostTaakInput.xsd">
+                <Forward name="failure" path="Reject" />
+                <Forward name="error" path="Exception" />
+            </XmlValidatorPipe>
+
+            <SenderPipe name="SwitchConfiguration">
+                <IbisLocalSender javaListener="Ultimo_PostZaak" />
+            </SenderPipe>
+        </Pipeline>
+    </Adapter>
+
+    <Adapter name="Frank_DeleteTaak">
+        <Receiver name="Frank_DeleteTaak">
+            <ApiListener
+                name="Frank_DeleteTaak"
+                method="DELETE"
+                uriPattern="/taak/{uuid}" />
+
+        </Receiver>
+
+        <Pipeline>
+            <Exits>
+                <Exit name="Exit" state="SUCCESS" />
+                <Exit name="Reject" state="REJECTED" />
+                <Exit name="Exception" state="ERROR" />
+            </Exits>
+
+            <JsonPipe name="JsonToXml" />
+
+            <XmlValidatorPipe name="ValidateInputMessage" root="root"
+                schema="xsd/ValidateDeleteTaakInput.xsd">
+                <Forward name="failure" path="Reject" />
+                <Forward name="error" path="Exception" />
+            </XmlValidatorPipe>
+
+            <SenderPipe name="SwitchConfiguration">
+                <IbisLocalSender javaListener="Ultimo_DeleteZaak">
+                    <Param name="uuid" sessionKey="uuid" />
+                </IbisLocalSender>
+            </SenderPipe>
+        </Pipeline>
+    </Adapter>
+
+    <Adapter name="Frank_GetTaak">
+        <Receiver name="Frank_GetTaak">
+            <ApiListener
+                name="Frank_GetTaak"
+                uriPattern="/taak/{uuid}" />
+
+        </Receiver>
+
+        <Pipeline>
+            <Exits>
+                <Exit name="Exit" state="SUCCESS" />
+            </Exits>
+
+            <SenderPipe name="SwitchConfiguration">
+                <IbisLocalSender javaListener="Ultimo_GetZaak">
+                    <Param name="uuid" sessionKey="uuid" />
+                </IbisLocalSender>
+            </SenderPipe>
+        </Pipeline>
+    </Adapter>
+
+    <!-- We do not process this, so we just return 501 -->
+    <Adapter name="Frank_PostTaakCommunicatie">
+        <Receiver name="Frank_PostTaakCommunicatie">
+            <ApiListener
+                name="Frank_PostTaakCommunicatie"
+                method="POST"
+                uriPattern="/taak/{uuid}/communicatie" />
+
+        </Receiver>
+
+        <Pipeline>
+            <Exits>
+                <Exit name="Exit" state="SUCCESS" code="501" />
+            </Exits>
+
+            <FixedResultPipe name="NotImplemented" returnString="HTTP 501 Not implemented">
+                <Forward name="success" path="Exit" />
+            </FixedResultPipe>
+        </Pipeline>
+    </Adapter>
+
+</Module>
