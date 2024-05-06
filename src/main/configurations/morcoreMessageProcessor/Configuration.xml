@@ -5,7 +5,7 @@
 	<!ENTITY FromUltimo SYSTEM "./Configuration_FromUltimo.xml">
 ]>
 
-<Configuration name="morcore2ultimo">
+<Configuration name="morcoreMessageProcessor">
 	&FromMorCore;
 	&ToMorCore;
 	&ToUltimo;
