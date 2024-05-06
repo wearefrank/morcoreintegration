@@ -1,8 +1,8 @@
 {
     "mappings": {
-        "{{ cookiecutter.instance_name }}": "",
-        "{{ cookiecutter.instance_name_lc }}": "",
-        "{{ cookiecutter.configuration_name }}": ""
+        "{{ cookiecutter.instance_name }}": "morcore2ultimo",
+        "{{ cookiecutter.instance_name_lc }}": "morcore2ultimo",
+        "{{ cookiecutter.configuration_name }}": "morcoreMessageProcessor"
     },
     "ignoredFiles": [
         "skeletonrc.json",

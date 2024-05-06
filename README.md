@@ -45,4 +45,4 @@ Please check if you deem all these functionalities necessary, if not remove them
 |-------------------------------|------------------------------------------------------------------------------------------------|----------------|
 | `morcore2ultimo`            | The name of the Frank! to be deployed. It's best to keep this inline with the name of the repo | Frank2Skeleton |
 | `morcore2ultimo`         | Lowercase version of the instance name.                                                        | frank2example  |
-| `morcore2ultimo`       | The name of the first configuration (others have to be added manually)                         | Sans           |
+| `morcoreMessageProcessor`       | The name of the first configuration (others have to be added manually)                         | Sans           |
