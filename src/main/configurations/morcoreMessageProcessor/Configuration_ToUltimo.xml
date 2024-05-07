@@ -1,5 +1,6 @@
 <Module xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="../FrankConfig.xsd">
+     <!-- Not used. Ultimo does not currently support DeleteZaak. -->
     <Adapter name="Ultimo_DeleteZaak">
         <Receiver name="Ultimo_DeleteZaak">
             <JavaListener name="Ultimo_DeleteZaak" />
@@ -200,6 +201,7 @@
         </Pipeline>
     </Adapter>
 
+    <!-- Not used. Ultimo does not currently support GetZaak. -->
     <Adapter name="Ultimo_GetZaak">
         <Receiver name="Ultimo_GetZaak">
             <JavaListener name="Ultimo_GetZaak" />
