@@ -3,7 +3,6 @@
 
     <!-- Pipeline only sends a notification of a change. Can not validate message because there is
     no body. -->
-
     <Adapter name="Frank_PostNotificatie">
         <Receiver name="Frank_PostNotificatie">
             <JavaListener name="Frank_PostNotificatie" />
