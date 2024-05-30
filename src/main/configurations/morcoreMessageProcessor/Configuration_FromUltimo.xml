@@ -16,6 +16,8 @@
                 <Exit name="Reject" state="REJECTED" />
             </Exits>
 
+            <!-- TODO: Handle ApiKey and ApplicationElementId -->
+
             <JsonPipe name="RequestJson2Xml" />
 
             <SenderPipe name="RequestGetZaak" storeResultInSessionKey="JsonMessage">
