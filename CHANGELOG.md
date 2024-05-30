@@ -1,5 +1,12 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.0.3](https://github.com/wearefrank/morcore2ultimo/compare/v1.0.2...v1.0.3) (2024-05-30)
+
+
+### 🧑‍💻 Code Refactoring
+
+* add missing params ([e478d11](https://github.com/wearefrank/morcore2ultimo/commit/e478d11062d7f1470e018ced77733282e4d35912))
+
 ## [1.0.2](https://github.com/wearefrank/morcore2ultimo/compare/v1.0.1...v1.0.2) (2024-05-29)
 
 
