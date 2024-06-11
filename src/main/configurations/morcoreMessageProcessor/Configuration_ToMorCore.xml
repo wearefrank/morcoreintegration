@@ -21,6 +21,13 @@
                     <Param name="uuid" sessionKey="uuid" />
                 </Param>
                 <Forward name="success" path="Json2Xml" />
+                <Forward name="exception" path="CallMSBSender" />
+            </SenderPipe>
+
+            <SenderPipe name="CallMSBSender">
+                <IbisLocalSender name="CallMSBSender"  javaListener="MSB_GetMelding"/>
+                <Forward name="success" path="Json2Xml" />
+                <Forward name="exception" path="Exception" />
             </SenderPipe>
 
             <JsonPipe name="Json2Xml" prettyPrint="true">
@@ -83,6 +90,12 @@
                     xpathExpression="//meldingUuid" />
                 <Param name="url"
                     value="${MorCore.taak.API.root-url}/melding/${meldingUuid}/taakopdracht" />
+                <Forward name="success" path="Json2Xml" />
+                <Forward name="exception" path="CallMSBSender" />
+            </SenderPipe>
+
+            <SenderPipe name="CallMSBSender">
+                <IbisLocalSender name="CallMSBSender"  javaListener="MSB_GetMelding"/>
                 <Forward name="success" path="Json2Xml" />
                 <Forward name="exception" path="Exception" />
             </SenderPipe>
