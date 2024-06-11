@@ -1,5 +1,15 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.1.0](https://github.com/wearefrank/morcore2ultimo/compare/v1.0.3...v1.1.0) (2024-06-11)
+
+### 🍕 Features
+
+* add MSB connection ([b2ac6fd](https://github.com/wearefrank/morcore2ultimo/commit/b2ac6fd48e5565723124ae6c169c81bd88dd2828))
+
+### 🔁 Continuous Integration
+
+* remove conventional-commits preset version lock ([8d68236](https://github.com/wearefrank/morcore2ultimo/commit/8d68236953a50be54e6e54d008fda9c118ded61b))
+
 ## [1.0.3](https://github.com/wearefrank/morcore2ultimo/compare/v1.0.2...v1.0.3) (2024-05-30)
 
 
