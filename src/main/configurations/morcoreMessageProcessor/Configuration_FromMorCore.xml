@@ -146,6 +146,48 @@
         </Pipeline>
     </Adapter>
 
+    <Adapter name="Frank_GetToken">
+        <Receiver name="Frank_GetToken">
+            <ApiListener
+                name="Frank_GetToken"
+                uriPattern="/api-token-auth" />
+        </Receiver>
+
+        <Pipeline>
+            <Exits>
+                <Exit name="Exit" state="SUCCESS" />
+                <Exit name="Reject" state="REJECTED" />
+                <Exit name="Exception" state="ERROR" />
+            </Exits>
+
+            <JsonPipe name="Json2Xml" direction="JSON2XML"/>
+
+            <XmlIfPipe name="CheckUser" xpathExpression="$UserSet = $UserReceived">
+                <Param name="UserSet" pattern="{username}" authAlias="TokenGen" hidden="true"/>
+                <Param name="UserReceived" xpathExpression="//username" hidden="true"/>
+                <Forward name="then" path="CheckPass" />
+                <Forward name="else" path="Reject" />
+            </XmlIfPipe>
+
+            <XmlIfPipe name="CheckPass" xpathExpression="$PassSet = $PassReceived">
+                <Param name="PassSet" pattern="{password}" authAlias="TokenGen" hidden="true"/>
+                <Param name="PassReceived" xpathExpression="//password" hidden="true"/>
+                <Forward name="then" path="GenerateToken" />
+                <Forward name="else" path="Reject" />
+            </XmlIfPipe>
+
+            <UUIDGeneratorPipe name="GenerateToken" type="ALPHANUMERIC"/>
+
+            <Text2XmlPipe xmlTag="token" name="Text2Xml"/>
+
+            <JsonPipe name="XmlToJson" direction="XML2JSON" addXmlRootElement="true">
+                <Forward name="success" path="Exit" />
+                <Forward name="failure" path="Exception" />
+            </JsonPipe>
+        </Pipeline>
+    </Adapter>
+
+
     <!-- We do not process this, so we just return 501 -->
     <Adapter name="Frank_PostTaakCommunicatie">
         <Receiver name="Frank_PostTaakCommunicatie">
