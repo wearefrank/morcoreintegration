@@ -3,50 +3,45 @@
     <items>
         <_links>
             <self>
-                <href>https://taakapplicatie.tld/taaktypes/xxxx-yyyy-zzz</href>
+                <href>https://taakapplicatie.tld/api/taaktypes/b42801c6-cd66-43df-add7-07b0824852ee</href>
             </self>
         </_links>
-        <uuid>xxxx-yyyy-zzz</uuid>
-        <omschrijving>rioolaansluiting verstopping</omschrijving>
-        <toelichting>rioolaansluiting verstopping</toelichting>
+        <uuid>b42801c6-cd66-43df-add7-07b0824852ee</uuid>
+        <omschrijving>Rioolaansluiting verstopping</omschrijving>
+        <toelichting>Rioolaansluiting verstopping</toelichting>
         <additionele_informatie />
     </items>
     <items>
         <_links>
             <self>
-                <href>https://taakapplicatie.tld/taaktypes/xxxx-yyyy-zzz</href>
+                <href>https://taakapplicatie.tld/api/taaktypes/ce855971-ed60-4ec0-8a92-37393d914333</href>
             </self>
         </_links>
-        <uuid>xxxx-yyyy-zzz</uuid>
-        <omschrijving>hoofdriool</omschrijving>
-        <toelichting>hoofdriool</toelichting>
+        <uuid>ce855971-ed60-4ec0-8a92-37393d914333</uuid>
+        <omschrijving>Hoofdriool</omschrijving>
+        <toelichting>Hoofdriool</toelichting>
         <additionele_informatie />
     </items>
     <items>
         <_links>
             <self>
-                <href>https://taakapplicatie.tld/taaktypes/xxxx-yyyy-zzz</href>
+                <href>https://taakapplicatie.tld/api/taaktypes/8d1ff14f-77b9-4e9e-95f3-572c7c88d26f</href>
             </self>
         </_links>
-        <uuid>xxxx-yyyy-zzz</uuid>
-        <omschrijving>stankoverlast</omschrijving>
-        <toelichting>stankoverlast</toelichting>
+        <uuid>8d1ff14f-77b9-4e9e-95f3-572c7c88d26f</uuid>
+        <omschrijving>Stankoverlast</omschrijving>
+        <toelichting>Stankoverlast</toelichting>
         <additionele_informatie />
     </items>
     <items>
         <_links>
             <self>
-                <href>https://taakapplicatie.tld/taaktypes/aaaa-ssss-dddd</href>
+                <href>https://taakapplicatie.tld/api/taaktypes/3eeb8f00-89b4-41c5-a219-17811ec52d9c</href>
             </self>
         </_links>
-        <uuid>aaaa-ssss-dddd</uuid>
-        <omschrijving>straatkolk verstopt</omschrijving>
-        <toelichting>straatkolk verstopt</toelichting>
-        <additionele_informatie>
-            <veld>example value</veld>
-        </additionele_informatie>
-        <additionele_informatie>
-            <veld>example value</veld>
-        </additionele_informatie>
+        <uuid>3eeb8f00-89b4-41c5-a219-17811ec52d9c</uuid>
+        <omschrijving>Straatkolk verstopt</omschrijving>
+        <toelichting>Straatkolk verstopt</toelichting>
+        <additionele_informatie />
     </items>
 </root>
