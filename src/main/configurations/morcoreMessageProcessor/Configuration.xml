@@ -3,6 +3,7 @@
 	<!ENTITY ToMorCore SYSTEM "./Configuration_ToMorCore.xml">
 	<!ENTITY ToUltimo SYSTEM "./Configuration_ToUltimo.xml">
 	<!ENTITY FromUltimo SYSTEM "./Configuration_FromUltimo.xml">
+	<!ENTITY TokenManager SYSTEM "./Configuration_TokenManager.xml">
 ]>
 
 <Configuration name="morcoreMessageProcessor">
@@ -10,4 +11,5 @@
 	&ToMorCore;
 	&ToUltimo;
 	&FromUltimo;
+	&TokenManager;
 </Configuration>

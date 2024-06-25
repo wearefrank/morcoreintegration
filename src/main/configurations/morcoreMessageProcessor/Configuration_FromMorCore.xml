@@ -172,11 +172,15 @@
             <XmlIfPipe name="CheckPass" xpathExpression="$PassSet = $PassReceived">
                 <Param name="PassSet" pattern="{password}" authAlias="TokenGen" hidden="true"/>
                 <Param name="PassReceived" xpathExpression="//password" hidden="true"/>
-                <Forward name="then" path="GenerateToken" />
+                <Forward name="then" path="RequestGetToken" />
                 <Forward name="else" path="Reject" />
             </XmlIfPipe>
 
-            <UUIDGeneratorPipe name="GenerateToken" type="ALPHANUMERIC"/>
+            <SenderPipe name="RequestGetToken">
+                <IbisLocalSender name="RequestGetToken" javaListener="Internal_GetToken"/>
+            </SenderPipe>
+
+            <XsltPipe name="GetTokenValue" xpathExpression="//row[1]/field[1]"/>
 
             <Text2XmlPipe xmlTag="token" name="Text2Xml"/>
 
