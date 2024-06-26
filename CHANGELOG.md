@@ -1,5 +1,13 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.2.0](https://github.com/wearefrank/morcore2ultimo/compare/v1.1.1...v1.2.0) (2024-06-26)
+
+### 🍕 Features
+
+* add full token auth to Morcore endpoints ([5aa9af2](https://github.com/wearefrank/morcore2ultimo/commit/5aa9af232156653ea49635f61d60ad6a53e9525a))
+* add GetToken configuration ([0630cb6](https://github.com/wearefrank/morcore2ultimo/commit/0630cb6c596951b2519ef7fe6b5f3334ae4abc27))
+* add tokenStore and token generator ([916de2c](https://github.com/wearefrank/morcore2ultimo/commit/916de2cf89f4fec1ab23154e37e71e7b8b261ee6))
+
 ## [1.1.1](https://github.com/wearefrank/morcore2ultimo/compare/v1.1.0...v1.1.1) (2024-06-20)
 
 ### 🐛 Bug Fixes
