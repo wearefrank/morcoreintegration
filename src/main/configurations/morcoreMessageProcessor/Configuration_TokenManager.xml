@@ -20,6 +20,10 @@
                 </FixedQuerySender>
             </SenderPipe>
 
+            <XsltPipe name="GetTokenValue" xpathExpression="//row[1]/field[1]"/>
+
+            <Text2XmlPipe xmlTag="token" name="Text2Xml"/>
+
         </Pipeline>
     </Adapter>
 
