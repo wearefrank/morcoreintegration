@@ -1,5 +1,11 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.2.1](https://github.com/wearefrank/morcore2ultimo/compare/v1.2.0...v1.2.1) (2024-06-26)
+
+### 🐛 Bug Fixes
+
+* error on empty & incorrect reject message ([8b5e74d](https://github.com/wearefrank/morcore2ultimo/commit/8b5e74d412b2b06b346b51e75866258ede8f6052))
+
 ## [1.2.0](https://github.com/wearefrank/morcore2ultimo/compare/v1.1.1...v1.2.0) (2024-06-26)
 
 ### 🍕 Features
