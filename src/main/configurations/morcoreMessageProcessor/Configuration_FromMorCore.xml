@@ -4,7 +4,7 @@
         <Receiver name="Frank_ListTaakTypes">
             <ApiListener
                 name="Frank_ListTaakTypes"
-                uriPattern="/taaktypes"
+                uriPattern="/v1/taaktypes"
                 headerParams="Authorization" />
         </Receiver>
 
@@ -14,7 +14,7 @@
                 <Exit name="Reject" state="REJECTED" />
                 <Exit name="Exception" state="ERROR" />
             </Exits>
-            
+
             <SenderPipe name="GetToken" storeResultInSessionKey="FrankToken" active="${Authentication.Active}">
                 <IbisLocalSender javaListener="Internal_GetToken"/>
             </SenderPipe>
@@ -50,7 +50,7 @@
         <Receiver name="Frank_GetTaakType">
             <ApiListener
                 name="Frank_GetTaakType"
-                uriPattern="/taaktypes/{uuid}"
+                uriPattern="/v1/taaktypes/{uuid}"
                 headerParams="Authorization" />
         </Receiver>
 
@@ -101,7 +101,7 @@
             <ApiListener
                 name="Frank_PostTaak"
                 method="POST"
-                uriPattern="/taak"
+                uriPattern="/v1/taak"
                 headerParams="Authorization" />
         </Receiver>
 
@@ -146,7 +146,7 @@
             <ApiListener
                 name="Frank_DeleteTaak"
                 method="DELETE"
-                uriPattern="/taak/{uuid}" 
+                uriPattern="/v1/taak/{uuid}"
                 headerParams="Authorization"/>
 
         </Receiver>
@@ -193,7 +193,7 @@
         <Receiver name="Frank_GetTaak">
             <ApiListener
                 name="Frank_GetTaak"
-                uriPattern="/taak/{uuid}" 
+                uriPattern="/v1/taak/{uuid}"
                 headerParams="Authorization"/>
 
         </Receiver>
@@ -288,7 +288,7 @@
             <ApiListener
                 name="Frank_PostTaakCommunicatie"
                 method="POST"
-                uriPattern="/taak/{uuid}/communicatie" />
+                uriPattern="/v1/taak/{uuid}/communicatie" />
 
         </Receiver>
 
