@@ -4,7 +4,7 @@
         <Receiver name="Frank_ListTaakTypes">
             <ApiListener
                 name="Frank_ListTaakTypes"
-                uriPattern="/v1/taaktypes"
+                uriPattern="/api/v1/taaktypes"
                 headerParams="Authorization" />
         </Receiver>
 
@@ -50,7 +50,7 @@
         <Receiver name="Frank_GetTaakType">
             <ApiListener
                 name="Frank_GetTaakType"
-                uriPattern="/v1/taaktypes/{uuid}"
+                uriPattern="/api/v1/taaktypes/{uuid}"
                 headerParams="Authorization" />
         </Receiver>
 
@@ -101,7 +101,7 @@
             <ApiListener
                 name="Frank_PostTaak"
                 method="POST"
-                uriPattern="/v1/taak"
+                uriPattern="/api/v1/taak"
                 headerParams="Authorization" />
         </Receiver>
 
@@ -146,7 +146,7 @@
             <ApiListener
                 name="Frank_DeleteTaak"
                 method="DELETE"
-                uriPattern="/v1/taak/{uuid}"
+                uriPattern="/api/v1/taak/{uuid}"
                 headerParams="Authorization"/>
 
         </Receiver>
@@ -193,7 +193,7 @@
         <Receiver name="Frank_GetTaak">
             <ApiListener
                 name="Frank_GetTaak"
-                uriPattern="/v1/taak/{uuid}"
+                uriPattern="/api/v1/taak/{uuid}"
                 headerParams="Authorization"/>
 
         </Receiver>
@@ -288,7 +288,7 @@
             <ApiListener
                 name="Frank_PostTaakCommunicatie"
                 method="POST"
-                uriPattern="/v1/taak/{uuid}/communicatie" />
+                uriPattern="/api/v1/taak/{uuid}/communicatie" />
 
         </Receiver>
 
