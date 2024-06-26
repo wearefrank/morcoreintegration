@@ -3,53 +3,46 @@
         {
             "_links": {
                 "self": {
-                    "href": "https://taakapplicatie.tld/taaktypes/xxxx-yyyy-zzz"
+                    "href": "https://taakapplicatie.tld/api/taaktypes/b42801c6-cd66-43df-add7-07b0824852ee"
                 }
             },
-            "uuid": "xxxx-yyyy-zzz",
-            "omschrijving": "rioolaansluiting verstopping",
-            "toelichting": "rioolaansluiting verstopping",
+            "uuid": "b42801c6-cd66-43df-add7-07b0824852ee",
+            "omschrijving": "Rioolaansluiting verstopping",
+            "toelichting": "Rioolaansluiting verstopping",
             "additionele_informatie": ""
         },
         {
             "_links": {
                 "self": {
-                    "href": "https://taakapplicatie.tld/taaktypes/xxxx-yyyy-zzz"
+                    "href": "https://taakapplicatie.tld/api/taaktypes/ce855971-ed60-4ec0-8a92-37393d914333"
                 }
             },
-            "uuid": "xxxx-yyyy-zzz",
-            "omschrijving": "hoofdriool",
-            "toelichting": "hoofdriool",
+            "uuid": "ce855971-ed60-4ec0-8a92-37393d914333",
+            "omschrijving": "Hoofdriool",
+            "toelichting": "Hoofdriool",
             "additionele_informatie": ""
         },
         {
             "_links": {
                 "self": {
-                    "href": "https://taakapplicatie.tld/taaktypes/xxxx-yyyy-zzz"
+                    "href": "https://taakapplicatie.tld/api/taaktypes/8d1ff14f-77b9-4e9e-95f3-572c7c88d26f"
                 }
             },
-            "uuid": "xxxx-yyyy-zzz",
-            "omschrijving": "stankoverlast",
-            "toelichting": "stankoverlast",
+            "uuid": "8d1ff14f-77b9-4e9e-95f3-572c7c88d26f",
+            "omschrijving": "Stankoverlast",
+            "toelichting": "Stankoverlast",
             "additionele_informatie": ""
         },
         {
             "_links": {
                 "self": {
-                    "href": "https://taakapplicatie.tld/taaktypes/aaaa-ssss-dddd"
+                    "href": "https://taakapplicatie.tld/api/taaktypes/3eeb8f00-89b4-41c5-a219-17811ec52d9c"
                 }
             },
-            "uuid": "aaaa-ssss-dddd",
-            "omschrijving": "straatkolk verstopt",
-            "toelichting": "straatkolk verstopt",
-            "additionele_informatie": [
-                {
-                    "veld": "example value"
-                },
-                {
-                    "veld": "example value"
-                }
-            ]
+            "uuid": "3eeb8f00-89b4-41c5-a219-17811ec52d9c",
+            "omschrijving": "Straatkolk verstopt",
+            "toelichting": "Straatkolk verstopt",
+            "additionele_informatie": ""
         }
     ]
 }
