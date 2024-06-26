@@ -4,7 +4,8 @@
         <Receiver name="Frank_ListTaakTypes">
             <ApiListener
                 name="Frank_ListTaakTypes"
-                uriPattern="/taaktypes" />
+                uriPattern="/taaktypes"
+                headerParams="Authorization" />
         </Receiver>
 
         <Pipeline>
@@ -13,8 +14,23 @@
                 <Exit name="Reject" state="REJECTED" />
                 <Exit name="Exception" state="ERROR" />
             </Exits>
+            
+            <SenderPipe name="GetToken" storeResultInSessionKey="FrankToken" active="${Authentication.Active}">
+                <IbisLocalSender javaListener="Internal_GetToken"/>
+            </SenderPipe>
 
-            <FixedResultPipe name="InputTaaktypesLijst" filename="responses/ZaakTypes.xml" />
+            <XmlIfPipe name="CompareTokens" xpathExpression="substring-after($ClientToken, 'Token ') = $FrankToken" active="${Authentication.Active}">
+                <Param name="ClientToken" sessionKey="headers" xpathExpression="headers/header[@name='Authorization']"/>
+                <Param name="FrankToken" sessionKey="FrankToken" xpathExpression="//token"/>
+                <Forward name="then" path="InputTaaktypesLijst" />
+                <Forward name="else" path="RejectMessage" />
+            </XmlIfPipe>
+
+            <FixedResultPipe name="RejectMessage" returnString="Username or Password incorrect" active="${Authentication.Active}">
+                <Forward name="success" path="Reject" />
+            </FixedResultPipe>
+
+            <FixedResultPipe name="InputTaaktypesLijst" filename="responses/ZaakTypes.xml" getInputFromSessionKey="originalMessage"/>
 
             <XmlValidatorPipe name="ValidateInputMessage" schema="xsd/ValidateGetTaakTypes.xsd"
                 root="root">
@@ -34,7 +50,8 @@
         <Receiver name="Frank_GetTaakType">
             <ApiListener
                 name="Frank_GetTaakType"
-                uriPattern="/taaktypes/{uuid}" />
+                uriPattern="/taaktypes/{uuid}"
+                headerParams="Authorization" />
         </Receiver>
 
         <Pipeline>
@@ -44,7 +61,22 @@
                 <Exit name="Exception" state="ERROR" />
             </Exits>
 
-            <FixedResultPipe name="InputTaakType" filename="responses/ZaakTypes.xml" />
+            <SenderPipe name="GetToken" storeResultInSessionKey="FrankToken" active="${Authentication.Active}">
+                <IbisLocalSender javaListener="Internal_GetToken"/>
+            </SenderPipe>
+
+            <XmlIfPipe name="CompareTokens" xpathExpression="substring-after($ClientToken, 'Token ') = $FrankToken" active="${Authentication.Active}">
+                <Param name="ClientToken" sessionKey="headers" xpathExpression="headers/header[@name='Authorization']"/>
+                <Param name="FrankToken" sessionKey="FrankToken" xpathExpression="//token"/>
+                <Forward name="then" path="InputTaakTypes" />
+                <Forward name="else" path="RejectMessage" />
+            </XmlIfPipe>
+
+            <FixedResultPipe name="RejectMessage" returnString="Username or Password incorrect" active="${Authentication.Active}">
+                <Forward name="success" path="Reject" />
+            </FixedResultPipe>
+
+            <FixedResultPipe name="InputTaakType" filename="responses/ZaakTypes.xml" getInputFromSessionKey="originalMessage"/>
 
             <XmlValidatorPipe name="ValidateInputMessage" schema="xsd/ValidateGetTaakTypes.xsd"
                 root="root">
@@ -69,7 +101,8 @@
             <ApiListener
                 name="Frank_PostTaak"
                 method="POST"
-                uriPattern="/taak" />
+                uriPattern="/taak"
+                headerParams="Authorization" />
         </Receiver>
 
         <Pipeline>
@@ -79,7 +112,22 @@
                 <Exit name="Exception" state="ERROR" />
             </Exits>
 
-            <JsonPipe name="JsonToXml" />
+            <SenderPipe name="GetToken" storeResultInSessionKey="FrankToken" active="${Authentication.Active}">
+                <IbisLocalSender javaListener="Internal_GetToken"/>
+            </SenderPipe>
+
+            <XmlIfPipe name="CompareTokens" xpathExpression="substring-after($ClientToken, 'Token ') = $FrankToken" active="${Authentication.Active}">
+                <Param name="ClientToken" sessionKey="headers" xpathExpression="headers/header[@name='Authorization']"/>
+                <Param name="FrankToken" sessionKey="FrankToken" xpathExpression="//token"/>
+                <Forward name="then" path="JsonToXml" />
+                <Forward name="else" path="RejectMessage" />
+            </XmlIfPipe>
+
+            <FixedResultPipe name="RejectMessage" returnString="Username or Password incorrect" active="${Authentication.Active}">
+                <Forward name="success" path="Reject" />
+            </FixedResultPipe>
+
+            <JsonPipe name="JsonToXml" getInputFromSessionKey="originalMessage"/>
 
             <XmlValidatorPipe name="ValidateInputMessage" root="root"
                 schema="xsd/ValidatePostTaakInput.xsd">
@@ -98,7 +146,8 @@
             <ApiListener
                 name="Frank_DeleteTaak"
                 method="DELETE"
-                uriPattern="/taak/{uuid}" />
+                uriPattern="/taak/{uuid}" 
+                headerParams="Authorization"/>
 
         </Receiver>
 
@@ -109,7 +158,22 @@
                 <Exit name="Exception" state="ERROR" />
             </Exits>
 
-            <JsonPipe name="JsonToXml" />
+            <SenderPipe name="GetToken" storeResultInSessionKey="FrankToken" active="${Authentication.Active}">
+                <IbisLocalSender javaListener="Internal_GetToken"/>
+            </SenderPipe>
+
+            <XmlIfPipe name="CompareTokens" xpathExpression="substring-after($ClientToken, 'Token ') = $FrankToken" active="${Authentication.Active}">
+                <Param name="ClientToken" sessionKey="headers" xpathExpression="headers/header[@name='Authorization']"/>
+                <Param name="FrankToken" sessionKey="FrankToken" xpathExpression="//token"/>
+                <Forward name="then" path="JsonToXml" />
+                <Forward name="else" path="RejectMessage" />
+            </XmlIfPipe>
+
+            <FixedResultPipe name="RejectMessage" returnString="Username or Password incorrect" active="${Authentication.Active}">
+                <Forward name="success" path="Reject" />
+            </FixedResultPipe>
+
+            <JsonPipe name="JsonToXml" getInputFromSessionKey="originalMessage"/>
 
             <XmlValidatorPipe name="ValidateInputMessage" root="root"
                 schema="xsd/ValidateDeleteTaakInput.xsd">
@@ -129,7 +193,8 @@
         <Receiver name="Frank_GetTaak">
             <ApiListener
                 name="Frank_GetTaak"
-                uriPattern="/taak/{uuid}" />
+                uriPattern="/taak/{uuid}" 
+                headerParams="Authorization"/>
 
         </Receiver>
 
@@ -138,13 +203,70 @@
                 <Exit name="Exit" state="SUCCESS" />
             </Exits>
 
-            <SenderPipe name="SwitchConfiguration">
+            <SenderPipe name="GetToken" storeResultInSessionKey="FrankToken" active="${Authentication.Active}">
+                <IbisLocalSender javaListener="Internal_GetToken"/>
+            </SenderPipe>
+
+            <XmlIfPipe name="CompareTokens" xpathExpression="substring-after($ClientToken, 'Token ') = $FrankToken" active="${Authentication.Active}">
+                <Param name="ClientToken" sessionKey="headers" xpathExpression="headers/header[@name='Authorization']"/>
+                <Param name="FrankToken" sessionKey="FrankToken" xpathExpression="//token"/>
+                <Forward name="then" path="SwitchConfiguration" />
+                <Forward name="else" path="RejectMessage" />
+            </XmlIfPipe>
+
+            <FixedResultPipe name="RejectMessage" returnString="Username or Password incorrect" active="${Authentication.Active}">
+                <Forward name="success" path="Reject" />
+            </FixedResultPipe>
+
+            <SenderPipe name="SwitchConfiguration" getInputFromSessionKey="originalMessage">
                 <IbisLocalSender javaListener="Ultimo_GetZaak">
                     <Param name="uuid" sessionKey="uuid" />
                 </IbisLocalSender>
             </SenderPipe>
         </Pipeline>
     </Adapter>
+
+    <Adapter name="Frank_GetToken">
+        <Receiver name="Frank_GetToken">
+            <ApiListener
+                name="Frank_GetToken"
+                uriPattern="/api-token-auth" />
+        </Receiver>
+
+        <Pipeline>
+            <Exits>
+                <Exit name="Exit" state="SUCCESS" />
+                <Exit name="Reject" state="REJECTED" />
+                <Exit name="Exception" state="ERROR" />
+            </Exits>
+
+            <JsonPipe name="Json2Xml" direction="JSON2XML"/>
+
+            <XmlIfPipe name="CheckUser" xpathExpression="$UserSet = $UserReceived">
+                <Param name="UserSet" pattern="{username}" authAlias="TokenGen" hidden="true"/>
+                <Param name="UserReceived" xpathExpression="//username" hidden="true"/>
+                <Forward name="then" path="CheckPass" />
+                <Forward name="else" path="Reject" />
+            </XmlIfPipe>
+
+            <XmlIfPipe name="CheckPass" xpathExpression="$PassSet = $PassReceived">
+                <Param name="PassSet" pattern="{password}" authAlias="TokenGen" hidden="true"/>
+                <Param name="PassReceived" xpathExpression="//password" hidden="true"/>
+                <Forward name="then" path="RequestGetToken" />
+                <Forward name="else" path="Reject" />
+            </XmlIfPipe>
+
+            <SenderPipe name="RequestGetToken">
+                <IbisLocalSender name="RequestGetToken" javaListener="Internal_GetToken"/>
+            </SenderPipe>
+
+            <JsonPipe name="XmlToJson" direction="XML2JSON" addXmlRootElement="true">
+                <Forward name="success" path="Exit" />
+                <Forward name="failure" path="Exception" />
+            </JsonPipe>
+        </Pipeline>
+    </Adapter>
+
 
     <!-- We do not process this, so we just return 501 -->
     <Adapter name="Frank_PostTaakCommunicatie">
