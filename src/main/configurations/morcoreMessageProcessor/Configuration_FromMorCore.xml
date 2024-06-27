@@ -31,6 +31,8 @@
             </FixedResultPipe>
 
             <FixedResultPipe name="InputTaaktypesLijst" filename="responses/ZaakTypes.xml" getInputFromSessionKey="originalMessage"/>
+            
+            <ReplacerPipe name="InsertHostName" find="[hostname]" replace="${Frank.API.root-url}"/>
 
             <XmlValidatorPipe name="ValidateInputMessage" schema="xsd/ValidateGetTaakTypes.xsd"
                 root="root">
@@ -59,6 +61,7 @@
                 <Exit name="Exit" state="SUCCESS" />
                 <Exit name="Reject" state="REJECTED" />
                 <Exit name="Exception" state="ERROR" />
+                <Exit name="NotFound" state="REJECTED" code="404"/>
             </Exits>
 
             <SenderPipe name="GetToken" storeResultInSessionKey="FrankToken" active="${Authentication.Active}">
@@ -68,7 +71,7 @@
             <XmlIfPipe name="CompareTokens" xpathExpression="substring-after($ClientToken, 'Token ') = $FrankToken" active="${Authentication.Active}">
                 <Param name="ClientToken" sessionKey="headers" xpathExpression="headers/header[@name='Authorization']"/>
                 <Param name="FrankToken" sessionKey="FrankToken" xpathExpression="//token"/>
-                <Forward name="then" path="InputTaakTypes" />
+                <Forward name="then" path="InputTaaktypesLijst" />
                 <Forward name="else" path="RejectMessage" />
             </XmlIfPipe>
 
@@ -76,7 +79,9 @@
                 <Forward name="success" path="Reject" />
             </FixedResultPipe>
 
-            <FixedResultPipe name="InputTaakType" filename="responses/ZaakTypes.xml" getInputFromSessionKey="originalMessage"/>
+            <FixedResultPipe name="InputTaaktypesLijst" filename="responses/ZaakTypes.xml" getInputFromSessionKey="originalMessage"/>
+
+            <ReplacerPipe name="InsertHostName" find="[hostname]" replace="${Frank.API.root-url}"/>
 
             <XmlValidatorPipe name="ValidateInputMessage" schema="xsd/ValidateGetTaakTypes.xsd"
                 root="root">
@@ -84,10 +89,14 @@
                 <Forward name="failure" path="Reject" />
             </XmlValidatorPipe>
 
-            <!-- TODO: Set up proper TaakType system. Currently we just return a static result. -->
             <XsltPipe name="GetTaakType" styleSheetName="xsl/TaakApplicatieApi/GetTaakType.xsl">
                 <Param name="uuid" sessionKey="uuid" />
             </XsltPipe>
+
+            <XmlIfPipe name="CheckLength" xpathExpression="string-length(.) = 0">
+                <Forward name="then" path="NotFound" />
+                <Forward name="else" path="XmlToJson" />
+            </XmlIfPipe>
 
             <JsonPipe name="XmlToJson" direction="XML2JSON">
                 <Forward name="success" path="Exit" />
