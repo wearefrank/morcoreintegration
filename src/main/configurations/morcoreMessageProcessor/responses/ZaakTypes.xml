@@ -3,7 +3,7 @@
     <items>
         <_links>
             <self>
-                <href>https://taakapplicatie.tld/api/taaktypes/b42801c6-cd66-43df-add7-07b0824852ee</href>
+                <href>[hostname]api/taaktypes/b42801c6-cd66-43df-add7-07b0824852ee</href>
             </self>
         </_links>
         <uuid>b42801c6-cd66-43df-add7-07b0824852ee</uuid>
@@ -14,7 +14,7 @@
     <items>
         <_links>
             <self>
-                <href>https://taakapplicatie.tld/api/taaktypes/ce855971-ed60-4ec0-8a92-37393d914333</href>
+                <href>[hostname]api/taaktypes/ce855971-ed60-4ec0-8a92-37393d914333</href>
             </self>
         </_links>
         <uuid>ce855971-ed60-4ec0-8a92-37393d914333</uuid>
@@ -25,7 +25,7 @@
     <items>
         <_links>
             <self>
-                <href>https://taakapplicatie.tld/api/taaktypes/8d1ff14f-77b9-4e9e-95f3-572c7c88d26f</href>
+                <href>[hostname]api/taaktypes/8d1ff14f-77b9-4e9e-95f3-572c7c88d26f</href>
             </self>
         </_links>
         <uuid>8d1ff14f-77b9-4e9e-95f3-572c7c88d26f</uuid>
@@ -36,7 +36,7 @@
     <items>
         <_links>
             <self>
-                <href>https://taakapplicatie.tld/api/taaktypes/3eeb8f00-89b4-41c5-a219-17811ec52d9c</href>
+                <href>[hostname]api/taaktypes/3eeb8f00-89b4-41c5-a219-17811ec52d9c</href>
             </self>
         </_links>
         <uuid>3eeb8f00-89b4-41c5-a219-17811ec52d9c</uuid>
