@@ -3,7 +3,7 @@
         {
             "_links": {
                 "self": {
-                    "href": "https://taakapplicatie.tld/api/taaktypes/b42801c6-cd66-43df-add7-07b0824852ee"
+                    "href": "https://localhost/api/taaktypes/b42801c6-cd66-43df-add7-07b0824852ee"
                 }
             },
             "uuid": "b42801c6-cd66-43df-add7-07b0824852ee",
@@ -14,7 +14,7 @@
         {
             "_links": {
                 "self": {
-                    "href": "https://taakapplicatie.tld/api/taaktypes/ce855971-ed60-4ec0-8a92-37393d914333"
+                    "href": "https://localhost/api/taaktypes/ce855971-ed60-4ec0-8a92-37393d914333"
                 }
             },
             "uuid": "ce855971-ed60-4ec0-8a92-37393d914333",
@@ -25,7 +25,7 @@
         {
             "_links": {
                 "self": {
-                    "href": "https://taakapplicatie.tld/api/taaktypes/8d1ff14f-77b9-4e9e-95f3-572c7c88d26f"
+                    "href": "https://localhost/api/taaktypes/8d1ff14f-77b9-4e9e-95f3-572c7c88d26f"
                 }
             },
             "uuid": "8d1ff14f-77b9-4e9e-95f3-572c7c88d26f",
@@ -36,7 +36,7 @@
         {
             "_links": {
                 "self": {
-                    "href": "https://taakapplicatie.tld/api/taaktypes/3eeb8f00-89b4-41c5-a219-17811ec52d9c"
+                    "href": "https://localhost/api/taaktypes/3eeb8f00-89b4-41c5-a219-17811ec52d9c"
                 }
             },
             "uuid": "3eeb8f00-89b4-41c5-a219-17811ec52d9c",

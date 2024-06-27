@@ -1,11 +1,1 @@
-{
-    "_links": {
-        "self": {
-            "href": "https://taakapplicatie.tld/taaktypes/aaaa-ssss-dddd"
-        }
-    },
-    "uuid": "",
-    "omschrijving": "Repareren straatverlichting",
-    "toelichting": "Verlichting in lichtmast doet het niet. Niet gebruiken voor gevaarlijke situaties.",
-    "additionele_informatie": "~"
-}
+<?xml version="1.0" encoding="UTF-8"?><root/>
