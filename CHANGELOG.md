@@ -1,5 +1,11 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.3.2](https://github.com/wearefrank/morcore2ultimo/compare/v1.3.1...v1.3.2) (2024-07-01)
+
+### 🐛 Bug Fixes
+
+* add missing Exits ([7af783e](https://github.com/wearefrank/morcore2ultimo/commit/7af783e252b36952d13e97a09780f9cff045d918))
+
 ## [1.3.1](https://github.com/wearefrank/morcore2ultimo/compare/v1.3.0...v1.3.1) (2024-07-01)
 
 ### 🐛 Bug Fixes
