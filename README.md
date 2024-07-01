@@ -1,48 +1,31 @@
 # morcore2ultimo
 
-Project for Frank applications deployed by JAR or Docker
+## Frank!Console
 
-<!-- TOC -->
-* [Skeleton Project for Frank applications deployed by JAR or Docker](#skeleton-project-for-frank-applications-deployed-by-jar-or-docker)
-  * [Introduction](#introduction)
-  * [Included](#included)
-  * [Usage](#usage)
-    * [Steps](#steps)
-    * [Template variables](#template-variables)
-<!-- TOC -->
+After deployment the Frank!Console is available on `/iaf/gui`
 
-## Introduction
+## Helm values
 
-This project serves as a starting point for new projects or as example for existing ones.
-This "empty" Frank! will have configuration files to build and deploy.
- 
-## Included
+  image.registry=docker.io
+  image.repository=wearefrank/morcore2ultimo
+  image.tag=latest
+  image.pullPolicy=Always
 
-* Dockerfile
-* Docker compose
-* Publicode (WIP)
-* GitHub Actions
-  * Continuous Integration workflow
-  * Release workflow
+  connections.create=true
+  connections.jdbc[0].type=postgresql
+  connections.jdbc[0].host=
+  connections.jdbc[0].database=
+  connections.jdbc[0].username=
+  connections.jdbc[0].password=
 
-Please check if you deem all these functionalities necessary, if not remove them.
+  ingress.enabled=false
 
-## Usage
+  frank.dtap.stage=ACC
 
-### Steps
+  MorCore.taak.API.root-url=https://mor-core-acc.forzamor.nl/
+  Ultimo.ESB.root-url=https://ultimo-env-name.ultimo.net/api/V1/Action/
 
-1. Create a new repository and choose this as template repository
-2. Clone the newly created project
-3. Fill in the skeletonrc.json to replace the template strings
-4. Run the skeleton.js script with node e.g. `node ./skeleton.js`
-5. Add your own configuration files
-6. Make sure that the GitHub action credentials are added
-7. Commit & Profit!
+  frank.credentials.secret=app-secrets
+  frank.credentials.key=credentials.properties
+  Frank.API.root-url=https://your-frank-domain
 
-### Template variables
-
-| Template variable             | Description                                                                                    | Example        |
-|-------------------------------|------------------------------------------------------------------------------------------------|----------------|
-| `morcore2ultimo`            | The name of the Frank! to be deployed. It's best to keep this inline with the name of the repo | Frank2Skeleton |
-| `morcore2ultimo`         | Lowercase version of the instance name.                                                        | frank2example  |
-| `morcoreMessageProcessor`       | The name of the first configuration (others have to be added manually)                         | Sans           |
