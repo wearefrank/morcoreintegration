@@ -15,18 +15,18 @@
                 <Exit name="Exception" state="ERROR" />
             </Exits>
 
-            <SenderPipe name="GetToken" storeResultInSessionKey="FrankToken" active="${Authentication.Active}">
+            <SenderPipe name="GetToken" storeResultInSessionKey="FrankToken" active="${Token_Authentication.Active}">
                 <IbisLocalSender javaListener="Internal_GetToken"/>
             </SenderPipe>
 
-            <XmlIfPipe name="CompareTokens" xpathExpression="substring-after($ClientToken, 'Token ') = $FrankToken" active="${Authentication.Active}">
+            <XmlIfPipe name="CompareTokens" xpathExpression="substring-after($ClientToken, 'Token ') = $FrankToken" active="${Token_Authentication.Active}">
                 <Param name="ClientToken" sessionKey="headers" xpathExpression="headers/header[@name='Authorization']"/>
                 <Param name="FrankToken" sessionKey="FrankToken" xpathExpression="//token"/>
                 <Forward name="then" path="InputTaaktypesLijst" />
                 <Forward name="else" path="RejectMessage" />
             </XmlIfPipe>
 
-            <FixedResultPipe name="RejectMessage" returnString="Token invalid" active="${Authentication.Active}">
+            <FixedResultPipe name="RejectMessage" returnString="Token invalid" active="${Token_Authentication.Active}">
                 <Forward name="success" path="Reject" />
             </FixedResultPipe>
 
@@ -64,18 +64,18 @@
                 <Exit name="NotFound" state="REJECTED" code="404"/>
             </Exits>
 
-            <SenderPipe name="GetToken" storeResultInSessionKey="FrankToken" active="${Authentication.Active}">
+            <SenderPipe name="GetToken" storeResultInSessionKey="FrankToken" active="${Token_Authentication.Active}">
                 <IbisLocalSender javaListener="Internal_GetToken"/>
             </SenderPipe>
 
-            <XmlIfPipe name="CompareTokens" xpathExpression="substring-after($ClientToken, 'Token ') = $FrankToken" active="${Authentication.Active}">
+            <XmlIfPipe name="CompareTokens" xpathExpression="substring-after($ClientToken, 'Token ') = $FrankToken" active="${Token_Authentication.Active}">
                 <Param name="ClientToken" sessionKey="headers" xpathExpression="headers/header[@name='Authorization']"/>
                 <Param name="FrankToken" sessionKey="FrankToken" xpathExpression="//token"/>
                 <Forward name="then" path="InputTaaktypesLijst" />
                 <Forward name="else" path="RejectMessage" />
             </XmlIfPipe>
 
-            <FixedResultPipe name="RejectMessage" returnString="Token invalid" active="${Authentication.Active}">
+            <FixedResultPipe name="RejectMessage" returnString="Token invalid" active="${Token_Authentication.Active}">
                 <Forward name="success" path="Reject" />
             </FixedResultPipe>
 
@@ -121,18 +121,18 @@
                 <Exit name="Exception" state="ERROR" />
             </Exits>
 
-            <SenderPipe name="GetToken" storeResultInSessionKey="FrankToken" active="${Authentication.Active}">
+            <SenderPipe name="GetToken" storeResultInSessionKey="FrankToken" active="${Token_Authentication.Active}">
                 <IbisLocalSender javaListener="Internal_GetToken"/>
             </SenderPipe>
 
-            <XmlIfPipe name="CompareTokens" xpathExpression="substring-after($ClientToken, 'Token ') = $FrankToken" active="${Authentication.Active}">
+            <XmlIfPipe name="CompareTokens" xpathExpression="substring-after($ClientToken, 'Token ') = $FrankToken" active="${Token_Authentication.Active}">
                 <Param name="ClientToken" sessionKey="headers" xpathExpression="headers/header[@name='Authorization']"/>
                 <Param name="FrankToken" sessionKey="FrankToken" xpathExpression="//token"/>
                 <Forward name="then" path="JsonToXml" />
                 <Forward name="else" path="RejectMessage" />
             </XmlIfPipe>
 
-            <FixedResultPipe name="RejectMessage" returnString="Token invalid" active="${Authentication.Active}">
+            <FixedResultPipe name="RejectMessage" returnString="Token invalid" active="${Token_Authentication.Active}">
                 <Forward name="success" path="Reject" />
             </FixedResultPipe>
 
@@ -167,18 +167,18 @@
                 <Exit name="Exception" state="ERROR" />
             </Exits>
 
-            <SenderPipe name="GetToken" storeResultInSessionKey="FrankToken" active="${Authentication.Active}">
+            <SenderPipe name="GetToken" storeResultInSessionKey="FrankToken" active="${Token_Authentication.Active}">
                 <IbisLocalSender javaListener="Internal_GetToken"/>
             </SenderPipe>
 
-            <XmlIfPipe name="CompareTokens" xpathExpression="substring-after($ClientToken, 'Token ') = $FrankToken" active="${Authentication.Active}">
+            <XmlIfPipe name="CompareTokens" xpathExpression="substring-after($ClientToken, 'Token ') = $FrankToken" active="${Token_Authentication.Active}">
                 <Param name="ClientToken" sessionKey="headers" xpathExpression="headers/header[@name='Authorization']"/>
                 <Param name="FrankToken" sessionKey="FrankToken" xpathExpression="//token"/>
                 <Forward name="then" path="JsonToXml" />
                 <Forward name="else" path="RejectMessage" />
             </XmlIfPipe>
 
-            <FixedResultPipe name="RejectMessage" returnString="Token invalid" active="${Authentication.Active}">
+            <FixedResultPipe name="RejectMessage" returnString="Token invalid" active="${Token_Authentication.Active}">
                 <Forward name="success" path="Reject" />
             </FixedResultPipe>
 
@@ -212,18 +212,18 @@
                 <Exit name="Exit" state="SUCCESS" />
             </Exits>
 
-            <SenderPipe name="GetToken" storeResultInSessionKey="FrankToken" active="${Authentication.Active}">
+            <SenderPipe name="GetToken" storeResultInSessionKey="FrankToken" active="${Token_Authentication.Active}">
                 <IbisLocalSender javaListener="Internal_GetToken"/>
             </SenderPipe>
 
-            <XmlIfPipe name="CompareTokens" xpathExpression="substring-after($ClientToken, 'Token ') = $FrankToken" active="${Authentication.Active}">
+            <XmlIfPipe name="CompareTokens" xpathExpression="substring-after($ClientToken, 'Token ') = $FrankToken" active="${Token_Authentication.Active}">
                 <Param name="ClientToken" sessionKey="headers" xpathExpression="headers/header[@name='Authorization']"/>
                 <Param name="FrankToken" sessionKey="FrankToken" xpathExpression="//token"/>
                 <Forward name="then" path="SwitchConfiguration" />
                 <Forward name="else" path="RejectMessage" />
             </XmlIfPipe>
 
-            <FixedResultPipe name="RejectMessage" returnString="Token invalid" active="${Authentication.Active}">
+            <FixedResultPipe name="RejectMessage" returnString="Token invalid" active="${Token_Authentication.Active}">
                 <Forward name="success" path="Reject" />
             </FixedResultPipe>
 
