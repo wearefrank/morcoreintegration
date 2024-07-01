@@ -4,7 +4,7 @@
         <Receiver name="Frank_ListTaakTypes">
             <ApiListener
                 name="Frank_ListTaakTypes"
-                uriPattern="/v1/taaktypes"
+                uriPattern="/v1/taaktype"
                 headerParams="Authorization" />
         </Receiver>
 
@@ -50,7 +50,7 @@
         <Receiver name="Frank_GetTaakType">
             <ApiListener
                 name="Frank_GetTaakType"
-                uriPattern="/v1/taaktypes/{uuid}"
+                uriPattern="/v1/taaktype/{uuid}"
                 headerParams="Authorization" />
         </Receiver>
 
