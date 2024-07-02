@@ -1,5 +1,11 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.3.3](https://github.com/wearefrank/morcore2ultimo/compare/v1.3.2...v1.3.3) (2024-07-02)
+
+### 🐛 Bug Fixes
+
+* relocate root-url variables ([c39a604](https://github.com/wearefrank/morcore2ultimo/commit/c39a6041b5aa723e7d83f5fe7b36a872eb4008f1))
+
 ## [1.3.2](https://github.com/wearefrank/morcore2ultimo/compare/v1.3.1...v1.3.2) (2024-07-01)
 
 ### 🐛 Bug Fixes
