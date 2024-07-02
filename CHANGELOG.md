@@ -1,5 +1,34 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.3.2](https://github.com/wearefrank/morcore2ultimo/compare/v1.3.1...v1.3.2) (2024-07-01)
+
+### 🐛 Bug Fixes
+
+* add missing Exits ([7af783e](https://github.com/wearefrank/morcore2ultimo/commit/7af783e252b36952d13e97a09780f9cff045d918))
+
+## [1.3.1](https://github.com/wearefrank/morcore2ultimo/compare/v1.3.0...v1.3.1) (2024-07-01)
+
+### 🐛 Bug Fixes
+
+* incorrect authentication property reference ([f3d5679](https://github.com/wearefrank/morcore2ultimo/commit/f3d56790cc0dc4b0a84a67965bedeac6b47631bd))
+
+## [1.3.0](https://github.com/wearefrank/morcore2ultimo/compare/v1.2.1...v1.3.0) (2024-06-27)
+
+### 🍕 Features
+
+* add hostname replacement & GetTaakType 404 ([0fee508](https://github.com/wearefrank/morcore2ultimo/commit/0fee5086cadde84dbdc783de12b5beef84a7dcf9))
+* make GetTaakType no longer static ([20bea44](https://github.com/wearefrank/morcore2ultimo/commit/20bea44969f7a5cf3317cb81e1e3283a6b885f55))
+
+### 🧑‍💻 Code Refactoring
+
+* adjust uris ([2eaa882](https://github.com/wearefrank/morcore2ultimo/commit/2eaa8824e06ebb86c63cb3bb0743aeb0bf760919))
+* set default urlmapping ([504dcc8](https://github.com/wearefrank/morcore2ultimo/commit/504dcc86de568c91f2e7d2640e9ea4f3f3636244))
+
+### ✅ Tests
+
+* make tests reflect changes to GetTaakType ([a91a1f2](https://github.com/wearefrank/morcore2ultimo/commit/a91a1f268523521ada6398afcb7984de76c28b9d))
+* update scenario 4 output ([710e306](https://github.com/wearefrank/morcore2ultimo/commit/710e30649ecfefc07a0cb111b20e2272bdf7f1a1))
+
 ## [1.2.1](https://github.com/wearefrank/morcore2ultimo/compare/v1.2.0...v1.2.1) (2024-06-26)
 
 ### 🐛 Bug Fixes
