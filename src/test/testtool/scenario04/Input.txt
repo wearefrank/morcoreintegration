@@ -2,9 +2,7 @@
 <root>
     <items>
         <_links>
-            <self>
-                <href>https://taakapplicatie.tld/taaktypes/aaaa-ssss-dddd</href>
-            </self>
+            <self>https://taakapplicatie.tld/taaktypes/aaaa-ssss-dddd</self>
         </_links>
         <uuid>aaaa-ssss-dddd</uuid>
         <omschrijving>Repareren straatverlichting</omschrijving>
