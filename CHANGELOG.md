@@ -1,5 +1,15 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.3.6](https://github.com/wearefrank/morcore2ultimo/compare/v1.3.5...v1.3.6) (2024-07-08)
+
+### 🐛 Bug Fixes
+
+* restore missing properties file ([37a671a](https://github.com/wearefrank/morcore2ultimo/commit/37a671ac1e3daf398f3a6e96e16a2da230c29173))
+
+### ✅ Tests
+
+* update scenario04 to reflect actual output ([5293dc9](https://github.com/wearefrank/morcore2ultimo/commit/5293dc9e7efcc76c27e23719576899ae0526812b))
+
 ## [1.3.5](https://github.com/wearefrank/morcore2ultimo/compare/v1.3.4...v1.3.5) (2024-07-08)
 
 ### 🐛 Bug Fixes
