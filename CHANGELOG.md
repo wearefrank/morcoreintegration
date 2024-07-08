@@ -1,5 +1,11 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.3.4](https://github.com/wearefrank/morcore2ultimo/compare/v1.3.3...v1.3.4) (2024-07-08)
+
+### 🧑‍💻 Code Refactoring
+
+* trigger release ([1871dfd](https://github.com/wearefrank/morcore2ultimo/commit/1871dfd0452c228c25d25ba8f28818ccfe522b83))
+
 ## [1.3.3](https://github.com/wearefrank/morcore2ultimo/compare/v1.3.2...v1.3.3) (2024-07-02)
 
 ### 🐛 Bug Fixes
