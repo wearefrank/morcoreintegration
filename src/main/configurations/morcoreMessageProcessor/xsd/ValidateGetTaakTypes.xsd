@@ -3,7 +3,10 @@
   <xs:element name="root">
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="items" maxOccurs="unbounded" minOccurs="0">
+        <xs:element type="xs:integer" name="count"/>
+        <xs:element type="xs:string" name="next" nillable="true"/>
+        <xs:element type="xs:string" name="previous" nillable="true"/>
+        <xs:element name="results" maxOccurs="unbounded" minOccurs="0">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="_links">

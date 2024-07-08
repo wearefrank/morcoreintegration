@@ -1,5 +1,8 @@
 {
-    "items": [
+    "count": 4,
+    "next": null,
+    "previous": null,
+    "results": [
         {
             "_links": {
                 "self": "https://localhost/api/taaktypes/b42801c6-cd66-43df-add7-07b0824852ee"
