@@ -1,5 +1,11 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.3.5](https://github.com/wearefrank/morcore2ultimo/compare/v1.3.4...v1.3.5) (2024-07-08)
+
+### 🐛 Bug Fixes
+
+* Change taak type structure _links.self.href to _links.self ([f6386ae](https://github.com/wearefrank/morcore2ultimo/commit/f6386aecba1476ffa7ebf19609a97b30c79f3a64))
+
 ## [1.3.4](https://github.com/wearefrank/morcore2ultimo/compare/v1.3.3...v1.3.4) (2024-07-08)
 
 ### 🧑‍💻 Code Refactoring
