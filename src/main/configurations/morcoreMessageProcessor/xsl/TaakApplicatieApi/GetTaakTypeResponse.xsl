@@ -7,10 +7,8 @@
     <xsl:template match="/">
         <_links>
             <self>
-                <href>
-                    <xsl:value-of
-                        select="concat('https://taakapplicatie.tld/taaktypes/xxxx-yyyy-zzz',$uuid)" />
-                </href>
+                <xsl:value-of
+                    select="concat('https://taakapplicatie.tld/taaktypes/xxxx-yyyy-zzz',$uuid)" />
             </self>
         </_links>
             <uuid>
