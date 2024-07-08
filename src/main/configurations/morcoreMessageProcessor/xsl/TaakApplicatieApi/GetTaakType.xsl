@@ -6,11 +6,11 @@
 
     <xsl:template match="/">
         <root>
-            <xsl:apply-templates select="root/items[uuid = $uuid]" />
+            <xsl:apply-templates select="root/results[uuid = $uuid]" />
         </root>
     </xsl:template>
 
-    <xsl:template match="items">
+    <xsl:template match="results">
         <xsl:copy>
             <xsl:copy-of select="@*|node()" />
         </xsl:copy>

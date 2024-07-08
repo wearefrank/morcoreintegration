@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <root>
-    <items>
+    <results>
         <_links>
             <self>https://taakapplicatie.tld/taaktypes/aaaa-ssss-dddd</self>
         </_links>
@@ -13,5 +13,5 @@
         <additionele_informatie>
             <veld>werking gecontroleerd in observ</veld>
         </additionele_informatie>
-    </items>
+    </results>
 </root>

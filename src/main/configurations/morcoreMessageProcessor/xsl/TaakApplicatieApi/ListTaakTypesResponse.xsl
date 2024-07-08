@@ -5,7 +5,10 @@
     <xsl:param name="uuid" />
 
     <xsl:template match="/">
-        <items>
+        <count>2</count>
+        <next />
+        <previous />
+        <results>
             <item>
                 <_links>
                     <self>
@@ -36,6 +39,6 @@
         grote kasten, koelkast, wasmachine.</toelichting>
                 <additionele_informatie>~</additionele_informatie>
             </item>
-        </items>
+        </results>
     </xsl:template>
 </xsl:stylesheet>
