@@ -14,7 +14,7 @@
                 <Exit name="Reject" state="REJECTED" />
             </Exits>
 
-            <SenderPipe name="Send2MSB" getInputFromFixedValue="&lt;defaultInputMessage/>">
+            <SenderPipe name="Send2MSB">
                 <HttpSender name="Send2MSB" methodType="GET" />
                 <Param name="url"
                     xpathExpression="concat('${MSB.taak.API.root-url}/melding/', $uuid)">
@@ -37,7 +37,7 @@
                 <Exit name="Reject" state="REJECTED" />
             </Exits>
 
-            <SenderPipe name="Send2MSB" getInputFromFixedValue="&lt;defaultInputMessage/>">
+            <SenderPipe name="Send2MSB">
                 <HttpSender name="Send2MSB" methodType="GET" />
                 <Param name="meldingUuid" sessionKey="originalMessage"
                     xpathExpression="//meldingUuid" />
