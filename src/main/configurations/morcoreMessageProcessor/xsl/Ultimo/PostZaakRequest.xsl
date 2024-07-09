@@ -6,12 +6,13 @@
     <xsl:param name="meldingInfo" />
     <xsl:param name="opdrachtInfo" />
     <xsl:param name="systemDate" />
+    <xsl:param name="MorCoreRootUrl" />
 
     <xsl:template match="/">
         <root>
             <!-- Consists of 7 numbers, required -->
             <meldingId>
-                <xsl:value-of select="substring-after($opdrachtInfo/root/_links/melding/href, 'https://mor-core.tld/melding/')" />
+                <xsl:value-of select="substring-after($opdrachtInfo/root/_links/melding/href, concat($MorCoreRootUrl, 'melding/'))" />
             </meldingId>
             <!-- Required -->
             <behandelaar>MSB</behandelaar>

@@ -111,11 +111,10 @@
 
             <PutSystemDateInSessionPipe name="StoreSystemDate" />
 
-            <SenderPipe name="RequestMeldingInfo"
-                getInputFromFixedValue="&lt;defaultInputMessage/>">
+            <SenderPipe name="RequestMeldingInfo">
                 <IbisLocalSender name="RequestGetMelding" javaListener="MorCore_GetMelding">
                     <Param name="meldingUuid"
-                        xpathExpression="substring-after(//melding, 'https://mor-core.tld/melding/')" />
+                        xpathExpression="substring-after(//melding, concat(${MorCore.taak.API.root-url}, 'melding/'))" />
                 </IbisLocalSender>
                 <Forward name="success" path="MakeMeldingInfoXML" />
                 <Forward name="exception" path="exception" />
@@ -131,7 +130,7 @@
                 getInputFromFixedValue="&lt;defaultInputMessage/>">
                 <IbisLocalSender name="RequestGetMelding" javaListener="MorCore_GetTaakOpdracht">
                     <Param name="meldingUuid"
-                        xpathExpression="substring-after(//melding, 'https://mor-core.tld/melding/')" />
+                        xpathExpression="substring-after(//melding, concat(${MorCore.taak.API.root-url}, 'melding/'))" />
                     <Param name="opdrachtUuid"
                         xpathExpression="substring-after(//taakopdracht, '/taakopdracht/')" />
                 </IbisLocalSender>

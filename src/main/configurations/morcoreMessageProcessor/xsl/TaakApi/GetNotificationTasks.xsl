@@ -4,13 +4,14 @@
     xmlns:xs="http://www.w3.org/2001/XMLSchema">
     <xsl:output method="xml" indent="yes" omit-xml-declaration="yes" />
     <xsl:param name="uuid" />
+    <xsl:param name="MorCoreRootUrl" />
 
     <xsl:template match="/">
         <root>
             <_links>
                 <melding>
                     <href>
-                        <xsl:value-of select="concat('https://mor-core.tld/melding/1234-5678',$uuid)" />
+                        <xsl:value-of select="concat($MorCoreRootUrl, 'melding/1234-5678', $uuid)" />
                     </href>
                 </melding>
             </_links>
@@ -24,7 +25,7 @@
                     </communicatie>
                 </_links>
                 <uuid>
-                    <xsl:value-of select="$uuid"/>
+                    <xsl:value-of select="$uuid" />
                 </uuid>
                 <taaktype></taaktype>
                 <taakapplicatie></taakapplicatie>
