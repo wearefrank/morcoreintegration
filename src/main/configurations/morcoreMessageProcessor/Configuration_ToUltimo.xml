@@ -114,7 +114,7 @@
             <SenderPipe name="RequestMeldingInfo">
                 <IbisLocalSender name="RequestGetMelding" javaListener="MorCore_GetMelding">
                     <Param name="meldingUuid"
-                        xpathExpression="substring-after(//melding, concat(${MorCore.taak.API.root-url}, 'api/v1/melding/'))" />
+                        xpathExpression="substring-after(//melding, '${MorCore.taak.API.root-url}api/v1/melding/')" />
                 </IbisLocalSender>
                 <Forward name="success" path="MakeMeldingInfoXML" />
                 <Forward name="exception" path="exception" />
@@ -129,7 +129,7 @@
             <SenderPipe name="RequestOpdrachtInfo" storeResultInSessionKey="opdrachtInfo">
                 <IbisLocalSender name="RequestGetMelding" javaListener="MorCore_GetTaakOpdracht">
                     <Param name="meldingUuid"
-                        xpathExpression="substring-after(//melding, concat(${MorCore.taak.API.root-url}, 'api/v1/api/v1/melding/'))" />
+                        xpathExpression="substring-after(//melding, '${MorCore.taak.API.root-url}api/v1/api/v1/melding/')" />
                     <Param name="opdrachtUuid"
                         xpathExpression="substring-after(//taakopdracht, '/taakopdracht/')" />
                 </IbisLocalSender>
