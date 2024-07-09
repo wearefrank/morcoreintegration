@@ -17,7 +17,7 @@
             <SenderPipe name="Send2MSB">
                 <HttpSender name="Send2MSB" methodType="GET" />
                 <Param name="url"
-                    xpathExpression="concat('${MSB.taak.API.root-url}/melding/', $uuid)">
+                    xpathExpression="concat('${MSB.taak.API.root-url}/api/v1/melding/', $uuid)">
                     <Param name="uuid" sessionKey="uuid" />
                 </Param>
             </SenderPipe>
@@ -42,7 +42,7 @@
                 <Param name="meldingUuid" sessionKey="originalMessage"
                     xpathExpression="//meldingUuid" />
                 <Param name="url"
-                    value="${MSB.taak.API.root-url}/melding/${meldingUuid}/taakopdracht" />
+                    value="${MSB.taak.API.root-url}/api/v1/melding/${meldingUuid}/taakopdracht" />
                 <Forward name="success" path="Json2Xml" />
                 <Forward name="exception" path="Exception" />
             </SenderPipe>

@@ -17,7 +17,7 @@
             <SenderPipe name="Send2MorCore">
                 <HttpSender name="Send2MorCore" methodType="GET" />
                 <Param name="url"
-                    xpathExpression="concat('${MorCore.taak.API.root-url}melding/', $uuid)">
+                    xpathExpression="concat('${MorCore.taak.API.root-url}api/v1/melding/', $uuid)">
                     <Param name="uuid" sessionKey="uuid" />
                 </Param>
                 <Forward name="success" path="Json2Xml" />
@@ -89,7 +89,7 @@
                 <Param name="meldingUuid" sessionKey="originalMessage"
                     xpathExpression="//meldingUuid" />
                 <Param name="url"
-                    value="${MorCore.taak.API.root-url}/melding/${meldingUuid}/taakopdracht" />
+                    value="${MorCore.taak.API.root-url}/api/v1/melding/${meldingUuid}/taakopdracht" />
                 <Forward name="success" path="Json2Xml" />
                 <Forward name="exception" path="CallMSBSender" />
             </SenderPipe>
@@ -171,7 +171,7 @@
             <SenderPipe name="Send2MorCore">
                 <HttpSender name="Send2MorCore" methodType="POST" />
                 <Param name="url"
-                    xpathExpression="concat('${MorCore.taak.API.root-url}/melding/', $uuid)">
+                    xpathExpression="concat('${MorCore.taak.API.root-url}/api/v1/melding/', $uuid)">
                     <Param name="uuid" sessionKey="uuid" />
                 </Param>
                 <Forward name="success" path="Json2Xml" />

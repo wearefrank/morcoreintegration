@@ -2,7 +2,7 @@
     "results":
         {
             "_links": {
-                "self": "https://mor-core.tld/melding/1234-5678"
+                "self": "https://mor-core.tld/api/v1/melding/1234-5678"
             },
             "uuid": "1234-5678",
             "omschrijving": "Ophalen grofvuil groot",

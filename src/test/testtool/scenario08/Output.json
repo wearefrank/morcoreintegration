@@ -1,7 +1,7 @@
 {
   "_links": {
       "melding": {
-          "href": "https://mor-core.tld/melding/1234-5678"
+          "href": "https://mor-core.tld/api/v1/melding/1234-5678"
       }
   },
   "items": {

@@ -30,7 +30,7 @@
             <SenderPipe name="Send2MorCore">
                 <HttpSender name="Send2MorCore" methodType="POST" />
                 <Param name="url"
-                    value="${MorCore.taak.API.root-url}/melding/${meldingUuid}/taakopdracht/${taakOpdrachtUuid}/notificatie" />
+                    value="${MorCore.taak.API.root-url}/api/v1/melding/${meldingUuid}/taakopdracht/${taakOpdrachtUuid}/notificatie" />
                 <Param name="meldingUuid"
                     xpathExpression="//meldingUuid" />
                 <Param name="taakOpdrachtUuid"

@@ -1,6 +1,6 @@
 {
-	"melding": "https://mor-core.tld/melding/1234-1234-1234",
-	"taakopdracht": "https://mor-core.tld/melding/1234-1234-1234/taakopdracht/5678-5678-5678",
+	"melding": "https://mor-core.tld/api/v1/melding/1234-1234-1234",
+	"taakopdracht": "https://mor-core.tld/api/v1/melding/1234-1234-1234/taakopdracht/5678-5678-5678",
 	"taaktype": "https://taakapplicatie.tld/taaktypes/xxxx-yyyy-zzz",
 	"titel": "Reparatie verlichting 2381-3",
 	"bericht": "Graag oppakken",

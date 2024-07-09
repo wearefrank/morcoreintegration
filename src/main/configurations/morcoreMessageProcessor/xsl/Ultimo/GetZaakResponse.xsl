@@ -20,7 +20,7 @@
                 </taaktype>
                 <melding>
                     <!-- TODO: See if Ultimo returns this after storing. -->
-                    <href>${MorCore.taak.API.root-url}melding/1234-1234-1234</href>
+                    <href>${MorCore.taak.API.root-url}api/v1/melding/1234-1234-1234</href>
                 </melding>
                 <communcatie>
                     <!-- TODO: See if Ultimo returns this after storing. -->
