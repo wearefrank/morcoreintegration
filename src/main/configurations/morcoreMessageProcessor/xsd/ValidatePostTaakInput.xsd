@@ -3,12 +3,13 @@
   <xs:element name="root">
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="melding" type="xs:string" />
-        <xs:element name="taakopdracht" type="xs:string" />
         <xs:element name="taaktype" type="xs:string" />
         <xs:element name="titel" type="xs:string" />
         <xs:element name="bericht" type="xs:string" />
-        <xs:element name="additionele_informatie">
+        <xs:element name="taakopdracht" type="xs:string" />
+        <xs:element name="melding" type="xs:string" />
+        <xs:element name="gebruiker" type="xs:string" minOccurs="0" />
+        <xs:element name="additionele_informatie" minOccurs="0">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="veld" type="xs:string" />
@@ -16,6 +17,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="omschrijving_intern" type="xs:string" minOccurs="0" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
