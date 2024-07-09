@@ -1,5 +1,11 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.3.7](https://github.com/wearefrank/morcore2ultimo/compare/v1.3.6...v1.3.7) (2024-07-09)
+
+### 🧑‍💻 Code Refactoring
+
+* adjust validatePostTaakInput.xsd ([056cd09](https://github.com/wearefrank/morcore2ultimo/commit/056cd09dcb15037def1835417cc7b00e6ddb3dd0))
+
 ## [1.3.6](https://github.com/wearefrank/morcore2ultimo/compare/v1.3.5...v1.3.6) (2024-07-08)
 
 ### 🐛 Bug Fixes
