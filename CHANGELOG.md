@@ -1,5 +1,19 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.3.9](https://github.com/wearefrank/morcore2ultimo/compare/v1.3.8...v1.3.9) (2024-07-09)
+
+### 🐛 Bug Fixes
+
+* apply "api/v1/melding/" to all necessary locations ([54227e3](https://github.com/wearefrank/morcore2ultimo/commit/54227e319043db6b105e4e66c6f2114309d4b121))
+* correctly handle MorCore root-url dynamically ([3703538](https://github.com/wearefrank/morcore2ultimo/commit/3703538a1c3827c58e4bf58a9d027f73c04d2f6a))
+* incorrect concat format ([f1137f3](https://github.com/wearefrank/morcore2ultimo/commit/f1137f36487a48c45fdd8f3160294519c47edd15))
+* remove dummy input ([0edb8b3](https://github.com/wearefrank/morcore2ultimo/commit/0edb8b3aadcb4cab24eb08fda9d0eb1352adda5e))
+
+### 🧑‍💻 Code Refactoring
+
+* add dummy URLs ([dc2826c](https://github.com/wearefrank/morcore2ultimo/commit/dc2826c277b9cd9635d809b6063309b6555ef483))
+* adjust LOC properties to reflect proper state ([eaf2ca8](https://github.com/wearefrank/morcore2ultimo/commit/eaf2ca8338327d2033a482ec871794a71bc98352))
+
 ## [1.3.8](https://github.com/wearefrank/morcore2ultimo/compare/v1.3.7...v1.3.8) (2024-07-09)
 
 ### 🐛 Bug Fixes
