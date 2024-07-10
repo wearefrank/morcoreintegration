@@ -1,5 +1,16 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.4.0](https://github.com/wearefrank/morcore2ultimo/compare/v1.3.9...v1.4.0) (2024-07-10)
+
+### 🍕 Features
+
+* add token sending for MorCore communication ([3e629f1](https://github.com/wearefrank/morcore2ultimo/commit/3e629f19a062462e2e303bb30d70acb3f6d5304f))
+
+### 🐛 Bug Fixes
+
+* incorrect exit reference ([e8c77d1](https://github.com/wearefrank/morcore2ultimo/commit/e8c77d1f3263caf2b61c2c4a8f86c43247d8dc40))
+* load in ToMSB configuration ([15978c8](https://github.com/wearefrank/morcore2ultimo/commit/15978c88dcba526c5b32c5aebbd028076f57d842))
+
 ## [1.3.9](https://github.com/wearefrank/morcore2ultimo/compare/v1.3.8...v1.3.9) (2024-07-09)
 
 ### 🐛 Bug Fixes
