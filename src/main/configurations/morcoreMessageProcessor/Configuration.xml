@@ -3,6 +3,7 @@
 	<!ENTITY ToMorCore SYSTEM "./Configuration_ToMorCore.xml">
 	<!ENTITY ToUltimo SYSTEM "./Configuration_ToUltimo.xml">
 	<!ENTITY FromUltimo SYSTEM "./Configuration_FromUltimo.xml">
+	<!ENTITY ToMSB SYSTEM "./Configuration_ToMSB.xml">
 	<!ENTITY TokenManager SYSTEM "./Configuration_TokenManager.xml">
 ]>
 
@@ -11,5 +12,6 @@
 	&ToMorCore;
 	&ToUltimo;
 	&FromUltimo;
+	&ToMSB;
 	&TokenManager;
 </Configuration>
