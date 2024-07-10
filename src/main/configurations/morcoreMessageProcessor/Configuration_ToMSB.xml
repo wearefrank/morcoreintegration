@@ -43,7 +43,7 @@
                     xpathExpression="//meldingUuid" />
                 <Param name="url"
                     value="${MSB.taak.API.root-url}/api/v1/melding/${meldingUuid}/taakopdracht" />
-                <Forward name="success" path="Json2Xml" />
+                <Forward name="success" path="Exit" />
                 <Forward name="exception" path="Exception" />
             </SenderPipe>
         </Pipeline>
