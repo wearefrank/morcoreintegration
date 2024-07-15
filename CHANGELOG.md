@@ -1,5 +1,11 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.5.0](https://github.com/wearefrank/morcore2ultimo/compare/v1.4.0...v1.5.0) (2024-07-15)
+
+### 🍕 Features
+
+* add morcore-sided auth ([6384773](https://github.com/wearefrank/morcore2ultimo/commit/6384773808166777da7e8da125b256ca30d77e77))
+
 ## [1.4.0](https://github.com/wearefrank/morcore2ultimo/compare/v1.3.9...v1.4.0) (2024-07-10)
 
 ### 🍕 Features
