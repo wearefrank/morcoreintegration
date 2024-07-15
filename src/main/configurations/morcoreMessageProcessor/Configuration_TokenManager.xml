@@ -15,11 +15,13 @@
             </Exits>
 
             <XsltPipe name="CreateTokenRequest" styleSheetName="xsl/MorCore/GetTokenRequest.xsl">
-                <Param name="morcoreUsername" pattern="{username}" authAlias="moreCoreToken" hidden="true"/>
-                <Param name="morcorePassword" pattern="{password}" authAlias="moreCoreToken" hidden="true"/>
+                <Param name="morcoreUsername" pattern="{username}" authAlias="moreCoreToken"
+                    hidden="true" />
+                <Param name="morcorePassword" pattern="{password}" authAlias="moreCoreToken"
+                    hidden="true" />
             </XsltPipe>
 
-            <JsonPipe name="Xml2Json" direction="XML2JSON"/>
+            <JsonPipe name="Xml2Json" direction="XML2JSON" />
 
             <SenderPipe name="Send2MorCore">
                 <HttpSender name="Send2MorCore" methodType="POST" />
@@ -29,6 +31,8 @@
                 <Forward name="success" path="Exit" />
                 <Forward name="exception" path="Exception" />
             </SenderPipe>
+
+            <JsonPipe name="Json2Xml" />
 
         </Pipeline>
     </Adapter>
