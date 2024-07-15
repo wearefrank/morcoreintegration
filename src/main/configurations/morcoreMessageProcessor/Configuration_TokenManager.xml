@@ -1,5 +1,38 @@
 <Module xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="../FrankConfig.xsd">
+
+    <Adapter name="MorCore_GetToken">
+        <Receiver name="MorCore_GetToken">
+            <JavaListener name="MorCore_GetToken" />
+        </Receiver>
+
+        <Pipeline>
+
+            <Exits>
+                <Exit name="Exit" state="SUCCESS" />
+                <Exit name="Exception" state="ERROR" />
+                <Exit name="Reject" state="REJECTED" />
+            </Exits>
+
+            <XsltPipe name="CreateTokenRequest" styleSheetName="xsl/MorCore/GetTokenRequest.xsl">
+                <Param name="morcoreUsername" pattern="{username}" authAlias="moreCoreToken" hidden="true"/>
+                <Param name="morcorePassword" pattern="{password}" authAlias="moreCoreToken" hidden="true"/>
+            </XsltPipe>
+
+            <JsonPipe name="Xml2Json" direction="XML2JSON"/>
+
+            <SenderPipe name="Send2MorCore">
+                <HttpSender name="Send2MorCore" methodType="POST" />
+                <Param name="url"
+                    value="${MorCore.taak.API.root-url}api-token-auth/">
+                </Param>
+                <Forward name="success" path="Exit" />
+                <Forward name="exception" path="Exception" />
+            </SenderPipe>
+
+        </Pipeline>
+    </Adapter>
+
     <Adapter name="Internal_GetToken">
         <Receiver name="Internal_GetToken">
             <JavaListener name="Internal_GetToken" />
@@ -20,9 +53,9 @@
                 </FixedQuerySender>
             </SenderPipe>
 
-            <XsltPipe name="GetTokenValue" xpathExpression="//row[1]/field[1]"/>
+            <XsltPipe name="GetTokenValue" xpathExpression="//row[1]/field[1]" />
 
-            <Text2XmlPipe xmlTag="token" name="Text2Xml"/>
+            <Text2XmlPipe xmlTag="token" name="Text2Xml" />
 
         </Pipeline>
     </Adapter>
