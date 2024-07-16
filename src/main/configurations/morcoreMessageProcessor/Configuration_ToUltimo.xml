@@ -64,7 +64,7 @@
             </JsonPipe>
 
             <SenderPipe name="SendToUltimo">
-                <HttpSender name="SendToUltimo" methodType="POST"
+                <HttpSender name="SendToUltimo" methodType="POST" contentType="application/json"
                     headersParams="X-Audit-Toelichting">
                     <Param name="X-Audit-Toelichting" sessionKey="toelichtingHeader" />
                     <Param name="url" value="${Ultimo.Ultimo.root-url}/statussen" />
@@ -168,7 +168,7 @@
             </SenderPipe>
 
             <SenderPipe name="SendToUltimo">
-                <HttpSender name="SendToUltimo" methodType="POST"
+                <HttpSender name="SendToUltimo" methodType="POST" contentType="application/json"
                     headersParams="ApiKey,ApplicationElementId">
                     <Param name="Accept-Crs" value="EPSG:4326" />
                     <Param name="Content-Crs" value="EPSG:4326" />

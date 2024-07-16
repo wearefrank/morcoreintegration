@@ -16,8 +16,6 @@
                 <Exit name="Reject" state="REJECTED" />
             </Exits>
 
-            <!-- TODO: Handle ApiKey and ApplicationElementId -->
-
             <JsonPipe name="RequestJson2Xml" />
 
             <SenderPipe name="RequestGetZaak" storeResultInSessionKey="JsonMessage">
@@ -26,15 +24,24 @@
 
             <JsonPipe name="ResponseJson2Xml" />
 
+            <SenderPipe name="CallMorCore_GetToken" storeResultInSessionKey="MorCoreToken">
+                <IbisLocalSender name="CallMorCore_GetToken" javaListener="MorCore_GetToken" />
+                <Forward name="success" path="Send2MorCore" />
+                <Forward name="exception" path="Exception" />
+            </SenderPipe>
+
             <!-- TODO: Check that uuid values are correctly filled -->
-            <SenderPipe name="Send2MorCore">
-                <HttpSender name="Send2MorCore" methodType="POST" />
+            <SenderPipe name="Send2MorCore" getInputFromSessionKey="JsonMessage">
+                <HttpSender name="Send2MorCore" methodType="POST" contentType="application/json" headersParams="Authorization"/>
                 <Param name="url"
                     value="${MorCore.taak.API.root-url}/api/v1/melding/${meldingUuid}/taakopdracht/${taakOpdrachtUuid}/notificatie" />
                 <Param name="meldingUuid"
                     xpathExpression="//meldingUuid" />
                 <Param name="taakOpdrachtUuid"
                     xpathExpression="//taakOpdrachtUuid" />
+                <Param name="Authorization" xpathExpression="concat('Token: ', $MorCoreToken)">
+                    <Param name="MorCoreToken" sessionKey="MorCoreToken" xpathExpression="//token" />
+                </Param>
                 <Forward name="success" path="Exit" />
                 <Forward name="exception" path="Exception" />
             </SenderPipe>
