@@ -1,5 +1,11 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.5.3](https://github.com/wearefrank/morcore2ultimo/compare/v1.5.2...v1.5.3) (2024-07-16)
+
+### 🐛 Bug Fixes
+
+* add correct path ([d15663b](https://github.com/wearefrank/morcore2ultimo/commit/d15663bda2689596bb28b44d1ee1e6a296b71090))
+
 ## [1.5.2](https://github.com/wearefrank/morcore2ultimo/compare/v1.5.1...v1.5.2) (2024-07-16)
 
 ### 🐛 Bug Fixes
