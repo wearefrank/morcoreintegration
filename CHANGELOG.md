@@ -1,5 +1,11 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.5.2](https://github.com/wearefrank/morcore2ultimo/compare/v1.5.1...v1.5.2) (2024-07-16)
+
+### 🐛 Bug Fixes
+
+* set content types ([e4cf38e](https://github.com/wearefrank/morcore2ultimo/commit/e4cf38e397c79bbe2b8bba45427815b09ebcb1db))
+
 ## [1.5.1](https://github.com/wearefrank/morcore2ultimo/compare/v1.5.0...v1.5.1) (2024-07-15)
 
 ### 🐛 Bug Fixes
