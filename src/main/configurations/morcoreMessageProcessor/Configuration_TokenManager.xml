@@ -28,7 +28,7 @@
                 <Param name="url"
                     value="${MorCore.taak.API.root-url}api-token-auth/">
                 </Param>
-                <Forward name="success" path="Exit" />
+                <Forward name="success" path="Json2Xml" />
                 <Forward name="exception" path="Exception" />
             </SenderPipe>
 
