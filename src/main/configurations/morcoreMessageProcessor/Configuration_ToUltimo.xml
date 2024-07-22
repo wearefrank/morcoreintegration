@@ -67,7 +67,7 @@
                 <HttpSender name="SendToUltimo" methodType="POST" contentType="application/json"
                     headersParams="X-Audit-Toelichting">
                     <Param name="X-Audit-Toelichting" sessionKey="toelichtingHeader" />
-                    <Param name="url" value="${Ultimo.Ultimo.root-url}/statussen" />
+                    <Param name="url" value="${Ultimo.ESB.root-url}/statussen" />
                 </HttpSender>
                 <Forward name="success" path="Exit" />
                 <Forward name="exception" path="exception" />
@@ -164,7 +164,7 @@
                     headersParams="ApiKey,ApplicationElementId">
                     <Param name="Accept-Crs" value="EPSG:4326" />
                     <Param name="Content-Crs" value="EPSG:4326" />
-                    <Param name="url" value="${Ultimo.root-url}/zaken" />
+                    <Param name="url" value="${Ultimo.ESB.root-url}/zaken" />
                     <Param name="ApiKey" authAlias="Ultimo" pattern="{username}" />
                     <Param name="ApplicationElementId" authAlias="Ultimo" pattern="{password}" />
                 </HttpSender>
@@ -222,7 +222,7 @@
                     <Param
                         name="uuid" sessionKey="uuid" />
                     <Param name="url"
-                        value="${Ultimo.Ultimo.root-url}/zaken/${uuid}" />
+                        value="${Ultimo.ESB.root-url}/zaken/${uuid}" />
                 </HttpSender>
                 <Forward name="success" path="Json2XML" />
                 <Forward name="exception" path="exception" />
