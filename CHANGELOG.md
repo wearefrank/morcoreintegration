@@ -1,5 +1,11 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.5.9](https://github.com/wearefrank/morcore2ultimo/compare/v1.5.8...v1.5.9) (2024-07-22)
+
+### 🐛 Bug Fixes
+
+* replace /zaken with alternative url ending ([b15339c](https://github.com/wearefrank/morcore2ultimo/commit/b15339cd3c5ef04b547538f43088de0f6bcf9868))
+
 ## [1.5.8](https://github.com/wearefrank/morcore2ultimo/compare/v1.5.7...v1.5.8) (2024-07-22)
 
 ### 🐛 Bug Fixes
