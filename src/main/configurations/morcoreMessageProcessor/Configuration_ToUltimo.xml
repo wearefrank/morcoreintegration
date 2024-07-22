@@ -112,10 +112,7 @@
             <PutSystemDateInSessionPipe name="StoreSystemDate" />
 
             <SenderPipe name="RequestMeldingInfo">
-                <IbisLocalSender name="RequestGetMelding" javaListener="MorCore_GetMelding">
-                    <Param name="meldingUuid"
-                        xpathExpression="substring-after(//melding, '${MorCore.taak.API.root-url}api/v1/melding/')" />
-                </IbisLocalSender>
+                <IbisLocalSender name="RequestGetMelding" javaListener="MorCore_GetMelding"/>
                 <Forward name="success" path="MakeMeldingInfoXML" />
                 <Forward name="exception" path="exception" />
             </SenderPipe>
