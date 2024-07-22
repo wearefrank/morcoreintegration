@@ -23,7 +23,7 @@
             <SenderPipe name="Send2MorCore" getInputFromSessionKey="originalMessage">
                 <HttpSender name="Send2MorCore" methodType="GET" headersParams="Authorization" />
                 <Param name="url" xpathExpression="//melding" />
-                <Param name="Authorization" xpathExpression="concat('Token: ', $MorCoreToken)">
+                <Param name="Authorization" xpathExpression="concat('Token ', $MorCoreToken)">
                     <Param name="MorCoreToken" sessionKey="MorCoreToken" xpathExpression="//token" />
                 </Param>
                 <Forward name="success" path="Json2Xml" />
@@ -102,7 +102,7 @@
                     xpathExpression="//meldingUuid" />
                 <Param name="url"
                     value="${MorCore.taak.API.root-url}/api/v1/melding/${meldingUuid}/taakopdracht" />
-                <Param name="Authorization" xpathExpression="concat('Token: ', $MorCoreToken)">
+                <Param name="Authorization" xpathExpression="concat('Token ', $MorCoreToken)">
                     <Param name="MorCoreToken" sessionKey="MorCoreToken" xpathExpression="//token" />
                 </Param>
                 <Forward name="success" path="Json2Xml" />
@@ -197,7 +197,7 @@
                     xpathExpression="concat('${MorCore.taak.API.root-url}/api/v1/melding/', $uuid)">
                     <Param name="uuid" sessionKey="uuid" />
                 </Param>
-                <Param name="Authorization" xpathExpression="concat('Token: ', $MorCoreToken)">
+                <Param name="Authorization" xpathExpression="concat('Token ', $MorCoreToken)">
                     <Param name="MorCoreToken" sessionKey="MorCoreToken" xpathExpression="//token" />
                 </Param>
                 <Forward name="success" path="Json2Xml" />
