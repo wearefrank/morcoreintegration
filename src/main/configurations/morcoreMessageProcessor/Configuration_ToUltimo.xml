@@ -123,13 +123,8 @@
                 <Forward name="exception" path="exception" />
             </JsonPipe>
 
-            <SenderPipe name="RequestOpdrachtInfo" storeResultInSessionKey="opdrachtInfo">
-                <IbisLocalSender name="RequestGetMelding" javaListener="MorCore_GetTaakOpdracht">
-                    <Param name="meldingUuid"
-                        xpathExpression="substring-after(//melding, '${MorCore.taak.API.root-url}api/v1/api/v1/melding/')" />
-                    <Param name="opdrachtUuid"
-                        xpathExpression="substring-after(//taakopdracht, '/taakopdracht/')" />
-                </IbisLocalSender>
+            <SenderPipe name="RequestOpdrachtInfo" storeResultInSessionKey="opdrachtInfo" getInputFromSessionKey="originalMessage">
+                <IbisLocalSender name="RequestGetMelding" javaListener="MorCore_GetTaakOpdracht"/>
                 <Forward name="success" path="MakeOpdrachtInfoXML" />
                 <Forward name="exception" path="exception" />
             </SenderPipe>

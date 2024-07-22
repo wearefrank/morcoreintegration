@@ -98,10 +98,7 @@
 
             <SenderPipe name="Send2MorCore" getInputFromSessionKey="originalMessage">
                 <HttpSender name="Send2MorCore" methodType="GET" headersParams="Authorization" />
-                <Param name="meldingUuid" sessionKey="originalMessage"
-                    xpathExpression="//meldingUuid" />
-                <Param name="url"
-                    value="${MorCore.taak.API.root-url}/api/v1/melding/${meldingUuid}/taakopdracht" />
+                <Param name="url" xpathExpression="//taakopdracht" />
                 <Param name="Authorization" xpathExpression="concat('Token ', $MorCoreToken)">
                     <Param name="MorCoreToken" sessionKey="MorCoreToken" xpathExpression="//token" />
                 </Param>
