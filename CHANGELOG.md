@@ -1,5 +1,11 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.5.6](https://github.com/wearefrank/morcore2ultimo/compare/v1.5.5...v1.5.6) (2024-07-22)
+
+### 🐛 Bug Fixes
+
+* relocate source of URL ([a2a64e1](https://github.com/wearefrank/morcore2ultimo/commit/a2a64e192f2d053692db83229038bf5e4a58525f))
+
 ## [1.5.5](https://github.com/wearefrank/morcore2ultimo/compare/v1.5.4...v1.5.5) (2024-07-22)
 
 ### 🐛 Bug Fixes
