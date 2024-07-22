@@ -1,5 +1,16 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.5.5](https://github.com/wearefrank/morcore2ultimo/compare/v1.5.4...v1.5.5) (2024-07-22)
+
+### 🐛 Bug Fixes
+
+* auth header incorrectly formatted ([2d7ec44](https://github.com/wearefrank/morcore2ultimo/commit/2d7ec4462817849107859dd0889dd7ba143c1d45))
+* morcore url not resolving correctly ([8f8a01c](https://github.com/wearefrank/morcore2ultimo/commit/8f8a01c15e62be10a9707b7938153f4b17da78c8))
+
+### 🧑‍💻 Code Refactoring
+
+* remove excess param ([7b7b896](https://github.com/wearefrank/morcore2ultimo/commit/7b7b8966df0e1c20f1d6e87f8fbcac06c30def39))
+
 ## [1.5.4](https://github.com/wearefrank/morcore2ultimo/compare/v1.5.3...v1.5.4) (2024-07-22)
 
 ### 🐛 Bug Fixes
