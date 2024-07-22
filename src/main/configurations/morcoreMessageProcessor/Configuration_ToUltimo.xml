@@ -164,7 +164,7 @@
                     headersParams="ApiKey,ApplicationElementId">
                     <Param name="Accept-Crs" value="EPSG:4326" />
                     <Param name="Content-Crs" value="EPSG:4326" />
-                    <Param name="url" value="${Ultimo.Ultimo.root-url}/zaken" />
+                    <Param name="url" value="${Ultimo.root-url}/zaken" />
                     <Param name="ApiKey" authAlias="Ultimo" pattern="{username}" />
                     <Param name="ApplicationElementId" authAlias="Ultimo" pattern="{password}" />
                 </HttpSender>
