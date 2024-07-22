@@ -1,5 +1,22 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.5.10](https://github.com/wearefrank/morcore2ultimo/compare/v1.5.9...v1.5.10) (2024-07-22)
+
+### 🐛 Bug Fixes
+
+* incorrect URL XSLT declaration ([7f20fe5](https://github.com/wearefrank/morcore2ultimo/commit/7f20fe553574065dbf5a4745609f24bdea6d4ea2))
+* prevent error on empty input for Get_TaakOpdracht ([2d9a27b](https://github.com/wearefrank/morcore2ultimo/commit/2d9a27b2e334e0ea31d7c184eea73c82e5b9583b))
+* prevent error on empty request ([8937340](https://github.com/wearefrank/morcore2ultimo/commit/89373406901bb8f76f91133601a0efae7bf14822))
+
+### ✅ Tests
+
+* fix scenario 01 ([58fc49a](https://github.com/wearefrank/morcore2ultimo/commit/58fc49a694d0c7d78f4be4679e8660e4b11ba400))
+* fix scenario 07 ([555a169](https://github.com/wearefrank/morcore2ultimo/commit/555a16929add9c4eea0b535ff95e3b370a9a6692))
+* fix scenario 08 ([1cf735d](https://github.com/wearefrank/morcore2ultimo/commit/1cf735db4bbe381ae71340b64850d4b5be5e7ba0))
+* fix scenario 09 ([f4115cd](https://github.com/wearefrank/morcore2ultimo/commit/f4115cdba0f3713b2882f3286e6b9617f88f4d79))
+* fix test scenario 02 ([245f12f](https://github.com/wearefrank/morcore2ultimo/commit/245f12ff964b4a4247c716b4884dbe563111d334))
+* remove test scenario 10 ([529ee71](https://github.com/wearefrank/morcore2ultimo/commit/529ee7146e187d15f8840cdc56a7d2a12d7e00d7))
+
 ## [1.5.9](https://github.com/wearefrank/morcore2ultimo/compare/v1.5.8...v1.5.9) (2024-07-22)
 
 ### 🐛 Bug Fixes
