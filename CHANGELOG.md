@@ -1,5 +1,11 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.5.4](https://github.com/wearefrank/morcore2ultimo/compare/v1.5.3...v1.5.4) (2024-07-22)
+
+### 🐛 Bug Fixes
+
+* senderpipe not using auth as header ([3f2e54a](https://github.com/wearefrank/morcore2ultimo/commit/3f2e54aceb7e1671835cf2dc3bc6cbf7137333df))
+
 ## [1.5.3](https://github.com/wearefrank/morcore2ultimo/compare/v1.5.2...v1.5.3) (2024-07-16)
 
 ### 🐛 Bug Fixes
