@@ -1,5 +1,11 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.5.8](https://github.com/wearefrank/morcore2ultimo/compare/v1.5.7...v1.5.8) (2024-07-22)
+
+### 🐛 Bug Fixes
+
+* duplicate url naming reference ([d699384](https://github.com/wearefrank/morcore2ultimo/commit/d69938492acec785e14ba92d701f7cc7e81bde7e))
+
 ## [1.5.7](https://github.com/wearefrank/morcore2ultimo/compare/v1.5.6...v1.5.7) (2024-07-22)
 
 ### 🐛 Bug Fixes
