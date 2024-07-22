@@ -21,7 +21,7 @@
             </SenderPipe>
 
             <SenderPipe name="Send2MorCore" getInputFromSessionKey="originalMessage">
-                <HttpSender name="Send2MorCore" methodType="GET" />
+                <HttpSender name="Send2MorCore" methodType="GET" headersParams="Authorization"/>
                 <Param name="url"
                     xpathExpression="concat('${MorCore.taak.API.root-url}api/v1/melding/', $uuid)">
                     <Param name="uuid" sessionKey="uuid" />
@@ -100,7 +100,7 @@
             </SenderPipe>
 
             <SenderPipe name="Send2MorCore" getInputFromSessionKey="originalMessage">
-                <HttpSender name="Send2MorCore" methodType="GET" />
+                <HttpSender name="Send2MorCore" methodType="GET" headersParams="Authorization"/>
                 <Param name="meldingUuid" sessionKey="originalMessage"
                     xpathExpression="//meldingUuid" />
                 <Param name="url"
