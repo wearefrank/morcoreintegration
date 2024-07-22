@@ -238,6 +238,7 @@
 
             <XsltPipe name="CreateGetZaakRequest" styleSheetName="xsl/Ultimo/GetZaakResponse.xsl">
                 <Param name="currentDate" sessionKey="systemDate" />
+                <Param name="MorcoreRootURL" value="${MorCore.taak.API.root-url}"/> 
                 <Forward name="success" path="Xml2Json" />
                 <Forward name="exception" path="exception" />
             </XsltPipe>

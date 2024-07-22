@@ -3,6 +3,7 @@
     xmlns:xs="http://www.w3.org/2001/XMLSchema">
     <xsl:output method="xml" indent="yes" omit-xml-declaration="yes" />
     <xsl:param name="uuid" />
+    <xsl:param name="MorcoreRootURL" />
 
     <xsl:template match="/">
         <root>
@@ -20,7 +21,7 @@
                 </taaktype>
                 <melding>
                     <!-- TODO: See if Ultimo returns this after storing. -->
-                    <href>${MorCore.taak.API.root-url}api/v1/melding/1234-1234-1234</href>
+                    <href><xsl:value-of select="concat($MorcoreRootURL, 'api/v1/melding/1234-1234-1234')"/></href>
                 </melding>
                 <communcatie>
                     <!-- TODO: See if Ultimo returns this after storing. -->
