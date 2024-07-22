@@ -14,7 +14,7 @@
                 <Exit name="Reject" state="REJECTED" />
             </Exits>
 
-            <XsltPipe name="CreateTokenRequest" styleSheetName="xsl/MorCore/GetTokenRequest.xsl">
+            <XsltPipe name="CreateTokenRequest" getInputFromFixedValue="&lt;NoInput/>" styleSheetName="xsl/MorCore/GetTokenRequest.xsl">
                 <Param name="morcoreUsername" pattern="{username}" authAlias="moreCoreToken"
                     hidden="true" />
                 <Param name="morcorePassword" pattern="{password}" authAlias="moreCoreToken"

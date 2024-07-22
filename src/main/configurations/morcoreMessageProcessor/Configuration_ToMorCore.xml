@@ -20,7 +20,7 @@
                 <Forward name="exception" path="Exception" />
             </SenderPipe>
 
-            <SenderPipe name="Send2MorCore" getInputFromSessionKey="originalMessage">
+            <SenderPipe name="Send2MorCore" getInputFromFixedValue="&lt;NoInput/>">
                 <HttpSender name="Send2MorCore" methodType="GET" headersParams="Authorization" />
                 <Param name="url" xpathExpression="//melding" />
                 <Param name="Authorization" xpathExpression="concat('Token ', $MorCoreToken)">
