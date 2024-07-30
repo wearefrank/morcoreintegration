@@ -1,5 +1,11 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.5.11](https://github.com/wearefrank/morcore2ultimo/compare/v1.5.10...v1.5.11) (2024-07-30)
+
+### 🧑‍💻 Code Refactoring
+
+* remove leading slash in urls towards Ultimo ([f6097e5](https://github.com/wearefrank/morcore2ultimo/commit/f6097e559ad910b5695714580d1e46d75fd762d5))
+
 ## [1.5.10](https://github.com/wearefrank/morcore2ultimo/compare/v1.5.9...v1.5.10) (2024-07-22)
 
 ### 🐛 Bug Fixes
