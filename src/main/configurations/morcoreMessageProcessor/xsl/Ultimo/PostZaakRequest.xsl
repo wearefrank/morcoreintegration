@@ -9,52 +9,59 @@
     <xsl:param name="MorCoreRootUrl" />
 
     <xsl:template match="/">
+        <!-- Constructed based on the data in test scenario 7 and 8. -->
         <root>
             <!-- Consists of 7 numbers, required -->
             <meldingId>
-                <xsl:value-of select="substring-after($opdrachtInfo/root/_links/melding/href, concat($MorCoreRootUrl, 'melding/'))" />
+                <xsl:value-of select="$meldingInfo/root/uuid" />
             </meldingId>
             <!-- Required -->
             <behandelaar>MSB</behandelaar>
-            <!-- No spec -->
             <afdeling></afdeling>
-            <!-- No spec -->
             <opmerkingBehandelaar></opmerkingBehandelaar>
-            <!-- No spec -->
             <omschrijvingMelding>
-                <xsl:value-of select="//bericht" />
+                <xsl:value-of select="$meldingInfo//titel" />
             </omschrijvingMelding>
             <!-- Required, Format: YYYY-MM-DDTHH:MM:SSZ -->
             <datumMeldingUtc>
-                <xsl:value-of select="$systemDate" />
+                <xsl:value-of select="$meldingInfo/root/signalen_voor_melding/aangemaakt_op" />
             </datumMeldingUtc>
-            <!-- No spec -->
-            <emailMelder></emailMelder>
-            <!-- No spec -->
-            <telefoonMelder></telefoonMelder>
-            <!-- No spec -->
-            <adres></adres>
-            <!-- No spec -->
-            <plaatsbepaling></plaatsbepaling>
-            <!-- No spec -->
-            <onderwerpCode>
-                <xsl:value-of select="//taaktype" />
-            </onderwerpCode>
-            <!-- No spec -->
-            <onderwerpOmschrijving>stankoverlast</onderwerpOmschrijving>
+            <emailMelder>
+                <xsl:value-of select="$meldingInfo/root/signalen_voor_melding/melder/email" />
+            </emailMelder>
+            <telefoonMelder>
+                <xsl:value-of select="$meldingInfo/root/signalen_voor_melding/melder/telefoonnummer" />
+            </telefoonMelder>
+            <adres>
+                <xsl:value-of
+                    select="concat(
+                    $meldingInfo/root/signalen_voor_melding/locaties_voor_signaal/postcode , ' ', 
+                    $meldingInfo/root/signalen_voor_melding/locaties_voor_signaal/huisnummer)" />
+            </adres>
+            <plaatsbepaling>
+                <xsl:value-of select="$meldingInfo/root/signalen_voor_melding/locaties_voor_signaal/plaatsnaam" />
+            </plaatsbepaling>
+            <!-- Should pull from taaktypes? -->
+            <onderwerpCode></onderwerpCode>
+            <!-- Should pull from taaktypes? -->
+            <onderwerpOmschrijving></onderwerpOmschrijving>
             <!-- "Ja" or "Nee" -->
+            <!-- Source unknown -->
             <spoed>Nee</spoed>
-            <!-- Required, Must be a numeric value -->
-            <x>4.55368104026331</x>
-            <!-- Required, Must be a numeric value -->
-            <y>51.9322265279724</y>
-            <!-- No spec -->
+            <!-- Coordinates required, Must be a numeric value -->
+            <x>
+                <xsl:value-of
+                    select="$meldingInfo/root/signalen_voor_melding/locaties_voor_signaal/geometrie/coordinates[1]" />
+            </x>
+            <y>
+                <xsl:value-of
+                    select="$meldingInfo/root/signalen_voor_melding/locaties_voor_signaal/geometrie/coordinates[1]" />
+            </y>
+            
+            <!-- These 4 values might come from GetMeldingInfo -->
             <foto1></foto1>
-            <!-- Base64 string -->
             <foto1_filename></foto1_filename>
-            <!-- No spec -->
             <foto2></foto2>
-            <!-- Base64 string -->
             <foto2_filename></foto2_filename>
         </root>
     </xsl:template>

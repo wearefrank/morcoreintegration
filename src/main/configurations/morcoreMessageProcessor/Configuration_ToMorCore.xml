@@ -37,21 +37,9 @@
             </SenderPipe>
 
             <JsonPipe name="Json2Xml" prettyPrint="true">
-                <Forward name="success" path="CorrectFormat" />
+                <Forward name="success" path="Xml2Json" />
                 <Forward name="exception" path="Exception" />
             </JsonPipe>
-
-            <XsltPipe name="CorrectFormat" styleSheetName="xsl/TaakApi/GetNotification.xsl"
-                outputType="XML">
-                <Forward name="success" path="XmlCheck" />
-                <Forward name="exception" path="Exception" />
-            </XsltPipe>
-
-            <XmlValidatorPipe name="XmlCheck" schema="xsd/TaakApi/ValidateGetMelding.xsd"
-                root="root">
-                <Forward name="success" path="Xml2Json" />
-                <Forward name="failure" path="Reject" />
-            </XmlValidatorPipe>
 
             <JsonPipe name="Xml2Json" direction="XML2JSON">
                 <Forward name="success" path="Exit" />
