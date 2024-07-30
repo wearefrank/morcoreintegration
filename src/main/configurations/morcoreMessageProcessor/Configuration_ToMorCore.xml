@@ -46,22 +46,6 @@
                 <Forward name="exception" path="Exception" />
             </JsonPipe>
 
-            <!-- Possible config update: There is a inconsistency in the .json file and the .xml
-            file after internal transformation of the JsonXsltPipe and Json2XmlValidatorPipe.
-        UPDATE: JsonXsltPipe and Json2XmlValidatorPipe are broken in source code. Only update when source
-            code is fixed!
-
-        <JsonXsltPipe name="CorrectResponse" styleSheetName="xsl/TaakApi/GetNotification.xsl">
-            <Forward name="success" path="JsonValidator"/>
-            <Forward name="Exception" path="failure"/>
-        </JsonXsltPipe>
-
-        <Json2XmlValidatorPipe name="JsonValidator" schema="xsd/TaakApi/ValidateGetMelding.xsd"
-            root="root" inputFormatSessionKey="InputFormat" outputFormat="JSON">
-            <Forward name="success" path="Exit"/>
-            <Forward name="Exception" path="failure"/>
-        </Json2XmlValidatorPipe> -->
-
         </Pipeline>
     </Adapter>
 
@@ -122,23 +106,6 @@
                 <Forward name="success" path="Exit" />
                 <Forward name="exception" path="Exception" />
             </JsonPipe>
-
-            <!-- Possible config update: There is a inconsistency in the .json file and the .xml
-            file after internal transformation of the JsonXsltPipe and Json2XmlValidatorPipe. 
-        UPDATE: JsonXsltPipe and Json2XmlValidatorPipe are broken in source code. Only update when source
-            code is fixed!
-            
-            <JsonXsltPipe name="CorrectResponse" styleSheetName="xsl/TaakApi/GetNotificationTasks.xsl">
-            <Param name="MorCoreRootUrl" value="${MorCore.taak.API.root-url}"/>
-            <Forward name="success" path="JsonValidator"/>
-            <Forward name="failure" path="Exception"/>
-        </JsonXsltPipe>
-
-        <Json2XmlValidatorPipe name="JsonValidator" schema="xsd/TaakApi/ValidateGetMeldingTaak.xsd"
-            root="root" inputFormatSessionKey="InputFormat" outputFormat="JSON">
-            <Forward name="success" path="Exit"/>
-            <Forward name="failure" path="Exception"/>
-        </Json2XmlValidatorPipe>  -->
 
         </Pipeline>
     </Adapter>
