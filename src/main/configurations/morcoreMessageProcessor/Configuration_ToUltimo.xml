@@ -222,7 +222,7 @@
                     <Param
                         name="uuid" sessionKey="uuid" />
                     <Param name="url"
-                        value="${Ultimo.ESB.root-url}zaken/${uuid}" />
+                        value="${Ultimo.ESB.root-url}_REST_MSB_CreateJob/${uuid}" />
                 </HttpSender>
                 <Forward name="success" path="Json2XML" />
                 <Forward name="exception" path="exception" />
