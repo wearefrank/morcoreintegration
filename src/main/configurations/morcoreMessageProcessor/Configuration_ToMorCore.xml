@@ -89,7 +89,7 @@
                 <Forward name="exception" path="Exception" />
             </JsonPipe>
 
-            <XsltPipe name="CorrectFormat" styleSheetName="xsl/TaakApi/GetNotificationTasks.xsl"
+            <XsltPipe name="CorrectFormat" styleSheetName="xsl/TaakApi/CorrectGetTaakOpdrachtResponse.xsl"
                 outputType="XML">
                 <Param name="MorCoreRootUrl" value="${MorCore.taak.API.root-url}" />
                 <Forward name="success" path="XmlCheck" />
@@ -161,7 +161,7 @@
             </JsonPipe>
 
             <!-- TODO: Needs adjusting to PostTaak format -->
-            <XsltPipe name="CorrectFormat" styleSheetName="xsl/TaakApi/GetNotificationTasks.xsl"
+            <XsltPipe name="CorrectFormat" styleSheetName="xsl/TaakApi/CorrectPostZaakResponse.xsl"
                 outputType="XML">
                 <Param name="MorCoreRootUrl" value="${MorCore.taak.API.root-url}" />
                 <Forward name="success" path="XmlCheck" />
