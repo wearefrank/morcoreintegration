@@ -37,42 +37,14 @@
             </SenderPipe>
 
             <JsonPipe name="Json2Xml" prettyPrint="true">
-                <Forward name="success" path="CorrectFormat" />
+                <Forward name="success" path="Xml2Json" />
                 <Forward name="exception" path="Exception" />
             </JsonPipe>
-
-            <XsltPipe name="CorrectFormat" styleSheetName="xsl/TaakApi/GetNotification.xsl"
-                outputType="XML">
-                <Forward name="success" path="XmlCheck" />
-                <Forward name="exception" path="Exception" />
-            </XsltPipe>
-
-            <XmlValidatorPipe name="XmlCheck" schema="xsd/TaakApi/ValidateGetMelding.xsd"
-                root="root">
-                <Forward name="success" path="Xml2Json" />
-                <Forward name="failure" path="Reject" />
-            </XmlValidatorPipe>
 
             <JsonPipe name="Xml2Json" direction="XML2JSON">
                 <Forward name="success" path="Exit" />
                 <Forward name="exception" path="Exception" />
             </JsonPipe>
-
-            <!-- Possible config update: There is a inconsistency in the .json file and the .xml
-            file after internal transformation of the JsonXsltPipe and Json2XmlValidatorPipe.
-        UPDATE: JsonXsltPipe and Json2XmlValidatorPipe are broken in source code. Only update when source
-            code is fixed!
-
-        <JsonXsltPipe name="CorrectResponse" styleSheetName="xsl/TaakApi/GetNotification.xsl">
-            <Forward name="success" path="JsonValidator"/>
-            <Forward name="Exception" path="failure"/>
-        </JsonXsltPipe>
-
-        <Json2XmlValidatorPipe name="JsonValidator" schema="xsd/TaakApi/ValidateGetMelding.xsd"
-            root="root" inputFormatSessionKey="InputFormat" outputFormat="JSON">
-            <Forward name="success" path="Exit"/>
-            <Forward name="Exception" path="failure"/>
-        </Json2XmlValidatorPipe> -->
 
         </Pipeline>
     </Adapter>
@@ -117,7 +89,7 @@
                 <Forward name="exception" path="Exception" />
             </JsonPipe>
 
-            <XsltPipe name="CorrectFormat" styleSheetName="xsl/TaakApi/GetNotificationTasks.xsl"
+            <XsltPipe name="CorrectFormat" styleSheetName="xsl/TaakApi/CorrectGetTaakOpdrachtResponse.xsl"
                 outputType="XML">
                 <Param name="MorCoreRootUrl" value="${MorCore.taak.API.root-url}" />
                 <Forward name="success" path="XmlCheck" />
@@ -134,23 +106,6 @@
                 <Forward name="success" path="Exit" />
                 <Forward name="exception" path="Exception" />
             </JsonPipe>
-
-            <!-- Possible config update: There is a inconsistency in the .json file and the .xml
-            file after internal transformation of the JsonXsltPipe and Json2XmlValidatorPipe. 
-        UPDATE: JsonXsltPipe and Json2XmlValidatorPipe are broken in source code. Only update when source
-            code is fixed!
-            
-            <JsonXsltPipe name="CorrectResponse" styleSheetName="xsl/TaakApi/GetNotificationTasks.xsl">
-            <Param name="MorCoreRootUrl" value="${MorCore.taak.API.root-url}"/>
-            <Forward name="success" path="JsonValidator"/>
-            <Forward name="failure" path="Exception"/>
-        </JsonXsltPipe>
-
-        <Json2XmlValidatorPipe name="JsonValidator" schema="xsd/TaakApi/ValidateGetMeldingTaak.xsd"
-            root="root" inputFormatSessionKey="InputFormat" outputFormat="JSON">
-            <Forward name="success" path="Exit"/>
-            <Forward name="failure" path="Exception"/>
-        </Json2XmlValidatorPipe>  -->
 
         </Pipeline>
     </Adapter>
@@ -206,7 +161,7 @@
             </JsonPipe>
 
             <!-- TODO: Needs adjusting to PostTaak format -->
-            <XsltPipe name="CorrectFormat" styleSheetName="xsl/TaakApi/GetNotificationTasks.xsl"
+            <XsltPipe name="CorrectFormat" styleSheetName="xsl/TaakApi/CorrectPostZaakResponse.xsl"
                 outputType="XML">
                 <Param name="MorCoreRootUrl" value="${MorCore.taak.API.root-url}" />
                 <Forward name="success" path="XmlCheck" />
