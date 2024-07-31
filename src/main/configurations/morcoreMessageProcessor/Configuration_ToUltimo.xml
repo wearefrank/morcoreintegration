@@ -1,5 +1,6 @@
 <Module xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="../FrankConfig.xsd">
+
     <!-- Not used. Ultimo does not currently support DeleteZaak. -->
     <Adapter name="Ultimo_DeleteZaak">
         <Receiver name="Ultimo_DeleteZaak">
@@ -161,7 +162,7 @@
 
             <SenderPipe name="SendToUltimo">
                 <HttpSender name="SendToUltimo" methodType="POST" contentType="application/json"
-                    headersParams="ApiKey,ApplicationElementId">
+                headersParams="ApiKey,ApplicationElementId,Accept-Crs,Content-Crs">
                     <Param name="Accept-Crs" value="EPSG:4326" />
                     <Param name="Content-Crs" value="EPSG:4326" />
                     <Param name="url" value="${Ultimo.ESB.root-url}_REST_MSB_CreateJob" />
