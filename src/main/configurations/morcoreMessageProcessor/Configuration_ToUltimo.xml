@@ -147,7 +147,7 @@
                 <Param name="opdrachtInfo" sessionKey="opdrachtInfo" type="DOMDOC" />
             </XsltPipe>
 
-            <JsonPipe name="XmlToJson" direction="XML2JSON" storeResultInSessionKey="jsonMessage">
+            <JsonPipe name="XmlToJson" direction="XML2JSON" storeResultInSessionKey="jsonMessage" prettyPrint="true">
                 <Forward name="success" path="ChangeXYValueTypesSender" />
                 <Forward name="exception" path="exception" />
             </JsonPipe>
