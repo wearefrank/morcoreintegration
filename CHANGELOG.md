@@ -1,5 +1,20 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.6.0](https://github.com/wearefrank/morcore2ultimo/compare/v1.5.13...v1.6.0) (2024-07-31)
+
+### 🍕 Features
+
+* make PostZaak almost fully dynamic ([d2c3e2e](https://github.com/wearefrank/morcore2ultimo/commit/d2c3e2e8d4aa8f0fc013767a1943760c34a68d71))
+
+### 🐛 Bug Fixes
+
+* ultimo reporting characters after content ([d3cf357](https://github.com/wearefrank/morcore2ultimo/commit/d3cf35784878e552fddee896cdadd0e77b262566))
+
+### 🧑‍💻 Code Refactoring
+
+* clearer filenames ([804ea92](https://github.com/wearefrank/morcore2ultimo/commit/804ea92270ceabd0c3cb7b6625cf8ed8d1e75e88))
+* remove excess commentary ([2551fa1](https://github.com/wearefrank/morcore2ultimo/commit/2551fa133fea519bed8b4aceb5c62599e215e6b6))
+
 ## [1.5.13](https://github.com/wearefrank/morcore2ultimo/compare/v1.5.12...v1.5.13) (2024-07-30)
 
 ### 🐛 Bug Fixes
