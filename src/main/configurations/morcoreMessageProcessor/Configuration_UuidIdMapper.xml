@@ -1,0 +1,84 @@
+<Module xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../FrankConfig.xsd">
+
+    <Adapter name="Internal_GetUuidById">
+        <Receiver name="Internal_GetUuidById">
+            <JavaListener name="Internal_GetUuidById" />
+        </Receiver>
+
+        <Pipeline>
+            <Exits>
+                <Exit name="Exit" state="SUCCESS" />
+                <Exit name="Reject" state="REJECTED" />
+                <Exit name="Exception" state="ERROR" />
+            </Exits>
+
+            <SenderPipe name="RetrieveUuid">
+                <FixedQuerySender
+                    name="RetrieveUuid"
+                    query="SELECT uuid FROM UUIDIDMAP WHERE id = ?{Id}"
+                    queryType="SELECT"> <!-- TODO: save for sql injection? -->
+                    <Param name="Id" sessionKey="Id" />
+                </FixedQuerySender>
+            </SenderPipe>
+
+            <XsltPipe name="GetUuidValue" xpathExpression="//row[1]/field[1]" />
+
+            <Text2XmlPipe xmlTag="uuid" name="Text2Xml" />
+
+        </Pipeline>
+    </Adapter>
+
+    <Adapter name="Internal_GetIdByUuid">
+        <Receiver name="Internal_GetIdByUuid">
+            <JavaListener name="Internal_GetIdByUuid" />
+        </Receiver>
+
+        <Pipeline>
+            <Exits>
+                <Exit name="Exit" state="SUCCESS" />
+                <Exit name="Reject" state="REJECTED" />
+                <Exit name="Exception" state="ERROR" />
+            </Exits>
+
+            <SenderPipe name="RetrieveId">
+                <FixedQuerySender
+                    name="RetrieveId"
+                    query="SELECT id FROM UUIDIDMAP WHERE uuid = ?{Uuid}"
+                    queryType="SELECT"> <!-- TODO: save for sql injection? -->
+                    <Param name="Uuid" sessionKey="Uuid" />
+                </FixedQuerySender>
+            </SenderPipe>
+
+            <XsltPipe name="GetIdValue" xpathExpression="//row[1]/field[1]" />
+
+            <Text2XmlPipe xmlTag="id" name="Text2Xml" />
+
+        </Pipeline>
+    </Adapter>
+
+    <Adapter name="Internal_SaveIdByUuid">
+        <Receiver name="Internal_SaveIdByUuid">
+            <JavaListener name="Internal_SaveIdByUuid" />
+        </Receiver>
+
+        <Pipeline>
+            <Exits>
+                <Exit name="Exit" state="SUCCESS" />
+                <Exit name="Reject" state="REJECTED" />
+                <Exit name="Exception" state="ERROR" />
+            </Exits>
+
+            <SenderPipe name="SaveUuidIdMapping">
+                <FixedQuerySender
+                    name="SaveUuidIdMapping"
+                    query="INSERT INTO UUIDIDMAP (id, uuid) VALUES (?{Id}, ?{Uuid})"
+                    queryType="OTHER"> <!-- TODO: save for sql injection? -->
+                    <Param name="Id" sessionKey="Id" />
+                    <Param name="Uuid" sessionKey="Uuid" />
+                </FixedQuerySender>
+            </SenderPipe>
+        </Pipeline>
+    </Adapter>
+
+</Module>

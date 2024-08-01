@@ -26,8 +26,17 @@
                 <Param name="Authorization" xpathExpression="concat('Token ', $MorCoreToken)">
                     <Param name="MorCoreToken" sessionKey="MorCoreToken" xpathExpression="//token" />
                 </Param>
-                <Forward name="success" path="Json2Xml" />
+                <Forward name="success" path="SaveUuidIdMapping" />
                 <Forward name="exception" path="CallMSBSender" />
+            </SenderPipe>
+
+            <SenderPipe name="SaveUuidIdMapping">
+                <IbisLocalSender javaListener="Internal_SaveIdByUuid">
+                    <!-- TODO: klopt deze mapping? -->
+                    <Param name="Uuid" xpathExpression="//uuid" type="STRING" />
+                    <Param name="Id" xpathExpression="//id" type="INTEGER" />
+                </IbisLocalSender>
+                <Forward name="success" path="Json2Xml" />
             </SenderPipe>
 
             <SenderPipe name="CallMSBSender">
