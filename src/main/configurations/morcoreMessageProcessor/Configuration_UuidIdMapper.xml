@@ -57,9 +57,9 @@
         </Pipeline>
     </Adapter>
 
-    <Adapter name="Internal_SaveIdByUuid">
-        <Receiver name="Internal_SaveIdByUuid">
-            <JavaListener name="Internal_SaveIdByUuid" />
+    <Adapter name="Internal_StoreUuidIdMapping">
+        <Receiver name="Internal_StoreUuidIdMapping">
+            <JavaListener name="Internal_StoreUuidIdMapping" />
         </Receiver>
 
         <Pipeline>
@@ -69,16 +69,18 @@
                 <Exit name="Exception" state="ERROR" />
             </Exits>
 
-            <SenderPipe name="SaveUuidIdMapping">
+            <SenderPipe name="StoreUuidIdMapping">
                 <FixedQuerySender
-                    name="SaveUuidIdMapping"
-                    query="INSERT INTO UUIDIDMAP (id, uuid) VALUES (?{Id}, ?{Uuid})"
-                    queryType="OTHER"> <!-- TODO: save for sql injection? -->
-                    <Param name="Id" sessionKey="Id" />
-                    <Param name="Uuid" sessionKey="Uuid" />
+                    name="StoreUuidIdMapping"
+                    query="INSERT INTO UUIDIDMAP (id, uuid) VALUES (?{Id}, ?{Uuid}) ON CONFLICT DO UPDATE"
+                    queryType="OTHER">
+                    <Param name="Id" xpathExpression="/root/id" type="INTEGER"/>
+                    <Param name="Uuid" xpathExpression="/root/uuid" type="STRING" />
                 </FixedQuerySender>
+                <Forward name="success" path="Exit" />
+                <Forward name="exception" path="Exception" />
             </SenderPipe>
         </Pipeline>
     </Adapter>
-
+    
 </Module>
