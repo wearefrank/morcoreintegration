@@ -69,7 +69,7 @@
                 <IbisLocalSender javaListener="Internal_StoreUuidIdMapping"/>
             </SenderPipe>
 
-            <SenderPipe name="SendToUltimo">
+            <SenderPipe name="SendToUltimo" getInputFromSessionKey="jsonMessage">
                 <HttpSender name="SendToUltimo" methodType="POST" contentType="application/json"
                 headersParams="ApiKey,ApplicationElementId,Accept-Crs,Content-Crs">
                     <Param name="Accept-Crs" value="EPSG:4326" />
