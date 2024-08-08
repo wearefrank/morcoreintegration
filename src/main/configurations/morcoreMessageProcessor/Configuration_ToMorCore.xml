@@ -16,6 +16,8 @@
 
             <SenderPipe name="CallMorCore_GetToken" storeResultInSessionKey="MorCoreToken">
                 <IbisLocalSender name="CallMorCore_GetToken" javaListener="MorCore_GetToken" />
+                <Forward name="success" path="Send2MorCore" />
+                <Forward name="exception" path="Exception" />
             </SenderPipe>
 
             <SenderPipe name="Send2MorCore" getInputFromSessionKey="originalMessage" emptyInputReplacement="&lt;NoInput/>">
@@ -30,11 +32,19 @@
 
             <SenderPipe name="CallMSBSender">
                 <IbisLocalSender name="CallMSBSender" javaListener="MSB_GetMelding" />
+                <Forward name="success" path="Json2Xml" />
+                <Forward name="exception" path="Exception" />
             </SenderPipe>
 
-            <JsonPipe name="Json2Xml" prettyPrint="true"/>
+            <JsonPipe name="Json2Xml" prettyPrint="true">
+                <Forward name="success" path="Xml2Json" />
+                <Forward name="exception" path="Exception" />
+            </JsonPipe>
 
-            <JsonPipe name="Xml2Json" direction="XML2JSON"/>
+            <JsonPipe name="Xml2Json" direction="XML2JSON">
+                <Forward name="success" path="Exit" />
+                <Forward name="exception" path="Exception" />
+            </JsonPipe>
 
         </Pipeline>
     </Adapter>
@@ -54,6 +64,8 @@
 
             <SenderPipe name="CallMorCore_GetToken" storeResultInSessionKey="MorCoreToken">
                 <IbisLocalSender name="CallMorCore_GetToken" javaListener="MorCore_GetToken" />
+                <Forward name="success" path="Send2MorCore" />
+                <Forward name="exception" path="Exception" />
             </SenderPipe>
 
             <SenderPipe name="Send2MorCore" getInputFromSessionKey="originalMessage" emptyInputReplacement="&lt;NoInput/>">
@@ -68,13 +80,20 @@
 
             <SenderPipe name="CallMSBSender">
                 <IbisLocalSender name="CallMSBSender" javaListener="MSB_GetMelding" />
+                <Forward name="success" path="Json2Xml" />
+                <Forward name="exception" path="Exception" />
             </SenderPipe>
 
-            <JsonPipe name="Json2Xml" prettyPrint="true"/>
+            <JsonPipe name="Json2Xml" prettyPrint="true">
+                <Forward name="success" path="CorrectFormat" />
+                <Forward name="exception" path="Exception" />
+            </JsonPipe>
 
             <XsltPipe name="CorrectFormat" styleSheetName="xsl/TaakApi/CorrectGetTaakOpdrachtResponse.xsl"
                 outputType="XML">
                 <Param name="MorCoreRootUrl" value="${MorCore.taak.API.root-url}" />
+                <Forward name="success" path="XmlCheck" />
+                <Forward name="exception" path="Exception" />
             </XsltPipe>
 
             <XmlValidatorPipe name="XmlCheck" schema="xsd/TaakApi/ValidateGetMeldingTaak.xsd"
@@ -83,7 +102,10 @@
                 <Forward name="failure" path="Reject" />
             </XmlValidatorPipe>
 
-            <JsonPipe name="Xml2Json" direction="XML2JSON"/>
+            <JsonPipe name="Xml2Json" direction="XML2JSON">
+                <Forward name="success" path="Exit" />
+                <Forward name="exception" path="Exception" />
+            </JsonPipe>
 
         </Pipeline>
     </Adapter>
