@@ -8,8 +8,20 @@
         http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
     <changeSet id="0" author="Delano">
         <createTable tableName="TOKENSTORE">
-            <column name="id" type="int"/>  
+            <column name="id" type="int"/>
             <column name="token" type="varchar(255)"/>
         </createTable>
+    </changeSet>
+    <changeSet id="1" author="Maarten">
+        <createTable tableName="UUIDIDMAP">
+            <column name="id" type="int"/>
+            <column name="uuid" type="varchar(255)">
+                <constraints primaryKey="true" nullable="false" primaryKeyName="PK_UUIDIDMAP" />    
+            </column>
+        </createTable>
+
+        <addUniqueConstraint columnNames="id"
+                         constraintName="UK_UUIDIDMAP_ID"
+                         tableName="UUIDIDMAP"/>
     </changeSet>
 </databaseChangeLog>

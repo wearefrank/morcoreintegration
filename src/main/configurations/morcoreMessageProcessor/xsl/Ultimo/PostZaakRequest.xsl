@@ -13,7 +13,7 @@
         <root>
             <!-- Consists of 7 numbers, required -->
             <meldingId>
-                <xsl:value-of select="$meldingInfo/root/uuid" />
+                <xsl:value-of select="$meldingInfo/root/id" />
             </meldingId>
             <!-- Required -->
             <behandelaar>MSB</behandelaar>
@@ -35,7 +35,7 @@
             <adres>
                 <xsl:value-of
                     select="concat(
-                    $meldingInfo/root/signalen_voor_melding/locaties_voor_signaal/postcode , ' ', 
+                    $meldingInfo/root/signalen_voor_melding/locaties_voor_signaal/postcode , ' ',
                     $meldingInfo/root/signalen_voor_melding/locaties_voor_signaal/huisnummer)" />
             </adres>
             <plaatsbepaling>
@@ -57,7 +57,7 @@
                 <xsl:value-of
                     select="$meldingInfo/root/signalen_voor_melding/locaties_voor_signaal/geometrie/coordinates[1]" />
             </y>
-            
+
             <!-- These 4 values might come from GetMeldingInfo -->
             <foto1></foto1>
             <foto1_filename></foto1_filename>

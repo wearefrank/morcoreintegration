@@ -5,6 +5,7 @@
 	<!ENTITY FromUltimo SYSTEM "./Configuration_FromUltimo.xml">
 	<!ENTITY ToMSB SYSTEM "./Configuration_ToMSB.xml">
 	<!ENTITY TokenManager SYSTEM "./Configuration_TokenManager.xml">
+	<!ENTITY UuidIdMapper SYSTEM "./Configuration_UuidIdMapper.xml">
 ]>
 
 <Configuration name="morcoreMessageProcessor">
@@ -14,4 +15,5 @@
 	&FromUltimo;
 	&ToMSB;
 	&TokenManager;
+	&UuidIdMapper;
 </Configuration>
