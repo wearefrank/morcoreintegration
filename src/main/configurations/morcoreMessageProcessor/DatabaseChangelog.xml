@@ -19,5 +19,9 @@
                 <constraints primaryKey="true" nullable="false" primaryKeyName="PK_UUIDIDMAP" />    
             </column>
         </createTable>
+
+        <addUniqueConstraint columnNames="id"
+                         constraintName="UK_UUIDIDMAP_ID"
+                         tableName="UUIDIDMAP"/>
     </changeSet>
 </databaseChangeLog>

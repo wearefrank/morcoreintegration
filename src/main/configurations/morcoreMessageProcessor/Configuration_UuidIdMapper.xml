@@ -69,10 +69,25 @@
                 <Exit name="Exception" state="ERROR" />
             </Exits>
 
-            <SenderPipe name="StoreUuidIdMapping">
+            <SenderPipe name="GetUuidIdMapping" >
+                <FixedQuerySender
+                    name="GetUuidIdMapping"
+                    query="SELECT * FROM UUIDIDMAP WHERE UUID = ?{Uuid} OR ID = ?{Id}"
+                    queryType="SELECT">
+                    <Param name="Id" xpathExpression="/root/id" type="INTEGER"/>
+                    <Param name="Uuid" xpathExpression="/root/uuid" type="STRING" />
+                </FixedQuerySender>
+            </SenderPipe>
+
+            <XmlIfPipe name="IfResultCount0" xpathExpression="count(//row) > 0">
+                <Forward name="then" path="RecordAlreadyExists" />
+                <Forward name="else" path="StoreUuidIdMapping" />
+            </XmlIfPipe>
+
+            <SenderPipe name="StoreUuidIdMapping" getInputFromSessionKey="originalMessage">
                 <FixedQuerySender
                     name="StoreUuidIdMapping"
-                    query="INSERT INTO UUIDIDMAP (id, uuid) VALUES (?{Id}, ?{Uuid}) ON CONFLICT DO UPDATE"
+                    query="INSERT INTO UUIDIDMAP (id, uuid) VALUES (?{Id}, ?{Uuid})"
                     queryType="OTHER">
                     <Param name="Id" xpathExpression="/root/id" type="INTEGER"/>
                     <Param name="Uuid" xpathExpression="/root/uuid" type="STRING" />
@@ -80,7 +95,9 @@
                 <Forward name="success" path="Exit" />
                 <Forward name="exception" path="Exception" />
             </SenderPipe>
+
+            <FixedResultPipe name="RecordAlreadyExists" returnString="&lt;result>Record already exists&lt;/result>"/>
         </Pipeline>
     </Adapter>
-    
+
 </Module>
