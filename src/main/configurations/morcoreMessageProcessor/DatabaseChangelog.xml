@@ -15,7 +15,9 @@
     <changeSet id="1" author="Maarten">
         <createTable tableName="UUIDIDMAP">
             <column name="id" type="int"/>
-            <column name="uuid" type="varchar(255)"/>
+            <column name="uuid" type="varchar(255)">
+                <constraints primaryKey="true" nullable="false" primaryKeyName="PK_UUIDIDMAP" />    
+            </column>
         </createTable>
     </changeSet>
 </databaseChangeLog>
