@@ -1,5 +1,22 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.6.2](https://github.com/wearefrank/morcore2ultimo/compare/v1.6.1...v1.6.2) (2024-08-08)
+
+### 🐛 Bug Fixes
+
+* correct input with sessionkey ([22d718b](https://github.com/wearefrank/morcore2ultimo/commit/22d718bbf4d8a90ae25cc88f3c4081a781990929))
+
+### 🧑‍💻 Code Refactoring
+
+* add duplication prevention to database ([ba10a37](https://github.com/wearefrank/morcore2ultimo/commit/ba10a37e90e43b53908cfce2203e4e7be75dc807))
+* add uuid storing ([10e87be](https://github.com/wearefrank/morcore2ultimo/commit/10e87be35b6029d76cafb06a83c1c0b341527972))
+* set database primary key ([c901c34](https://github.com/wearefrank/morcore2ultimo/commit/c901c345d5a14ae7a1e05cc9a3ea01d92ca6e68f))
+* set success forward on Send2MorCore to Json2XML ([12847f8](https://github.com/wearefrank/morcore2ultimo/commit/12847f8a31a98e3e9559116b11ff70c7875de966))
+
+### ✅ Tests
+
+* update test 01 ([c9bb777](https://github.com/wearefrank/morcore2ultimo/commit/c9bb7770cdfac474ab0954c5851af3de39d7b9b3))
+
 ## [1.6.1](https://github.com/wearefrank/morcore2ultimo/compare/v1.6.0...v1.6.1) (2024-07-31)
 
 ### 🧑‍💻 Code Refactoring
