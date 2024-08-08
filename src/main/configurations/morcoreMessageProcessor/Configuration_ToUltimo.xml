@@ -1,6 +1,101 @@
 <Module xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="../FrankConfig.xsd">
 
+    <!-- Not used. Ultimo does not currently support DeleteZaak. -->
+    <Adapter name="Ultimo_DeleteZaak">
+        <Receiver name="Ultimo_DeleteZaak">
+            <JavaListener name="Ultimo_DeleteZaak" />
+        </Receiver>
+
+        <Pipeline>
+            <Exits>
+                <Exit name="Exit" state="SUCCESS" code="201" />
+                <Exit name="BadRequest" state="ERROR" code="400" />
+                <Exit name="Forbidden" state="ERROR" code="403" />
+                <Exit name="Conflict" state="ERROR" code="409" />
+                <Exit name="ServerError" state="ERROR" code="500" />
+            </Exits>
+
+            <PutSystemDateInSessionPipe name="StoreSystemDate">
+                <Forward name="success" path="StoreToelichting" />
+                <Forward name="exception" path="exception" />
+            </PutSystemDateInSessionPipe>
+
+            <XsltPipe name="StoreToelichting" getInputFromSessionKey="originalMessage"
+                xpathExpression="//reden" storeResultInSessionKey="toelichtingHeader">
+                <Forward name="success" path="RequestGetMelding" />
+                <Forward name="exception" path="exception" />
+            </XsltPipe>
+
+            <!-- TODO: Currently, this sender exists to ask for extra info regarding the zaak in
+            question. Need to investigate if MorCore stores info. Potentially add the uuid as a param to the
+            senderpipe.
+            However, it is unclear whether MorCore stores any information relating to the case in the storage
+            application (Ultimo).
+            If MorCore does not store any information or references, we are unable to link their delete request
+            to a specific case. -->
+            <SenderPipe name="RequestGetMelding" getInputFromSessionKey="originalMessage">
+                <IbisLocalSender name="RequestGetMelding" javaListener="MorCore_GetMelding" />
+                <Forward name="success" path="Json2Xml" />
+                <Forward name="exception" path="exception" />
+            </SenderPipe>
+
+            <JsonPipe name="Json2Xml" prettyPrint="true">
+                <Forward name="success" path="StoreUltimoReference" />
+                <Forward name="exception" path="Exception" />
+            </JsonPipe>
+
+            <XsltPipe name="StoreUltimoReference" xpathExpression="//self/href"
+                storeResultInSessionKey="UltimoReference">
+                <Forward name="success" path="CreateDeleteZaakRequest" />
+                <Forward name="exception" path="exception" />
+            </XsltPipe>
+
+            <XsltPipe name="CreateDeleteZaakRequest" getInputFromSessionKey="originalMessage"
+                styleSheetName="xsl/Ultimo/DeleteZaakRequest.xsl">
+                <Param name="UltimoReference" sessionKey="UltimoReference" />
+                <Param name="currentDate" sessionKey="systemDate" />
+                <Forward name="success" path="XmlToJson" />
+                <Forward name="exception" path="exception" />
+            </XsltPipe>
+
+            <JsonPipe name="XmlToJson" direction="XML2JSON">
+                <Forward name="success" path="SendToUltimo" />
+                <Forward name="exception" path="exception" />
+            </JsonPipe>
+
+            <SenderPipe name="SendToUltimo">
+                <HttpSender name="SendToUltimo" methodType="POST" contentType="application/json"
+                    headersParams="X-Audit-Toelichting">
+                    <Param name="X-Audit-Toelichting" sessionKey="toelichtingHeader" />
+                    <Param name="url" value="${Ultimo.ESB.root-url}statussen" />
+                </HttpSender>
+                <Forward name="success" path="Exit" />
+                <Forward name="exception" path="exception" />
+                <Forward name="timeout" path="timeout" />
+                <Forward name="illegalResult" path="illegalResult" />
+                <Forward name="interrupt" path="interrupt" />
+            </SenderPipe>
+
+            <FixedResultPipe name="exception" filename="ErrorResponses/BadRequest.json">
+                <Forward name="success" path="BadRequest" />
+            </FixedResultPipe>
+
+            <FixedResultPipe name="timeout" filename="ErrorResponses/ServerError.json">
+                <Forward name="success" path="ServerError" />
+            </FixedResultPipe>
+
+            <FixedResultPipe name="illegalResult" filename="ErrorResponses/Forbidden.json">
+                <Forward name="success" path="Forbidden" />
+            </FixedResultPipe>
+
+            <FixedResultPipe name="interrupt" filename="ErrorResponses/Conflict.json">
+                <Forward name="success" path="Conflict" />
+            </FixedResultPipe>
+
+        </Pipeline>
+    </Adapter>
+
     <Adapter name="Ultimo_PostZaak">
         <Receiver name="Ultimo_PostZaak">
             <JavaListener name="Ultimo_PostZaak" />
@@ -84,6 +179,79 @@
                 <Forward name="illegalResult" path="illegalResult" />
                 <Forward name="interrupt" path="interrupt" />
             </SenderPipe>
+
+            <FixedResultPipe name="exception" filename="ErrorResponses/BadRequest.json">
+                <Forward name="success" path="BadRequest" />
+            </FixedResultPipe>
+
+            <FixedResultPipe name="timeout" filename="ErrorResponses/ServerError.json">
+                <Forward name="success" path="ServerError" />
+            </FixedResultPipe>
+
+            <FixedResultPipe name="illegalResult" filename="ErrorResponses/Forbidden.json">
+                <Forward name="success" path="Forbidden" />
+            </FixedResultPipe>
+
+            <FixedResultPipe name="interrupt" filename="ErrorResponses/Conflict.json">
+                <Forward name="success" path="Conflict" />
+            </FixedResultPipe>
+
+        </Pipeline>
+    </Adapter>
+
+    <!-- Not used. Ultimo does not currently support GetZaak. -->
+    <Adapter name="Ultimo_GetZaak">
+        <Receiver name="Ultimo_GetZaak">
+            <JavaListener name="Ultimo_GetZaak" />
+        </Receiver>
+
+        <Receiver name="Ultimo_GetZaak_Internal">
+            <JavaListener name="Ultimo_GetZaak_Internal" />
+        </Receiver>
+
+        <Pipeline>
+            <Exits>
+                <Exit name="Exit" state="SUCCESS" code="200" />
+                <Exit name="BadRequest" state="ERROR" code="400" />
+                <Exit name="Forbidden" state="ERROR" code="403" />
+                <Exit name="Conflict" state="ERROR" code="409" />
+                <Exit name="ServerError" state="ERROR" code="500" />
+            </Exits>
+
+            <SenderPipe name="SendToUltimo">
+                <HttpSender name="SendToUltimo" methodType="GET"
+                    headersParams="ApiKey,ApplicationElementId">
+                    <Param name="Accept-Crs"
+                        value="EPSG:4326" />
+                    <Param name="Content-Crs" value="EPSG:4326" />
+                    <Param
+                        name="uuid" sessionKey="uuid" />
+                    <Param name="url"
+                        value="${Ultimo.ESB.root-url}_REST_MSB_CreateJob/${uuid}" />
+                </HttpSender>
+                <Forward name="success" path="Json2XML" />
+                <Forward name="exception" path="exception" />
+                <Forward name="timeout" path="timeout" />
+                <Forward name="illegalResult" path="illegalResult" />
+                <Forward name="interrupt" path="interrupt" />
+            </SenderPipe>
+
+            <JsonPipe name="Json2XML">
+                <Forward name="success" path="CreateGetZaakRequest" />
+                <Forward name="exception" path="exception" />
+            </JsonPipe>
+
+            <XsltPipe name="CreateGetZaakRequest" styleSheetName="xsl/Ultimo/GetZaakResponse.xsl">
+                <Param name="currentDate" sessionKey="systemDate" />
+                <Param name="MorcoreRootURL" value="${MorCore.taak.API.root-url}"/> 
+                <Forward name="success" path="Xml2Json" />
+                <Forward name="exception" path="exception" />
+            </XsltPipe>
+
+            <JsonPipe name="Xml2Json" direction="XML2JSON">
+                <Forward name="success" path="Exit" />
+                <Forward name="exception" path="exception" />
+            </JsonPipe>
 
             <FixedResultPipe name="exception" filename="ErrorResponses/BadRequest.json">
                 <Forward name="success" path="BadRequest" />
