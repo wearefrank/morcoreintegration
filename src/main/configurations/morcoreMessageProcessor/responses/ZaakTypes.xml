@@ -11,6 +11,10 @@
         <omschrijving>Rioolaansluiting verstopping</omschrijving>
         <toelichting>Rioolaansluiting verstopping</toelichting>
         <additionele_informatie />
+        <extra>
+            <ultimoOnderwerpCode>12166</ultimoOnderwerpCode>
+            <ultimoOnderwerpOmschrijving>Rioolaansluiting (verstopping)</ultimoOnderwerpOmschrijving>
+        </extra>
     </results>
     <results>
         <_links>
@@ -20,6 +24,10 @@
         <omschrijving>Hoofdriool</omschrijving>
         <toelichting>Hoofdriool</toelichting>
         <additionele_informatie />
+        <extra>
+            <ultimoOnderwerpCode>12164</ultimoOnderwerpCode>
+            <ultimoOnderwerpOmschrijving>hoofdriool</ultimoOnderwerpOmschrijving>
+        </extra>
     </results>
     <results>
         <_links>
@@ -29,6 +37,10 @@
         <omschrijving>Stankoverlast</omschrijving>
         <toelichting>Stankoverlast</toelichting>
         <additionele_informatie />
+        <extra>
+            <ultimoOnderwerpCode>12165</ultimoOnderwerpCode>
+            <ultimoOnderwerpOmschrijving>stankoverlast</ultimoOnderwerpOmschrijving>
+        </extra>
     </results>
     <results>
         <_links>
@@ -38,5 +50,9 @@
         <omschrijving>Straatkolk verstopt</omschrijving>
         <toelichting>Straatkolk verstopt</toelichting>
         <additionele_informatie />
+        <extra>
+            <ultimoOnderwerpCode>12165</ultimoOnderwerpCode>
+            <ultimoOnderwerpOmschrijving>straatkolk (verstopt)</ultimoOnderwerpOmschrijving>
+        </extra>
     </results>
 </root>

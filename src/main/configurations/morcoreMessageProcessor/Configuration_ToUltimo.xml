@@ -120,6 +120,19 @@
 
             <JsonPipe name="MakeMeldingInfoXML" direction="JSON2XML"
                 storeResultInSessionKey="meldingInfo">
+                <Forward name="success" path="GetTaakType" />
+                <Forward name="exception" path="exception" />
+            </JsonPipe>
+
+            <SenderPipe name="GetTaakType" getInputFromSessionKey="originalMessage">
+                <IbisLocalSender name="GetTaakType" javaListener="Internal_GetTaakType">
+                    <Param name="uuid" xpathExpression="substring-after(//taaktype, 'api/taaktypes/')"/>
+                </IbisLocalSender>
+                <Forward name="success" path="MakeTaakTypeXML" />
+                <Forward name="exception" path="exception" />
+            </SenderPipe>
+
+            <JsonPipe name="MakeTaakTypeXML" direction="JSON2XML" storeResultInSessionKey="Taaktype">
                 <Forward name="success" path="RequestOpdrachtInfo" />
                 <Forward name="exception" path="exception" />
             </JsonPipe>
@@ -144,6 +157,7 @@
                 getInputFromSessionKey="originalMessage">
                 <Param name="systemDate" sessionKey="systemDate" />
                 <Param name="meldingInfo" sessionKey="meldingInfo" type="DOMDOC" />
+                <Param name="taaktype" sessionKey="Taaktype" type="DOMDOC" />
                 <Param name="opdrachtInfo" sessionKey="opdrachtInfo" type="DOMDOC" />
             </XsltPipe>
 

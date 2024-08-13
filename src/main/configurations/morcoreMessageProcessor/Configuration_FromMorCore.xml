@@ -25,7 +25,7 @@
                 <Forward name="failure" path="Reject" />
             </XmlValidatorPipe>
 
-            <JsonPipe name="XmlToJson" direction="XML2JSON">
+            <JsonPipe name="XmlToJson" direction="XML2JSON" prettyPrint="true">
                 <Forward name="success" path="Exit" />
                 <Forward name="failure" path="Exception" />
             </JsonPipe>
@@ -37,6 +37,10 @@
             <ApiListener
                 name="Frank_GetTaakType"
                 uriPattern="/api/v1/taaktype/{uuid}" />
+        </Receiver>
+        
+        <Receiver>
+            <JavaListener name="Internal_GetTaakType" />
         </Receiver>
 
         <Pipeline>
@@ -66,7 +70,7 @@
                 <Forward name="else" path="XmlToJson" />
             </XmlIfPipe>
 
-            <JsonPipe name="XmlToJson" direction="XML2JSON">
+            <JsonPipe name="XmlToJson" direction="XML2JSON" prettyPrint="true">
                 <Forward name="success" path="Exit" />
                 <Forward name="failure" path="Exception" />
             </JsonPipe>

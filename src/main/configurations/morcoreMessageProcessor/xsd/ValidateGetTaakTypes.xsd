@@ -26,6 +26,14 @@
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
+              <xs:element name="extra" minOccurs="0">
+                <xs:complexType mixed="true">
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="ultimoOnderwerpCode" minOccurs="0"/>
+                    <xs:element type="xs:string" name="ultimoOnderwerpOmschrijving" minOccurs="0"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>

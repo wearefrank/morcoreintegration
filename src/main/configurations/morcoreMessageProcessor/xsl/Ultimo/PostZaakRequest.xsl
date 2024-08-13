@@ -6,6 +6,7 @@
     <xsl:param name="meldingInfo" />
     <xsl:param name="opdrachtInfo" />
     <xsl:param name="systemDate" />
+    <xsl:param name="taaktype" />
     <xsl:param name="MorCoreRootUrl" />
 
     <xsl:template match="/">
@@ -39,12 +40,17 @@
                     $meldingInfo/root/signalen_voor_melding/locaties_voor_signaal/huisnummer)" />
             </adres>
             <plaatsbepaling>
-                <xsl:value-of select="$meldingInfo/root/signalen_voor_melding/locaties_voor_signaal/plaatsnaam" />
+                <xsl:value-of
+                    select="$meldingInfo/root/signalen_voor_melding/locaties_voor_signaal/plaatsnaam" />
             </plaatsbepaling>
-            <!-- Should pull from taaktypes? -->
-            <onderwerpCode></onderwerpCode>
-            <!-- Should pull from taaktypes? -->
-            <onderwerpOmschrijving></onderwerpOmschrijving>
+            <onderwerpCode>
+                <xsl:value-of
+                    select="$taaktype//ultimoOnderwerpCode" />
+            </onderwerpCode>
+            <onderwerpOmschrijving>
+                <xsl:value-of
+                    select="$taaktype//ultimoOnderwerpOmschrijving" />
+            </onderwerpOmschrijving>
             <!-- "Ja" or "Nee" -->
             <!-- Source unknown -->
             <spoed>Nee</spoed>
