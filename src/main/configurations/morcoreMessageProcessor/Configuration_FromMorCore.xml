@@ -84,7 +84,7 @@
 
         <Pipeline>
             <Exits>
-                <Exit name="Exit" state="SUCCESS" />
+                <Exit name="Exit" state="SUCCESS" code="201"/>
                 <Exit name="Reject" state="REJECTED" />
                 <Exit name="Exception" state="ERROR" />
             </Exits>
