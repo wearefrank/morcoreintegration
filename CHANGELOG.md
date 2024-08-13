@@ -1,5 +1,16 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.6.3](https://github.com/wearefrank/morcore2ultimo/compare/v1.6.2...v1.6.3) (2024-08-13)
+
+### 🧑‍💻 Code Refactoring
+
+* add extra information to PostZaak and ZaakTypes list ([1a31e07](https://github.com/wearefrank/morcore2ultimo/commit/1a31e0749a4ac002646aeafaed13076efdfc071e))
+* change postzaak return code to 201 ([f9f6048](https://github.com/wearefrank/morcore2ultimo/commit/f9f60480f1f87d050d7ce463fb30dfcdf691d967))
+
+### ✅ Tests
+
+* update tests to reflect new data ([25c2469](https://github.com/wearefrank/morcore2ultimo/commit/25c2469c58d2f6964691b1ff8a8f47a4d647e4ae))
+
 ## [1.6.2](https://github.com/wearefrank/morcore2ultimo/compare/v1.6.1...v1.6.2) (2024-08-08)
 
 ### 🐛 Bug Fixes
