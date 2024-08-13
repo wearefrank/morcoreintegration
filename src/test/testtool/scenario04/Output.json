@@ -10,7 +10,11 @@
             "uuid": "b42801c6-cd66-43df-add7-07b0824852ee",
             "omschrijving": "Rioolaansluiting verstopping",
             "toelichting": "Rioolaansluiting verstopping",
-            "additionele_informatie": ""
+            "additionele_informatie": "",
+            "extra": {
+                "ultimoOnderwerpCode": "12166",
+                "ultimoOnderwerpOmschrijving": "Rioolaansluiting (verstopping)"
+            }
         },
         {
             "_links": {
@@ -19,7 +23,11 @@
             "uuid": "ce855971-ed60-4ec0-8a92-37393d914333",
             "omschrijving": "Hoofdriool",
             "toelichting": "Hoofdriool",
-            "additionele_informatie": ""
+            "additionele_informatie": "",
+            "extra": {
+                "ultimoOnderwerpCode": "12164",
+                "ultimoOnderwerpOmschrijving": "hoofdriool"
+            }
         },
         {
             "_links": {
@@ -28,7 +36,11 @@
             "uuid": "8d1ff14f-77b9-4e9e-95f3-572c7c88d26f",
             "omschrijving": "Stankoverlast",
             "toelichting": "Stankoverlast",
-            "additionele_informatie": ""
+            "additionele_informatie": "",
+            "extra": {
+                "ultimoOnderwerpCode": "12165",
+                "ultimoOnderwerpOmschrijving": "stankoverlast"
+            }
         },
         {
             "_links": {
@@ -37,7 +49,11 @@
             "uuid": "3eeb8f00-89b4-41c5-a219-17811ec52d9c",
             "omschrijving": "Straatkolk verstopt",
             "toelichting": "Straatkolk verstopt",
-            "additionele_informatie": ""
+            "additionele_informatie": "",
+            "extra": {
+                "ultimoOnderwerpCode": "12165",
+                "ultimoOnderwerpOmschrijving": "straatkolk (verstopt)"
+            }
         }
     ]
 }
