@@ -6,6 +6,8 @@
     <xsl:param name="meldingInfo" />
     <xsl:param name="opdrachtInfo" />
     <xsl:param name="systemDate" />
+    <xsl:param name="bijlage1" />
+    <xsl:param name="bijlage2" />
     <xsl:param name="taaktype" />
     <xsl:param name="MorCoreRootUrl" />
 
@@ -65,10 +67,20 @@
             </y>
 
             <!-- These 4 values might come from GetMeldingInfo -->
-            <foto1></foto1>
-            <foto1_filename></foto1_filename>
-            <foto2></foto2>
-            <foto2_filename></foto2_filename>
+            <foto1>
+                <xsl:value-of
+                    select="$bijlage1" />
+            </foto1>
+            <foto1_filename>
+                <xsl:value-of select="substring(substring-after(//bijlagen[1]/bestand, 'media/bestanden/'), 11)"/>
+            </foto1_filename>
+            <foto2>
+                <xsl:value-of
+                    select="$bijlage2" />
+            </foto2>
+            <foto2_filename>
+                <xsl:value-of select="substring(substring-after(//bijlagen[2]/bestand, 'media/bestanden/'), 11)"/>
+            </foto2_filename>
         </root>
     </xsl:template>
 </xsl:stylesheet>

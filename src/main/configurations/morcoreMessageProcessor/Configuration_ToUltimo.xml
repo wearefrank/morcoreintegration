@@ -137,6 +137,32 @@
                 <Forward name="exception" path="exception" />
             </JsonPipe>
 
+            <XmlIfPipe name="IfBijlage1Exists" xpathExpression="boolean(//bijlagen[1]/bestand)">
+                <Forward name="then" path="GetBijlage1" />
+                <Forward name="else" path="RequestOpdrachtInfo" />
+            </XmlIfPipe>
+
+            <SenderPipe name="GetBijlage1" storeResultInSessionKey="bijlage1" getInputFromSessionKey="originalMessage">
+                <IbisLocalSender name="GetBijlage1" javaListener="MorCore_GetBijlage">
+                    <Param name="bijlageUrl" xpathExpression="//bijlagen[1]/bestand"></Param>    
+                </IbisLocalSender>
+                <Forward name="success" path="IfBijlage2Exists" />
+                <Forward name="exception" path="exception" />
+            </SenderPipe>
+
+            <XmlIfPipe name="IfBijlage2Exists" xpathExpression="boolean(//bijlagen[2]/bestand)">
+                <Forward name="then" path="GetBijlage2" />
+                <Forward name="else" path="RequestOpdrachtInfo" />
+            </XmlIfPipe>
+
+            <SenderPipe name="GetBijlage2" storeResultInSessionKey="bijlage2" getInputFromSessionKey="originalMessage">
+                <IbisLocalSender name="GetBijlage1" javaListener="MorCore_GetBijlage">
+                    <Param name="bijlageUrl" xpathExpression="//bijlagen[2]/bestand"></Param>    
+                </IbisLocalSender>
+                <Forward name="success" path="RequestOpdrachtInfo" />
+                <Forward name="exception" path="exception" />
+            </SenderPipe>
+            
             <SenderPipe name="RequestOpdrachtInfo" storeResultInSessionKey="opdrachtInfo" getInputFromSessionKey="originalMessage">
                 <IbisLocalSender name="RequestGetMelding" javaListener="MorCore_GetTaakOpdracht"/>
                 <Forward name="success" path="MakeOpdrachtInfoXML" />
@@ -157,6 +183,8 @@
                 getInputFromSessionKey="originalMessage">
                 <Param name="systemDate" sessionKey="systemDate" />
                 <Param name="meldingInfo" sessionKey="meldingInfo" type="DOMDOC" />
+                <Param name="bijlage1" sessionKey="bijlage1" type="STRING" />
+                <Param name="bijlage2" sessionKey="bijlage2" type="STRING" />
                 <Param name="taaktype" sessionKey="Taaktype" type="DOMDOC" />
                 <Param name="opdrachtInfo" sessionKey="opdrachtInfo" type="DOMDOC" />
             </XsltPipe>

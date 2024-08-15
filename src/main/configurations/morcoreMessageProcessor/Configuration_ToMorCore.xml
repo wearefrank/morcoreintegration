@@ -110,6 +110,39 @@
         </Pipeline>
     </Adapter>
 
+    <Adapter name="MorCore_GetBijlage">
+        <Receiver name="MorCore_GetBijlage">
+            <JavaListener name="MorCore_GetBijlage" />
+        </Receiver>
+
+        <Pipeline>
+
+            <Exits>
+                <Exit name="Exit" state="SUCCESS" />
+                <Exit name="Exception" state="ERROR" />
+                <Exit name="Reject" state="REJECTED" />
+            </Exits>
+
+            <SenderPipe name="CallMorCore_GetToken" storeResultInSessionKey="MorCoreToken">
+                <IbisLocalSender name="CallMorCore_GetToken" javaListener="MorCore_GetToken" />
+                <Forward name="success" path="Send2MorCore" />
+                <Forward name="exception" path="Exception" />
+            </SenderPipe>
+
+            <SenderPipe name="Send2MorCore" getInputFromSessionKey="originalMessage" emptyInputReplacement="&lt;NoInput/>">
+                <HttpSender name="Send2MorCore" methodType="GET" headersParams="Authorization" />
+                <Param name="url" sessionKey="bijlageUrl" />
+                <Param name="Authorization" xpathExpression="concat('Token ', $MorCoreToken)">
+                    <Param name="MorCoreToken" sessionKey="MorCoreToken" xpathExpression="//token" />
+                </Param>
+                <Forward name="success" path="Encode" />
+                <Forward name="exception" path="Exception" />
+            </SenderPipe>
+
+            <Base64Pipe name="Encode" direction="ENCODE"/>
+
+        </Pipeline>
+    </Adapter>
 
     <!-- Disabled as at this time there is no situation in which we create a case in MorCore. -->
     <Adapter name="MorCore_PostTaak" active="false">
