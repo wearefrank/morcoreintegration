@@ -1,5 +1,11 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.7.0](https://github.com/wearefrank/morcore2ultimo/compare/v1.6.3...v1.7.0) (2024-08-15)
+
+### 🍕 Features
+
+* add ability to include documents to PostTaak ([7e08d8a](https://github.com/wearefrank/morcore2ultimo/commit/7e08d8a07e8a2f535c64b76ed9919ba81cfa98a2))
+
 ## [1.6.3](https://github.com/wearefrank/morcore2ultimo/compare/v1.6.2...v1.6.3) (2024-08-13)
 
 ### 🧑‍💻 Code Refactoring
