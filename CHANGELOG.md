@@ -1,5 +1,15 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.7.1](https://github.com/wearefrank/morcore2ultimo/compare/v1.7.0...v1.7.1) (2024-08-19)
+
+### 🐛 Bug Fixes
+
+* possible fix for IO error on XSLT ([7fb0ae1](https://github.com/wearefrank/morcore2ultimo/commit/7fb0ae1ada3f5af51b35baa1e9f555a43d1cf168))
+
+### ✅ Tests
+
+* update scenario08 ([d167175](https://github.com/wearefrank/morcore2ultimo/commit/d16717547af70e727403f6bf8b1a0c79942f3283))
+
 ## [1.7.0](https://github.com/wearefrank/morcore2ultimo/compare/v1.6.3...v1.7.0) (2024-08-15)
 
 ### 🍕 Features
