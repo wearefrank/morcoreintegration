@@ -1,5 +1,16 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.7.2](https://github.com/wearefrank/morcore2ultimo/compare/v1.7.1...v1.7.2) (2024-08-19)
+
+### 🐛 Bug Fixes
+
+* activate bijlage collection system ([8723e5d](https://github.com/wearefrank/morcore2ultimo/commit/8723e5df2aac0c74c60245359fe8cfc8b66e013c))
+* incorrect Y coordinate reference ([83661bd](https://github.com/wearefrank/morcore2ultimo/commit/83661bd16d9fd14894b2fce93a7ea8148d438dce))
+
+### ✅ Tests
+
+* update tests ([7dba415](https://github.com/wearefrank/morcore2ultimo/commit/7dba41532d1f169653cae2d4dd110648991250c6))
+
 ## [1.7.1](https://github.com/wearefrank/morcore2ultimo/compare/v1.7.0...v1.7.1) (2024-08-19)
 
 ### 🐛 Bug Fixes
