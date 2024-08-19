@@ -137,12 +137,12 @@
                 <Forward name="exception" path="exception" />
             </JsonPipe>
 
-            <XmlIfPipe name="IfBijlage1Exists" xpathExpression="boolean(//bijlagen[1]/bestand)">
+            <XmlIfPipe name="IfBijlage1Exists" getInputFromSessionKey="meldingInfo" xpathExpression="boolean(//bijlagen[1]/bestand)">
                 <Forward name="then" path="GetBijlage1" />
                 <Forward name="else" path="RequestOpdrachtInfo" />
             </XmlIfPipe>
 
-            <SenderPipe name="GetBijlage1" storeResultInSessionKey="bijlage1" getInputFromSessionKey="originalMessage">
+            <SenderPipe name="GetBijlage1" storeResultInSessionKey="bijlage1" getInputFromSessionKey="meldingInfo">
                 <IbisLocalSender name="GetBijlage1" javaListener="MorCore_GetBijlage">
                     <Param name="bijlageUrl" xpathExpression="//bijlagen[1]/bestand"></Param>    
                 </IbisLocalSender>
@@ -150,12 +150,12 @@
                 <Forward name="exception" path="exception" />
             </SenderPipe>
 
-            <XmlIfPipe name="IfBijlage2Exists" xpathExpression="boolean(//bijlagen[2]/bestand)">
+            <XmlIfPipe name="IfBijlage2Exists" getInputFromSessionKey="meldingInfo" xpathExpression="boolean(//bijlagen[2]/bestand)">
                 <Forward name="then" path="GetBijlage2" />
                 <Forward name="else" path="RequestOpdrachtInfo" />
             </XmlIfPipe>
 
-            <SenderPipe name="GetBijlage2" storeResultInSessionKey="bijlage2" getInputFromSessionKey="originalMessage">
+            <SenderPipe name="GetBijlage2" storeResultInSessionKey="bijlage2" getInputFromSessionKey="meldingInfo">
                 <IbisLocalSender name="GetBijlage1" javaListener="MorCore_GetBijlage">
                     <Param name="bijlageUrl" xpathExpression="//bijlagen[2]/bestand"></Param>    
                 </IbisLocalSender>
