@@ -63,7 +63,7 @@
             </x>
             <y>
                 <xsl:value-of
-                    select="$meldingInfo/root/signalen_voor_melding/locaties_voor_signaal/geometrie/coordinates[1]" />
+                    select="$meldingInfo/root/signalen_voor_melding/locaties_voor_signaal/geometrie/coordinates[2]" />
             </y>
 
             <!-- These 4 values might come from GetMeldingInfo -->
