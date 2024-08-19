@@ -1,28 +1,370 @@
 {
-    "_links": {
-      "melding": {
-        "href": "https://mor-core.tld/api/v1/melding/1234-5678"
+  "_links": {
+    "self": "https://mor-core-acc.forzamor.nl/api/v1/melding/[uuid]/"
+  },
+  "id": 9999,
+  "uuid": "[uuid]",
+  "aangemaakt_op": "2024-08-13T07:03:01.972919+02:00",
+  "aangepast_op": "2024-08-19T13:42:45.592607+02:00",
+  "origineel_aangemaakt": "2024-08-13T07:00:45.415000+02:00",
+  "afgesloten_op": null,
+  "urgentie": 0.2,
+  "meta": {},
+  "meta_uitgebreid": {},
+  "onderwerpen": [
+    "[subject-url]"
+  ],
+  "bijlagen": [],
+  "locaties_voor_melding": [
+    {
+      "id": 1234,
+      "uuid": "[uuid]",
+      "aangemaakt_op": "2024-08-13T07:03:01.949641+02:00",
+      "aangepast_op": "2024-08-13T07:03:01.949666+02:00",
+      "locatie_type": "adres",
+      "geometrie": {
+        "type": "Point",
+        "coordinates": [
+          4.412334,
+          51.909256
+        ]
       },
-      "items": null,
+      "bron": null,
+      "naam": null,
+      "straatnaam": "Streetname",
+      "huisnummer": 1,
+      "huisletter": "",
+      "toevoeging": "",
+      "postcode": "Zipcode",
+      "wijknaam": "Area name",
+      "buurtnaam": "Neighbourhood",
+      "lichtmast_id": null,
+      "plaatsnaam": "City",
+      "begraafplaats": null,
+      "grafnummer": null,
+      "vak": null,
+      "gewicht": 0.2,
+      "melding": 9999,
+      "signaal": 8888,
+      "gebruiker": null
+    }
+  ],
+  "status": {
+    "naam": "in_behandeling",
+    "melding": 9999
+  },
+  "resolutie": "niet_opgelost",
+  "meldinggebeurtenissen": [
+    {
       "_links": {
-        "self": {
-          "href": null
-        },
-        "communicatie": {
-          "href": null
-        }
+        "self": "[melding-url]"
       },
-      "uuid": "1234-5678",
-      "taaktype": null,
-      "taakapplicatie": null,
-      "bericht": null,
+      "aangemaakt_op": "2024-08-19T13:42:45.587593+02:00",
+      "gebeurtenis_type": "taakopdracht_aangemaakt",
+      "bijlagen": [],
       "status": null,
-      "laatst_ontvangen_update": null,
-      "additionele_informatie": [
+      "omschrijving_intern": null,
+      "omschrijving_extern": null,
+      "melding": 9999,
+      "taakgebeurtenis": {
+        "_links": {
+          "self": "url",
+          "taakopdracht": "url"
+        },
+        "aangemaakt_op": "2024-08-19T13:42:45.585147+02:00",
+        "bijlagen": [],
+        "taakstatus": {
+          "naam": "nieuw",
+          "aangemaakt_op": "2024-08-19T13:42:45.577296+02:00",
+          "taakopdracht": 123
+        },
+        "resolutie": null,
+        "omschrijving_intern": "",
+        "taakopdracht": 123,
+        "gebruiker": "email",
+        "additionele_informatie": {}
+      },
+      "gebruiker": "email",
+      "locatie": null,
+      "urgentie": null
+    },
+    {
+      "_links": {
+        "self": "url"
+      },
+      "aangemaakt_op": "2024-08-19T12:47:22.405576+02:00",
+      "gebeurtenis_type": "status_wijziging",
+      "bijlagen": [],
+      "status": {
+        "naam": "in_behandeling",
+        "melding": 9999
+      },
+      "omschrijving_intern": null,
+      "omschrijving_extern": "De melding is in behandeling.",
+      "melding": 9999,
+      "taakgebeurtenis": {
+        "_links": {
+          "self": "url",
+          "taakopdracht": "url"
+        },
+        "aangemaakt_op": "2024-08-19T12:47:22.395027+02:00",
+        "bijlagen": [],
+        "taakstatus": {
+          "naam": "nieuw",
+          "aangemaakt_op": "2024-08-19T12:47:22.379328+02:00",
+          "taakopdracht": 456
+        },
+        "resolutie": null,
+        "omschrijving_intern": "",
+        "taakopdracht": 456,
+        "gebruiker": "email",
+        "additionele_informatie": {}
+      },
+      "gebruiker": "email",
+      "locatie": null,
+      "urgentie": null
+    },
+    {
+      "_links": {
+        "self": "url"
+      },
+      "aangemaakt_op": "2024-08-13T07:03:02.060517+02:00",
+      "gebeurtenis_type": "melding_aangemaakt",
+      "bijlagen": [],
+      "status": {
+        "naam": "openstaand",
+        "melding": 9999
+      },
+      "omschrijving_intern": "Melding aangemaakt",
+      "omschrijving_extern": null,
+      "melding": 9999,
+      "taakgebeurtenis": null,
+      "gebruiker": null,
+      "locatie": null,
+      "urgentie": null
+    }
+  ],
+  "taakopdrachten_voor_melding": [
+    {
+      "taaktype": "url",
+      "titel": "Stankoverlast",
+      "bericht": "",
+      "additionele_informatie": {},
+      "gebruiker": null,
+      "_links": {
+        "self": "url",
+        "applicatie": "url",
+        "melding": "https://mor-core-acc.forzamor.nl/api/v1/melding/[uuid]/"
+      },
+      "id": 123,
+      "uuid": "89730982-c701-4480-941-043ccaaa2cc7",
+      "status": {
+        "naam": "nieuw",
+        "aangemaakt_op": "2024-08-19T13:42:45.577296+02:00",
+        "taakopdracht": 123
+      },
+      "resolutie": null,
+      "melding": 9999,
+      "taakgebeurtenissen_voor_taakopdracht": [
         {
-          "veld": null,
-          "waarde": null
+          "_links": {
+            "self": "url",
+            "taakopdracht": "url"
+          },
+          "aangemaakt_op": "2024-08-19T13:42:45.585147+02:00",
+          "bijlagen": [],
+          "taakstatus": {
+            "naam": "nieuw",
+            "aangemaakt_op": "2024-08-19T13:42:45.577296+02:00",
+            "taakopdracht": 123
+          },
+          "resolutie": null,
+          "omschrijving_intern": "",
+          "taakopdracht": 123,
+          "gebruiker": "email",
+          "additionele_informatie": {}
+        }
+      ],
+      "taak_url": null
+    },
+    {
+      "taaktype": "url",
+      "titel": "Hoofdriool",
+      "bericht": "",
+      "additionele_informatie": {},
+      "gebruiker": null,
+      "_links": {
+        "self": "url",
+        "applicatie": "url",
+        "melding": "https://mor-core-acc.forzamor.nl/api/v1/melding/[uuid]/"
+      },
+      "id": 456,
+      "uuid": "f43cda20-055d-45fa-a702-b74ac625e24e",
+      "status": {
+        "naam": "nieuw",
+        "aangemaakt_op": "2024-08-19T12:47:22.379328+02:00",
+        "taakopdracht": 456
+      },
+      "resolutie": null,
+      "melding": 9999,
+      "taakgebeurtenissen_voor_taakopdracht": [
+        {
+          "_links": {
+            "self": "url",
+            "taakopdracht": "url"
+          },
+          "aangemaakt_op": "2024-08-19T12:47:22.395027+02:00",
+          "bijlagen": [],
+          "taakstatus": {
+            "naam": "nieuw",
+            "aangemaakt_op": "2024-08-19T12:47:22.379328+02:00",
+            "taakopdracht": 456
+          },
+          "resolutie": null,
+          "omschrijving_intern": "",
+          "taakopdracht": 456,
+          "gebruiker": "email",
+          "additionele_informatie": {}
+        }
+      ],
+      "taak_url": null
+    }
+  ],
+  "signalen_voor_melding": [
+    {
+      "_links": {
+        "self": "url",
+        "melding": "https://mor-core-acc.forzamor.nl/api/v1/melding/[uuid]/"
+      },
+      "uuid": "76e8483a-a40d-4086-9e44-f69df1a54eb6",
+      "signaal_url": "https://meldr.City.nl/melding/2024-123456",
+      "signaal_data": {},
+      "bron_id": "MeldR",
+      "bron_signaal_id": "2024-123456",
+      "origineel_aangemaakt": "2024-08-13T07:00:45.415000+02:00",
+      "urgentie": 0.2,
+      "omschrijving_melder": "",
+      "aanvullende_informatie": "Om wat voor soort zwerfafval gaat het?Glas\\nWaar ligt het zwerfafval?null\\n",
+      "aanvullende_vragen": [
+        {
+          "answers": [
+            "Glas"
+          ],
+          "question": "Om wat voor soort zwerfafval gaat het?"
+        },
+        {
+          "answers": [],
+          "question": "Waar ligt het zwerfafval?"
+        }
+      ],
+      "meta": {
+        "spoedField": false,
+        "kanaalField": "MeldR-Webformulier",
+        "xCoordField": 91470.0,
+        "yCoordField": 436043.0,
+        "bijlagenField": null,
+        "loginnaamField": "Webformulier",
+        "onderwerpField": "Zwerfafval",
+        "huisnummerField": "",
+        "melderNaamField": "Anoniem",
+        "straatnaamField": "Streetname",
+        "lichtpuntenField": [],
+        "melderEmailField": "Anoniem",
+        "aanmaakDatumField": "2024-08-13T05:00:45.415000Z",
+        "omschrijvingField": "",
+        "adoptantnummerField": null,
+        "melderTelefoonField": "Anoniem",
+        "meldingsnummerField": "2024-123456",
+        "aanvullendeVragenField": [
+          {
+            "answers": [
+              "Glas"
+            ],
+            "question": "Om wat voor soort zwerfafval gaat het?"
+          },
+          {
+            "answers": [],
+            "question": "Waar ligt het zwerfafval?"
+          }
+        ],
+        "naderePlaatsbepalingField": "",
+        "aanvullendeInformatieField": "Om wat voor soort zwerfafval gaat het?Glas\\nWaar ligt het zwerfafval?null\\n"
+      },
+      "meta_uitgebreid": {},
+      "onderwerpen": [
+        {
+          "_links": {
+            "self": "[subject-url]"
+          },
+          "naam": "Zwerfafval",
+          "bron_url": "[subject-url]"
+        }
+      ],
+      "bijlagen": [
+        {
+          "uuid": "bijlage-uuid",
+          "bestand": "file-url",
+          "afbeelding": "image-url",
+          "afbeelding_verkleind": "small-image-url",
+          "mimetype": "image/jpeg",
+          "is_afbeelding": true,
+          "afbeelding_relative_url": "image-location",
+          "afbeelding_verkleind_relative_url": "small-image-location"
+        },
+        {
+          "uuid": "bijlage-uuid",
+          "bestand": "file-url",
+          "afbeelding": "image-url",
+          "afbeelding_verkleind": "small-image-url",
+          "mimetype": "image/jpeg",
+          "is_afbeelding": true,
+          "afbeelding_relative_url": "image-location",
+          "afbeelding_verkleind_relative_url": "small-image-location"
+        }
+      ],
+      "melder": {
+        "naam": "Anoniem",
+        "voornaam": null,
+        "achternaam": null,
+        "email": "",
+        "telefoonnummer": "Anoniem"
+      },
+      "aangemaakt_op": "2024-08-13T07:03:01.911343+02:00",
+      "melding": 9999,
+      "locaties_voor_signaal": [
+        {
+          "id": 1234,
+          "uuid": "[uuid]",
+          "aangemaakt_op": "2024-08-13T07:03:01.949641+02:00",
+          "aangepast_op": "2024-08-13T07:03:01.949666+02:00",
+          "locatie_type": "adres",
+          "geometrie": {
+            "type": "Point",
+            "coordinates": [
+              4.412334,
+              51.909256
+            ]
+          },
+          "bron": null,
+          "naam": null,
+          "straatnaam": "Streetname",
+          "huisnummer": 1,
+          "huisletter": "",
+          "toevoeging": "",
+          "postcode": "Zipcode",
+          "wijknaam": "Area name",
+          "buurtnaam": "Neighbourhood",
+          "lichtmast_id": null,
+          "plaatsnaam": "City",
+          "begraafplaats": null,
+          "grafnummer": null,
+          "vak": null,
+          "gewicht": 0.2,
+          "melding": 9999,
+          "signaal": 8888,
+          "gebruiker": null
         }
       ]
     }
-  }
+  ]
+}
