@@ -133,7 +133,7 @@
             </SenderPipe>
 
             <JsonPipe name="MakeTaakTypeXML" direction="JSON2XML" storeResultInSessionKey="Taaktype">
-                <Forward name="success" path="RequestOpdrachtInfo" />
+                <Forward name="success" path="IfBijlage1Exists" />
                 <Forward name="exception" path="exception" />
             </JsonPipe>
 
