@@ -1,27 +1,41 @@
 {
+    "taaktype": "https://ultimo-koppeling-acc.forzamor.nl/api/taaktypes/[taaktype-id]",
+    "titel": "Hoofdriool",
+    "bericht": "",
+    "additionele_informatie": {},
+    "gebruiker": null,
     "_links": {
-        "melding": {
-            "href": "https://dummy1-url.nl/api/v1/melding/1234-5678"
-        }
+        "self": "https://mor-core-acc.forzamor.nl/api/v1/taakopdracht/[uuid]/",
+        "applicatie": "https://mor-core-acc.forzamor.nl/api/v1/applicatie/[application-id]/",
+        "melding": "https://mor-core-acc.forzamor.nl/api/v1/melding/[melding-uuid]/"
     },
-    "items": {
-        "_links": {
-            "self": {
-                "href": ""
+    "id": 123,
+    "uuid": "[uuid]",
+    "status": {
+        "naam": "nieuw",
+        "aangemaakt_op": "2024-07-22T11:31:19.634428+02:00",
+        "taakopdracht": 123
+    },
+    "resolutie": null,
+    "melding": 1234,
+    "taakgebeurtenissen_voor_taakopdracht": [
+        {
+            "_links": {
+                "self": "https://mor-core-acc.forzamor.nl/api/v1/taakgebeurtenis/[event-id]/",
+                "taakopdracht": "https://mor-core-acc.forzamor.nl/api/v1/taakopdracht/[uuid]/"
             },
-            "communicatie": {
-                "href": ""
-            }
-        },
-        "uuid": "",
-        "taaktype": "",
-        "taakapplicatie": "",
-        "bericht": "",
-        "status": "",
-        "laatst_ontvangen_update": "",
-        "additionele_informatie": {
-            "veld": "",
-            "waarde": ""
+            "aangemaakt_op": "2024-07-22T11:31:19.644960+02:00",
+            "bijlagen": [],
+            "taakstatus": {
+                "naam": "nieuw",
+                "aangemaakt_op": "2024-07-22T11:31:19.634428+02:00",
+                "taakopdracht": 123
+            },
+            "omschrijving_intern": "",
+            "taakopdracht": 123,
+            "gebruiker": "user@email.com",
+            "additionele_informatie": {}
         }
-    }
+    ],
+    "taak_url": null
 }
