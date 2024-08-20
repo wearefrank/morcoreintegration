@@ -21,19 +21,35 @@
 
             <JsonPipe name="RequestJson2Xml" />
 
-            <SenderPipe name="RequestGetZaak" storeResultInSessionKey="JsonMessage">
-                <IbisLocalSender name="RequestGetZaak" javaListener="Ultimo_GetZaak_Internal" />
-            </SenderPipe>
-
-            <JsonPipe name="ResponseJson2Xml" />
-
             <SenderPipe name="CallMorCore_GetToken" storeResultInSessionKey="MorCoreToken">
                 <IbisLocalSender name="CallMorCore_GetToken" javaListener="MorCore_GetToken" />
+                <Forward name="success" path="GetUuidById" />
+                <Forward name="exception" path="Exception" />
+            </SenderPipe>
+
+            <SenderPipe name="GetUuidById" storeResultInSessionKey="Uuid">
+                <IbisLocalSender name="GetUuidById" javaListener="Internal_GetUuidById">
+                    <Param name="id"></Param>
+                </IbisLocalSender>
+                <Forward name="success" path="MakeGetMeldingCall" />
+                <Forward name="exception" path="Exception" />
+            </SenderPipe>
+
+            <XsltPipe name="MakeGetMeldingCall"
+                xpathExpression="concat('&lt;melding>', $uuid, '&lt;/melding>')">
+                <Param name="uuid" sessionKey="uuid" />
+                <Forward name="success" path="GetMeldingInfo" />
+                <Forward name="exception" path="Exception" />
+            </XsltPipe>
+
+            <SenderPipe name="GetMeldingInfo" storeResultInSessionKey="meldingInfo">
+                <IbisLocalSender name="GetMeldingInfo" javaListener="MorCore_GetMelding">
+                    <Param name="uuid" sessionKey="uuid" />
+                </IbisLocalSender>
                 <Forward name="success" path="Send2MorCore" />
                 <Forward name="exception" path="Exception" />
             </SenderPipe>
 
-            <!-- TODO: Check that uuid values are correctly filled -->
             <SenderPipe name="Send2MorCore" getInputFromSessionKey="JsonMessage">
                 <HttpSender name="Send2MorCore" methodType="POST" contentType="application/json"
                     headersParams="Authorization" />
@@ -42,7 +58,8 @@
                 <Param name="meldingUuid"
                     xpathExpression="//meldingUuid" />
                 <Param name="taakOpdrachtUuid"
-                    xpathExpression="//taakOpdrachtUuid" />
+                    xpathExpression="substring-before(substring-after(//taakopdrachten_voor_melding[1]/_links/self/text(), 'taakopdracht/'), '/')"
+                    sessionKey="meldingInfo" />
                 <Param name="Authorization" xpathExpression="concat('Token: ', $MorCoreToken)">
                     <Param name="MorCoreToken" sessionKey="MorCoreToken" xpathExpression="//token" />
                 </Param>

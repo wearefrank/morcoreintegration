@@ -17,7 +17,7 @@
                 <FixedQuerySender
                     name="RetrieveUuid"
                     query="SELECT uuid FROM UUIDIDMAP WHERE id = ?{Id}"
-                    queryType="SELECT"> <!-- TODO: save for sql injection? -->
+                    queryType="SELECT">
                     <Param name="Id" sessionKey="Id" />
                 </FixedQuerySender>
             </SenderPipe>
