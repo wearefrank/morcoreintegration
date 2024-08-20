@@ -1,5 +1,15 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.7.4](https://github.com/wearefrank/morcore2ultimo/compare/v1.7.3...v1.7.4) (2024-08-20)
+
+### 🐛 Bug Fixes
+
+* no filename included in postZaak ([742ccf4](https://github.com/wearefrank/morcore2ultimo/commit/742ccf4d4513bc7a431d8b8f2915cce806a24237))
+
+### 🧑‍💻 Code Refactoring
+
+* set PostNotificatie endpoint ([e27c630](https://github.com/wearefrank/morcore2ultimo/commit/e27c63075400569810eb9718737c40000e0c91f0))
+
 ## [1.7.3](https://github.com/wearefrank/morcore2ultimo/compare/v1.7.2...v1.7.3) (2024-08-19)
 
 ### 🐛 Bug Fixes
