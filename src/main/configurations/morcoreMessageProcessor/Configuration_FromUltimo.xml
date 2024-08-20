@@ -5,7 +5,9 @@
     no body. -->
     <Adapter name="Frank_PostNotificatie">
         <Receiver name="Frank_PostNotificatie">
-            <JavaListener name="Frank_PostNotificatie" />
+            <ApiListener
+                name="Frank_PostNotificatie"
+                uriPattern="/Msb.Extern.services/Ultimo/Melding" />
         </Receiver>
 
         <Pipeline>
@@ -32,7 +34,8 @@
 
             <!-- TODO: Check that uuid values are correctly filled -->
             <SenderPipe name="Send2MorCore" getInputFromSessionKey="JsonMessage">
-                <HttpSender name="Send2MorCore" methodType="POST" contentType="application/json" headersParams="Authorization"/>
+                <HttpSender name="Send2MorCore" methodType="POST" contentType="application/json"
+                    headersParams="Authorization" />
                 <Param name="url"
                     value="${MorCore.taak.API.root-url}/api/v1/melding/${meldingUuid}/taakopdracht/${taakOpdrachtUuid}/notificatie" />
                 <Param name="meldingUuid"
