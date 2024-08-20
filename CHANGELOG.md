@@ -1,5 +1,11 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.7.5](https://github.com/wearefrank/morcore2ultimo/compare/v1.7.4...v1.7.5) (2024-08-20)
+
+### 🐛 Bug Fixes
+
+* prevent 405 ([fb4b262](https://github.com/wearefrank/morcore2ultimo/commit/fb4b262ed7de7ecc7e064f1c51cfbb8588fbcf43))
+
 ## [1.7.4](https://github.com/wearefrank/morcore2ultimo/compare/v1.7.3...v1.7.4) (2024-08-20)
 
 ### 🐛 Bug Fixes
