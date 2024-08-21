@@ -27,17 +27,17 @@
                 <Forward name="exception" path="Exception" />
             </SenderPipe>
 
-            <SenderPipe name="GetUuidById" storeResultInSessionKey="Uuid">
+            <SenderPipe name="GetUuidById" getInputFromSessionKey="originalMessage" storeResultInSessionKey="uuid">
                 <IbisLocalSender name="GetUuidById" javaListener="Internal_GetUuidById">
-                    <Param name="id"></Param>
+                    <Param name="id" xpathExpression="//meldingId"></Param>
                 </IbisLocalSender>
                 <Forward name="success" path="MakeGetMeldingCall" />
                 <Forward name="exception" path="Exception" />
             </SenderPipe>
 
             <XsltPipe name="MakeGetMeldingCall"
-                xpathExpression="concat('&lt;melding>', $uuid, '&lt;/melding>')">
-                <Param name="uuid" sessionKey="uuid" />
+                xpathExpression="concat('&lt;melding>', ${MorCore.taak.API.root-url}, '/api/v1/melding/', $uuid, '&lt;/melding>')">
+                <Param name="uuid" sessionKey="uuid" type="DOMDOC" />
                 <Forward name="success" path="GetMeldingInfo" />
                 <Forward name="exception" path="Exception" />
             </XsltPipe>
