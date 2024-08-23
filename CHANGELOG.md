@@ -1,5 +1,12 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.7.8](https://github.com/wearefrank/morcore2ultimo/compare/v1.7.7...v1.7.8) (2024-08-23)
+
+### 🐛 Bug Fixes
+
+* incorrect pipe input sources ([83a9250](https://github.com/wearefrank/morcore2ultimo/commit/83a92501ad9aa385ade9541425ab341f2d78465d))
+* prevent body in postNotification message from being sent ([86740cc](https://github.com/wearefrank/morcore2ultimo/commit/86740ccf38e9ca2ac77a86458493900c2250c516))
+
 ## [1.7.7](https://github.com/wearefrank/morcore2ultimo/compare/v1.7.6...v1.7.7) (2024-08-21)
 
 ### 🐛 Bug Fixes
