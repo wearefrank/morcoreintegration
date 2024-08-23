@@ -1,5 +1,12 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.7.7](https://github.com/wearefrank/morcore2ultimo/compare/v1.7.6...v1.7.7) (2024-08-21)
+
+### 🐛 Bug Fixes
+
+* incorrect URL handling ([684badb](https://github.com/wearefrank/morcore2ultimo/commit/684badbe4b547907e7dd4b03bc67f5ac9ac3c065))
+* several PostNotification fixes ([5c9a602](https://github.com/wearefrank/morcore2ultimo/commit/5c9a6022adbbb090777695d7a2b4318e00f26852))
+
 ## [1.7.6](https://github.com/wearefrank/morcore2ultimo/compare/v1.7.5...v1.7.6) (2024-08-20)
 
 ### 🧑‍💻 Code Refactoring
