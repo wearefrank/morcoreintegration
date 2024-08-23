@@ -50,13 +50,13 @@
                 <Forward name="exception" path="Exception" />
             </SenderPipe>
 
-            <SenderPipe name="Send2MorCore" getInputFromSessionKey="JsonMessage">
+            <SenderPipe name="Send2MorCore" getInputFromFixedValue="{}">
                 <HttpSender name="Send2MorCore" methodType="POST" contentType="application/json"
                     headersParams="Authorization" />
                 <Param name="url"
                     value="${MorCore.taak.API.root-url}/api/v1/melding/${meldingUuid}/taakopdracht/${taakOpdrachtUuid}/notificatie" />
                 <Param name="meldingUuid"
-                    xpathExpression="//meldingUuid" />
+                    xpathExpression="//meldingUuid" sessionKey="xmlInputMessage"/>
                 <Param name="taakOpdrachtUuid"
                     xpathExpression="substring-before(substring-after(//taakopdrachten_voor_melding[1]/_links/self/text(), 'taakopdracht/'), '/')"
                     sessionKey="meldingInfo" />
