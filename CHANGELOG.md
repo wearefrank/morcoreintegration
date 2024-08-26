@@ -1,5 +1,11 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.7.10](https://github.com/wearefrank/morcore2ultimo/compare/v1.7.9...v1.7.10) (2024-08-26)
+
+### 🐛 Bug Fixes
+
+* content in prolog error on authorization ([2da847f](https://github.com/wearefrank/morcore2ultimo/commit/2da847f2d41de7c89b2d13f00fdeaf08068421fe))
+
 ## [1.7.9](https://github.com/wearefrank/morcore2ultimo/compare/v1.7.8...v1.7.9) (2024-08-26)
 
 ### 🐛 Bug Fixes
