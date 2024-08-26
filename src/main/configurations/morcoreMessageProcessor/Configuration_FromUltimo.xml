@@ -19,7 +19,7 @@
                 <Exit name="Reject" state="REJECTED" />
             </Exits>
 
-            <JsonPipe name="Json2Xml" direction="JSON2XML" storeResultInSessionKey="xmlInputMessage"/>
+            <JsonPipe name="Json2Xml" direction="JSON2XML" storeResultInSessionKey="xmlInputMessage" />
 
             <SenderPipe name="CallMorCore_GetToken" storeResultInSessionKey="MorCoreToken">
                 <IbisLocalSender name="CallMorCore_GetToken" javaListener="MorCore_GetToken" />
@@ -27,7 +27,8 @@
                 <Forward name="exception" path="Exception" />
             </SenderPipe>
 
-            <SenderPipe name="GetUuidById" getInputFromSessionKey="xmlInputMessage" storeResultInSessionKey="uuid">
+            <SenderPipe name="GetUuidById" getInputFromSessionKey="xmlInputMessage"
+                storeResultInSessionKey="uuid">
                 <IbisLocalSender name="GetUuidById" javaListener="Internal_GetUuidById">
                     <Param name="Id" xpathExpression="//meldingId"></Param>
                 </IbisLocalSender>
@@ -56,12 +57,12 @@
                 <Param name="url"
                     value="${MorCore.taak.API.root-url}/api/v1/melding/${meldingUuid}/taakopdracht/${taakOpdrachtUuid}/notificatie" />
                 <Param name="meldingUuid"
-                    xpathExpression="//meldingUuid" sessionKey="xmlInputMessage"/>
+                    xpathExpression="//meldingUuid" sessionKey="xmlInputMessage" />
                 <Param name="taakOpdrachtUuid"
                     xpathExpression="substring-before(substring-after(//taakopdrachten_voor_melding[1]/_links/self/text(), 'taakopdracht/'), '/')"
                     sessionKey="meldingInfo" />
-                <Param name="Authorization" xpathExpression="concat('Token: ', $MorCoreToken)">
-                    <Param name="MorCoreToken" sessionKey="MorCoreToken" xpathExpression="//token" />
+                <Param name="Authorization" xpathExpression="concat('Token ', $MorCoreToken)">
+                    <Param name="MorCoreToken" type="STRING" sessionKey="MorCoreToken" xpathExpression="//token" />
                 </Param>
                 <Forward name="success" path="Exit" />
                 <Forward name="exception" path="Exception" />
