@@ -1,5 +1,11 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.7.9](https://github.com/wearefrank/morcore2ultimo/compare/v1.7.8...v1.7.9) (2024-08-26)
+
+### 🐛 Bug Fixes
+
+* add type declaration to avoid prolog error ([b9119da](https://github.com/wearefrank/morcore2ultimo/commit/b9119da75cee9c739f44a5ea513fa4ff658e5926))
+
 ## [1.7.8](https://github.com/wearefrank/morcore2ultimo/compare/v1.7.7...v1.7.8) (2024-08-23)
 
 ### 🐛 Bug Fixes
