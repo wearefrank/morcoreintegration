@@ -1,8 +1,6 @@
 <Module xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="../FrankConfig.xsd">
 
-    <!-- Pipeline only sends a notification of a change. Can not validate message because there is
-    no body. -->
     <Adapter name="Frank_PostNotificatie">
         <Receiver name="Frank_PostNotificatie">
             <ApiListener
@@ -54,6 +52,15 @@
             <JsonPipe name="GetMeldingInfo2Xml" direction="JSON2XML"
                 storeResultInSessionKey="meldingInfo" />
 
+            <SenderPipe name="GetTaakopdrachtById" getInputFromSessionKey="xmlInputMessage"
+                storeResultInSessionKey="taakopdracht">
+                <IbisLocalSender name="GetTaakopdrachtById" javaListener="Internal_GetTaakopdrachtById">
+                    <Param name="Id" xpathExpression="//meldingId"></Param>
+                </IbisLocalSender>
+                <Forward name="success" path="Send2MorCore" />
+                <Forward name="exception" path="Exception" />
+            </SenderPipe>
+
             <SenderPipe name="Send2MorCore">
                 <HttpSender name="Send2MorCore" methodType="POST" contentType="application/json"
                     headersParams="Authorization" />
@@ -61,12 +68,11 @@
                     xpathExpression="concat('${MorCore.taak.API.root-url}/api/v1/melding/', $meldingUuid, '/taakopdracht/', $taakOpdrachtUuid, '/notificatie')">
                     <Param name="meldingUuid" type="STRING"
                         xpathExpression="//uuid" sessionKey="uuid" />
-                    <Param name="taakOpdrachtUuid"
-                        xpathExpression="substring-before(substring-after(//taakopdrachten_voor_melding[1]/_links/self/text(), 'taakopdracht/'), '/')"
-                        sessionKey="meldingInfo" />
+                    <Param name="taakOpdrachtUuid" sessionKey="taakopdracht" />
                 </Param>
                 <Param name="Authorization" xpathExpression="concat('Token ', $MorCoreToken)">
-                    <Param name="MorCoreToken" type="STRING" sessionKey="MorCoreToken" xpathExpression="//token" />
+                    <Param name="MorCoreToken" type="STRING" sessionKey="MorCoreToken"
+                        xpathExpression="//token" />
                 </Param>
                 <Forward name="success" path="Exit" />
             </SenderPipe>

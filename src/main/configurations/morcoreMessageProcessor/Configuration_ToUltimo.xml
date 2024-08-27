@@ -113,7 +113,7 @@
             <PutSystemDateInSessionPipe name="StoreSystemDate" />
 
             <SenderPipe name="RequestMeldingInfo">
-                <IbisLocalSender name="RequestGetMelding" javaListener="MorCore_GetMelding"/>
+                <IbisLocalSender name="RequestGetMelding" javaListener="MorCore_GetMelding" />
                 <Forward name="success" path="MakeMeldingInfoXML" />
                 <Forward name="exception" path="exception" />
             </SenderPipe>
@@ -126,7 +126,8 @@
 
             <SenderPipe name="GetTaakType" getInputFromSessionKey="originalMessage">
                 <IbisLocalSender name="GetTaakType" javaListener="Internal_GetTaakType">
-                    <Param name="uuid" xpathExpression="substring-after(//taaktype, 'api/taaktypes/')"/>
+                    <Param name="uuid"
+                        xpathExpression="substring-after(//taaktype, 'api/taaktypes/')" />
                 </IbisLocalSender>
                 <Forward name="success" path="MakeTaakTypeXML" />
                 <Forward name="exception" path="exception" />
@@ -137,34 +138,39 @@
                 <Forward name="exception" path="exception" />
             </JsonPipe>
 
-            <XmlIfPipe name="IfBijlage1Exists" getInputFromSessionKey="meldingInfo" xpathExpression="boolean(//bijlagen[1]/bestand)">
+            <XmlIfPipe name="IfBijlage1Exists" getInputFromSessionKey="meldingInfo"
+                xpathExpression="boolean(//bijlagen[1]/bestand)">
                 <Forward name="then" path="GetBijlage1" />
                 <Forward name="else" path="RequestOpdrachtInfo" />
             </XmlIfPipe>
 
-            <SenderPipe name="GetBijlage1" storeResultInSessionKey="bijlage1" getInputFromSessionKey="meldingInfo">
+            <SenderPipe name="GetBijlage1" storeResultInSessionKey="bijlage1"
+                getInputFromSessionKey="meldingInfo">
                 <IbisLocalSender name="GetBijlage1" javaListener="MorCore_GetBijlage">
-                    <Param name="bijlageUrl" xpathExpression="//bijlagen[1]/bestand"></Param>    
+                    <Param name="bijlageUrl" xpathExpression="//bijlagen[1]/bestand"></Param>
                 </IbisLocalSender>
                 <Forward name="success" path="IfBijlage2Exists" />
                 <Forward name="exception" path="exception" />
             </SenderPipe>
 
-            <XmlIfPipe name="IfBijlage2Exists" getInputFromSessionKey="meldingInfo" xpathExpression="boolean(//bijlagen[2]/bestand)">
+            <XmlIfPipe name="IfBijlage2Exists" getInputFromSessionKey="meldingInfo"
+                xpathExpression="boolean(//bijlagen[2]/bestand)">
                 <Forward name="then" path="GetBijlage2" />
                 <Forward name="else" path="RequestOpdrachtInfo" />
             </XmlIfPipe>
 
-            <SenderPipe name="GetBijlage2" storeResultInSessionKey="bijlage2" getInputFromSessionKey="meldingInfo">
+            <SenderPipe name="GetBijlage2" storeResultInSessionKey="bijlage2"
+                getInputFromSessionKey="meldingInfo">
                 <IbisLocalSender name="GetBijlage1" javaListener="MorCore_GetBijlage">
-                    <Param name="bijlageUrl" xpathExpression="//bijlagen[2]/bestand"></Param>    
+                    <Param name="bijlageUrl" xpathExpression="//bijlagen[2]/bestand"></Param>
                 </IbisLocalSender>
                 <Forward name="success" path="RequestOpdrachtInfo" />
                 <Forward name="exception" path="exception" />
             </SenderPipe>
-            
-            <SenderPipe name="RequestOpdrachtInfo" storeResultInSessionKey="opdrachtInfo" getInputFromSessionKey="originalMessage">
-                <IbisLocalSender name="RequestGetMelding" javaListener="MorCore_GetTaakOpdracht"/>
+
+            <SenderPipe name="RequestOpdrachtInfo" storeResultInSessionKey="opdrachtInfo"
+                getInputFromSessionKey="originalMessage">
+                <IbisLocalSender name="RequestGetMelding" javaListener="MorCore_GetTaakOpdracht" />
                 <Forward name="success" path="MakeOpdrachtInfoXML" />
                 <Forward name="exception" path="exception" />
             </SenderPipe>
@@ -189,7 +195,8 @@
                 <Param name="opdrachtInfo" sessionKey="opdrachtInfo" type="DOMDOC" />
             </XsltPipe>
 
-            <JsonPipe name="XmlToJson" direction="XML2JSON" storeResultInSessionKey="jsonMessage" prettyPrint="true">
+            <JsonPipe name="XmlToJson" direction="XML2JSON" storeResultInSessionKey="jsonMessage"
+                prettyPrint="true">
                 <Forward name="success" path="ChangeXYValueTypesSender" />
                 <Forward name="exception" path="exception" />
             </JsonPipe>
@@ -203,12 +210,15 @@
             </SenderPipe>
 
             <SenderPipe name="StoreUuidIdMapping" getInputFromSessionKey="meldingInfo">
-                <IbisLocalSender javaListener="Internal_StoreUuidIdMapping"/>
+                <IbisLocalSender javaListener="Internal_StoreUuidIdMapping">
+                    <Param name="Taakopdracht" sessionKey="originalMessage"
+                        xpathExpression="substring-before(substring-after(/root/taakopdracht, '/api/v1/taakopdracht/'), '/')" />
+                </IbisLocalSender>
             </SenderPipe>
 
             <SenderPipe name="SendToUltimo" getInputFromSessionKey="jsonMessage">
                 <HttpSender name="SendToUltimo" methodType="POST" contentType="application/json"
-                headersParams="ApiKey,ApplicationElementId,Accept-Crs,Content-Crs">
+                    headersParams="ApiKey,ApplicationElementId,Accept-Crs,Content-Crs">
                     <Param name="Accept-Crs" value="EPSG:4326" />
                     <Param name="Content-Crs" value="EPSG:4326" />
                     <Param name="url" value="${Ultimo.ESB.root-url}_REST_MSB_CreateJob" />
@@ -285,7 +295,7 @@
 
             <XsltPipe name="CreateGetZaakRequest" styleSheetName="xsl/Ultimo/GetZaakResponse.xsl">
                 <Param name="currentDate" sessionKey="systemDate" />
-                <Param name="MorcoreRootURL" value="${MorCore.taak.API.root-url}"/> 
+                <Param name="MorcoreRootURL" value="${MorCore.taak.API.root-url}" />
                 <Forward name="success" path="Xml2Json" />
                 <Forward name="exception" path="exception" />
             </XsltPipe>
