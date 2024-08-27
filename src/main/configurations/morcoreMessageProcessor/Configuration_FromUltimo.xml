@@ -68,7 +68,7 @@
                 <Param name="Authorization" xpathExpression="concat('Token ', $MorCoreToken)">
                     <Param name="MorCoreToken" type="STRING" sessionKey="MorCoreToken" xpathExpression="//token" />
                 </Param>
-                <Forward name="success" path="Json2Xml" />
+                <Forward name="success" path="Exit" />
             </SenderPipe>
 
         </Pipeline>
