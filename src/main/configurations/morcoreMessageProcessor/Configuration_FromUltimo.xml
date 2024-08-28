@@ -68,7 +68,7 @@
                     xpathExpression="concat('${MorCore.taak.API.root-url}/api/v1/melding/', $meldingUuid, '/taakopdracht/', $taakOpdrachtUuid, '/notificatie')">
                     <Param name="meldingUuid" type="STRING"
                         xpathExpression="//uuid" sessionKey="uuid" />
-                    <Param name="taakOpdrachtUuid" sessionKey="taakopdracht" />
+                    <Param name="taakOpdrachtUuid" type="STRING" sessionKey="taakopdracht" xpathExpression="/taakopdracht" />
                 </Param>
                 <Param name="Authorization" xpathExpression="concat('Token ', $MorCoreToken)">
                     <Param name="MorCoreToken" type="STRING" sessionKey="MorCoreToken"
