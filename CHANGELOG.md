@@ -1,5 +1,15 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.8.0](https://github.com/wearefrank/morcore2ultimo/compare/v1.7.10...v1.8.0) (2024-08-27)
+
+### 🍕 Features
+
+* add taakopdracht storage necessary for PostNotificatie ([bcfa706](https://github.com/wearefrank/morcore2ultimo/commit/bcfa70628edac7c4bd69bf3a4b2e4d0bd8cb503e))
+
+### 🐛 Bug Fixes
+
+* prevent loop ([51a272d](https://github.com/wearefrank/morcore2ultimo/commit/51a272ddb5b952ffaf86346fec0e078b5916adb7))
+
 ## [1.7.10](https://github.com/wearefrank/morcore2ultimo/compare/v1.7.9...v1.7.10) (2024-08-26)
 
 ### 🐛 Bug Fixes
