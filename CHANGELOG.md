@@ -1,5 +1,11 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.8.1](https://github.com/wearefrank/morcore2ultimo/compare/v1.8.0...v1.8.1) (2024-08-28)
+
+### 🐛 Bug Fixes
+
+* URL formatting ([2c99566](https://github.com/wearefrank/morcore2ultimo/commit/2c995660d1f0dc7c6eb0732a3640f429dacb5169))
+
 ## [1.8.0](https://github.com/wearefrank/morcore2ultimo/compare/v1.7.10...v1.8.0) (2024-08-27)
 
 ### 🍕 Features
