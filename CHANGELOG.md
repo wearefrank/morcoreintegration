@@ -1,5 +1,24 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.8.2](https://github.com/wearefrank/morcore2ultimo/compare/v1.8.1...v1.8.2) (2024-09-05)
+
+### 🐛 Bug Fixes
+
+* enable fallback system ([05de4ef](https://github.com/wearefrank/morcore2ultimo/commit/05de4ef1a0cce54c1e589f82554a7e91b70253dc))
+
+### 🧑‍💻 Code Refactoring
+
+* add error handling ([a9eb4a7](https://github.com/wearefrank/morcore2ultimo/commit/a9eb4a76ab4207a9f1e03b263dc5279bb823b985))
+* add error handling to Ultimo requests ([8edd6bf](https://github.com/wearefrank/morcore2ultimo/commit/8edd6bf75678a337d5611861bdb33a47bec1c0dd))
+* add error message to Taaktype not found ([20dc065](https://github.com/wearefrank/morcore2ultimo/commit/20dc06572d58a28f682b5554844350d49fdb1662))
+* remove excess pipe ([fdb9ffb](https://github.com/wearefrank/morcore2ultimo/commit/fdb9ffb1e67c1949c5a1009e3e560eeb63d73cca))
+
+### ✅ Tests
+
+* redo GetMelding response in multiple tests ([297a393](https://github.com/wearefrank/morcore2ultimo/commit/297a3931f0b323789c8abebffd38da6876727b2f))
+* update scenario 03 ([a664bb7](https://github.com/wearefrank/morcore2ultimo/commit/a664bb771b0cffd19b7df014849278fd67b6f83e))
+* update scenario 07 ([849b066](https://github.com/wearefrank/morcore2ultimo/commit/849b066b00655918a35832f4f5f6b335f7b7dfdd))
+
 ## [1.8.1](https://github.com/wearefrank/morcore2ultimo/compare/v1.8.0...v1.8.1) (2024-08-28)
 
 ### 🐛 Bug Fixes
