@@ -36,16 +36,6 @@
                 <Forward name="exception" path="Exception" />
             </SenderPipe>
 
-            <JsonPipe name="Json2Xml" prettyPrint="true">
-                <Forward name="success" path="Xml2Json" />
-                <Forward name="exception" path="Exception" />
-            </JsonPipe>
-
-            <JsonPipe name="Xml2Json" direction="XML2JSON">
-                <Forward name="success" path="Exit" />
-                <Forward name="exception" path="Exception" />
-            </JsonPipe>
-
         </Pipeline>
     </Adapter>
 
