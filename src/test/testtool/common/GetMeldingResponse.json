@@ -1,109 +1,112 @@
 {
     "_links": {
-        "self": "meldingurl"
+        "self": "https://example.com/api/v1/melding/abcd1234-5678-90ef-ghij-klmnopqrstuv/"
     },
-    "id": 1234,
-    "uuid": "123456",
-    "aangemaakt_op": "2024-07-22T08:09:01.710045+02:00",
-    "aangepast_op": "2024-07-22T13:29:45.620480+02:00",
-    "origineel_aangemaakt": "2024-07-22T08:06:57.734000+02:00",
+    "id": 1001,
+    "uuid": "abcd1234-5678-90ef-ghij-klmnopqrstuv",
+    "aangemaakt_op": "2023-01-01T10:00:00.000000+01:00",
+    "aangepast_op": "2023-01-02T12:00:00.000000+01:00",
+    "origineel_aangemaakt": "2023-01-01T09:59:00.000000+01:00",
     "afgesloten_op": null,
     "urgentie": 0.5,
     "meta": {},
     "meta_uitgebreid": {},
     "onderwerpen": [
-        "testurl"
+        "https://example.com/api/v1/group/1234abcd-5678-90ef-ghij-klmnopqrstuv/category/12345678-abcd-1234-abcd-1234567890ef/"
     ],
     "bijlagen": [],
     "locaties_voor_melding": [
         {
-            "id": 1242,
-            "uuid": "4567",
-            "aangemaakt_op": "2024-07-22T08:09:01.689711+02:00",
-            "aangepast_op": "2024-07-22T08:09:01.689734+02:00",
+            "id": 2001,
+            "uuid": "defg5678-abcd-1234-ijkl-9876543210op",
+            "aangemaakt_op": "2023-01-01T10:01:00.000000+01:00",
+            "aangepast_op": "2023-01-01T10:01:00.000000+01:00",
             "locatie_type": "adres",
             "geometrie": {
                 "type": "Point",
                 "coordinates": [
-                    1.234567,
-                    12.123456
+                    5.123456,
+                    52.123456
                 ]
             },
             "bron": null,
             "naam": null,
-            "straatnaam": "Straat",
-            "huisnummer": 1,
+            "straatnaam": "Example Street",
+            "huisnummer": 10,
             "huisletter": "",
             "toevoeging": "",
             "postcode": "1234AB",
-            "wijknaam": "Wijknaam",
-            "buurtnaam": "Buurtnaam",
+            "wijknaam": "Example District",
+            "buurtnaam": "Example Neighborhood",
             "lichtmast_id": null,
-            "plaatsnaam": "Stad",
+            "plaatsnaam": "Example City",
             "begraafplaats": null,
             "grafnummer": null,
             "vak": null,
-            "gewicht": 0.2,
-            "melding": 1234,
-            "signaal": 1234,
+            "gewicht": 0.5,
+            "melding": 1001,
+            "signaal": 3001,
             "gebruiker": null
         }
     ],
     "status": {
-        "naam": "in_behandeling",
-        "melding": 1234
+        "naam": "in_progress",
+        "melding": 1001
     },
-    "resolutie": "niet_opgelost",
+    "resolutie": "pending",
     "meldinggebeurtenissen": [
         {
             "_links": {
-                "self": "url"
+                "self": "https://example.com/api/v1/meldinggebeurtenis/ijkl5678-abcd-1234-mnop-0987654321qr/"
             },
-            "aangemaakt_op": "2024-07-22T13:29:45.619388+02:00",
-            "gebeurtenis_type": "status_wijziging",
+            "aangemaakt_op": "2023-01-02T12:00:00.000000+01:00",
+            "gebeurtenis_type": "status_change",
             "bijlagen": [],
             "status": {
-                "naam": "in_behandeling",
-                "melding": 1234
+                "naam": "in_progress",
+                "melding": 1001
             },
             "omschrijving_intern": null,
-            "omschrijving_extern": "De melding is in behandeling.",
-            "melding": 1234,
+            "omschrijving_extern": "The case is in progress.",
+            "melding": 1001,
             "taakgebeurtenis": {
                 "_links": {
-                    "self": "url",
-                    "taakopdracht": "taakopdracht"
+                    "self": "https://example.com/api/v1/taakgebeurtenis/abcd1234-5678-efgh-ijkl-qrstuvwxyz12/",
+                    "taakopdracht": "https://example.com/api/v1/taakopdracht/abcd1234-5678-efgh-ijkl-qrstuvwxyz34/"
                 },
-                "aangemaakt_op": "2024-07-22T13:29:45.612714+02:00",
+                "aangemaakt_op": "2023-01-02T12:01:00.000000+01:00",
                 "bijlagen": [],
                 "taakstatus": {
-                    "naam": "nieuw",
-                    "aangemaakt_op": "2024-07-22T13:29:45.609262+02:00",
-                    "taakopdracht": 456
+                    "naam": "new",
+                    "aangemaakt_op": "2023-01-02T12:00:00.000000+01:00",
+                    "taakopdracht": 700
                 },
+                "resolutie": null,
                 "omschrijving_intern": "",
-                "taakopdracht": 456,
-                "gebruiker": "user@email.com",
-                "additionele_informatie": {}
+                "taakopdracht": 700,
+                "gebruiker": "user@example.com",
+                "additionele_informatie": {
+                    "taak_url": null
+                }
             },
-            "gebruiker": "user@email.com",
+            "gebruiker": "user@example.com",
             "locatie": null,
             "urgentie": null
         },
         {
             "_links": {
-                "self": "meldingurl"
+                "self": "https://example.com/api/v1/meldinggebeurtenis/mnop5678-abcd-1234-qrst-9876543210uv/"
             },
-            "aangemaakt_op": "2024-07-22T08:09:01.806596+02:00",
-            "gebeurtenis_type": "melding_aangemaakt",
+            "aangemaakt_op": "2023-01-01T10:01:00.000000+01:00",
+            "gebeurtenis_type": "case_created",
             "bijlagen": [],
             "status": {
-                "naam": "openstaand",
-                "melding": 1234
+                "naam": "open",
+                "melding": 1001
             },
-            "omschrijving_intern": "Melding aangemaakt",
+            "omschrijving_intern": "Case created",
             "omschrijving_extern": null,
-            "melding": 1234,
+            "melding": 1001,
             "taakgebeurtenis": null,
             "gebruiker": null,
             "locatie": null,
@@ -112,42 +115,45 @@
     ],
     "taakopdrachten_voor_melding": [
         {
-            "taaktype": "taaktypeurl",
-            "titel": "Hoofdriool",
+            "taaktype": "https://example.com/api/taaktypes/abcd1234-5678-90ef-ghij-klmnopqrstuv",
+            "titel": "Main Task",
             "bericht": "",
             "additionele_informatie": {},
             "gebruiker": null,
             "_links": {
-                "self": "taakopdracht",
-                "applicatie": "taakopdrachturl",
-                "melding": "meldingurl"
+                "self": "https://example.com/api/v1/taakopdracht/abcd1234-5678-90ef-ghij-klmnopqrstuv/",
+                "applicatie": "https://example.com/api/v1/applicatie/abcd1234-5678-90ef-ghij-klmnopqrstuv/",
+                "melding": "https://example.com/api/v1/melding/abcd1234-5678-90ef-ghij-klmnopqrstuv/"
             },
-            "id": 456,
-            "uuid": "uuid",
+            "id": 700,
+            "uuid": "abcd1234-5678-90ef-ghij-klmnopqrstuv",
             "status": {
-                "naam": "nieuw",
-                "aangemaakt_op": "2024-07-22T13:29:45.609262+02:00",
-                "taakopdracht": 456
+                "naam": "new",
+                "aangemaakt_op": "2023-01-02T12:00:00.000000+01:00",
+                "taakopdracht": 700
             },
             "resolutie": null,
-            "melding": 1234,
+            "melding": 1001,
             "taakgebeurtenissen_voor_taakopdracht": [
                 {
                     "_links": {
-                        "self": "url",
-                        "taakopdracht": "taakopdracht"
+                        "self": "https://example.com/api/v1/taakgebeurtenis/abcd1234-5678-efgh-ijkl-mnopqrstuvwx/",
+                        "taakopdracht": "https://example.com/api/v1/taakopdracht/abcd1234-5678-efgh-ijkl-qrstuvwxyz12/"
                     },
-                    "aangemaakt_op": "2024-07-22T13:29:45.612714+02:00",
+                    "aangemaakt_op": "2023-01-02T12:01:00.000000+01:00",
                     "bijlagen": [],
                     "taakstatus": {
-                        "naam": "nieuw",
-                        "aangemaakt_op": "2024-07-22T13:29:45.609262+02:00",
-                        "taakopdracht": 456
+                        "naam": "new",
+                        "aangemaakt_op": "2023-01-02T12:00:00.000000+01:00",
+                        "taakopdracht": 700
                     },
+                    "resolutie": null,
                     "omschrijving_intern": "",
-                    "taakopdracht": 456,
-                    "gebruiker": "user@email.com",
-                    "additionele_informatie": {}
+                    "taakopdracht": 700,
+                    "gebruiker": "user@example.com",
+                    "additionele_informatie": {
+                        "taak_url": null
+                    }
                 }
             ],
             "taak_url": null
@@ -156,121 +162,71 @@
     "signalen_voor_melding": [
         {
             "_links": {
-                "self": "signalurl",
-                "melding": "meldingurl"
+                "self": "https://example.com/api/v1/signaal/efgh5678-abcd-1234-ijkl-9876543210wx/",
+                "melding": "https://example.com/api/v1/melding/abcd1234-5678-90ef-ghij-klmnopqrstuv/"
             },
-            "uuid": "9c023232-4e49-488c-a24d-0ba9201065db",
-            "signaal_url": "signalurl2",
+            "uuid": "efgh5678-abcd-1234-ijkl-9876543210wx",
+            "signaal_url": "https://example.com/case/2023-123456",
             "signaal_data": {},
-            "bron_id": "source",
-            "bron_signaal_id": "2024-003558",
-            "origineel_aangemaakt": "2024-07-22T08:06:57.734000+02:00",
-            "urgentie": 0.2,
-            "omschrijving_melder": "AUTOMATISCHE TEST MELDING",
-            "aanvullende_informatie": "Kan je aangeven om wat voor soort gevaarlijk afval het gaat?Asbest\\nWaar ligt het gevaarlijke afval?Op straat\\n",
+            "bron_id": "ExampleApp",
+            "bron_signaal_id": "2023-123456",
+            "origineel_aangemaakt": "2023-01-01T09:59:00.000000+01:00",
+            "urgentie": 0.5,
+            "omschrijving_melder": "",
+            "aanvullende_informatie": "What type of waste? Glass\\nWhere is it located? null\\n",
             "aanvullende_vragen": [
                 {
                     "answers": [
-                        "Asbest"
+                        "Glass"
                     ],
-                    "question": "Kan je aangeven om wat voor soort gevaarlijk afval het gaat?"
+                    "question": "What type of waste?"
                 },
                 {
-                    "answers": [
-                        "Op straat"
-                    ],
-                    "question": "Waar ligt het gevaarlijke afval?"
+                    "answers": [],
+                    "question": "Where is it located?"
                 }
             ],
             "meta": {
                 "spoedField": false,
-                "kanaalField": "source",
-                "xCoordField": 12345.0,
-                "yCoordField": 123456.0,
-                "bijlagenField": null,
-                "loginnaamField": "Webformulier",
-                "onderwerpField": "Gevaarlijk afval",
-                "huisnummerField": "",
-                "melderNaamField": "user",
-                "straatnaamField": "street",
-                "lichtpuntenField": [],
-                "melderEmailField": "user@email.com",
-                "aanmaakDatumField": "2024-07-22T06:06:57.734000Z",
-                "omschrijvingField": "AUTOMATISCHE TEST MELDING TOSCA!",
-                "adoptantnummerField": null,
-                "melderTelefoonField": "Anoniem",
-                "meldingsnummerField": "2024-003558",
-                "aanvullendeVragenField": [
-                    {
-                        "answers": [
-                            "Asbest"
-                        ],
-                        "question": "Kan je aangeven om wat voor soort gevaarlijk afval het gaat?"
-                    },
-                    {
-                        "answers": [
-                            "Op straat"
-                        ],
-                        "question": "Waar ligt het gevaarlijke afval?"
-                    }
-                ],
-                "naderePlaatsbepalingField": "",
-                "aanvullendeInformatieField": "Kan je aangeven om wat voor soort gevaarlijk afval het gaat?Asbest\\nWaar ligt het gevaarlijke afval?Op straat\\n"
+                "kanaalField": "ExampleApp-Webform",
+                "xCoordField": 100000.0,
+                "yCoordField": 500000.0,
+                "datumField": "2023-01-01T09:59:00.000000+01:00",
+                "stadsdeelField": "Example District",
+                "adresField": "Example Street 10"
             },
-            "meta_uitgebreid": {},
-            "onderwerpen": [
+            "geometrie": {
+                "type": "Point",
+                "coordinates": [
+                    5.123456,
+                    52.123456
+                ]
+            },
+            "status": {
+                "naam": "new",
+                "signaal": 3001
+            },
+            "signaalgebeurtenissen": [
                 {
                     "_links": {
-                        "self": "subjecturl"
+                        "self": "https://example.com/api/v1/signaalgebeurtenis/abcd5678-abcd-1234-ijkl-qrstuvwxyz34/"
                     },
-                    "naam": "Gevaarlijk afval",
-                    "bron_url": "subjecturl"
+                    "aangemaakt_op": "2023-01-01T10:01:00.000000+01:00",
+                    "gebeurtenis_type": "status_change",
+                    "bijlagen": [],
+                    "status": {
+                        "naam": "new",
+                        "signaal": 3001
+                    },
+                    "omschrijving_intern": null,
+                    "omschrijving_extern": "New case created.",
+                    "signaal": 3001,
+                    "gebruiker": null,
+                    "locatie": null,
+                    "urgentie": null
                 }
             ],
-            "bijlagen": [],
-            "melder": {
-                "naam": "user",
-                "voornaam": null,
-                "achternaam": null,
-                "email": "user@email.com",
-                "telefoonnummer": "Anoniem"
-            },
-            "aangemaakt_op": "2024-07-22T08:09:01.628873+02:00",
-            "melding": 1234,
-            "locaties_voor_signaal": [
-                {
-                    "id": 1242,
-                    "uuid": "4567",
-                    "aangemaakt_op": "2024-07-22T08:09:01.689711+02:00",
-                    "aangepast_op": "2024-07-22T08:09:01.689734+02:00",
-                    "locatie_type": "adres",
-                    "geometrie": {
-                        "type": "Point",
-                        "coordinates": [
-                            1.234567,
-                            12.345678
-                        ]
-                    },
-                    "bron": null,
-                    "naam": null,
-                    "straatnaam": "street",
-                    "huisnummer": 1,
-                    "huisletter": "",
-                    "toevoeging": "",
-                    "postcode": "1234AB",
-                    "wijknaam": "Wijknaam",
-                    "buurtnaam": "Buurtnaam",
-                    "lichtmast_id": null,
-                    "plaatsnaam": "Stad",
-                    "begraafplaats": null,
-                    "grafnummer": null,
-                    "vak": null,
-                    "gewicht": 0.2,
-                    "melding": 1234,
-                    "signaal": 1234,
-                    "gebruiker": null
-                }
-            ]
+            "melding": 1001
         }
     ]
 }
