@@ -73,9 +73,13 @@
             </XsltPipe>
 
             <XmlIfPipe name="CheckLength" xpathExpression="string-length(.) = 0">
-                <Forward name="then" path="NotFound" />
+                <Forward name="then" path="TypeNotFound" />
                 <Forward name="else" path="XmlToJson" />
             </XmlIfPipe>
+
+            <FixedResultPipe name="TypeNotFound" returnString="No matching taaktype found.">
+                <Forward name="success" path="NotFound" />
+            </FixedResultPipe>
 
             <JsonPipe name="XmlToJson" direction="XML2JSON" prettyPrint="true">
                 <Forward name="success" path="Exit" />
