@@ -26,13 +26,13 @@
                 <Param name="Authorization" xpathExpression="concat('Token ', $MorCoreToken)">
                     <Param name="MorCoreToken" sessionKey="MorCoreToken" xpathExpression="//token" />
                 </Param>
-                <Forward name="success" path="Json2Xml" />
+                <Forward name="success" path="Exit" />
                 <Forward name="exception" path="CallMSBSender" />
             </SenderPipe>
 
             <SenderPipe name="CallMSBSender">
                 <IbisLocalSender name="CallMSBSender" javaListener="MSB_GetMelding" />
-                <Forward name="success" path="Json2Xml" />
+                <Forward name="success" path="Exit" />
                 <Forward name="exception" path="Exception" />
             </SenderPipe>
 
