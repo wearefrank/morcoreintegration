@@ -1,5 +1,11 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.8.3](https://github.com/wearefrank/morcore2ultimo/compare/v1.8.2...v1.8.3) (2024-09-13)
+
+### 🧑‍💻 Code Refactoring
+
+* update postnotificatie to fit new requirements ([68250bf](https://github.com/wearefrank/morcore2ultimo/commit/68250bfecc6093c78faef5203ff6314e8bc4b041))
+
 ## [1.8.2](https://github.com/wearefrank/morcore2ultimo/compare/v1.8.1...v1.8.2) (2024-09-05)
 
 ### 🐛 Bug Fixes
