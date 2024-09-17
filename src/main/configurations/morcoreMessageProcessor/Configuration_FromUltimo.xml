@@ -63,7 +63,7 @@
                     <Param name="Id" xpathExpression="//meldingId"></Param>
                 </IbisLocalSender>
                 <Forward name="success" path="CreatePostNotificatieRequest" />
-                <Forward name="exception" path="StoreStackTrace" />
+                <Forward name="exception" path="Send2MSB" />
             </SenderPipe>
 
             <XsltPipe name="CreatePostNotificatieRequest" styleSheetName="xsl/MorCore/PostNotificatieRequest.xsl" getInputFromSessionKey="xmlInputMessage">
@@ -90,7 +90,7 @@
                         xpathExpression="//token" />
                 </Param>
                 <Forward name="success" path="Exit" />
-                <Forward name="404" path="Send2MSB" />
+                <Forward name="exception" path="Send2MSB" />
             </SenderPipe>
 
             <SenderPipe name="Send2MSB" getInputFromSessionKey="RequestJson">
