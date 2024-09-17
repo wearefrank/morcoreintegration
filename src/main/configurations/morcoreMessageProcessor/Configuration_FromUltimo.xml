@@ -96,13 +96,13 @@
             <SenderPipe name="Send2MSB" getInputFromSessionKey="RequestJson">
                 <HttpSender name="Send2MSB" methodType="POST" contentType="application/json"
                     headersParams="Authorization" />
-                <Param name="url"
+                <Param name="url" sessionKey="dummyParam"
                     xpathExpression="concat('${MSB.taak.API.root-url}/api/v1/melding/', $meldingUuid, '/taakopdracht/', $taakOpdrachtUuid, '/notificatie')">
                     <Param name="meldingUuid" type="STRING"
                         xpathExpression="//uuid" sessionKey="uuid" />
                     <Param name="taakOpdrachtUuid" type="STRING" sessionKey="taakopdracht" xpathExpression="/taakopdracht" />
                 </Param>
-                <Param name="Authorization" xpathExpression="concat('Token ', $MorCoreToken)">
+                <Param name="Authorization" sessionKey="dummyParam" xpathExpression="concat('Token ', $MorCoreToken)">
                     <Param name="MorCoreToken" type="STRING" sessionKey="MorCoreToken"
                         xpathExpression="//token" />
                 </Param>
