@@ -30,7 +30,7 @@
                         opgelost
                     </xsl:when>
                     <xsl:otherwise>
-                        <xsl:text/>
+                        <xsl:value-of select="'null'"/>
                     </xsl:otherwise>
                 </xsl:choose>
             </resolutie>
