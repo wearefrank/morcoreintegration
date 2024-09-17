@@ -26,7 +26,7 @@
             <SenderPipe name="Send2MorCore">
                 <HttpSender name="Send2MorCore" methodType="POST" contentType="application/json" />
                 <Param name="url"
-                    value="${MorCore.taak.API.root-url}api-token-auth/">
+                    value="${MorCore.taak.API.root-url}/api-token-auth/">
                 </Param>
                 <Forward name="success" path="Json2Xml" />
                 <Forward name="exception" path="Exception" />
