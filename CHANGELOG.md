@@ -1,5 +1,11 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.8.5](https://github.com/wearefrank/morcore2ultimo/compare/v1.8.4...v1.8.5) (2024-09-17)
+
+### 🐛 Bug Fixes
+
+* dummy change to trigger the release that was not triggered by previous commit ([4041fff](https://github.com/wearefrank/morcore2ultimo/commit/4041fff74a93fa259ebfabe91ab802127881ebe6))
+
 ## [1.8.4](https://github.com/wearefrank/morcore2ultimo/compare/v1.8.3...v1.8.4) (2024-09-16)
 
 ### 🐛 Bug Fixes
