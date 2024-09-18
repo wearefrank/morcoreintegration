@@ -66,15 +66,12 @@
                 <Forward name="exception" path="Send2MSB" />
             </SenderPipe>
 
-            <XsltPipe name="CreatePostNotificatieRequest" styleSheetName="xsl/MorCore/PostNotificatieRequest.xsl" getInputFromSessionKey="xmlInputMessage">
-                <Forward name="success" path="MakePostNotificatieRequestJson" />
-                <Forward name="exception" path="StoreStackTrace" />
-            </XsltPipe>
-            
-            <JsonPipe name="MakePostNotificatieRequestJson" direction="XML2JSON" prettyPrint="true" storeResultInSessionKey="RequestJson">
+            <XsltPipe name="CreatePostNotificatieRequest"
+                styleSheetName="xsl/MorCore/PostNotificatieRequest.xsl"
+                getInputFromSessionKey="xmlInputMessage" storeResultInSessionKey="RequestJson">
                 <Forward name="success" path="Send2MorCore" />
                 <Forward name="exception" path="StoreStackTrace" />
-            </JsonPipe>
+            </XsltPipe>
 
             <SenderPipe name="Send2MorCore" getInputFromSessionKey="RequestJson">
                 <HttpSender name="Send2MorCore" methodType="POST" contentType="application/json"
