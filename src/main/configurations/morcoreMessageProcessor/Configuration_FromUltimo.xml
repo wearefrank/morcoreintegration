@@ -87,7 +87,7 @@
                         xpathExpression="//token" />
                 </Param>
                 <Forward name="success" path="Exit" />
-                <Forward name="exception" path="Send2MSB" />
+                <Forward name="exception" path="StoreStackTrace" />
             </SenderPipe>
 
             <SenderPipe name="Send2MSB" getInputFromSessionKey="RequestJson">
