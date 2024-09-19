@@ -62,9 +62,14 @@
                 <IbisLocalSender name="GetTaakopdrachtById" javaListener="Internal_GetTaakopdrachtById">
                     <Param name="Id" xpathExpression="//meldingId"></Param>
                 </IbisLocalSender>
-                <Forward name="success" path="CreatePostNotificatieRequest" />
-                <Forward name="exception" path="Send2MSB" />
+                <Forward name="success" path="CheckTaakopdrachtById" />
+                <Forward name="exception" path="StoreStackTrace" />
             </SenderPipe>
+
+            <XmlIfPipe name="CheckTaakopdrachtById" xpathExpression="string-length(taakopdracht) &gt; 0">
+                <Forward name="then" path="CreatePostNotificatieRequest" />
+                <Forward name="else" path="Send2MSB" />
+            </XmlIfPipe>
 
             <XsltPipe name="CreatePostNotificatieRequest"
                 styleSheetName="xsl/MorCore/PostNotificatieRequest.xsl"
