@@ -62,9 +62,14 @@
                 <IbisLocalSender name="GetTaakopdrachtById" javaListener="Internal_GetTaakopdrachtById">
                     <Param name="Id" xpathExpression="//meldingId"></Param>
                 </IbisLocalSender>
-                <Forward name="success" path="CreatePostNotificatieRequest" />
-                <Forward name="exception" path="Send2MSB" />
+                <Forward name="success" path="CheckTaakopdrachtById" />
+                <Forward name="exception" path="StoreStackTrace" />
             </SenderPipe>
+
+            <XmlIfPipe name="CheckTaakopdrachtById" xpathExpression="string-length(taakopdracht) &gt; 0">
+                <Forward name="then" path="CreatePostNotificatieRequest" />
+                <Forward name="else" path="Send2MSB" />
+            </XmlIfPipe>
 
             <XsltPipe name="CreatePostNotificatieRequest"
                 styleSheetName="xsl/MorCore/PostNotificatieRequest.xsl"
@@ -87,7 +92,7 @@
                         xpathExpression="//token" />
                 </Param>
                 <Forward name="success" path="Exit" />
-                <Forward name="exception" path="Send2MSB" />
+                <Forward name="exception" path="StoreStackTrace" />
             </SenderPipe>
 
             <SenderPipe name="Send2MSB" getInputFromSessionKey="RequestJson">
@@ -102,9 +107,9 @@
                 <Forward name="exception" path="StoreStackTrace" />
             </SenderPipe>
 
-            <PutInSessionPipe name="StoreStackTrace" sessionKey="errorStackTrace"/>
+            <JsonPipe name="StoreStackTrace" direction="JSON2XML" storeResultInSessionKey="errorStackTrace"/>
             
-            <XsltPipe name="ReturnErrorMessage" xpathExpression="concat('Something went wrong. Stack trace: ', $errorStackTrace)">
+            <XsltPipe name="ReturnErrorMessage" xpathExpression="concat('Something went wrong. Stack trace: ', codepoints-to-string(10), $errorStackTrace)">
                 <Param name="errorStackTrace" sessionKey="errorStackTrace"/>
                 <Forward name="success" path="Exception" />
             </XsltPipe>
