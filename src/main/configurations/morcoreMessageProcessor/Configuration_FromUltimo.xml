@@ -107,9 +107,9 @@
                 <Forward name="exception" path="StoreStackTrace" />
             </SenderPipe>
 
-            <PutInSessionPipe name="StoreStackTrace" sessionKey="errorStackTrace"/>
+            <JsonPipe name="StoreStackTrace" direction="JSON2XML" storeResultInSessionKey="errorStackTrace"/>
             
-            <XsltPipe name="ReturnErrorMessage" xpathExpression="concat('Something went wrong. Stack trace: ', $errorStackTrace)">
+            <XsltPipe name="ReturnErrorMessage" xpathExpression="concat('Something went wrong. Stack trace: ', codepoints-to-string(10), $errorStackTrace)">
                 <Param name="errorStackTrace" sessionKey="errorStackTrace"/>
                 <Forward name="success" path="Exception" />
             </XsltPipe>
