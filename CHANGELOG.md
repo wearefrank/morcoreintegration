@@ -1,5 +1,13 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.8.9](https://github.com/wearefrank/morcore2ultimo/compare/v1.8.8...v1.8.9) (2024-09-19)
+
+### 🐛 Bug Fixes
+
+* add check for taakopdracht ([996caaa](https://github.com/wearefrank/morcore2ultimo/commit/996caaaffcca6f4beeb2001cc75f2bc424a6edcf))
+* convert error message to xml ([7d1073c](https://github.com/wearefrank/morcore2ultimo/commit/7d1073c91b6a31cbcec37411cf2aefe0c9ceb5c6))
+* update the forward ([f8e68a1](https://github.com/wearefrank/morcore2ultimo/commit/f8e68a1d97f78e2d5c1d9a437cebc1481b6982c7))
+
 ## [1.8.8](https://github.com/wearefrank/morcore2ultimo/compare/v1.8.7...v1.8.8) (2024-09-18)
 
 ### 🐛 Bug Fixes
