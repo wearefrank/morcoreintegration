@@ -97,8 +97,10 @@
 
             <SenderPipe name="Send2MSB" getInputFromSessionKey="RequestJson">
                 <HttpSender name="Send2MSB" methodType="POST" contentType="application/json"
-                    headersParams="Authorization" />
+                    headersParams="ApiKey,ApplicationElementId,Authorization" />
                 <Param name="url" value="${MSB.taak.API.root-url}" />
+                <Param name="ApiKey" authAlias="Ultimo" pattern="{username}" />
+                <Param name="ApplicationElementId" authAlias="Ultimo" pattern="{password}" />
                 <Param name="Authorization" sessionKey="dummyParam" xpathExpression="concat('Token ', $MorCoreToken)">
                     <Param name="MorCoreToken" type="STRING" sessionKey="MorCoreToken"
                         xpathExpression="//token" />
