@@ -1,5 +1,21 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.8.13](https://github.com/wearefrank/morcore2ultimo/compare/v1.8.12...v1.8.13) (2024-09-23)
+
+### 🧑‍💻 Code Refactoring
+
+* remove unused adapter ([c2d30b1](https://github.com/wearefrank/morcore2ultimo/commit/c2d30b1994c44d9131c0f253c8ea0f7aa1132e99))
+
+## [1.8.12](https://github.com/wearefrank/morcore2ultimo/compare/v1.8.11...v1.8.12) (2024-09-23)
+
+### 🐛 Bug Fixes
+
+* correct XSLT ([ad113eb](https://github.com/wearefrank/morcore2ultimo/commit/ad113eb4ec7f05c527c32f36a32db92700989262))
+
+### ✅ Tests
+
+* improve test data ([2f6d4f3](https://github.com/wearefrank/morcore2ultimo/commit/2f6d4f38729c819d6ec392c0b793aef23b9a9f66))
+
 ## [1.8.11](https://github.com/wearefrank/morcore2ultimo/compare/v1.8.10...v1.8.11) (2024-09-20)
 
 ### 🐛 Bug Fixes
