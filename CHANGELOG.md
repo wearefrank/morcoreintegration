@@ -1,5 +1,20 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.8.16](https://github.com/wearefrank/morcore2ultimo/compare/v1.8.15...v1.8.16) (2024-09-23)
+
+### 🐛 Bug Fixes
+
+* prevent regular flow when missing data ([c0e0082](https://github.com/wearefrank/morcore2ultimo/commit/c0e0082fc384ac8322a10f64a75603675d3f4f7d))
+
+### 🧑‍💻 Code Refactoring
+
+* clean properties ([77fb025](https://github.com/wearefrank/morcore2ultimo/commit/77fb02527e649ec292f1a66e084d71c3abef0a98))
+* move calls between adapters ([0e3bbd7](https://github.com/wearefrank/morcore2ultimo/commit/0e3bbd7665ae6737fbd00b9e17487a3ddd85d03d))
+
+### ✅ Tests
+
+* update scenario 03 to reflect new situation ([6e67bbb](https://github.com/wearefrank/morcore2ultimo/commit/6e67bbb84a85103c24c022b60da441b4244b818a))
+
 ## [1.8.15](https://github.com/wearefrank/morcore2ultimo/compare/v1.8.14...v1.8.15) (2024-09-23)
 
 ### 🧑‍💻 Code Refactoring
