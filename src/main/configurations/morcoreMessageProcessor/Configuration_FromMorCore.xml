@@ -55,7 +55,7 @@
                 <Exit name="Exit" state="SUCCESS" />
                 <Exit name="Reject" state="REJECTED" />
                 <Exit name="Exception" state="ERROR" />
-                <Exit name="NotFound" state="REJECTED" code="404"/>
+                <Exit name="NotFound" state="SUCCESS" code="404"/>
             </Exits>
 
             <FixedResultPipe name="InputTaaktypesLijst" filename="responses/ZaakTypes.xml" getInputFromSessionKey="originalMessage"/>
