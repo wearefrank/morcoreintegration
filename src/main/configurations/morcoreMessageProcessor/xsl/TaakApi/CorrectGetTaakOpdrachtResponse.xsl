@@ -11,7 +11,7 @@
             <_links>
                 <melding>
                     <href>
-                        <xsl:value-of select="concat($MorCoreRootUrl, 'api/v1/melding/1234-5678', $uuid)" />
+                        <xsl:value-of select="concat($MorCoreRootUrl, '/api/v1/melding/1234-5678', $uuid)" />
                     </href>
                 </melding>
             </_links>
