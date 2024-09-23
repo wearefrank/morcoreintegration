@@ -1,5 +1,11 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.8.14](https://github.com/wearefrank/morcore2ultimo/compare/v1.8.13...v1.8.14) (2024-09-23)
+
+### 🧑‍💻 Code Refactoring
+
+* add authentication to ultimo adapter ([24db96f](https://github.com/wearefrank/morcore2ultimo/commit/24db96f659d507140da01ce7b6b46fdb7fb1e106))
+
 ## [1.8.13](https://github.com/wearefrank/morcore2ultimo/compare/v1.8.12...v1.8.13) (2024-09-23)
 
 ### 🧑‍💻 Code Refactoring
