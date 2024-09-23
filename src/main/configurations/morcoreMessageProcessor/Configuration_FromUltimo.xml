@@ -17,6 +17,25 @@
                 <Exit name="Reject" state="REJECTED" />
             </Exits>
 
+            <XmlIfPipe name="CompareApiKey" xpathExpression="$ClientApiKey = $FrankApiKey" active="${Token_Authentication.Active}">
+                <Param name="ClientApiKey" sessionKey="headers" xpathExpression="headers/header[@name='ApiKey']"/>
+                <Param name="FrankApiKey" authAlias="Ultimo" pattern="{username}" />
+                <Forward name="then" path="CompareApplicationElementId" />
+                <Forward name="else" path="RejectMessage" />
+            </XmlIfPipe>
+
+            <XmlIfPipe name="CompareApplicationElementId" xpathExpression="$ClientApplicationElementId = $FrankApplicationElementId" 
+                active="${Token_Authentication.Active}">
+                <Param name="ClientApplicationElementId" sessionKey="headers" xpathExpression="headers/header[@name='ApplicationElementId']"/>
+                <Param name="FrankApplicationElementId" authAlias="Ultimo" pattern="{password}" />
+                <Forward name="then" path="dummyInput" />
+                <Forward name="else" path="RejectMessage" />
+            </XmlIfPipe>
+
+            <FixedResultPipe name="RejectMessage" returnString="Authentication headers invalid" active="${Token_Authentication.Active}">
+                <Forward name="success" path="Reject" />
+            </FixedResultPipe>
+
             <PutInSessionPipe name="dummyInput">
                 <Param name="dummyParam" value="&lt;dummy/&gt;" />
                 <Forward name="success" path="Json2Xml" />
