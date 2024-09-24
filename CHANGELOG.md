@@ -1,5 +1,11 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.8.17](https://github.com/wearefrank/morcore2ultimo/compare/v1.8.16...v1.8.17) (2024-09-24)
+
+### 🐛 Bug Fixes
+
+* incorrect input for MSB sender ([0d8bc76](https://github.com/wearefrank/morcore2ultimo/commit/0d8bc768d8426883d205a523f0c85c06c4f61e7b))
+
 ## [1.8.16](https://github.com/wearefrank/morcore2ultimo/compare/v1.8.15...v1.8.16) (2024-09-23)
 
 ### 🐛 Bug Fixes
