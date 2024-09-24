@@ -134,6 +134,37 @@
         </Pipeline>
     </Adapter>
 
+    <Adapter name="MorCore_PostNotificatie">
+        <Receiver name="MorCore_PostNotificatie">
+            <JavaListener name="MorCore_PostNotificatie" />
+        </Receiver>
+
+        <Pipeline>
+
+            <Exits>
+                <Exit name="Exit" state="SUCCESS" />
+                <Exit name="Exception" state="ERROR" />
+                <Exit name="Reject" state="REJECTED" />
+            </Exits>
+
+            <SenderPipe name="Send2MorCore" getInputFromSessionKey="RequestJson">
+                <HttpSender name="Send2MorCore" methodType="POST" contentType="application/json"
+                    headersParams="Authorization" />
+                <Param name="url" sessionKey="dummyParam"
+                    xpathExpression="concat('${MorCore.taak.API.root-url}/api/v1/melding/', $meldingUuid, '/taakopdracht/', $taakOpdrachtUuid, '/notificatie/')" type="STRING">
+                    <Param name="meldingUuid" sessionKey="meldingUuid" />
+                    <Param name="taakOpdrachtUuid" sessionKey="taakOpdrachtUuid" />
+                </Param>
+                <Param name="Authorization" sessionKey="dummyParam" xpathExpression="concat('Token ', $MorCoreToken)">
+                    <Param name="MorCoreToken" type="STRING" sessionKey="MorCoreToken"
+                        xpathExpression="//token" />
+                </Param>
+                <Forward name="success" path="Exit" />
+                <Forward name="exception" path="Exception" />
+            </SenderPipe>
+        </Pipeline>
+    </Adapter>
+
     <!-- Disabled as at this time there is no situation in which we create a case in MorCore. -->
     <Adapter name="MorCore_PostTaak" active="false">
         <Receiver name="MorCore_PostTaak">

@@ -42,11 +42,37 @@
                 <Param name="meldingUuid" sessionKey="originalMessage"
                     xpathExpression="//meldingUuid" />
                 <Param name="url"
-                    value="${MSB.taak.API.root-url}/api/v1/melding/${meldingUuid}/taakopdracht" />
+                    value="${MSB.taak.API.root-url}api/v1/melding/${meldingUuid}/taakopdracht" />
                 <Forward name="success" path="Exit" />
                 <Forward name="exception" path="Exception" />
             </SenderPipe>
         </Pipeline>
     </Adapter>
-    
+
+    <Adapter name="MSB_PostNotificatie">
+        <Receiver name="MSB_PostNotificatie">
+            <JavaListener name="MSB_PostNotificatie" />
+        </Receiver>
+
+        <Pipeline>
+
+            <Exits>
+                <Exit name="Exit" state="SUCCESS" />
+                <Exit name="Exception" state="ERROR" />
+                <Exit name="Reject" state="REJECTED" />
+            </Exits>
+
+            <SenderPipe name="Send2MSB" getInputFromSessionKey="originalMessage">
+                <HttpSender name="Send2MSB" methodType="POST" contentType="application/json"
+                    headersParams="ApiKey,ApplicationElementId" />
+                <Param name="url" value="${MSB.taak.API.root-url}" type="STRING">
+                </Param>
+                <Param name="ApiKey" authAlias="Ultimo" pattern="{username}" />
+                <Param name="ApplicationElementId" authAlias="Ultimo" pattern="{password}" />
+                <Forward name="success" path="Exit" />
+                <Forward name="exception" path="Exception" />
+            </SenderPipe>
+        </Pipeline>
+    </Adapter>
+
 </Module>

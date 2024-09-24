@@ -54,11 +54,17 @@
                 <IbisLocalSender name="GetUuidById" javaListener="Internal_GetUuidById">
                     <Param name="Id" xpathExpression="//meldingId"></Param>
                 </IbisLocalSender>
-                <Forward name="success" path="MakeGetMeldingCall" />
+                <Forward name="success" path="IfResultCount0" />
                 <Forward name="exception" path="StoreStackTrace" />
             </SenderPipe>
 
-            <XsltPipe name="MakeGetMeldingCall"
+            <XmlIfPipe name="IfResultCount0" xpathExpression="string-length($uuidText) > 0">
+                <Param name="uuidText" sessionKey="uuid" xpathExpression="//uuid" type="STRING"/>
+                <Forward name="then" path="MakeGetMeldingCall" />
+                <Forward name="else" path="Send2MSB" />
+            </XmlIfPipe>
+
+            <XsltPipe name="MakeGetMeldingCall" getInputFromSessionKey="dummyParam"
                 xpathExpression="concat('&lt;melding>', '${MorCore.taak.API.root-url}', '/api/v1/melding/', $uuid, '&lt;/melding>')">
                 <Param name="uuid" sessionKey="uuid" type="DOMDOC" />
                 <Forward name="success" path="GetMeldingInfo" />
@@ -97,33 +103,23 @@
                 <Forward name="else" path="Send2MSB" />
             </XmlIfPipe>
 
-            <SenderPipe name="Send2MorCore" getInputFromSessionKey="RequestJson">
-                <HttpSender name="Send2MorCore" methodType="POST" contentType="application/json"
-                    headersParams="Authorization" />
-                <Param name="url" sessionKey="dummyParam"
-                    xpathExpression="concat('${MorCore.taak.API.root-url}/api/v1/melding/', $meldingUuid, '/taakopdracht/', $taakOpdrachtUuid, '/notificatie/')" type="STRING">
-                    <Param name="meldingUuid" type="STRING"
-                        xpathExpression="//uuid" sessionKey="uuid" />
+            <SenderPipe name="Send2MorCore" getInputFromSessionKey="dummyParam">
+                <IbisLocalSender name="Send2Morcore" javaListener="MorCore_PostNotificatie">
+                    <Param name="RequestJson" sessionKey="RequestJson" />
+                    <Param name="dummyParam" sessionKey="dummyParam" />
+                    <Param name="MorCoreToken" sessionKey="MorCoreToken" />
+                    <Param name="meldingUuid" type="STRING" xpathExpression="//uuid" sessionKey="uuid" />
                     <Param name="taakOpdrachtUuid" type="STRING" sessionKey="taakopdracht" xpathExpression="/taakopdracht" />
-                </Param>
-                <Param name="Authorization" sessionKey="dummyParam" xpathExpression="concat('Token ', $MorCoreToken)">
-                    <Param name="MorCoreToken" type="STRING" sessionKey="MorCoreToken"
-                        xpathExpression="//token" />
-                </Param>
+                </IbisLocalSender>
                 <Forward name="success" path="Exit" />
                 <Forward name="exception" path="StoreStackTrace" />
             </SenderPipe>
 
-            <SenderPipe name="Send2MSB" getInputFromSessionKey="RequestJson">
-                <HttpSender name="Send2MSB" methodType="POST" contentType="application/json"
-                    headersParams="ApiKey,ApplicationElementId,Authorization" />
-                <Param name="url" value="${MSB.taak.API.root-url}" />
-                <Param name="ApiKey" authAlias="Ultimo" pattern="{username}" />
-                <Param name="ApplicationElementId" authAlias="Ultimo" pattern="{password}" />
-                <Param name="Authorization" sessionKey="dummyParam" xpathExpression="concat('Token ', $MorCoreToken)">
-                    <Param name="MorCoreToken" type="STRING" sessionKey="MorCoreToken"
-                        xpathExpression="//token" />
-                </Param>
+            <SenderPipe name="Send2MSB" getInputFromSessionKey="originalMessage">
+                <IbisLocalSender name="Send2MSB" javaListener="MSB_PostNotificatie">
+                    <Param name="dummyParam" sessionKey="dummyParam" />
+                    <Param name="MorCoreToken" sessionKey="MorCoreToken" />
+                </IbisLocalSender>
                 <Forward name="success" path="Exit" />
                 <Forward name="exception" path="StoreStackTrace" />
             </SenderPipe>
