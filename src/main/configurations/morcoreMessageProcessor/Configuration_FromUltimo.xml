@@ -115,9 +115,8 @@
                 <Forward name="exception" path="StoreStackTrace" />
             </SenderPipe>
 
-            <SenderPipe name="Send2MSB" getInputFromSessionKey="dummyParam">
+            <SenderPipe name="Send2MSB" getInputFromSessionKey="originalMessage">
                 <IbisLocalSender name="Send2MSB" javaListener="MSB_PostNotificatie">
-                    <Param name="RequestJson" sessionKey="originalMessage" />
                     <Param name="dummyParam" sessionKey="dummyParam" />
                     <Param name="MorCoreToken" sessionKey="MorCoreToken" />
                 </IbisLocalSender>

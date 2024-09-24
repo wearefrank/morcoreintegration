@@ -62,17 +62,12 @@
                 <Exit name="Reject" state="REJECTED" />
             </Exits>
 
-            <SenderPipe name="Send2MSB" getInputFromSessionKey="RequestJson">
+            <SenderPipe name="Send2MSB" getInputFromSessionKey="originalMessage">
                 <HttpSender name="Send2MSB" methodType="POST" contentType="application/json"
-                    headersParams="ApiKey,ApplicationElementId,Authorization" />
-                <Param name="url" 
-                    sessionKey="dummyParam"
-                    value="${MSB.taak.API.root-url}" 
-                    type="STRING">
+                    headersParams="Authorization" />
+                <Param name="url" value="${MSB.taak.API.root-url}" type="STRING">
                 </Param>
-                <Param name="ApiKey" authAlias="Ultimo" pattern="{username}" />
-                <Param name="ApplicationElementId" authAlias="Ultimo" pattern="{password}" />
-                <Param name="Authorization" sessionKey="dummyParam" xpathExpression="concat('Token ', $MorCoreToken)">
+                <Param name="Authorization" sessionKey="dummyParam" type="STRING" xpathExpression="concat('Token ', $MorCoreToken)">
                     <Param name="MorCoreToken" type="STRING" sessionKey="MorCoreToken"
                         xpathExpression="//token" />
                 </Param>
