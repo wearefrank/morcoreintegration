@@ -1,0 +1,26 @@
+<Module xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../FrankConfig.xsd">
+
+    <Adapter name="MSB_GetMelding">
+        <Receiver name="MSB_GetMelding">
+            <JavaListener name="MSB_GetMelding" />
+        </Receiver>
+
+        <Pipeline>
+
+            <Exits>
+                <Exit name="Exit" state="SUCCESS" />
+                <Exit name="Exception" state="ERROR" />
+                <Exit name="Reject" state="REJECTED" />
+            </Exits>
+
+            <SenderPipe name="Send2MSB" getInputFromFixedValue="&lt;dummyInput/>">
+                <HttpSender name="Send2MSB" methodType="GET" />
+                <Param name="url"
+                    xpathExpression="concat('${MSB.taak.API.root-url}/api/v1/melding/', $uuid)">
+                    <Param name="uuid" sessionKey="uuid" />
+                </Param>
+            </SenderPipe>
+        </Pipeline>
+    </Adapter>
+</Module>

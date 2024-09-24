@@ -1,0 +1,31 @@
+<Module xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../FrankConfig.xsd">
+
+    <Adapter name="Internal_GetTaakopdrachtById">
+        <Receiver name="Internal_GetTaakopdrachtById">
+            <JavaListener name="Internal_GetTaakopdrachtById" />
+        </Receiver>
+
+        <Pipeline>
+            <Exits>
+                <Exit name="Exit" state="SUCCESS" />
+                <Exit name="Reject" state="REJECTED" />
+                <Exit name="Exception" state="ERROR" />
+            </Exits>
+
+            <SenderPipe name="RetrieveTaakopdracht">
+                <FixedQuerySender
+                    name="RetrieveTaakopdracht"
+                    query="SELECT taakopdracht FROM UUIDIDMAP WHERE id = ?{Id}"
+                    queryType="SELECT">
+                    <Param name="Id" sessionKey="Id" />
+                </FixedQuerySender>
+            </SenderPipe>
+
+            <XsltPipe name="GetTaakopdrachtValue" xpathExpression="//row[1]/field[1]" />
+
+            <Text2XmlPipe xmlTag="taakopdracht" name="Text2Xml" />
+
+        </Pipeline>
+    </Adapter>
+</Module>

@@ -1,0 +1,65 @@
+<Module xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../FrankConfig.xsd">
+
+    <Adapter name="Frank_GetToken">
+        <Receiver name="Frank_GetToken">
+            <ApiListener
+                name="Frank_GetToken"
+                uriPattern="/api-token-auth"
+                method="POST" />
+        </Receiver>
+
+        <Pipeline>
+            <Exits>
+                <Exit name="Exit" state="SUCCESS" />
+                <Exit name="Reject" state="REJECTED" />
+                <Exit name="Exception" state="ERROR" />
+            </Exits>
+
+            <JsonPipe name="Json2Xml" emptyInputReplacement="&lt;Empty>EmptyMessage&lt;/Empty>"/>
+
+            <XmlIfPipe name="CheckEmpty" xpathExpression="string-length(//Empty) = 0">
+                <Forward name="then" path="CheckUser" />
+                <Forward name="else" path="RejectMessage" />
+            </XmlIfPipe>
+
+            <FixedResultPipe name="RejectMessage" returnString="Username or password missing">
+                <Forward name="success" path="Reject" />
+            </FixedResultPipe>
+
+            <XmlIfPipe name="CheckUser" xpathExpression="$UserSet = $UserReceived">
+                <Param name="UserSet" pattern="{username}" authAlias="TokenGen" hidden="true"/>
+                <Param name="UserReceived" xpathExpression="//username" hidden="true"/>
+                <Forward name="then" path="CheckPass" />
+                <Forward name="else" path="RejectUser" />
+            </XmlIfPipe>
+
+            <XmlIfPipe name="CheckPass" xpathExpression="$PassSet = $PassReceived">
+                <Param name="PassSet" pattern="{password}" authAlias="TokenGen" hidden="true"/>
+                <Param name="PassReceived" xpathExpression="//password" hidden="true"/>
+                <Forward name="then" path="RequestGetToken" />
+                <Forward name="else" path="RejectUser" />
+            </XmlIfPipe>
+
+            <FixedResultPipe name="RejectUser" returnString="Username or Password incorrect">
+                <Forward name="success" path="Reject" />
+            </FixedResultPipe>
+
+            <SenderPipe name="RequestGetToken">
+                <IbisLocalSender name="RequestGetToken" javaListener="Internal_GetToken"/>
+            </SenderPipe>
+
+            <JsonPipe name="XmlToJson" direction="XML2JSON" addXmlRootElement="true">
+                <Forward name="success" path="Exit" />
+                <Forward name="failure" path="Exception" />
+            </JsonPipe>
+
+            <PutInSessionPipe name="StoreStackTrace" sessionKey="errorStackTrace"/>
+            
+            <XsltPipe name="ReturnErrorMessage" xpathExpression="concat('Something went wrong. Stack trace: ', $errorStackTrace)">
+                <Param name="errorStackTrace" sessionKey="errorStackTrace"/>
+                <Forward name="success" path="Exception" />
+            </XsltPipe>
+        </Pipeline>
+    </Adapter>
+</Module>

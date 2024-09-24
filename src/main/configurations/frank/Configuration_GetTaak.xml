@@ -1,0 +1,51 @@
+<Module xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../FrankConfig.xsd">
+
+    <Adapter name="Frank_GetTaak">
+        <Receiver name="Frank_GetTaak">
+            <ApiListener
+                name="Frank_GetTaak"
+                uriPattern="/api/v1/taak/{uuid}"
+                headerParams="Authorization"/>
+
+        </Receiver>
+
+        <Pipeline>
+            <Exits>
+                <Exit name="Exit" state="SUCCESS" />
+                <Exit name="Reject" state="REJECTED" />
+                <Exit name="Exception" state="ERROR" />
+            </Exits>
+
+            <SenderPipe name="GetToken" storeResultInSessionKey="FrankToken" active="${Token_Authentication.Active}">
+                <IbisLocalSender javaListener="Internal_GetToken"/>
+            </SenderPipe>
+
+            <XmlIfPipe name="CompareTokens" xpathExpression="substring-after($ClientToken, 'Token ') = $FrankToken" active="${Token_Authentication.Active}">
+                <Param name="ClientToken" sessionKey="headers" xpathExpression="headers/header[@name='Authorization']"/>
+                <Param name="FrankToken" sessionKey="FrankToken" xpathExpression="//token"/>
+                <Forward name="then" path="SwitchConfiguration" />
+                <Forward name="else" path="RejectMessage" />
+            </XmlIfPipe>
+
+            <FixedResultPipe name="RejectMessage" returnString="Token invalid" active="${Token_Authentication.Active}">
+                <Forward name="success" path="Reject" />
+            </FixedResultPipe>
+
+            <SenderPipe name="SwitchConfiguration" getInputFromSessionKey="originalMessage">
+                <IbisLocalSender javaListener="Ultimo_GetZaak">
+                    <Param name="uuid" sessionKey="uuid" />
+                </IbisLocalSender>
+                <Forward name="success" path="Exit" />
+                <Forward name="exception" path="StoreStackTrace" />
+            </SenderPipe>
+
+            <PutInSessionPipe name="StoreStackTrace" sessionKey="errorStackTrace"/>
+            
+            <XsltPipe name="ReturnErrorMessage" xpathExpression="concat('Something went wrong. Stack trace: ', $errorStackTrace)">
+                <Param name="errorStackTrace" sessionKey="errorStackTrace"/>
+                <Forward name="success" path="Exception" />
+            </XsltPipe>
+        </Pipeline>
+    </Adapter>
+</Module>

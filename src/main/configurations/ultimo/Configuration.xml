@@ -1,0 +1,7 @@
+<!DOCTYPE Configuration [
+	<!ENTITY PostZaak SYSTEM "./Configuration_PostZaak.xml">
+]>
+
+<Configuration name="ultimo">
+	&PostZaak;
+</Configuration>

@@ -1,0 +1,21 @@
+<!DOCTYPE Configuration [
+	<!ENTITY DeleteTaak SYSTEM 				"./Configuration_DeleteTaak.xml">
+	<!ENTITY GetTaak SYSTEM 				"./Configuration_GetTaak.xml">
+	<!ENTITY GetTaakType SYSTEM 			"./Configuration_GetTaakType.xml">
+	<!ENTITY GetToken SYSTEM 				"./Configuration_GetToken.xml">
+	<!ENTITY ListTaakTypes SYSTEM 			"./Configuration_ListTaakTypes.xml">
+	<!ENTITY PostNotificatie SYSTEM 		"./Configuration_PostNotificatie.xml">
+	<!ENTITY PostTaak SYSTEM 				"./Configuration_PostTaak.xml">
+	<!ENTITY PostTaakCommunicatie SYSTEM 	"./Configuration_PostTaakCommunicatie.xml">
+]>
+
+<Configuration name="frank">
+	&DeleteTaak;
+	&GetTaak;
+	&GetTaakType;
+	&GetToken;
+	&ListTaakTypes;
+	&PostNotificatie;
+	&PostTaak;
+	&PostTaakCommunicatie;
+</Configuration>

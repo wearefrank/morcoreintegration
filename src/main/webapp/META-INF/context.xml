@@ -5,7 +5,7 @@
         name="jdbc/morcore2ultimo"
         type="org.h2.jdbcx.JdbcDataSource"
         factory="org.apache.naming.factory.BeanFactory"
-        URL="jdbc:h2:/opt/frank/h2/morcore2ultimo"
+        URL="jdbc:h2:@h2.dir@/@instance.name.lc@"
     />
 
     <Resource

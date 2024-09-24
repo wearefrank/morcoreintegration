@@ -1,0 +1,48 @@
+<Module xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../FrankConfig.xsd">
+
+    <Adapter name="Internal_StoreUuidIdMapping">
+        <Receiver name="Internal_StoreUuidIdMapping">
+            <JavaListener name="Internal_StoreUuidIdMapping" />
+        </Receiver>
+
+        <Pipeline>
+            <Exits>
+                <Exit name="Exit" state="SUCCESS" />
+                <Exit name="Reject" state="REJECTED" />
+                <Exit name="Exception" state="ERROR" />
+            </Exits>
+
+            <SenderPipe name="GetUuidIdMapping">
+                <FixedQuerySender
+                    name="GetUuidIdMapping"
+                    query="SELECT * FROM UUIDIDMAP WHERE uuid = ?{Uuid} OR id = ?{Id}"
+                    queryType="SELECT">
+                    <Param name="Id" xpathExpression="/root/id" type="INTEGER" />
+                    <Param name="Uuid" xpathExpression="/root/uuid" type="STRING" />
+                </FixedQuerySender>
+            </SenderPipe>
+
+            <XmlIfPipe name="IfResultCount0" xpathExpression="count(//row) > 0">
+                <Forward name="then" path="RecordAlreadyExists" />
+                <Forward name="else" path="StoreUuidIdMapping" />
+            </XmlIfPipe>
+
+            <SenderPipe name="StoreUuidIdMapping" getInputFromSessionKey="originalMessage">
+                <FixedQuerySender
+                    name="StoreUuidIdMapping"
+                    query="INSERT INTO UUIDIDMAP (id, uuid, taakopdracht) VALUES (?{Id}, ?{Uuid}, ?{Taakopdracht})"
+                    queryType="OTHER">
+                    <Param name="Id" xpathExpression="/root/id" type="INTEGER" />
+                    <Param name="Uuid" xpathExpression="/root/uuid" type="STRING" />
+                    <Param name="Taakopdracht" sessionKey="Taakopdracht" type="STRING" />
+                </FixedQuerySender>
+                <Forward name="success" path="Exit" />
+                <Forward name="exception" path="Exception" />
+            </SenderPipe>
+
+            <FixedResultPipe name="RecordAlreadyExists"
+                returnString="&lt;result>Record already exists&lt;/result>" />
+        </Pipeline>
+    </Adapter>
+</Module>

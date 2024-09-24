@@ -1,0 +1,17 @@
+<!DOCTYPE Configuration [
+	<!ENTITY GetIdByUuid SYSTEM 			"./Configuration_GetIdByUuid.xml">
+	<!ENTITY GetTaakopdrachtById SYSTEM 	"./Configuration_GetTaakopdrachtById.xml">
+	<!ENTITY GetToken SYSTEM 				"./Configuration_GetToken.xml">
+	<!ENTITY GetUuidById SYSTEM 			"./Configuration_GetUuidById.xml">
+	<!ENTITY SetToken SYSTEM 				"./Configuration_SetToken.xml">
+	<!ENTITY StoreUuidIdMapping SYSTEM 		"./Configuration_StoreUuidIdMapping.xml">
+]>
+
+<Configuration name="internal">
+	&GetIdByUuid;
+	&GetTaakopdrachtById;
+	&GetToken;
+	&GetUuidById;
+	&SetToken;
+	&StoreUuidIdMapping;
+</Configuration>

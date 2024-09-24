@@ -1,0 +1,69 @@
+<Module xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../FrankConfig.xsd">
+
+    <!-- Disabled as at this time there is no situation in which we create a case in MorCore. -->
+    <Adapter name="MorCore_PostTaak" active="false">
+        <Receiver name="MorCore_PostTaak">
+            <JavaListener name="MorCore_PostTaak" />
+        </Receiver>
+
+        <Pipeline>
+
+            <Exits>
+                <Exit name="Exit" state="SUCCESS" />
+                <Exit name="Exception" state="ERROR" />
+                <Exit name="Reject" state="REJECTED" />
+            </Exits>
+
+            <SenderPipe name="CallMorCore_GetToken" storeResultInSessionKey="MorCoreToken">
+                <IbisLocalSender name="CallMorCore_GetToken" javaListener="MorCore_GetToken" />
+                <Forward name="success" path="Send2MorCore" />
+                <Forward name="exception" path="Exception" />
+            </SenderPipe>
+
+            <XsltPipe name="CreatePostTaakRequest" styleSheetName="../generic/xsl/TaakApi/PostZaakRequest.xsl"
+                getInputFromSessionKey="originalMessage">
+                <Forward name="success" path="Xml2Json" />
+                <Forward name="exception" path="Exception" />
+            </XsltPipe>
+
+            <JsonPipe name="Xml2Json" prettyPrint="true">
+                <Forward name="success" path="Send2MorCore" />
+                <Forward name="exception" path="Exception" />
+            </JsonPipe>
+
+            <SenderPipe name="Send2MorCore">
+                <HttpSender name="Send2MorCore" methodType="POST" contentType="application/json"
+                    headersParams="Authorization" />
+                <Param name="url"
+                    xpathExpression="concat('${MorCore.taak.API.root-url}/api/v1/melding/', $uuid)">
+                    <Param name="uuid" sessionKey="uuid" />
+                </Param>
+                <Param name="Authorization" xpathExpression="concat('Token ', $MorCoreToken)">
+                    <Param name="MorCoreToken" sessionKey="MorCoreToken" xpathExpression="//token" />
+                </Param>
+                <Forward name="success" path="Json2Xml" />
+            </SenderPipe>
+
+            <JsonPipe name="Json2Xml" prettyPrint="true">
+                <Forward name="success" path="CorrectFormat" />
+                <Forward name="exception" path="Exception" />
+            </JsonPipe>
+
+            <!-- TODO: Needs adjusting to PostTaak format -->
+            <XsltPipe name="CorrectFormat" styleSheetName="../generic/xsl/TaakApi/CorrectPostZaakResponse.xsl"
+                outputType="XML">
+                <Param name="MorCoreRootUrl" value="${MorCore.taak.API.root-url}" />
+                <Forward name="success" path="XmlCheck" />
+                <Forward name="exception" path="Exception" />
+            </XsltPipe>
+
+            <XmlValidatorPipe name="XmlCheck" schema="../generic/xsd/TaakApi/ValidatePostTaakResponse.xsd"
+                root="root">
+                <Forward name="success" path="Xml2Json" />
+                <Forward name="failure" path="Reject" />
+            </XmlValidatorPipe>
+        </Pipeline>
+    </Adapter>
+
+</Module>

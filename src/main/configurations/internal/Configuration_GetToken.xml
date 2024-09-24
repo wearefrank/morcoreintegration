@@ -1,0 +1,30 @@
+<Module xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../FrankConfig.xsd">
+
+    <Adapter name="Internal_GetToken">
+        <Receiver name="Internal_GetToken">
+            <JavaListener name="Internal_GetToken" />
+        </Receiver>
+
+        <Pipeline>
+            <Exits>
+                <Exit name="Exit" state="SUCCESS" />
+                <Exit name="Reject" state="REJECTED" />
+                <Exit name="Exception" state="ERROR" />
+            </Exits>
+
+            <SenderPipe name="RetrieveToken" storeResultInSessionKey="queryResult">
+                <FixedQuerySender
+                    name="RetrieveToken"
+                    query="SELECT token FROM TOKENSTORE WHERE id = 1"
+                    queryType="SELECT">
+                </FixedQuerySender>
+            </SenderPipe>
+
+            <XsltPipe name="GetTokenValue" getInputFromSessionKey="queryResult" xpathExpression="//row[1]/field[1]" />
+
+            <Text2XmlPipe xmlTag="token" name="Text2Xml" />
+
+        </Pipeline>
+    </Adapter>
+</Module>
