@@ -64,17 +64,15 @@
 
             <SenderPipe name="Send2MSB" getInputFromSessionKey="originalMessage">
                 <HttpSender name="Send2MSB" methodType="POST" contentType="application/json"
-                    headersParams="Authorization" />
+                    headersParams="ApiKey,ApplicationElementId" />
                 <Param name="url" value="${MSB.taak.API.root-url}" type="STRING">
                 </Param>
-                <Param name="Authorization" sessionKey="dummyParam" type="STRING" xpathExpression="concat('Token ', $MorCoreToken)">
-                    <Param name="MorCoreToken" type="STRING" sessionKey="MorCoreToken"
-                        xpathExpression="//token" />
-                </Param>
+                <Param name="ApiKey" authAlias="Ultimo" pattern="{username}" />
+                <Param name="ApplicationElementId" authAlias="Ultimo" pattern="{password}" />
                 <Forward name="success" path="Exit" />
                 <Forward name="exception" path="Exception" />
             </SenderPipe>
         </Pipeline>
     </Adapter>
-    
+
 </Module>
