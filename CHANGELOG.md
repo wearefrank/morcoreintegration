@@ -1,5 +1,15 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.8.18](https://github.com/wearefrank/morcore2ultimo/compare/v1.8.17...v1.8.18) (2024-09-24)
+
+### 🐛 Bug Fixes
+
+* apply correct auth to postnotification MSB ([079d093](https://github.com/wearefrank/morcore2ultimo/commit/079d093bdd9aaba62c181b65631f82f5d7513e80))
+
+### 🧑‍💻 Code Refactoring
+
+* remove Ultimo_DeleteZaak ([c810255](https://github.com/wearefrank/morcore2ultimo/commit/c810255099b8509f949d17c846adbcce1032ddf6))
+
 ## [1.8.17](https://github.com/wearefrank/morcore2ultimo/compare/v1.8.16...v1.8.17) (2024-09-24)
 
 ### 🐛 Bug Fixes
