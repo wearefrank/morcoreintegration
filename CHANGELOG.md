@@ -1,5 +1,11 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.8.20](https://github.com/wearefrank/morcore2ultimo/compare/v1.8.19...v1.8.20) (2024-09-24)
+
+### 🧑‍💻 Code Refactoring
+
+* add auth property ([bf9e178](https://github.com/wearefrank/morcore2ultimo/commit/bf9e17896144382ec7b2aca00535fe7e7043d9f0))
+
 ## [1.8.19](https://github.com/wearefrank/morcore2ultimo/compare/v1.8.18...v1.8.19) (2024-09-24)
 
 ### 🐛 Bug Fixes
