@@ -48,6 +48,6 @@ After deployment the Frank!Console is available on `/iaf/gui`
 
 | Template variable             | Description                                                                                    | Example        |
 |-------------------------------|------------------------------------------------------------------------------------------------|----------------|
-| `{{ cookiecutter.instance_name }}`            | The name of the Frank! to be deployed. It's best to keep this inline with the name of the repo | Frank2Skeleton |
+| `morcore2ultimo`            | The name of the Frank! to be deployed. It's best to keep this inline with the name of the repo | Frank2Skeleton |
 | `{{ cookiecutter.instance_name_lc }}`         | Lowercase version of the instance name.                                                        | frank2example  |
 | `{{ cookiecutter.configuration_name }}`       | The name of the first configuration (others have to be added manually)                         | Sans           |
