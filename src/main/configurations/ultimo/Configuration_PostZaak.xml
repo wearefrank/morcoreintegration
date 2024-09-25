@@ -18,7 +18,9 @@
             <PutSystemDateInSessionPipe name="StoreSystemDate" />
 
             <SenderPipe name="RequestMeldingInfo">
-                <IbisLocalSender name="RequestGetMelding" javaListener="MorCore_GetMelding" />
+                <IbisLocalSender name="RequestGetMelding" javaListener="MorCore_GetMelding">
+                    <Param name="uuid" sessionKey="uuid"/>
+                </IbisLocalSender>
                 <Forward name="success" path="MakeMeldingInfoXML" />
                 <Forward name="exception" path="exception" />
             </SenderPipe>

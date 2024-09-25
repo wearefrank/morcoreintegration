@@ -30,8 +30,10 @@
                 <Forward name="exception" path="CallMSBSender" />
             </SenderPipe>
 
-            <SenderPipe name="CallMSBSender">
-                <IbisLocalSender name="CallMSBSender" javaListener="MSB_GetMelding" />
+            <SenderPipe name="CallMSBSender" getInputFromSessionKey="originalMessage">
+                <IbisLocalSender name="CallMSBSender" javaListener="MSB_GetMelding">
+                    <Param name="uuid" xpathExpression="substring-after('api/v1/melding/', //melding)"/>
+                </IbisLocalSender>
                 <Forward name="success" path="Exit" />
                 <Forward name="exception" path="Exception" />
             </SenderPipe>
