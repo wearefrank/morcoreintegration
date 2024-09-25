@@ -1,0 +1,15 @@
+<errorMessage timestamp="IGNORE" originator="IAF 8.1.0-RC2-20240504.004939" message="SenderPipe [CallMSBSender] msgId [IGNORE]: IbisLocalSender [CallMSBSender] exception calling JavaListener [MSB_GetMelding]: Pipe [Send2MSB] caught exception: exceptionOnResult [[error]]">
+	<location class="org.frankframework.pipes.SenderPipe" name="CallMSBSender"/>
+	<details>IGNORE</details>
+	<originalMessage messageId="IGNORE">&lt;root&gt;
+    &lt;taaktype&gt;
+        https://ultimo-koppeling-acc.forzamor.nl/api/taaktypes/b42801c6-cd66-43df-add7-07b0824852ee&lt;/taaktype&gt;
+    &lt;titel&gt;Hoofdriool&lt;/titel&gt;
+    &lt;bericht /&gt;
+    &lt;taakopdracht&gt;https://mor-core-acc.forzamor.nl/api/v1/taakopdracht/1234-5678/&lt;/taakopdracht&gt;
+    &lt;melding&gt;https://mor-core-acc.forzamor.nl/api/v1/melding/1234-5678/&lt;/melding&gt;
+    &lt;gebruiker&gt;123456789@email.dummy&lt;/gebruiker&gt;
+    &lt;additionele_informatie /&gt;
+    &lt;omschrijving_intern /&gt;
+&lt;/root&gt;</originalMessage>
+</errorMessage>
