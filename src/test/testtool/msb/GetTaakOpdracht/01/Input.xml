@@ -1,0 +1,11 @@
+<root>
+    <taaktype>
+        https://ultimo-koppeling-acc.forzamor.nl/api/taaktypes/b42801c6-cd66-43df-add7-07b0824852ee</taaktype>
+    <titel>Hoofdriool</titel>
+    <bericht />
+    <taakopdracht>https://dummyurl.nl/api/v1/taakopdracht/1234-5678/</taakopdracht>
+    <melding>https://dummyurl.nl/api/v1/melding/1234-5678/</melding>
+    <gebruiker>123456789@email.dummy</gebruiker>
+    <additionele_informatie />
+    <omschrijving_intern />
+</root>
