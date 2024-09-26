@@ -1,5 +1,5 @@
-<errorMessage timestamp="Thu Sep 26 10:58:13 CEST 2024" originator="IAF 8.3.0-20240925.042333" message="SenderPipe [Send2MSB] msgId [synthetic-message-id-0a0000a9-722644f7_1922d8a8ead_-7fa2]: exceptionOnResult [[error]]">
-	<location class="org.frankframework.pipes.SenderPipe" name="Send2MSB"/>
+<errorMessage timestamp="Thu Sep 26 13:58:50 CEST 2024" originator="IAF 8.3.0-20240925.042333" message="SenderPipe [Send2MorCore] msgId [synthetic-message-id-0a0000a9--554a1244_1922e322524_-7ffb]: exceptionOnResult [[error]]">
+	<location class="org.frankframework.pipes.SenderPipe" name="Send2MorCore"/>
 	<details>org.frankframework.core.SenderException: exceptionOnResult [[error]]
 	at org.frankframework.pipes.MessageSendingPipe.sendMessage(MessageSendingPipe.java:777)
 	at org.frankframework.pipes.MessageSendingPipe.sendMessageWithRetries(MessageSendingPipe.java:504)
@@ -105,11 +105,15 @@
 	at org.frankframework.senders.IbisJavaSender.sendMessage(IbisJavaSender.java:130)
 	at org.frankframework.larva.SenderThread.run(SenderThread.java:65)
 </details>
-	<originalMessage messageId="synthetic-message-id-0a0000a9-722644f7_1922d8a8ead_-7fa2" receivedTime="Thu Sep 26 10:58:13 CEST 2024">{
-    "meldingId": "1234567",
-    "status": "In behandeling",
-    "Opmerking": "test",
-    "Behandelaar": "Test User",
-    "Datum": "10-9-2024 17:39:00"
-}</originalMessage>
+	<originalMessage messageId="synthetic-message-id-0a0000a9--554a1244_1922e322524_-7ffb" receivedTime="Thu Sep 26 13:58:50 CEST 2024">{  
+    "bijlagen":[],
+    "taakstatus":{
+        "naam":"nieuw"
+    },
+    "resolutie":null,
+    "omschrijving_intern":"test",
+    "gebruiker":"Test User",
+    "resolutie_opgelost_herzien":"false"
+}
+</originalMessage>
 </errorMessage>
