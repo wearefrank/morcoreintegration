@@ -21,7 +21,7 @@
                 <Forward name="exception" path="Exception" />
             </SenderPipe>
 
-            <XsltPipe name="CreatePostTaakRequest" styleSheetName="../generic/xsl/TaakApi/PostZaakRequest.xsl"
+            <XsltPipe name="CreatePostTaakRequest" styleSheetName="xsl/PostZaakRequest.xsl"
                 getInputFromSessionKey="originalMessage">
                 <Forward name="success" path="Xml2Json" />
                 <Forward name="exception" path="Exception" />

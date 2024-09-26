@@ -15,8 +15,7 @@
             </Exits>
 
             <SenderPipe name="Send2MorCore" getInputFromSessionKey="RequestJson">
-                <HttpSender name="Send2MorCore" methodType="POST" contentType="application/json"
-                    headersParams="Authorization" />
+                <HttpSender name="Send2MorCore" methodType="POST" contentType="application/json" headersParams="Authorization" />
                 <Param name="url" sessionKey="dummyParam"
                     xpathExpression="concat('${MorCore.taak.API.root-url}/api/v1/melding/', $meldingUuid, '/taakopdracht/', $taakOpdrachtUuid, '/notificatie/')" type="STRING">
                     <Param name="meldingUuid" sessionKey="meldingUuid" />

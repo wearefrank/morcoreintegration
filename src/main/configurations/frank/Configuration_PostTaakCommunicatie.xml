@@ -2,7 +2,7 @@
     xsi:noNamespaceSchemaLocation="../FrankConfig.xsd">
 
     <!-- We do not process this, so we just return 501 -->
-    <Adapter name="Frank_PostTaakCommunicatie">
+    <Adapter name="Frank_PostTaakCommunicatie" active="${Frank_PostTaakCommunicatie.active}">
         <Receiver name="Frank_PostTaakCommunicatie">
             <ApiListener
                 name="Frank_PostTaakCommunicatie"
@@ -16,9 +16,9 @@
                 <Exit name="Exit" state="SUCCESS" code="501" />
             </Exits>
 
-            <FixedResultPipe name="NotImplemented" returnString="HTTP 501 Not implemented">
+            <EchoPipe name="NotImplemented" getInputFromFixedValue="HTTP 501 Not implemented">
                 <Forward name="success" path="Exit" />
-            </FixedResultPipe>
+            </EchoPipe>
         </Pipeline>
     </Adapter>
 

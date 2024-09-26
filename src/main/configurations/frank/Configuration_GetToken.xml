@@ -1,7 +1,7 @@
 <Module xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="../FrankConfig.xsd">
 
-    <Adapter name="Frank_GetToken">
+    <Adapter name="Frank_GetToken" active="${Frank_GetToken.active}">
         <Receiver name="Frank_GetToken">
             <ApiListener
                 name="Frank_GetToken"
@@ -23,9 +23,9 @@
                 <Forward name="else" path="RejectMessage" />
             </XmlIfPipe>
 
-            <FixedResultPipe name="RejectMessage" returnString="Username or password missing">
+            <EchoPipe name="RejectMessage" getInputFromFixedValue="Username or password missing">
                 <Forward name="success" path="Reject" />
-            </FixedResultPipe>
+            </EchoPipe>
 
             <XmlIfPipe name="CheckUser" xpathExpression="$UserSet = $UserReceived">
                 <Param name="UserSet" pattern="{username}" authAlias="TokenGen" hidden="true"/>
@@ -41,9 +41,9 @@
                 <Forward name="else" path="RejectUser" />
             </XmlIfPipe>
 
-            <FixedResultPipe name="RejectUser" returnString="Username or Password incorrect">
+            <EchoPipe name="RejectUser" getInputFromFixedValue="Username or Password incorrect">
                 <Forward name="success" path="Reject" />
-            </FixedResultPipe>
+            </EchoPipe>
 
             <SenderPipe name="RequestGetToken">
                 <IbisLocalSender name="RequestGetToken" javaListener="Internal_GetToken"/>

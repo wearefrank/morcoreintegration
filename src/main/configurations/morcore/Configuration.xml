@@ -7,7 +7,7 @@
 	<!ENTITY PostTaak SYSTEM 		"./Configuration_PostTaak.xml">
 ]>
 
-<Configuration name="morcore">
+<Configuration name="morcore" active="${morcore.active}">
 	&GetBijlage;
 	&GetMelding;
 	&GetTaakOpdracht;

@@ -1,7 +1,7 @@
 <Module xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="../FrankConfig.xsd">
 
-    <Adapter name="Frank_GetTaak">
+    <Adapter name="Frank_GetTaak" active="${Frank_GetTaak.active}">
         <Receiver name="Frank_GetTaak">
             <ApiListener
                 name="Frank_GetTaak"
@@ -28,9 +28,9 @@
                 <Forward name="else" path="RejectMessage" />
             </XmlIfPipe>
 
-            <FixedResultPipe name="RejectMessage" returnString="Token invalid" active="${Token_Authentication.Active}">
+            <EchoPipe name="RejectMessage" getInputFromFixedValue="Token invalid" active="${Token_Authentication.Active}">
                 <Forward name="success" path="Reject" />
-            </FixedResultPipe>
+            </EchoPipe>
 
             <SenderPipe name="SwitchConfiguration" getInputFromSessionKey="originalMessage">
                 <IbisLocalSender javaListener="Ultimo_GetZaak">

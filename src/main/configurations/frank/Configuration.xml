@@ -9,7 +9,7 @@
 	<!ENTITY PostTaakCommunicatie SYSTEM 	"./Configuration_PostTaakCommunicatie.xml">
 ]>
 
-<Configuration name="frank">
+<Configuration name="frank" active="${frank.active}">
 	&DeleteTaak;
 	&GetTaak;
 	&GetTaakType;

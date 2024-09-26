@@ -1,7 +1,7 @@
 <Module xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="../FrankConfig.xsd">
 
-    <Adapter name="Frank_PostNotificatie">
+    <Adapter name="Frank_PostNotificatie" active="${Frank_PostNotificatie.active}">
         <Receiver name="Frank_PostNotificatie">
             <ApiListener
                 name="Frank_PostNotificatie"
@@ -32,9 +32,9 @@
                 <Forward name="else" path="RejectMessage" />
             </XmlIfPipe>
 
-            <FixedResultPipe name="RejectMessage" returnString="Authentication headers invalid" active="${Token_Authentication.Active}">
+            <EchoPipe name="RejectMessage" getInputFromFixedValue="Authentication headers invalid" active="${Token_Authentication.Active}">
                 <Forward name="success" path="Reject" />
-            </FixedResultPipe>
+            </EchoPipe>
 
             <PutInSessionPipe name="dummyInput">
                 <Param name="dummyParam" value="&lt;dummy/&gt;" />
@@ -117,6 +117,7 @@
 
             <SenderPipe name="Send2MSB" getInputFromSessionKey="originalMessage">
                 <IbisLocalSender name="Send2MSB" javaListener="MSB_PostNotificatie">
+                    <!-- Do you need morecore token here -->
                     <Param name="dummyParam" sessionKey="dummyParam" />
                     <Param name="MorCoreToken" sessionKey="MorCoreToken" />
                 </IbisLocalSender>

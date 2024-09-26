@@ -1,0 +1,68 @@
+<Module xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../FrankConfig.xsd">
+
+    <!-- Not used. Ultimo does not currently support GetZaak. -->
+    <Adapter name="Ultimo_GetZaak">
+        <Receiver name="Ultimo_GetZaak">
+            <JavaListener name="Ultimo_GetZaak" />
+        </Receiver>
+
+        <Pipeline>
+            <Exits>
+                <Exit name="Exit" state="SUCCESS" code="200" />
+                <Exit name="BadRequest" state="ERROR" code="400" />
+                <Exit name="Forbidden" state="ERROR" code="403" />
+                <Exit name="Conflict" state="ERROR" code="409" />
+                <Exit name="ServerError" state="ERROR" code="500" />
+            </Exits>
+
+            <!-- TODO: add parameters and adjust url -->
+            <SenderPipe name="SendToUltimo">
+                <HttpSender name="SendToUltimo" methodType="GET" headersParams="ApiKey,ApplicationElementId">
+                    <Param name="Accept-Crs"  value="EPSG:4326" />
+                    <Param name="Content-Crs" value="EPSG:4326" />
+                    <Param name="uuid" sessionKey="uuid" />
+                    <Param name="url" value="${Ultimo.ESB.root-url}_REST_MSB_CreateJob/${uuid}" />
+                </HttpSender>
+                <Forward name="success" path="Json2XML" />
+                <Forward name="exception" path="exception" />
+                <Forward name="timeout" path="timeout" />
+                <Forward name="illegalResult" path="illegalResult" />
+                <Forward name="interrupt" path="interrupt" />
+            </SenderPipe>
+
+            <JsonPipe name="Json2XML">
+                <Forward name="success" path="CreateGetZaakRequest" />
+                <Forward name="exception" path="exception" />
+            </JsonPipe>
+
+            <XsltPipe name="CreateGetZaakRequest" styleSheetName="xsl/GetZaakResponse.xsl">
+                <Param name="currentDate" sessionKey="systemDate" />
+                <Param name="MorcoreRootURL" value="${MorCore.taak.API.root-url}" />
+                <Forward name="success" path="Xml2Json" />
+                <Forward name="exception" path="exception" />
+            </XsltPipe>
+
+            <JsonPipe name="Xml2Json" direction="XML2JSON">
+                <Forward name="success" path="Exit" />
+                <Forward name="exception" path="exception" />
+            </JsonPipe>
+
+            <FixedResultPipe name="exception" filename="ErrorResponses/BadRequest.json">
+                <Forward name="success" path="BadRequest" />
+            </FixedResultPipe>
+
+            <FixedResultPipe name="timeout" filename="ErrorResponses/ServerError.json">
+                <Forward name="success" path="ServerError" />
+            </FixedResultPipe>
+
+            <FixedResultPipe name="illegalResult" filename="ErrorResponses/Forbidden.json">
+                <Forward name="success" path="Forbidden" />
+            </FixedResultPipe>
+
+            <FixedResultPipe name="interrupt" filename="ErrorResponses/Conflict.json">
+                <Forward name="success" path="Conflict" />
+            </FixedResultPipe>
+        </Pipeline>
+    </Adapter>
+</Module>

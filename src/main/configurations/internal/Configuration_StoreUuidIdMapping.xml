@@ -41,8 +41,7 @@
                 <Forward name="exception" path="Exception" />
             </SenderPipe>
 
-            <FixedResultPipe name="RecordAlreadyExists"
-                returnString="&lt;result>Record already exists&lt;/result>" />
+            <EchoPipe name="RecordAlreadyExists" getInputFromFixedValue="&lt;result>Record already exists&lt;/result>" />
         </Pipeline>
     </Adapter>
 </Module>

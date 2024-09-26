@@ -1,7 +1,7 @@
 <Module xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="../FrankConfig.xsd">
 
-    <Adapter name="Frank_GetTaakType">
+    <Adapter name="Frank_GetTaakType" active="${Frank_GetTaakType.active}">
         <Receiver name="Frank_GetTaakType">
             <ApiListener
                 name="Frank_GetTaakType"
@@ -39,9 +39,9 @@
                 <Forward name="else" path="XmlToJson" />
             </XmlIfPipe>
 
-            <FixedResultPipe name="TypeNotFound" returnString="No matching taaktype found.">
+            <EchoPipe name="TypeNotFound" getInputFromFixedValue="No matching taaktype found.">
                 <Forward name="success" path="NotFound" />
-            </FixedResultPipe>
+            </EchoPipe>
 
             <JsonPipe name="XmlToJson" direction="XML2JSON" prettyPrint="true">
                 <Forward name="success" path="Exit" />

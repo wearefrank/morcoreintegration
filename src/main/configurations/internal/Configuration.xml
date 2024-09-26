@@ -7,7 +7,7 @@
 	<!ENTITY StoreUuidIdMapping SYSTEM 		"./Configuration_StoreUuidIdMapping.xml">
 ]>
 
-<Configuration name="internal">
+<Configuration name="internal" active="${internal.active}">
 	&GetIdByUuid;
 	&GetTaakopdrachtById;
 	&GetToken;

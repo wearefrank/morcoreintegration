@@ -1,7 +1,7 @@
 <Module xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="../FrankConfig.xsd">
 
-    <Adapter name="Frank_PostTaak">
+    <Adapter name="Frank_PostTaak" active="${Frank_PostTaak.active}">
         <Receiver name="Frank_PostTaak">
             <ApiListener
                 name="Frank_PostTaak"
@@ -28,9 +28,9 @@
                 <Forward name="else" path="RejectMessage" />
             </XmlIfPipe>
 
-            <FixedResultPipe name="RejectMessage" returnString="Token invalid" active="${Token_Authentication.Active}">
+            <EchoPipe name="RejectMessage" getInputFromFixedValue="Token invalid" active="${Token_Authentication.Active}">
                 <Forward name="success" path="Reject" />
-            </FixedResultPipe>
+            </EchoPipe>
 
             <JsonPipe name="JsonToXml" getInputFromSessionKey="originalMessage"/>
 
