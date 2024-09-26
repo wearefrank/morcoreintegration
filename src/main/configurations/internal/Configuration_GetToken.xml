@@ -17,13 +17,12 @@
                 <FixedQuerySender
                     name="RetrieveToken"
                     query="SELECT token FROM TOKENSTORE WHERE id = 1"
+                    scalar="true"
                     queryType="SELECT">
                 </FixedQuerySender>
             </SenderPipe>
 
-            <XsltPipe name="GetTokenValue" getInputFromSessionKey="queryResult" xpathExpression="//row[1]/field[1]" />
-
-            <Text2XmlPipe xmlTag="token" name="Text2Xml" />
+            <Text2XmlPipe xmlTag="token" name="Text2Xml" getInputFromSessionKey="queryResult" useCdataSection="false"/>
 
         </Pipeline>
     </Adapter>
