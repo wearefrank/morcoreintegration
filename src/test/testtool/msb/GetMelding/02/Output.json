@@ -1,4 +1,4 @@
-Something went wrong. Stack trace: <errorMessage timestamp="Thu Sep 26 09:47:04 CEST 2024" originator="IAF 8.3.0-20240925.042333" message="SenderPipe [Send2MSB] msgId [synthetic-message-id-0a0000a9--39e4cdd5_1922d4bd985_-7ffd]: exceptionOnResult [[error]]">
+<errorMessage timestamp="Thu Sep 26 10:50:35 CEST 2024" originator="IAF 8.3.0-20240925.042333" message="SenderPipe [Send2MSB] msgId [synthetic-message-id-ac193001--20df1ee0_1922d6bcab2_-7f7e]: exceptionOnResult [[error]]">
 	<location class="org.frankframework.pipes.SenderPipe" name="Send2MSB"/>
 	<details>org.frankframework.core.SenderException: exceptionOnResult [[error]]
 	at org.frankframework.pipes.MessageSendingPipe.sendMessage(MessageSendingPipe.java:777)
@@ -105,5 +105,5 @@ Something went wrong. Stack trace: <errorMessage timestamp="Thu Sep 26 09:47:04 
 	at org.frankframework.senders.IbisJavaSender.sendMessage(IbisJavaSender.java:130)
 	at org.frankframework.larva.SenderThread.run(SenderThread.java:65)
 </details>
-	<originalMessage messageId="synthetic-message-id-0a0000a9--39e4cdd5_1922d4bd985_-7ffd" receivedTime="Thu Sep 26 09:47:04 CEST 2024">&lt;dummyInput/&gt;</originalMessage>
+	<originalMessage messageId="synthetic-message-id-ac193001--20df1ee0_1922d6bcab2_-7f7e" receivedTime="Thu Sep 26 10:50:35 CEST 2024">&lt;dummyInput/&gt;</originalMessage>
 </errorMessage>
