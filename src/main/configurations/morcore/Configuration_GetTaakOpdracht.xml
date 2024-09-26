@@ -31,7 +31,7 @@
             </SenderPipe>
 
             <SenderPipe name="CallMSBSender">
-                <IbisLocalSender name="CallMSBSender" javaListener="MSB_GetMelding" />
+                <IbisLocalSender name="CallMSBSender" javaListener="MSB_GetTaakOpdracht" />
                 <Forward name="success" path="Json2Xml" />
                 <Forward name="exception" path="Exception" />
             </SenderPipe>
