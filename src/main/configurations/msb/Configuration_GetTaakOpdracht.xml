@@ -14,12 +14,13 @@
                 <Exit name="Reject" state="REJECTED" />
             </Exits>
 
-            <SenderPipe name="Send2MSB">
-                <HttpSender name="Send2MSB" methodType="GET" />
-                <Param name="meldingUuid" sessionKey="originalMessage"
-                    xpathExpression="//meldingUuid" />
-                <Param name="url"
-                    value="${MSB.taak.API.root-url}api/v1/melding/${meldingUuid}/taakopdracht" />
+            <SenderPipe name="Send2MSB" getInputFromFixedValue="&lt;dummyInput/>">
+                <HttpSender name="Send2MSB" methodType="GET">
+                    <Param name="meldingUuid" sessionKey="originalMessage"
+                        xpathExpression="//meldingUuid" />
+                    <Param name="url"
+                        value="${MSB.taak.API.root-url}api/v1/melding/${meldingUuid}/taakopdracht" />
+                </HttpSender>
                 <Forward name="success" path="Exit" />
                 <Forward name="exception" path="Exception" />
             </SenderPipe>
