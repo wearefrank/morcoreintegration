@@ -41,20 +41,13 @@
                 <Forward name="exception" path="StoreStackTrace" />
             </XmlValidatorPipe>
 
-            <SenderPipe name="SwitchConfiguration" unlessSessionKey="asd">
+            <SenderPipe name="SwitchConfiguration">
                 <IbisLocalSender javaListener="Ultimo_DeleteZaak">
                     <Param name="uuid" sessionKey="uuid" />
                 </IbisLocalSender>
                 <Forward name="success" path="Exit" />
                 <Forward name="exception" path="StoreStackTrace" />
-            </SenderPipe>
-            <!-- For larva scenario only-->
-            <SenderPipe name="SwitchConfiguration" onlyIfSessionKey="asd">
-                <IbisLocalSender javaListener="Ultimo_DeleteZaak">
-                    <Param name="uuid" sessionKey="uuid" />
-                </IbisLocalSender>
-                <Forward name="success" path="StoreStackTrace" />
-            </SenderPipe>
+            </SenderPipe>            
 
             <PutInSessionPipe name="StoreStackTrace" sessionKey="errorStackTrace"/>
             
