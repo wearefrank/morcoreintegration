@@ -1,0 +1,17 @@
+<manageDatabaseREQ>
+    <insert>
+        <tableName>TOKENSTORE</tableName>
+        <columns>
+            <column>
+                <name>id</name>
+                <value>1</value>
+                <type>number</type>
+            </column>
+            <column>
+                <name>token</name>
+                <value>1234567890</value>
+                <type>string</type>
+            </column>
+        </columns>
+    </insert>
+</manageDatabaseREQ>

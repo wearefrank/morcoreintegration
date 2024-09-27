@@ -1,0 +1,45 @@
+{
+    "taaktype": "https://ultimo-koppeling-acc.forzamor.nl/api/taaktypes/123456789-asdfghjk-1234-5678",
+    "titel": "Hoofdriool",
+    "bericht": "",
+    "additionele_informatie": {
+    },
+    "gebruiker": null,
+    "_links": {
+        "self": "https://dummyurl.nl/api/v1/taakopdracht/123456789/",
+        "applicatie": "https://dummyurl.nl/api/v1/applicatie/567890/",
+        "melding": "https://dummyurl.nl/api/v1/melding/567891234/"
+    },
+    "id": 123,
+    "uuid": "123456789",
+    "status": {
+        "naam": "nieuw",
+        "aangemaakt_op": "2024-08-20T08:15:45.470723+02:00",
+        "taakopdracht": 123
+    },
+    "resolutie": null,
+    "melding": 1234,
+    "taakgebeurtenissen_voor_taakopdracht": [
+        {
+            "_links": {
+                "self": "https://dummyurl.nl/api/v1/taakgebeurtenis/5678923abchde-6789/",
+                "taakopdracht": "https://dummyurl.nl/api/v1/taakopdracht/123456789/"
+            },
+            "aangemaakt_op": "2024-08-20T08:15:45.481578+02:00",
+            "bijlagen": [
+            ],
+            "taakstatus": {
+                "naam": "nieuw",
+                "aangemaakt_op": "2024-08-20T08:15:45.470723+02:00",
+                "taakopdracht": 123
+            },
+            "resolutie": null,
+            "omschrijving_intern": "",
+            "taakopdracht": 123,
+            "gebruiker": "user@email.nl",
+            "additionele_informatie": {
+            }
+        }
+    ],
+    "taak_url": null
+}
