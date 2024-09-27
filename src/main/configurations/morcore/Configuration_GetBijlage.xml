@@ -1,7 +1,7 @@
 <Module xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="../FrankConfig.xsd">
 
-    <Adapter name="MorCore_GetBijlage">
+    <Adapter name="MorCore_GetBijlage" active="${MorCore_GetBijlage.active}">
         <Receiver name="MorCore_GetBijlage">
             <JavaListener name="MorCore_GetBijlage" />
         </Receiver>

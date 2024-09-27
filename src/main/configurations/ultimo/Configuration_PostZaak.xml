@@ -1,7 +1,7 @@
 <Module xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="../FrankConfig.xsd">
 
-    <Adapter name="Ultimo_PostZaak">
+    <Adapter name="Ultimo_PostZaak" active="${Ultimo_PostZaak.active}">
         <Receiver name="Ultimo_PostZaak">
             <JavaListener name="Ultimo_PostZaak" />
         </Receiver>

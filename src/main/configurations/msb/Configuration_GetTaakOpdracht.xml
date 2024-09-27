@@ -1,7 +1,7 @@
 <Module xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="../FrankConfig.xsd">
 
-    <Adapter name="MSB_GetTaakOpdracht">
+    <Adapter name="MSB_GetTaakOpdracht" active="${MSB_GetTaakOpdracht.active}">
         <Receiver name="MSB_GetTaakOpdracht">
             <JavaListener name="MSB_GetTaakOpdracht" />
         </Receiver>

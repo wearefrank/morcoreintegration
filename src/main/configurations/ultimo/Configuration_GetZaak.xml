@@ -2,7 +2,7 @@
     xsi:noNamespaceSchemaLocation="../FrankConfig.xsd">
 
     <!-- Not used. Ultimo does not currently support GetZaak. -->
-    <Adapter name="Ultimo_GetZaak">
+    <Adapter name="Ultimo_GetZaak" active="${Ultimo_GetZaak.active}">
         <Receiver name="Ultimo_GetZaak">
             <JavaListener name="Ultimo_GetZaak" />
         </Receiver>

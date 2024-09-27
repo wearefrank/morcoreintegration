@@ -1,7 +1,7 @@
 <Module xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="../FrankConfig.xsd">
 
-    <Adapter name="Internal_SetToken">
+    <Adapter name="Internal_SetToken" active="${Internal_SetToken.active}">
         <Receiver name="Internal_SetToken">
             <JavaListener name="Internal_SetToken" />
         </Receiver>
@@ -40,6 +40,7 @@
 
     <Scheduler>
         <SendMessageJob name="ResetToken"
+            active="${Internal_SetToken.active}"
             javaListener="Internal_SetToken"
             cronExpression="0 0 5 ? * * *">
         </SendMessageJob>

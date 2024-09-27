@@ -1,7 +1,7 @@
 <Module xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="../FrankConfig.xsd">
 
-    <Adapter name="MSB_GetMelding">
+    <Adapter name="MSB_GetMelding" active="${MSB_GetMelding.active}">
         <Receiver name="MSB_GetMelding">
             <JavaListener name="MSB_GetMelding" />
         </Receiver>

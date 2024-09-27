@@ -1,7 +1,7 @@
 <Module xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="../FrankConfig.xsd">
 
-    <Adapter name="MorCore_GetTaakOpdracht">
+    <Adapter name="MorCore_GetTaakOpdracht" active="${MorCore_GetTaakOpdracht.active}">
         <Receiver name="MorCore_GetTaakOpdracht">
             <JavaListener name="MorCore_GetTaakOpdracht" />
         </Receiver>

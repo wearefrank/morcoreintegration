@@ -1,7 +1,7 @@
 <Module xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="../FrankConfig.xsd">
 
-    <Adapter name="MorCore_GetToken">
+    <Adapter name="MorCore_GetToken" active="${MorCore_GetToken.active}">
         <Receiver name="MorCore_GetToken">
             <JavaListener name="MorCore_GetToken" />
         </Receiver>

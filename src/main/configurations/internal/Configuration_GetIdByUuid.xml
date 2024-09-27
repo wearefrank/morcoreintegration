@@ -1,7 +1,7 @@
 <Module xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="../FrankConfig.xsd">
 
-    <Adapter name="Internal_GetIdByUuid">
+    <Adapter name="Internal_GetIdByUuid" active="${Internal_GetIdByUuid.active}">
         <Receiver name="Internal_GetIdByUuid">
             <JavaListener name="Internal_GetIdByUuid" />
         </Receiver>

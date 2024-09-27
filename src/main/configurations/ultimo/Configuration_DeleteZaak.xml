@@ -2,7 +2,7 @@
     xsi:noNamespaceSchemaLocation="../FrankConfig.xsd">
 
     <!-- Not used. Ultimo does not currently support DeleteZaak. -->
-    <Adapter name="Ultimo_DeleteZaak">
+    <Adapter name="Ultimo_DeleteZaak" active="${Ultimo_DeleteZaak.active}">
         <Receiver name="Ultimo_DeleteZaak">
             <JavaListener name="Ultimo_DeleteZaak" />
         </Receiver>
