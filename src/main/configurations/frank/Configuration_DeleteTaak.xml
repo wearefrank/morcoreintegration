@@ -33,13 +33,11 @@
                 <Forward name="success" path="Reject" />
             </EchoPipe>
 
-            <JsonPipe name="JsonToXml" getInputFromSessionKey="originalMessage"/>
-
-            <XmlValidatorPipe name="ValidateInputMessage" root="root"
+            <Json2XmlValidatorPipe name="ValidateInputMessage" root="root"
                 schema="xsd/ValidateDeleteTaakInput.xsd">
                 <Forward name="failure" path="Reject" />
                 <Forward name="exception" path="StoreStackTrace" />
-            </XmlValidatorPipe>
+            </Json2XmlValidatorPipe>
 
             <SenderPipe name="SwitchConfiguration">
                 <IbisLocalSender javaListener="Ultimo_DeleteZaak">
