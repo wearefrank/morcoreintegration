@@ -1,0 +1,38 @@
+<Module xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../FrankConfig.xsd">
+    <Adapter name="Frank_ListTaakTypes" active="${Frank_ListTaakTypes.active}">
+        <Receiver name="Frank_ListTaakTypes">
+            <ApiListener name="Frank_ListTaakTypes" uriPattern="/api/v1/taaktype" />
+        </Receiver>
+
+        <Pipeline>
+            <Exits>
+                <Exit name="Exit" state="SUCCESS" />
+                <Exit name="Reject" state="REJECTED" />
+                <Exit name="Exception" state="ERROR" />
+            </Exits>
+
+            <FixedResultPipe name="InputTaaktypesLijst" filename="xml/ZaakTypes.xml"/>
+
+            <ReplacerPipe name="InsertHostName" find="[hostname]" replace="${Frank.API.root-url}"/>
+
+            <XmlValidatorPipe name="ValidateInputMessage" schema="xsd/ValidateGetTaakTypes.xsd" root="root">
+                <Forward name="success" path="XmlToJson" />
+                <Forward name="exception" path="StoreStackTrace" />
+                <Forward name="failure" path="Reject" />
+            </XmlValidatorPipe>
+
+            <JsonPipe name="XmlToJson" direction="XML2JSON" prettyPrint="true">
+                <Forward name="success" path="Exit" />
+                <Forward name="failure" path="Exception" />
+            </JsonPipe>
+
+            <PutInSessionPipe name="StoreStackTrace" sessionKey="errorStackTrace"/>
+
+            <XsltPipe name="ReturnErrorMessage" xpathExpression="concat('Something went wrong. Stack trace: ', $errorStackTrace)">
+                <Param name="errorStackTrace" sessionKey="errorStackTrace"/>
+                <Forward name="success" path="Exception" />
+            </XsltPipe>
+        </Pipeline>
+    </Adapter>
+</Module>
+    

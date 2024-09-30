@@ -1,0 +1,17 @@
+<!DOCTYPE Configuration [
+	<!ENTITY GetBijlage SYSTEM 		"./Configuration_GetBijlage.xml">
+	<!ENTITY GetMelding SYSTEM 		"./Configuration_GetMelding.xml">
+	<!ENTITY GetTaakOpdracht SYSTEM "./Configuration_GetTaakOpdracht.xml">
+	<!ENTITY GetToken SYSTEM 		"./Configuration_GetToken.xml">
+	<!ENTITY PostNotificatie SYSTEM "./Configuration_PostNotificatie.xml">
+	<!ENTITY PostTaak SYSTEM 		"./Configuration_PostTaak.xml">
+]>
+
+<Configuration name="morcore" active="${morcore.active}">
+	&GetBijlage;
+	&GetMelding;
+	&GetTaakOpdracht;
+	&GetToken;
+	&PostNotificatie;
+	&PostTaak;
+</Configuration>

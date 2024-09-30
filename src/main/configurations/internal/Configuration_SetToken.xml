@@ -1,0 +1,48 @@
+<Module xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../FrankConfig.xsd">
+
+    <Adapter name="Internal_SetToken" active="${Internal_SetToken.active}">
+        <Receiver name="Internal_SetToken">
+            <JavaListener name="Internal_SetToken" />
+        </Receiver>
+
+        <Pipeline>
+            <Exits>
+                <Exit name="Exit" state="SUCCESS" />
+                <Exit name="Reject" state="REJECTED" />
+                <Exit name="Exception" state="ERROR" />
+            </Exits>
+
+            <PasswordGeneratorPipe name="GenerateToken"
+                numOfDigits="7"
+                numOfLCharacters="7"
+                numOfSigns="0"
+                numOfUCharacters="7" storeResultInSessionKey="Token" />
+
+            <SenderPipe name="DeleteToken">
+                <FixedQuerySender
+                    name="DeleteToken"
+                    query="DELETE FROM TOKENSTORE WHERE id = 1;"
+                    queryType="OTHER">
+                </FixedQuerySender>
+            </SenderPipe>
+
+            <SenderPipe name="SetToken">
+                <FixedQuerySender
+                    name="SetToken"
+                    query="INSERT INTO TOKENSTORE (id, token) VALUES (1, ?{Token})"
+                    queryType="OTHER">
+                    <Param name="Token" sessionKey="Token" />
+                </FixedQuerySender>
+            </SenderPipe>
+        </Pipeline>
+    </Adapter>
+
+    <Scheduler>
+        <SendMessageJob name="ResetToken"
+            active="${Internal_SetToken.active}"
+            javaListener="Internal_SetToken"
+            cronExpression="0 0 5 ? * * *">
+        </SendMessageJob>
+    </Scheduler>
+</Module>

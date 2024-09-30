@@ -1,0 +1,31 @@
+<Module xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../FrankConfig.xsd">
+
+    <Adapter name="Internal_GetIdByUuid" active="${Internal_GetIdByUuid.active}">
+        <Receiver name="Internal_GetIdByUuid">
+            <JavaListener name="Internal_GetIdByUuid" />
+        </Receiver>
+
+        <Pipeline>
+            <Exits>
+                <Exit name="Exit" state="SUCCESS" />
+                <Exit name="Reject" state="REJECTED" />
+                <Exit name="Exception" state="ERROR" />
+            </Exits>
+
+            <SenderPipe name="RetrieveId">
+                <FixedQuerySender
+                    name="RetrieveId"
+                    query="SELECT id FROM UUIDIDMAP WHERE uuid = ?{Uuid}"
+                    queryType="SELECT">
+                    <Param name="Uuid" sessionKey="Uuid" />
+                </FixedQuerySender>
+            </SenderPipe>
+
+            <XsltPipe name="GetIdValue" xpathExpression="//row[1]/field[1]" />
+
+            <Text2XmlPipe xmlTag="id" name="Text2Xml" />
+
+        </Pipeline>
+    </Adapter>
+</Module>

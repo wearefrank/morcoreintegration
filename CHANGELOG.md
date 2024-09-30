@@ -1,5 +1,11 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.8.21](https://github.com/wearefrank/morcore2ultimo/compare/v1.8.20...v1.8.21) (2024-09-27)
+
+### 🧑‍💻 Code Refactoring
+
+* restructure project & improve test coverage ([#31](https://github.com/wearefrank/morcore2ultimo/issues/31)) ([1635bfc](https://github.com/wearefrank/morcore2ultimo/commit/1635bfcab2ab34456df6622be74803cf1b56029b))
+
 ## [1.8.20](https://github.com/wearefrank/morcore2ultimo/compare/v1.8.19...v1.8.20) (2024-09-24)
 
 ### 🧑‍💻 Code Refactoring

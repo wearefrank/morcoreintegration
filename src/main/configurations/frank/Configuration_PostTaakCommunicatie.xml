@@ -1,0 +1,25 @@
+<Module xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../FrankConfig.xsd">
+
+    <!-- We do not process this, so we just return 501 -->
+    <Adapter name="Frank_PostTaakCommunicatie" active="${Frank_PostTaakCommunicatie.active}">
+        <Receiver name="Frank_PostTaakCommunicatie">
+            <ApiListener
+                name="Frank_PostTaakCommunicatie"
+                method="POST"
+                uriPattern="/api/v1/taak/{uuid}/communicatie" />
+
+        </Receiver>
+
+        <Pipeline>
+            <Exits>
+                <Exit name="Exit" state="SUCCESS" code="501" />
+            </Exits>
+
+            <EchoPipe name="NotImplemented" getInputFromFixedValue="HTTP 501 Not implemented">
+                <Forward name="success" path="Exit" />
+            </EchoPipe>
+        </Pipeline>
+    </Adapter>
+
+</Module>
