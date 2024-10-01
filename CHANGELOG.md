@@ -1,5 +1,11 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.8.22](https://github.com/wearefrank/morcore2ultimo/compare/v1.8.21...v1.8.22) (2024-10-01)
+
+### 🐛 Bug Fixes
+
+* getToken returns json ([#33](https://github.com/wearefrank/morcore2ultimo/issues/33)) ([d966403](https://github.com/wearefrank/morcore2ultimo/commit/d9664035dde7ebde23b2f19618c68aa8cbe88154))
+
 ## [1.8.21](https://github.com/wearefrank/morcore2ultimo/compare/v1.8.20...v1.8.21) (2024-09-27)
 
 ### 🧑‍💻 Code Refactoring
