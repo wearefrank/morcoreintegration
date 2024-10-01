@@ -6,7 +6,7 @@
             <ApiListener
                 name="Frank_PostNotificatie"
                 uriPattern="/Msb.Extern.services/Ultimo/Melding"
-                headerParams="ApiKey, ApplicationElementId"
+                headerParams="ApiKey,ApplicationElementId"
                 method="POST" />
         </Receiver>
 
