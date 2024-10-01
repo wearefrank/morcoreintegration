@@ -1,5 +1,11 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.8.27](https://github.com/wearefrank/morcore2ultimo/compare/v1.8.26...v1.8.27) (2024-10-01)
+
+### 🐛 Bug Fixes
+
+* remove the space between headerparams ([4ecc8ca](https://github.com/wearefrank/morcore2ultimo/commit/4ecc8ca493fe8dda5bc363dbd13c3a9f63af9f27))
+
 ## [1.8.26](https://github.com/wearefrank/morcore2ultimo/compare/v1.8.25...v1.8.26) (2024-10-01)
 
 ### 🐛 Bug Fixes
