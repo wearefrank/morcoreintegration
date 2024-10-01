@@ -1,5 +1,11 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.8.25](https://github.com/wearefrank/morcore2ultimo/compare/v1.8.24...v1.8.25) (2024-10-01)
+
+### 🐛 Bug Fixes
+
+* pipes getting non xml input ([#37](https://github.com/wearefrank/morcore2ultimo/issues/37)) ([6fb99c9](https://github.com/wearefrank/morcore2ultimo/commit/6fb99c9f8850a1e3649e7284b5b3a44a4b6b6222))
+
 ## [1.8.24](https://github.com/wearefrank/morcore2ultimo/compare/v1.8.23...v1.8.24) (2024-10-01)
 
 ### 🐛 Bug Fixes
