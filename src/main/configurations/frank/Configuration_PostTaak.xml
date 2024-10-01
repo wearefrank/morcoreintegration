@@ -24,7 +24,7 @@
             <XmlIfPipe name="CompareTokens" xpathExpression="substring-after($ClientToken, 'Token ') = $FrankToken" active="${Token_Authentication.Active}">
                 <Param name="ClientToken" sessionKey="headers" xpathExpression="headers/header[@name='Authorization']"/>
                 <Param name="FrankToken" sessionKey="FrankToken" xpathExpression="//token"/>
-                <Forward name="then" path="JsonToXml" />
+                <Forward name="then" path="Json2XmlValidator" />
                 <Forward name="else" path="RejectMessage" />
             </XmlIfPipe>
 
