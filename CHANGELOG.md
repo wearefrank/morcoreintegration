@@ -1,5 +1,11 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.8.24](https://github.com/wearefrank/morcore2ultimo/compare/v1.8.23...v1.8.24) (2024-10-01)
+
+### 🐛 Bug Fixes
+
+* update xsd to allow null in bericht and gebuiker ([#36](https://github.com/wearefrank/morcore2ultimo/issues/36)) ([caf42f2](https://github.com/wearefrank/morcore2ultimo/commit/caf42f29557b3c5d0540d73bf9618f6f7669b764))
+
 ## [1.8.23](https://github.com/wearefrank/morcore2ultimo/compare/v1.8.22...v1.8.23) (2024-10-01)
 
 ### 🐛 Bug Fixes
