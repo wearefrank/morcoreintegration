@@ -33,8 +33,12 @@
                 <Forward name="success" path="Reject" />
             </EchoPipe>
 
-            <Json2XmlValidatorPipe name="ValidateInputMessage" root="root"
-                schema="xsd/ValidateDeleteTaakInput.xsd">
+            <Json2XmlValidatorPipe 
+                name="ValidateInputMessage" 
+                root="root"
+                schema="xsd/ValidateDeleteTaakInput.xsd"
+                getInputFromSessionKey="originalMessage"
+            >
                 <Forward name="failure" path="Reject" />
                 <Forward name="exception" path="StoreStackTrace" />
             </Json2XmlValidatorPipe>
