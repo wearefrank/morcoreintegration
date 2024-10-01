@@ -1,5 +1,11 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.8.23](https://github.com/wearefrank/morcore2ultimo/compare/v1.8.22...v1.8.23) (2024-10-01)
+
+### 🐛 Bug Fixes
+
+* validate input message ([#34](https://github.com/wearefrank/morcore2ultimo/issues/34)) ([05c4431](https://github.com/wearefrank/morcore2ultimo/commit/05c443191da29216a1232c8f7f6283a2f82abc2f))
+
 ## [1.8.22](https://github.com/wearefrank/morcore2ultimo/compare/v1.8.21...v1.8.22) (2024-10-01)
 
 ### 🐛 Bug Fixes
