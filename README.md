@@ -30,14 +30,30 @@ After deployment the Frank!Console is available on `/iaf/gui`
 3. Enable the "docusaurus-release" job in `.github/workflows/release.yml` by setting "if" to `true`.
 
 ## Local Development Docusaurus
-1. Navigate to "docusaurus" subfolder with `cd ./docusaurus`.
-2. Install dependencies with `npm install`.
-3. Serve Docusaurus webserver locally with `docusaurus start`. By default it is served at `http://localhost:3000/`.
+1. Navigate to "docusaurus" subfolder.
+    ```
+    cd ./docusaurus
+    ```
+2. Install dependencies.
+    ```
+    npm install
+    ```
+3. Serve Docusaurus webserver locally.
+    ```
+    ./node_modules/.bin/docusaurus.cmd start
+    ```
+    By default it is served at `http://localhost:3000/`.
 4. Basic guide on how to use Docusaurus and a styleguide can be found at `./docusaurus/docs/_README.md`.
-
-#### Update Docusaurus dependencies
-1. Navigate to "docusaurus" subfolder with `cd ./docusaurus`.
-2. Update dependencies with `npm i @docusaurus/core@latest @docusaurus/preset-classic@latest @docusaurus/module-type-aliases@latest @docusaurus/tsconfig@latest @docusaurus/types@latest`
+# Dependencies
+## Update Docusaurus dependencies
+1. Navigate to the 'docusaurus' subfolder:
+    ```
+    cd ./docusaurus
+    ```
+2. Update dependencies:
+    ```
+    npm i @docusaurus/core@latest @docusaurus/preset-classic@latest @docusaurus/theme-mermaid@latest @docusaurus/module-type-aliases@latest @docusaurus/tsconfig@latest @docusaurus/types@latest
+    ```
 
 ## Template variables
 
