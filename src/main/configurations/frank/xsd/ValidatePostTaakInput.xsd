@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <xs:element name="root">
     <xs:complexType>
       <xs:sequence>
         <xs:element name="taaktype" type="xs:string" />
         <xs:element name="titel" type="xs:string" />
-        <xs:element name="bericht" type="xs:string" />
+        <xs:element name="bericht" type="xs:string" nillable="true" />
         <xs:element name="taakopdracht" type="xs:string" />
         <xs:element name="melding" type="xs:string" />
-        <xs:element name="gebruiker" type="xs:string" minOccurs="0" />
+        <xs:element name="gebruiker" type="xs:string" minOccurs="0" nillable="true" />
         <xs:element name="additionele_informatie" minOccurs="0">
           <xs:complexType>
             <xs:sequence>
