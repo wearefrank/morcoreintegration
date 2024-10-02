@@ -1,6 +1,6 @@
-<errorMessage timestamp="Thu Sep 26 10:50:35 CEST 2024" originator="IAF 8.3.0-20240925.042333" message="SenderPipe [Send2MSB] msgId [synthetic-message-id-ac193001--20df1ee0_1922d6bcab2_-7f7e]: exceptionOnResult [[error]]">
-	<location class="org.frankframework.pipes.SenderPipe" name="Send2MSB"/>
-	<details>org.frankframework.core.SenderException: exceptionOnResult [[error]]
+<errorMessage timestamp="Wed Oct 02 15:09:06 CEST 2024" originator="IAF 8.3.0-20240925.042333" message="SenderPipe [Send2MorCore] msgId [synthetic-message-id-c0a8b245--6497b7da_1924d570c48_-7f34]: exceptionOnResult [[error]]">
+  <location class="org.frankframework.pipes.SenderPipe" name="Send2MorCore"/>
+  <details>org.frankframework.core.SenderException: exceptionOnResult [[error]]
 	at org.frankframework.pipes.MessageSendingPipe.sendMessage(MessageSendingPipe.java:777)
 	at org.frankframework.pipes.MessageSendingPipe.sendMessageWithRetries(MessageSendingPipe.java:504)
 	at org.frankframework.pipes.MessageSendingPipe.doPipe(MessageSendingPipe.java:435)
@@ -103,7 +103,16 @@
 	at org.frankframework.receivers.JavaListener.processRequest(JavaListener.java:136)
 	at nl.nn.adapterframework.dispatcher.DispatcherManagerImpl.processRequest(DispatcherManagerImpl.java:123)
 	at org.frankframework.senders.IbisJavaSender.sendMessage(IbisJavaSender.java:130)
-	at org.frankframework.larva.SenderThread.run(SenderThread.java:65)
-</details>
-	<originalMessage messageId="synthetic-message-id-ac193001--20df1ee0_1922d6bcab2_-7f7e" receivedTime="Thu Sep 26 10:50:35 CEST 2024">&lt;dummyInput/&gt;</originalMessage>
+	at org.frankframework.larva.SenderThread.run(SenderThread.java:65)</details>
+  <originalMessage messageId="synthetic-message-id-c0a8b245--6497b7da_1924d570c48_-7f34" receivedTime="Wed Oct 02 15:09:06 CEST 2024">&lt;root&gt;
+    &lt;taaktype&gt;
+        https://ultimo-koppeling-acc.forzamor.nl/api/taaktypes/b42801c6-cd66-43df-add7-07b0824852ee&lt;/taaktype&gt;
+    &lt;titel&gt;Hoofdriool&lt;/titel&gt;
+    &lt;bericht /&gt;
+    &lt;taakopdracht&gt;https://mor-core-acc.forzamor.nl/api/v1/taakopdracht/1234-5678/&lt;/taakopdracht&gt;
+    &lt;melding&gt;https://mor-core-acc.forzamor.nl/api/v1/melding/1234-5678/&lt;/melding&gt;
+    &lt;gebruiker&gt;123456789@email.dummy&lt;/gebruiker&gt;
+    &lt;additionele_informatie /&gt;
+    &lt;omschrijving_intern /&gt;
+&lt;/root&gt;</originalMessage>
 </errorMessage>
