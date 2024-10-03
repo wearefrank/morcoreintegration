@@ -1,5 +1,11 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.9.0](https://github.com/wearefrank/morcore2ultimo/compare/v1.8.27...v1.9.0) (2024-10-03)
+
+### 🍕 Features
+
+* Make it possible to select target integration system ([#39](https://github.com/wearefrank/morcore2ultimo/issues/39)) ([a1d9350](https://github.com/wearefrank/morcore2ultimo/commit/a1d935054d56768b8776dea64bbbe48ea51dfd95))
+
 ## [1.8.27](https://github.com/wearefrank/morcore2ultimo/compare/v1.8.26...v1.8.27) (2024-10-01)
 
 ### 🐛 Bug Fixes
