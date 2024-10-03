@@ -1,5 +1,11 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.9.1](https://github.com/wearefrank/morcore2ultimo/compare/v1.9.0...v1.9.1) (2024-10-03)
+
+### 🐛 Bug Fixes
+
+* eliminate one of the properties ([64b0a95](https://github.com/wearefrank/morcore2ultimo/commit/64b0a95fcc2b966601ee370b58f2d041e748e402))
+
 ## [1.9.0](https://github.com/wearefrank/morcore2ultimo/compare/v1.8.27...v1.9.0) (2024-10-03)
 
 ### 🍕 Features
