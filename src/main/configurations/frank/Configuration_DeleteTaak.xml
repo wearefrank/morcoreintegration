@@ -12,7 +12,16 @@
         </Receiver>
 
         <Pipeline>
+
             <Exits>
+                <Exit name="Exit" state="SUCCESS" code="501" />
+            </Exits>
+
+            <EchoPipe name="NotImplemented" getInputFromFixedValue="HTTP 501 Not implemented">
+                <Forward name="success" path="Exit" />
+            </EchoPipe>
+
+            <!-- <Exits>
                 <Exit name="Exit" state="SUCCESS" />
                 <Exit name="Reject" state="REJECTED" />
                 <Exit name="Exception" state="ERROR" />
@@ -56,7 +65,7 @@
             <XsltPipe name="ReturnErrorMessage" xpathExpression="concat('Something went wrong. Stack trace: ', $errorStackTrace)">
                 <Param name="errorStackTrace" sessionKey="errorStackTrace"/>
                 <Forward name="success" path="Exception" />
-            </XsltPipe>
+            </XsltPipe> -->
         </Pipeline>
     </Adapter>
 </Module>
