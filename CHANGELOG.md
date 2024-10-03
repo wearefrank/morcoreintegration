@@ -1,5 +1,11 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.9.2](https://github.com/wearefrank/morcore2ultimo/compare/v1.9.1...v1.9.2) (2024-10-03)
+
+### 🐛 Bug Fixes
+
+* documentation and the default value ([de434dc](https://github.com/wearefrank/morcore2ultimo/commit/de434dce2d5a2e01e320b035e8da8ea85867df45))
+
 ## [1.9.1](https://github.com/wearefrank/morcore2ultimo/compare/v1.9.0...v1.9.1) (2024-10-03)
 
 ### 🐛 Bug Fixes
