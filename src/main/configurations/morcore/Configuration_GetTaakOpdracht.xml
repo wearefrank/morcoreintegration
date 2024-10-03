@@ -14,17 +14,11 @@
                 <Exit name="Reject" state="REJECTED" />
             </Exits>
 
-            <SenderPipe name="CallMorCore_GetToken" storeResultInSessionKey="MorCoreToken">
-                <IbisLocalSender name="CallMorCore_GetToken" javaListener="MorCore_GetToken" />
-                <Forward name="success" path="Send2MorCore" />
-                <Forward name="exception" path="Exception" />
-            </SenderPipe>
-
             <SenderPipe name="Send2MorCore" getInputFromSessionKey="originalMessage" emptyInputReplacement="&lt;NoInput/>">
                 <HttpSender name="Send2MorCore" methodType="GET" headersParams="Authorization" />
                 <Param name="url" xpathExpression="//taakopdracht" />
                 <Param name="Authorization" xpathExpression="concat('Token ', $MorCoreToken)">
-                    <Param name="MorCoreToken" sessionKey="MorCoreToken" xpathExpression="//token" />
+                    <Param name="MorCoreToken" sessionKey="MorCoreToken" />
                 </Param>
                 <Forward name="success" path="Json2Xml" />
                 <Forward name="exception" path="Exception" />
@@ -42,8 +36,7 @@
                 <Forward name="exception" path="Exception" />
             </XsltPipe>
 
-            <XmlValidatorPipe name="XmlCheck" schema="xsd/ValidateGetMeldingTaak.xsd"
-                root="root">
+            <XmlValidatorPipe name="XmlCheck" schema="xsd/ValidateGetMeldingTaak.xsd" root="root">
                 <Forward name="success" path="Xml2Json" />
                 <Forward name="failure" path="Reject" />
             </XmlValidatorPipe>

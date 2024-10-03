@@ -14,17 +14,11 @@
                 <Exit name="Reject" state="REJECTED" />
             </Exits>
 
-            <SenderPipe name="CallMorCore_GetToken" storeResultInSessionKey="MorCoreToken">
-                <IbisLocalSender name="CallMorCore_GetToken" javaListener="MorCore_GetToken" />
-                <Forward name="success" path="Send2MorCore" />
-                <Forward name="exception" path="Exception" />
-            </SenderPipe>
-
             <SenderPipe name="Send2MorCore" getInputFromSessionKey="originalMessage" emptyInputReplacement="&lt;NoInput/>">
                 <HttpSender name="Send2MorCore" methodType="GET" headersParams="Authorization" />
                 <Param name="url" xpathExpression="//melding" />
                 <Param name="Authorization" xpathExpression="concat('Token ', $MorCoreToken)">
-                    <Param name="MorCoreToken" sessionKey="MorCoreToken" xpathExpression="//token" />
+                    <Param name="MorCoreToken" sessionKey="MorCoreToken" />
                 </Param>
                 <Forward name="success" path="Exit" />
                 <Forward name="exception" path="Exception" />
