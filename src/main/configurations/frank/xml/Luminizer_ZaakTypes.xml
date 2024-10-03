@@ -12,7 +12,7 @@
         <toelichting>Lichtmast scheef/aangereden</toelichting>
         <additionele_informatie />
         <extra>
-            <ultimoOnderwerpOmschrijving>mast aangereden</ultimoOnderwerpOmschrijving>
+            <luminizerOnderwerpOmschrijving>mast aangereden</luminizerOnderwerpOmschrijving>
         </extra>
     </results>
     <results>
@@ -24,7 +24,7 @@
         <toelichting>Brand niet</toelichting>
         <additionele_informatie />
         <extra>
-            <ultimoOnderwerpOmschrijving>lamp defect</ultimoOnderwerpOmschrijving>
+            <luminizerOnderwerpOmschrijving>lamp defect</luminizerOnderwerpOmschrijving>
         </extra>
     </results>
     <results>
@@ -36,7 +36,7 @@
         <toelichting>Brand overdag</toelichting>
         <additionele_informatie />
         <extra>
-            <ultimoOnderwerpOmschrijving>lamp defect</ultimoOnderwerpOmschrijving>
+            <luminizerOnderwerpOmschrijving>lamp defect</luminizerOnderwerpOmschrijving>
         </extra>
     </results>
 </root>

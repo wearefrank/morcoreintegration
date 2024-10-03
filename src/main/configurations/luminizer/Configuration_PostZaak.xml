@@ -37,11 +37,11 @@
             </SenderPipe>
 
             <JsonPipe name="MakeTaakTypeXML" storeResultInSessionKey="Taaktype">
-                <Forward name="success" path="IfBijlage1Exists" />
+                <Forward name="success" path="RequestOpdrachtInfo" />
                 <Forward name="exception" path="exception" />
             </JsonPipe>
 
-            <XmlIfPipe name="IfBijlage1Exists" getInputFromSessionKey="meldingInfo"
+            <!-- <XmlIfPipe name="IfBijlage1Exists" getInputFromSessionKey="meldingInfo"
                 xpathExpression="boolean(//bijlagen[1]/bestand)">
                 <Forward name="then" path="GetBijlage1" />
                 <Forward name="else" path="RequestOpdrachtInfo" />
@@ -69,7 +69,7 @@
                 </IbisLocalSender>
                 <Forward name="success" path="RequestOpdrachtInfo" />
                 <Forward name="exception" path="exception" />
-            </SenderPipe>
+            </SenderPipe> -->
 
             <SenderPipe name="RequestOpdrachtInfo" storeResultInSessionKey="opdrachtInfo"
                 getInputFromSessionKey="originalMessage">
@@ -92,25 +92,25 @@
                 getInputFromSessionKey="originalMessage">
                 <Param name="systemDate" sessionKey="systemDate" />
                 <Param name="meldingInfo" sessionKey="meldingInfo" type="DOMDOC" />
-                <Param name="bijlage1" sessionKey="bijlage1" type="STRING" />
-                <Param name="bijlage2" sessionKey="bijlage2" type="STRING" />
+                <!-- <Param name="bijlage1" sessionKey="bijlage1" type="STRING" />
+                <Param name="bijlage2" sessionKey="bijlage2" type="STRING" /> -->
                 <Param name="taaktype" sessionKey="Taaktype" type="DOMDOC" />
                 <Param name="opdrachtInfo" sessionKey="opdrachtInfo" type="DOMDOC" />
             </XsltPipe>
 
             <JsonPipe name="XmlToJson" direction="XML2JSON" storeResultInSessionKey="jsonMessage"
                 prettyPrint="true">
-                <Forward name="success" path="ChangeXYValueTypesSender" />
+                <Forward name="success" path="StoreUuidIdMapping" />
                 <Forward name="exception" path="exception" />
             </JsonPipe>
 
-            <SenderPipe name="ChangeXYValueTypesSender" storeResultInSessionKey="jsonMessage"
+            <!-- <SenderPipe name="ChangeXYValueTypesSender" storeResultInSessionKey="jsonMessage"
                 logIntermediaryResults="true">
                 <JavascriptSender name="ChangeXYValueTypesSender"
                     jsFileName="js/ChangeXYValueTypes.js" jsFunctionName="changeValueTypes">
                     <Param name="jsonMessage" sessionKey="jsonMessage" />
                 </JavascriptSender>
-            </SenderPipe>
+            </SenderPipe> -->
 
             <SenderPipe name="StoreUuidIdMapping" getInputFromSessionKey="meldingInfo">
                 <IbisLocalSender javaListener="Internal_StoreUuidIdMapping">
@@ -124,7 +124,7 @@
                     headersParams="ApiKey,ApplicationElementId,Accept-Crs,Content-Crs">
                     <Param name="Accept-Crs" value="EPSG:4326" />
                     <Param name="Content-Crs" value="EPSG:4326" />
-                    <Param name="url" value="${Luminizer.ESB.root-url}_REST_MSB_CreateJob" />
+                    <Param name="url" value="${Luminizer.ESB.root-url}api/malfunction" />
                     <Param name="ApiKey" authAlias="Luminizer" pattern="{username}" />
                     <Param name="ApplicationElementId" authAlias="Luminizer" pattern="{password}" />
                 </HttpSender>
