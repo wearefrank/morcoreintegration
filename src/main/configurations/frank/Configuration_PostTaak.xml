@@ -43,7 +43,7 @@
             </Json2XmlValidatorPipe>
 
             <SenderPipe name="SwitchConfiguration">
-                <IbisLocalSender javaListener="Ultimo_PostZaak" />
+                <IbisLocalSender javaListener="${target.system}_PostZaak" />
                 <Forward name="success" path="Exit" />
                 <Forward name="exception" path="StoreStackTrace" />
             </SenderPipe>

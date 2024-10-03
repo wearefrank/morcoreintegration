@@ -1,9 +1,9 @@
 <Module xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="../FrankConfig.xsd">
 
-    <Adapter name="Ultimo_PostZaak" active="${Ultimo_PostZaak.active}">
-        <Receiver name="Ultimo_PostZaak">
-            <JavaListener name="Ultimo_PostZaak" />
+    <Adapter name="Luminizer_PostZaak" active="${Luminizer_PostZaak.active}">
+        <Receiver name="Luminizer_PostZaak">
+            <JavaListener name="Luminizer_PostZaak" />
         </Receiver>
 
         <Pipeline>
@@ -17,22 +17,13 @@
 
             <PutSystemDateInSessionPipe name="StoreSystemDate" />
 
-            <SenderPipe name="CallMorCore_GetToken" storeResultInSessionKey="MorCoreToken">
-                <IbisLocalSender name="CallMorCore_GetToken" javaListener="MorCore_GetToken" />
-                <Forward name="success" path="RequestMeldingInfo" />
-                <Forward name="exception" path="exception" />
-            </SenderPipe>
-
-            <SenderPipe name="RequestMeldingInfo" getInputFromSessionKey="originalMessage">
-                <IbisLocalSender name="RequestGetMelding" javaListener="MorCore_GetMelding">
-                    <Param name="MorCoreToken" sessionKey="MorCoreToken" />
-                </IbisLocalSender>
+            <SenderPipe name="RequestMeldingInfo">
+                <IbisLocalSender name="RequestGetMelding" javaListener="MorCore_GetMelding"/>
                 <Forward name="success" path="MakeMeldingInfoXML" />
                 <Forward name="exception" path="exception" />
             </SenderPipe>
 
-            <JsonPipe name="MakeMeldingInfoXML"
-                storeResultInSessionKey="meldingInfo">
+            <JsonPipe name="MakeMeldingInfoXML" storeResultInSessionKey="meldingInfo">
                 <Forward name="success" path="GetTaakType" />
                 <Forward name="exception" path="exception" />
             </JsonPipe>
@@ -46,11 +37,11 @@
             </SenderPipe>
 
             <JsonPipe name="MakeTaakTypeXML" storeResultInSessionKey="Taaktype">
-                <Forward name="success" path="IfBijlage1Exists" />
+                <Forward name="success" path="RequestOpdrachtInfo" />
                 <Forward name="exception" path="exception" />
             </JsonPipe>
 
-            <XmlIfPipe name="IfBijlage1Exists" getInputFromSessionKey="meldingInfo"
+            <!-- <XmlIfPipe name="IfBijlage1Exists" getInputFromSessionKey="meldingInfo"
                 xpathExpression="boolean(//bijlagen[1]/bestand)">
                 <Forward name="then" path="GetBijlage1" />
                 <Forward name="else" path="RequestOpdrachtInfo" />
@@ -59,8 +50,7 @@
             <SenderPipe name="GetBijlage1" storeResultInSessionKey="bijlage1"
                 getInputFromSessionKey="meldingInfo">
                 <IbisLocalSender name="GetBijlage1" javaListener="MorCore_GetBijlage">
-                    <Param name="bijlageUrl" xpathExpression="//bijlagen[1]/bestand"/>
-                    <Param name="MorCoreToken" sessionKey="MorCoreToken"/>
+                    <Param name="bijlageUrl" xpathExpression="//bijlagen[1]/bestand"></Param>
                 </IbisLocalSender>
                 <Forward name="success" path="IfBijlage2Exists" />
                 <Forward name="exception" path="exception" />
@@ -75,18 +65,15 @@
             <SenderPipe name="GetBijlage2" storeResultInSessionKey="bijlage2"
                 getInputFromSessionKey="meldingInfo">
                 <IbisLocalSender name="GetBijlage1" javaListener="MorCore_GetBijlage">
-                    <Param name="bijlageUrl" xpathExpression="//bijlagen[2]/bestand"/>
-                    <Param name="MorCoreToken" sessionKey="MorCoreToken"/>
+                    <Param name="bijlageUrl" xpathExpression="//bijlagen[2]/bestand"></Param>
                 </IbisLocalSender>
                 <Forward name="success" path="RequestOpdrachtInfo" />
                 <Forward name="exception" path="exception" />
-            </SenderPipe>
+            </SenderPipe> -->
 
             <SenderPipe name="RequestOpdrachtInfo" storeResultInSessionKey="opdrachtInfo"
                 getInputFromSessionKey="originalMessage">
-                <IbisLocalSender name="RequestGetMelding" javaListener="MorCore_GetTaakOpdracht" >
-                    <Param name="MorCoreToken" sessionKey="MorCoreToken"/>
-                </IbisLocalSender>
+                <IbisLocalSender name="RequestGetMelding" javaListener="MorCore_GetTaakOpdracht" />
                 <Forward name="success" path="MakeOpdrachtInfoXML" />
                 <Forward name="exception" path="exception" />
             </SenderPipe>
@@ -105,25 +92,25 @@
                 getInputFromSessionKey="originalMessage">
                 <Param name="systemDate" sessionKey="systemDate" />
                 <Param name="meldingInfo" sessionKey="meldingInfo" type="DOMDOC" />
-                <Param name="bijlage1" sessionKey="bijlage1" type="STRING" />
-                <Param name="bijlage2" sessionKey="bijlage2" type="STRING" />
+                <!-- <Param name="bijlage1" sessionKey="bijlage1" type="STRING" />
+                <Param name="bijlage2" sessionKey="bijlage2" type="STRING" /> -->
                 <Param name="taaktype" sessionKey="Taaktype" type="DOMDOC" />
                 <Param name="opdrachtInfo" sessionKey="opdrachtInfo" type="DOMDOC" />
             </XsltPipe>
 
             <JsonPipe name="XmlToJson" direction="XML2JSON" storeResultInSessionKey="jsonMessage"
                 prettyPrint="true">
-                <Forward name="success" path="ChangeXYValueTypesSender" />
+                <Forward name="success" path="StoreUuidIdMapping" />
                 <Forward name="exception" path="exception" />
             </JsonPipe>
 
-            <SenderPipe name="ChangeXYValueTypesSender" storeResultInSessionKey="jsonMessage"
+            <!-- <SenderPipe name="ChangeXYValueTypesSender" storeResultInSessionKey="jsonMessage"
                 logIntermediaryResults="true">
                 <JavascriptSender name="ChangeXYValueTypesSender"
                     jsFileName="js/ChangeXYValueTypes.js" jsFunctionName="changeValueTypes">
                     <Param name="jsonMessage" sessionKey="jsonMessage" />
                 </JavascriptSender>
-            </SenderPipe>
+            </SenderPipe> -->
 
             <SenderPipe name="StoreUuidIdMapping" getInputFromSessionKey="meldingInfo">
                 <IbisLocalSender javaListener="Internal_StoreUuidIdMapping">
@@ -132,14 +119,14 @@
                 </IbisLocalSender>
             </SenderPipe>
 
-            <SenderPipe name="SendToUltimo" getInputFromSessionKey="jsonMessage">
-                <HttpSender name="SendToUltimo" methodType="POST" contentType="application/json"
+            <SenderPipe name="SendToLuminizer" getInputFromSessionKey="jsonMessage">
+                <HttpSender name="SendToLuminizer" methodType="POST" contentType="application/json"
                     headersParams="ApiKey,ApplicationElementId,Accept-Crs,Content-Crs">
                     <Param name="Accept-Crs" value="EPSG:4326" />
                     <Param name="Content-Crs" value="EPSG:4326" />
-                    <Param name="url" value="${Ultimo.ESB.root-url}_REST_MSB_CreateJob" />
-                    <Param name="ApiKey" authAlias="Ultimo" pattern="{username}" />
-                    <Param name="ApplicationElementId" authAlias="Ultimo" pattern="{password}" />
+                    <Param name="url" value="${Luminizer.ESB.root-url}api/malfunction" />
+                    <Param name="ApiKey" authAlias="Luminizer" pattern="{username}" />
+                    <Param name="ApplicationElementId" authAlias="Luminizer" pattern="{password}" />
                 </HttpSender>
                 <Forward name="success" path="Exit" />
                 <Forward name="exception" path="exception" />

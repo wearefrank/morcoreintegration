@@ -1,0 +1,9 @@
+<!DOCTYPE Configuration [
+	<!ENTITY PostZaak SYSTEM "./Configuration_PostZaak.xml">
+	<!-- <!ENTITY PostNotificatie SYSTEM "./Configuration_PostNotificatie.xml"> -->
+]>
+
+<Configuration name="luminizer" active="${luminizer.active}">
+	&PostZaak;
+	<!-- &PostNotificatie; -->
+</Configuration>
