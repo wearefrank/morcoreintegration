@@ -4,7 +4,7 @@
 	<!ENTITY DeleteZaak SYSTEM "./Configuration_DeleteZaak.xml">
 ]>
 
-<Configuration name="ultimo" active="${ultimo.active}">
+<Configuration name="Ultimo" active="${ultimo.active}">
 	&PostZaak;
 	&GetZaak;
 	&DeleteZaak;

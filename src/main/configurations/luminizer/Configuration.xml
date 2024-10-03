@@ -3,7 +3,7 @@
 	<!-- <!ENTITY PostNotificatie SYSTEM "./Configuration_PostNotificatie.xml"> -->
 ]>
 
-<Configuration name="luminizer" active="${luminizer.active}">
+<Configuration name="Luminizer" active="${luminizer.active}">
 	&PostZaak;
 	<!-- &PostNotificatie; -->
 </Configuration>
