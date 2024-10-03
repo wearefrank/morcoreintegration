@@ -23,7 +23,7 @@
 
             <JsonPipe name="XmlToJson" direction="XML2JSON" prettyPrint="true">
                 <Forward name="success" path="Exit" />
-                <Forward name="failure" path="Exception" />
+                <Forward name="exception" path="Exception" />
             </JsonPipe>
 
             <PutInSessionPipe name="StoreStackTrace" sessionKey="errorStackTrace"/>
