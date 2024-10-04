@@ -2,11 +2,11 @@
 sidebar_position: 20
 ---
 
-# Luminizer_PostMalfunction
+# Luminizer_PostZaak
 
 ```mermaid
 flowchart TD
-    A(JavaListener PostMalfunction) --> B[Call Morcore_GetMelding]
+    A(JavaListener Luminizer_PostZaak) --> B[Call Morcore_GetMelding]
     B --> C{Does melding have an attachment?}
     C --> |Yes| D[Call GetBijlage on first attachment]
     D --> E{Does melding have a second attachment?}
