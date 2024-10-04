@@ -1,5 +1,72 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.9.4](https://github.com/wearefrank/morcore2ultimo/compare/v1.9.3...v1.9.4) (2024-10-04)
+
+### 🐛 Bug Fixes
+
+* improve luminizer postzaak adapter ([301fe81](https://github.com/wearefrank/morcore2ultimo/commit/301fe812ba1b523fc86a528df0faa43b950339aa))
+
+## [1.9.3](https://github.com/wearefrank/morcore2ultimo/compare/v1.9.2...v1.9.3) (2024-10-03)
+
+### 🐛 Bug Fixes
+
+* configuration foldernames to start with upper case ([a054f61](https://github.com/wearefrank/morcore2ultimo/commit/a054f61ebd3fcf60556b691290c76ceeb39b9339))
+* revert ff upgrade ([b6d33aa](https://github.com/wearefrank/morcore2ultimo/commit/b6d33aa0deecc7431f847bb7e57c0d0f4f12ba22))
+
+## [1.9.2](https://github.com/wearefrank/morcore2ultimo/compare/v1.9.1...v1.9.2) (2024-10-03)
+
+### 🐛 Bug Fixes
+
+* documentation and the default value ([de434dc](https://github.com/wearefrank/morcore2ultimo/commit/de434dce2d5a2e01e320b035e8da8ea85867df45))
+
+## [1.9.1](https://github.com/wearefrank/morcore2ultimo/compare/v1.9.0...v1.9.1) (2024-10-03)
+
+### 🐛 Bug Fixes
+
+* eliminate one of the properties ([64b0a95](https://github.com/wearefrank/morcore2ultimo/commit/64b0a95fcc2b966601ee370b58f2d041e748e402))
+
+## [1.9.0](https://github.com/wearefrank/morcore2ultimo/compare/v1.8.27...v1.9.0) (2024-10-03)
+
+### 🍕 Features
+
+* Make it possible to select target integration system ([#39](https://github.com/wearefrank/morcore2ultimo/issues/39)) ([a1d9350](https://github.com/wearefrank/morcore2ultimo/commit/a1d935054d56768b8776dea64bbbe48ea51dfd95))
+
+## [1.8.27](https://github.com/wearefrank/morcore2ultimo/compare/v1.8.26...v1.8.27) (2024-10-01)
+
+### 🐛 Bug Fixes
+
+* remove the space between headerparams ([4ecc8ca](https://github.com/wearefrank/morcore2ultimo/commit/4ecc8ca493fe8dda5bc363dbd13c3a9f63af9f27))
+
+## [1.8.26](https://github.com/wearefrank/morcore2ultimo/compare/v1.8.25...v1.8.26) (2024-10-01)
+
+### 🐛 Bug Fixes
+
+* add expected params ([6e9493f](https://github.com/wearefrank/morcore2ultimo/commit/6e9493f178625ed91100d42871cfbe26b147c8a4))
+
+## [1.8.25](https://github.com/wearefrank/morcore2ultimo/compare/v1.8.24...v1.8.25) (2024-10-01)
+
+### 🐛 Bug Fixes
+
+* pipes getting non xml input ([#37](https://github.com/wearefrank/morcore2ultimo/issues/37)) ([6fb99c9](https://github.com/wearefrank/morcore2ultimo/commit/6fb99c9f8850a1e3649e7284b5b3a44a4b6b6222))
+
+## [1.8.24](https://github.com/wearefrank/morcore2ultimo/compare/v1.8.23...v1.8.24) (2024-10-01)
+
+### 🐛 Bug Fixes
+
+* update xsd to allow null in bericht and gebuiker ([#36](https://github.com/wearefrank/morcore2ultimo/issues/36)) ([caf42f2](https://github.com/wearefrank/morcore2ultimo/commit/caf42f29557b3c5d0540d73bf9618f6f7669b764))
+
+## [1.8.23](https://github.com/wearefrank/morcore2ultimo/compare/v1.8.22...v1.8.23) (2024-10-01)
+
+### 🐛 Bug Fixes
+
+* validate input message ([#34](https://github.com/wearefrank/morcore2ultimo/issues/34)) ([05c4431](https://github.com/wearefrank/morcore2ultimo/commit/05c443191da29216a1232c8f7f6283a2f82abc2f))
+
+## [1.8.22](https://github.com/wearefrank/morcore2ultimo/compare/v1.8.21...v1.8.22) (2024-10-01)
+
+### 🐛 Bug Fixes
+
+* getToken returns json ([#33](https://github.com/wearefrank/morcore2ultimo/issues/33)) ([d966403](https://github.com/wearefrank/morcore2ultimo/commit/d9664035dde7ebde23b2f19618c68aa8cbe88154))
+
 ## [1.8.21](https://github.com/wearefrank/morcore2ultimo/compare/v1.8.20...v1.8.21) (2024-09-27)
 
 ### 🧑‍💻 Code Refactoring

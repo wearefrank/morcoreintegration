@@ -47,9 +47,13 @@
 
             <SenderPipe name="RequestGetToken">
                 <IbisLocalSender name="RequestGetToken" javaListener="Internal_GetToken"/>
-                <Forward name="success" path="Exit" />
+                <Forward name="success" path="Xml2Json" />
                 <Forward name="failure" path="StoreStackTrace" />
             </SenderPipe>
+
+            <JsonPipe name="Xml2Json" direction="XML2JSON" addXmlRootElement="true">
+                <Forward name="success" path="Exit" />
+            </JsonPipe>
 
             <PutInSessionPipe name="StoreStackTrace" sessionKey="errorStackTrace"/>
             

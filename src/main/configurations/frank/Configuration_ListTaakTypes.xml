@@ -11,7 +11,7 @@
                 <Exit name="Exception" state="ERROR" />
             </Exits>
 
-            <FixedResultPipe name="InputTaaktypesLijst" filename="xml/ZaakTypes.xml"/>
+            <FixedResultPipe name="InputTaaktypesLijst" filename="xml/${target.system}_ZaakTypes.xml"/>
 
             <ReplacerPipe name="InsertHostName" find="[hostname]" replace="${Frank.API.root-url}"/>
 
@@ -23,7 +23,7 @@
 
             <JsonPipe name="XmlToJson" direction="XML2JSON" prettyPrint="true">
                 <Forward name="success" path="Exit" />
-                <Forward name="failure" path="Exception" />
+                <Forward name="exception" path="Exception" />
             </JsonPipe>
 
             <PutInSessionPipe name="StoreStackTrace" sessionKey="errorStackTrace"/>

@@ -20,15 +20,14 @@
                 <Exit name="NotFound" state="SUCCESS" code="404"/>
             </Exits>
 
-            <FixedResultPipe name="InputTaaktypesLijst" filename="xml/ZaakTypes.xml" getInputFromSessionKey="originalMessage"/>
+            <FixedResultPipe name="InputTaaktypesLijst" filename="xml/${target.system}_ZaakTypes.xml" getInputFromSessionKey="originalMessage"/>
 
             <ReplacerPipe name="InsertHostName" find="[hostname]" replace="${Frank.API.root-url}"/>
 
-            <XmlValidatorPipe name="ValidateInputMessage" schema="xsd/ValidateGetTaakTypes.xsd"
-                root="root">
+            <!-- <XmlValidatorPipe name="ValidateInputMessage" schema="xsd/ValidateGetTaakTypes.xsd" root="root">
                 <Forward name="success" path="GetTaakType" />
                 <Forward name="failure" path="Reject" />
-            </XmlValidatorPipe>
+            </XmlValidatorPipe> -->
 
             <XsltPipe name="GetTaakType" styleSheetName="xsl/GetTaakType.xsl">
                 <Param name="uuid" sessionKey="uuid" />
@@ -45,7 +44,7 @@
 
             <JsonPipe name="XmlToJson" direction="XML2JSON" prettyPrint="true">
                 <Forward name="success" path="Exit" />
-                <Forward name="failure" path="Exception" />
+                <Forward name="exception" path="Exception" />
             </JsonPipe>
 
             <PutInSessionPipe name="StoreStackTrace" sessionKey="errorStackTrace"/>

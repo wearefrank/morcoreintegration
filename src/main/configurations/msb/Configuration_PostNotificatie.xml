@@ -14,13 +14,11 @@
                 <Exit name="Reject" state="REJECTED" />
             </Exits>
 
-            <SenderPipe name="Send2MSB" getInputFromSessionKey="originalMessage">
-                <HttpSender name="Send2MSB" methodType="POST" contentType="application/json"
-                    headersParams="ApiKey,ApplicationElementId">
-                    <Param name="url" value="${MSB.taak.API.root-url}" type="STRING">
-                    </Param>
-                    <Param name="ApiKey" authAlias="Ultimo" pattern="{username}" />
-                    <Param name="ApplicationElementId" authAlias="Ultimo" pattern="{password}" />
+            <SenderPipe name="Send2MSB">
+                <HttpSender name="Send2MSB" methodType="POST" contentType="application/json" headersParams="ApiKey,ApplicationElementId">
+                    <Param name="url" value="${MSB.taak.API.root-url}" type="STRING"/>
+                    <Param name="ApiKey" authAlias="${target.service}" pattern="{username}" />
+                    <Param name="ApplicationElementId" authAlias="{target.service}" pattern="{password}" />
                 </HttpSender>
                 <Forward name="success" path="Exit" />
                 <Forward name="exception" path="Exception" />

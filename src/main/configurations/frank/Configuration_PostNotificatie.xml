@@ -6,6 +6,7 @@
             <ApiListener
                 name="Frank_PostNotificatie"
                 uriPattern="/Msb.Extern.services/Ultimo/Melding"
+                headerParams="ApiKey,ApplicationElementId"
                 method="POST" />
         </Receiver>
 
@@ -17,14 +18,14 @@
                 <Exit name="Reject" state="REJECTED" />
             </Exits>
 
-            <XmlIfPipe name="CompareApiKey" xpathExpression="$ClientApiKey = $FrankApiKey" active="${Token_Authentication.Active}">
+            <XmlIfPipe name="CompareApiKey" getInputFromFixedValue="&lt;dummy/&gt;" xpathExpression="$ClientApiKey = $FrankApiKey" active="${Token_Authentication.Active}">
                 <Param name="ClientApiKey" sessionKey="headers" xpathExpression="headers/header[@name='ApiKey']"/>
                 <Param name="FrankApiKey" authAlias="Ultimo" pattern="{username}" />
                 <Forward name="then" path="CompareApplicationElementId" />
                 <Forward name="else" path="RejectMessage" />
             </XmlIfPipe>
 
-            <XmlIfPipe name="CompareApplicationElementId" xpathExpression="$ClientApplicationElementId = $FrankApplicationElementId" 
+            <XmlIfPipe name="CompareApplicationElementId" getInputFromFixedValue="&lt;dummy/&gt;" xpathExpression="$ClientApplicationElementId = $FrankApplicationElementId" 
                 active="${Token_Authentication.Active}">
                 <Param name="ClientApplicationElementId" sessionKey="headers" xpathExpression="headers/header[@name='ApplicationElementId']"/>
                 <Param name="FrankApplicationElementId" authAlias="Ultimo" pattern="{password}" />

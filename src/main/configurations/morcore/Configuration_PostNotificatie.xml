@@ -14,19 +14,16 @@
                 <Exit name="Reject" state="REJECTED" />
             </Exits>
 
-            <SenderPipe name="Send2MorCore" getInputFromSessionKey="RequestJson">
-                <HttpSender name="Send2MorCore" methodType="POST" contentType="application/json"
-                    headersParams="Authorization">
+            <SenderPipe name="Send2MorCore">
+                <HttpSender name="Send2MorCore" methodType="POST" contentType="application/json" headersParams="Authorization">
                     <Param name="url" sessionKey="dummyParam"
                         xpathExpression="concat('${MorCore.taak.API.root-url}/api/v1/melding/', $meldingUuid, '/taakopdracht/', $taakOpdrachtUuid, '/notificatie/')"
                         type="STRING">
                         <Param name="meldingUuid" sessionKey="meldingUuid" />
                         <Param name="taakOpdrachtUuid" sessionKey="taakOpdrachtUuid" />
                     </Param>
-                    <Param name="Authorization" sessionKey="dummyParam"
-                        xpathExpression="concat('Token ', $MorCoreToken)">
-                        <Param name="MorCoreToken" type="STRING" sessionKey="MorCoreToken"
-                            xpathExpression="//token" />
+                    <Param name="Authorization" sessionKey="dummyParam" xpathExpression="concat('Token ', $MorCoreToken)">
+                        <Param name="MorCoreToken" sessionKey="MorCoreToken" />
                     </Param>
                 </HttpSender>
                 <Forward name="success" path="Exit" />

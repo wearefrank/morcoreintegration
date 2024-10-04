@@ -1,0 +1,33 @@
+{
+    "mor_id": "1234",
+    "malfunction": {
+        "malfunction_type": "lamp defect",
+        "malfunction_remark": "",
+        "malfunction_timestamp": "2001-12-17T09:30:47"
+    },
+    "asset": {
+        "asset_id": "",
+        "asset_latitude": "4.468454",
+        "asset_longitude": "51.917085"
+    },
+    "user": {
+        "user_click_latitude": "4.468454",
+        "user_click_longitude": "51.917085"
+    },
+    "attachments": {
+        "attachment": [
+            {
+                "url": "https://dummy-url.nl/media/bestanden/2024/08/12/330392a6-95f8-4e3d-bfbc-276f2d2e79c5.jpg",
+                "filename": "330392a6-95f8-4e3d-bfbc-276f2d2e79c5.jpg"
+            },
+            {
+                "url": "https://dummy-url.nl/media/bestanden/2024/08/12/cc4d6dd4-51e-4d9c-ad3c-e7a5be90b6e3.jpg",
+                "filename": "cc4d6dd4-51e-4d9c-ad3c-e7a5be90b6e3.jpg"
+            },
+            {
+                "url": "https://dummy-url.nl/media/bestanden/2024/08/12/d4373d03-14ed-46ae-ac01-82fc3864fd55.jpg",
+                "filename": "d4373d03-14ed-46ae-ac01-82fc3864fd55.jpg"
+            }
+        ]
+    }
+}

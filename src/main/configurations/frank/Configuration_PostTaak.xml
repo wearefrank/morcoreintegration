@@ -24,7 +24,7 @@
             <XmlIfPipe name="CompareTokens" xpathExpression="substring-after($ClientToken, 'Token ') = $FrankToken" active="${Token_Authentication.Active}">
                 <Param name="ClientToken" sessionKey="headers" xpathExpression="headers/header[@name='Authorization']"/>
                 <Param name="FrankToken" sessionKey="FrankToken" xpathExpression="//token"/>
-                <Forward name="then" path="JsonToXml" />
+                <Forward name="then" path="Json2XmlValidator" />
                 <Forward name="else" path="RejectMessage" />
             </XmlIfPipe>
 
@@ -32,13 +32,18 @@
                 <Forward name="success" path="Reject" />
             </EchoPipe>
 
-            <Json2XmlValidatorPipe name="Json2XmlValidator" root="root" schema="xsd/ValidatePostTaakInput.xsd">
+            <Json2XmlValidatorPipe 
+                name="Json2XmlValidator" 
+                root="root" 
+                schema="xsd/ValidatePostTaakInput.xsd"
+                getInputFromSessionKey="originalMessage"
+            >
                 <Forward name="failure" path="Reject" />
                 <Forward name="exception" path="StoreStackTrace" />
             </Json2XmlValidatorPipe>
 
             <SenderPipe name="SwitchConfiguration">
-                <IbisLocalSender javaListener="Ultimo_PostZaak" />
+                <IbisLocalSender javaListener="${target.system}_PostZaak" />
                 <Forward name="success" path="Exit" />
                 <Forward name="exception" path="StoreStackTrace" />
             </SenderPipe>

@@ -32,6 +32,8 @@
 
             <JsonPipe name="Json2Xml" />
 
+            <XsltPipe name="ExtractToken" xpathExpression="/root/token" outputType="TEXT"/>
+
         </Pipeline>
     </Adapter>
 </Module>
