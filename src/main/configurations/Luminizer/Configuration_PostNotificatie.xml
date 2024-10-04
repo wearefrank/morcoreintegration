@@ -2,7 +2,116 @@
     xsi:noNamespaceSchemaLocation="../FrankConfig.xsd">
 
     <Adapter name="Luminizer_PostNotificatie" active="${Luminizer_PostNotificatie.active}">
+        <Receiver name="Luminizer_PostNotificatie">
+            <ApiListener
+                name="Luminizer_PostNotificatie"
+                uriPattern="/api/malfunction/{mor_id}"
+                headerParams="ApiKey,ApplicationElementId"
+                method="POST" />
+        </Receiver>
 
-        
+        <Pipeline>
+            <Exits>
+                <Exit name="Exit" state="SUCCESS" code="204" />
+                <Exit name="Exception" state="ERROR" code="500" />
+                <Exit name="Reject" state="REJECTED" />
+            </Exits>
+
+            <PutInSessionPipe name="dummyInput">
+                <Param name="dummyParam" value="&lt;dummy/&gt;" />
+                <Forward name="success" path="Json2Xml" />
+            </PutInSessionPipe>
+
+            <JsonPipe name="Json2Xml" getInputFromSessionKey="originalMessage" storeResultInSessionKey="xmlInputMessage" />
+
+            <SenderPipe name="CallMorCore_GetToken" storeResultInSessionKey="MorCoreToken">
+                <IbisLocalSender name="CallMorCore_GetToken" javaListener="MorCore_GetToken" />
+                <Forward name="success" path="GetUuidById" />
+                <Forward name="exception" path="StoreStackTrace" />
+            </SenderPipe>
+
+            <SenderPipe name="GetUuidById" getInputFromSessionKey="xmlInputMessage"
+                storeResultInSessionKey="uuid">
+                <IbisLocalSender name="GetUuidById" javaListener="Internal_GetUuidById">
+                    <Param name="Id" sessionKey="mor_id" />
+                </IbisLocalSender>
+                <Forward name="success" path="IfResultCount0" />
+                <Forward name="exception" path="StoreStackTrace" />
+            </SenderPipe>
+
+            <XmlIfPipe name="IfResultCount0" xpathExpression="string-length($uuidText) > 0">
+                <Param name="uuidText" sessionKey="uuid" xpathExpression="//uuid" type="STRING"/>
+                <Forward name="then" path="MakeGetMeldingCall" />
+                <Forward name="else" path="Send2MSB" />
+            </XmlIfPipe>
+
+            <XsltPipe name="MakeGetMeldingCall" getInputFromSessionKey="dummyParam"
+                xpathExpression="concat('&lt;melding>', '${MorCore.taak.API.root-url}', '/api/v1/melding/', $uuid, '&lt;/melding>')">
+                <Param name="uuid" sessionKey="uuid" type="DOMDOC" />
+                <Forward name="success" path="GetMeldingInfo" />
+                <Forward name="exception" path="StoreStackTrace" />
+            </XsltPipe>
+
+            <SenderPipe name="GetMeldingInfo">
+                <IbisLocalSender name="GetMeldingInfo" javaListener="MorCore_GetMelding">
+                    <Param name="uuid" sessionKey="uuid" />
+                </IbisLocalSender>
+                <Forward name="success" path="GetMeldingInfo2Xml" />
+                <Forward name="exception" path="StoreStackTrace" />
+            </SenderPipe>
+
+            <JsonPipe name="GetMeldingInfo2Xml"
+                storeResultInSessionKey="meldingInfo" />
+
+            <SenderPipe name="GetTaakopdrachtById" getInputFromSessionKey="xmlInputMessage"
+                storeResultInSessionKey="taakopdracht">
+                <IbisLocalSender name="GetTaakopdrachtById" javaListener="Internal_GetTaakopdrachtById">
+                    <Param name="Id" sessionKey="mor_id"/>
+                </IbisLocalSender>
+                <Forward name="success" path="CreatePostNotificatieRequest" />
+                <Forward name="exception" path="StoreStackTrace" />
+            </SenderPipe>
+                       
+            <XsltPipe name="CreatePostNotificatieRequest"
+                styleSheetName="xsl/PostNotificatieRequest.xsl"
+                storeResultInSessionKey="RequestJson" getInputFromSessionKey="xmlInputMessage">
+                <Forward name="success" path="CheckTaakopdrachtById" />
+                <Forward name="exception" path="StoreStackTrace" />
+            </XsltPipe>
+
+            <XmlIfPipe name="CheckTaakopdrachtById" getInputFromSessionKey="taakopdracht" xpathExpression="string-length(taakopdracht) &gt; 0">
+                <Forward name="then" path="Send2MorCore" />
+                <Forward name="else" path="Send2MSB" />
+            </XmlIfPipe>
+
+            <SenderPipe name="Send2MorCore" getInputFromSessionKey="RequestJson">
+                <IbisLocalSender name="Send2Morcore" javaListener="MorCore_PostNotificatie">
+                    <Param name="RequestJson" sessionKey="RequestJson" />
+                    <Param name="dummyParam" sessionKey="dummyParam" />
+                    <Param name="MorCoreToken" sessionKey="MorCoreToken" />
+                    <Param name="meldingUuid" type="STRING" xpathExpression="//uuid" sessionKey="uuid" />
+                    <Param name="taakOpdrachtUuid" type="STRING" sessionKey="taakopdracht" xpathExpression="/taakopdracht" />
+                </IbisLocalSender>
+                <Forward name="success" path="Exit" />
+                <Forward name="exception" path="StoreStackTrace" />
+            </SenderPipe>
+
+            <SenderPipe name="Send2MSB" getInputFromSessionKey="originalMessage">
+                <IbisLocalSender name="Send2MSB" javaListener="MSB_PostNotificatie">
+                    <!-- Do you need morecore token here -->
+                    <Param name="dummyParam" sessionKey="dummyParam" />
+                    <Param name="MorCoreToken" sessionKey="MorCoreToken" />
+                </IbisLocalSender>
+                <Forward name="success" path="Exit" />
+                <Forward name="exception" path="StoreStackTrace" />
+            </SenderPipe>
+
+            <JsonPipe name="StoreStackTrace" storeResultInSessionKey="errorStackTrace"/>
+            
+            <XsltPipe name="ReturnErrorMessage" xpathExpression="concat('Something went wrong. Stack trace: ', codepoints-to-string(10), $errorStackTrace)">
+                <Param name="errorStackTrace" sessionKey="errorStackTrace"/>
+                <Forward name="success" path="Exception" />
+            </XsltPipe>
+        </Pipeline>  
     </Adapter>
 </Module>
