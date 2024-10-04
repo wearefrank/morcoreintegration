@@ -4,6 +4,12 @@ sidebar_position: 20
 
 # Luminizer_PostZaak
 
+## Service Specification
+| Description | Communication Pattern | Trigger | 
+| --- | --- | --- | 
+| Post a zaak in Luminizer. | Request-Response | Call to JavaListener
+
+## Detailed Specification
 ```mermaid
 flowchart TD
     A(JavaListener Luminizer_PostZaak) --> B[Call Morcore_GetMelding]
@@ -17,3 +23,5 @@ flowchart TD
     C --> |No| G
     E --> |No| G
 ```
+
+This adapter is used for posting a zaak in Luminizer. Morcore_GetMelding is called to retrieve information needed for posting the zaak. Up to two attachments stored within the Morcore melding will be included in the postzaak request to Luminizer.

@@ -4,6 +4,12 @@ sidebar_position: 20
 
 # MorCore_GetTaakOpdracht
 
+## Service Specification
+| Description | Communication Pattern | Trigger | 
+| --- | --- | --- | 
+| Request available information for a taakopdracht stored in Morcore. | Request-Response | Call to JavaListener
+
+## Detailed Specification
 ```mermaid
 flowchart TD
     A(JavaListener MorCore_GetTaakOpdracht) -->B[Get token from Morcore]
@@ -17,3 +23,5 @@ flowchart TD
     F --> |Failed| I(Exception)
     H --> |Not found| I
 ```
+
+This adapter sends a request to Morcore for all information about a specific taakopdracht stored in Morcore. 
