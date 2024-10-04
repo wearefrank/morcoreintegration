@@ -1,8 +1,7 @@
 {
     "mor_id": "1234",
     "malfunction": {
-        "malfunction_type": "lamp defect",
-        "malfunction_remark": "",
+        "malfunction_type": "",
         "malfunction_timestamp": "2001-12-17T09:30:47"
     },
     "asset": {

@@ -1,12 +1,11 @@
 {
     "mor_id": "1001",
     "malfunction": {
-        "malfunction_type": "mast aangereden",
-        "malfunction_remark": "",
+        "malfunction_type": "",
         "malfunction_timestamp": "2001-12-17T09:30:47"
     },
     "asset": {
-        "asset_id": "1234",
+        "asset_id": "",
         "asset_latitude": "5.123456",
         "asset_longitude": "52.123456"
     },
