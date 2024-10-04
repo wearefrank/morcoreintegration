@@ -31,6 +31,8 @@
                   <xs:sequence>
                     <xs:element type="xs:string" name="ultimoOnderwerpCode" minOccurs="0"/>
                     <xs:element type="xs:string" name="ultimoOnderwerpOmschrijving" minOccurs="0"/>
+                    <xs:element type="xs:string" name="luminizerOnderwerpCode" minOccurs="0"/>
+                    <xs:element type="xs:string" name="luminizerOnderwerpOmschrijving" minOccurs="0"/>
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
