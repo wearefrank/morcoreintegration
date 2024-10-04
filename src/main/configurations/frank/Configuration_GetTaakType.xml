@@ -24,10 +24,10 @@
 
             <ReplacerPipe name="InsertHostName" find="[hostname]" replace="${Frank.API.root-url}"/>
 
-            <XmlValidatorPipe name="ValidateInputMessage" schema="xsd/ValidateGetTaakTypes.xsd" root="root">
+            <!-- <XmlValidatorPipe name="ValidateInputMessage" schema="xsd/ValidateGetTaakTypes.xsd" root="root">
                 <Forward name="success" path="GetTaakType" />
                 <Forward name="failure" path="Reject" />
-            </XmlValidatorPipe>
+            </XmlValidatorPipe> -->
 
             <XsltPipe name="GetTaakType" styleSheetName="xsl/GetTaakType.xsl">
                 <Param name="uuid" sessionKey="uuid" />
