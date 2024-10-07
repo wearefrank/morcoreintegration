@@ -1,5 +1,11 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.9.5](https://github.com/wearefrank/morcoreintegration/compare/v1.9.4...v1.9.5) (2024-10-07)
+
+### 🧑‍💻 Code Refactoring
+
+* Rename project to morcoreintegration ([#42](https://github.com/wearefrank/morcoreintegration/issues/42)) ([2626391](https://github.com/wearefrank/morcoreintegration/commit/26263917781fe119e36178e3d51b8fec04483242))
+
 ## [1.9.4](https://github.com/wearefrank/morcore2ultimo/compare/v1.9.3...v1.9.4) (2024-10-04)
 
 ### 🐛 Bug Fixes
