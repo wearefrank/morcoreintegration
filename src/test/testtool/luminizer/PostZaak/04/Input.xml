@@ -1,0 +1,10 @@
+<root>
+	<taaktype>https://ultimo-koppeling-acc.forzamor.nl/api/taaktypes/dcb55cdb-c969-4582-9bd1-228e830fb25d</taaktype>
+	<titel>Brand overdag</titel>
+	<bericht/>
+	<taakopdracht>https://mor-core-acc.forzamor.nl/api/v1/taakopdracht/1234-5678/</taakopdracht>
+	<melding>https://mor-core-acc.forzamor.nl/api/v1/melding/1234-5678/</melding>
+	<gebruiker>123456789@email.dummy</gebruiker>
+	<additionele_informatie/>
+	<omschrijving_intern/>
+</root>

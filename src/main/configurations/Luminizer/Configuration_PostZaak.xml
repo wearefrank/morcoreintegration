@@ -120,7 +120,7 @@
                 storeResultInSessionKey="jsonMessage"
             >
                 <Forward name="success" path="StoreUuidIdMapping" />
-                <Forward name="exception" path="exception" />
+                <Forward name="exception" path="error" />
                 </Json2XmlValidatorPipe>	
 
             <!-- <SenderPipe name="ChangeXYValueTypesSender" storeResultInSessionKey="jsonMessage"

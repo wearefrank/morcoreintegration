@@ -11,7 +11,39 @@
                 <Exit name="Exception" state="ERROR" />
             </Exits>
 
-            <FixedResultPipe name="InputTaaktypesLijst" filename="xml/${target.system}_ZaakTypes.xml"/>
+            <FixedResultPipe name="InputTaaktypesLijst" 
+                filename="xml/${target.system}_ZaakTypes.xml"
+                active="!${enable.pipeset.larva}"/>
+
+            <!-- Following 3 adapters: just for testing purposes -->
+            <XmlSwitchPipe name="SwitchPipes"
+                active="${enable.pipeset.larva}" 
+                getInputFromFixedValue="&lt;dummy/&gt;"
+                xpathExpression="$larvaTargetSystem"
+                preserveInput="true">
+                <Param name="larvaTargetSystem" sessionKey="larvaTargetSystem" />
+                <Forward name="Ultimo" path="InputTaaktypesLijst_Ultimo" />
+                <Forward name="Luminizer" path="InputTaaktypesLijst_Luminizer" />
+            </XmlSwitchPipe>
+
+            <FixedResultPipe 
+                name="InputTaaktypesLijst_Ultimo" 
+                filename="xml/Ultimo_ZaakTypes.xml" 
+                getInputFromSessionKey="originalMessage"
+                active="${enable.pipeset.larva}">
+                <Forward name="success" path="InsertHostName" />
+            </FixedResultPipe>
+
+            <FixedResultPipe 
+                name="InputTaaktypesLijst_Luminizer" 
+                filename="xml/Luminizer_ZaakTypes.xml" 
+                getInputFromSessionKey="originalMessage"
+                active="${enable.pipeset.larva}">
+                <Param name="larvaTargetSystem" sessionKey="larvaTargetSystem" />
+                <Forward name="success" path="InsertHostName" />
+            </FixedResultPipe>
+            <!-- END -->
+
 
             <ReplacerPipe name="InsertHostName" find="[hostname]" replace="${Frank.API.root-url}"/>
 
