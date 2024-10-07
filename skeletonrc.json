@@ -1,7 +1,7 @@
 {
     "mappings": {
-        "{{ cookiecutter.instance_name }}": "morcore2ultimo",
-        "{{ cookiecutter.instance_name_lc }}": "morcore2ultimo",
+        "{{ cookiecutter.instance_name }}": "morcoreintegration",
+        "{{ cookiecutter.instance_name_lc }}": "morcoreintegration",
         "{{ cookiecutter.configuration_name }}": "morcoreMessageProcessor"
     },
     "ignoredFiles": [
