@@ -20,18 +20,18 @@
             <SenderPipe name="CallMorCore_GetToken" storeResultInSessionKey="MorCoreToken">
                 <IbisLocalSender name="CallMorCore_GetToken" javaListener="MorCore_GetToken" />
                 <Forward name="success" path="RequestMeldingInfo" />
-                <Forward name="exception" path="exception" />
+                <Forward name="exception" path="error" />
             </SenderPipe>
 
             <SenderPipe name="RequestMeldingInfo" getInputFromSessionKey="originalMessage">
                 <IbisLocalSender name="RequestGetMelding" javaListener="MorCore_GetMelding"/>
                 <Forward name="success" path="MakeMeldingInfoXML" />
-                <Forward name="exception" path="exception" />
+                <Forward name="exception" path="error" />
             </SenderPipe>
 
             <JsonPipe name="MakeMeldingInfoXML" storeResultInSessionKey="meldingInfo">
                 <Forward name="success" path="GetTaakType" />
-                <Forward name="exception" path="exception" />
+                <Forward name="exception" path="error" />
             </JsonPipe>
 
             <SenderPipe name="GetTaakType" getInputFromSessionKey="originalMessage">
@@ -40,12 +40,12 @@
                     <Param name="larvaTargetSystem" sessionKey="larvaTargetSystem"  active="${enable.pipeset.larva}"/>
                 </IbisLocalSender>
                 <Forward name="success" path="MakeTaakTypeXML" />
-                <Forward name="exception" path="exception" />
+                <Forward name="exception" path="error" />
             </SenderPipe>
 
             <JsonPipe name="MakeTaakTypeXML" storeResultInSessionKey="Taaktype">
                 <Forward name="success" path="RequestOpdrachtInfo" />
-                <Forward name="exception" path="exception" />
+                <Forward name="exception" path="error" />
             </JsonPipe>
 
             <!-- <XmlIfPipe name="IfBijlage1Exists" getInputFromSessionKey="meldingInfo"
@@ -60,7 +60,7 @@
                     <Param name="bijlageUrl" xpathExpression="//bijlagen[1]/bestand"></Param>
                 </IbisLocalSender>
                 <Forward name="success" path="IfBijlage2Exists" />
-                <Forward name="exception" path="exception" />
+                <Forward name="exception" path="error" />
             </SenderPipe>
 
             <XmlIfPipe name="IfBijlage2Exists" getInputFromSessionKey="meldingInfo"
@@ -75,20 +75,20 @@
                     <Param name="bijlageUrl" xpathExpression="//bijlagen[2]/bestand"></Param>
                 </IbisLocalSender>
                 <Forward name="success" path="RequestOpdrachtInfo" />
-                <Forward name="exception" path="exception" />
+                <Forward name="exception" path="error" />
             </SenderPipe> -->
 
             <SenderPipe name="RequestOpdrachtInfo" storeResultInSessionKey="opdrachtInfo"
                 getInputFromSessionKey="originalMessage">
                 <IbisLocalSender name="RequestGetMelding" javaListener="MorCore_GetTaakOpdracht" />
                 <Forward name="success" path="MakeOpdrachtInfoXML" />
-                <Forward name="exception" path="exception" />
+                <Forward name="exception" path="error" />
             </SenderPipe>
 
             <JsonPipe name="MakeOpdrachtInfoXML"
                 storeResultInSessionKey="opdrachtInfo">
                 <Forward name="success" path="StoreDateTime" />
-                <Forward name="exception" path="exception" />
+                <Forward name="exception" path="error" />
             </JsonPipe>
 
             <PutSystemDateInSessionPipe name="StoreDateTime" preserveInput="true"
@@ -148,13 +148,13 @@
                     <Param name="ApplicationElementId" authAlias="Luminizer" pattern="{password}" />
                 </HttpSender>
                 <Forward name="success" path="Exit" />
-                <Forward name="exception" path="exception" />
+                <Forward name="exception" path="error" />
                 <Forward name="timeout" path="timeout" />
                 <Forward name="illegalResult" path="illegalResult" />
                 <Forward name="interrupt" path="interrupt" />
             </SenderPipe>
 
-            <FixedResultPipe name="exception" filename="./ErrorResponses/BadRequest.json">
+            <FixedResultPipe name="error" filename="./ErrorResponses/BadRequest.json">
                 <Forward name="success" path="BadRequest" />
             </FixedResultPipe>
 

@@ -38,7 +38,7 @@
             "postcode": "1234AB",
             "wijknaam": "Example District",
             "buurtnaam": "Example Neighborhood",
-            "lichtmast_id": "1234",
+            "lichtmast_id": 1234,
             "plaatsnaam": "Example City",
             "begraafplaats": null,
             "grafnummer": null,
