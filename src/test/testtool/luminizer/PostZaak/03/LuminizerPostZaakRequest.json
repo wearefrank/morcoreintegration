@@ -1,11 +1,12 @@
 {
     "mor_id": "1234",
     "malfunction": {
-        "malfunction_type": "",
+        "malfunction_type": "lamp defect",
+        "malfunction_remark": "",
         "malfunction_timestamp": "2001-12-17T09:30:47"
     },
     "asset": {
-        "asset_id": "",
+        "asset_id": "1234",
         "asset_latitude": "4.468454",
         "asset_longitude": "51.917085"
     },
