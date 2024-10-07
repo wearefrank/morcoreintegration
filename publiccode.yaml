@@ -1,7 +1,7 @@
 publiccodeYmlVersion: "0.2"
 # Instructies: https://github.com/OpenCatalogi/OpenCatalogiBundle/blob/main/docs/Publiccode.md
-name: morcore2ultimo
-url: "https://github.com/wearefrank/morcore2ultimo.git"
+name: morcoreintegration
+url: "https://github.com/wearefrank/morcoreintegration.git"
 softwareVersion: "6.7.5"    # Optional
 releaseDate: 2023-08-14
 applicationSuite: frankframework
@@ -20,10 +20,10 @@ softwareType: "standalone/other"
 description:
   en:
     shortDescription: >
-      The morcore2ultimo component is an integration component.
+      The morcoreintegration component is an integration component.
           
     longDescription: >
-      The morcore2ultimo component is an integration component.
+      The morcoreintegration component is an integration component.
 
     features:
        - Statelessness

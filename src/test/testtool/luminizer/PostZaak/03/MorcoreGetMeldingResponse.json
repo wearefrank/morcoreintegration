@@ -34,7 +34,7 @@
 		"postcode": "1234AB",
 		"wijknaam": "Test Wijk",
 		"buurtnaam": "Test Buurt",
-		"lichtmast_id": null,
+		"lichtmast_id": 1234,
 		"plaatsnaam": "Test Stad",
 		"begraafplaats": null,
 		"grafnummer": null,

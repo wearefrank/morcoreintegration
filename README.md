@@ -1,4 +1,7 @@
-# morcore2ultimo
+# morcoreintegration
+
+Note that the project was renamed to 'morcoreintegration' (initially it was 'morcore2ultimo') starting from version 1.9.5.
+Therefore, the versions below 1.9.5 has to use the old docker repo wearefrank/morcore2ultimo
 
 ## Frank!Console
 
@@ -7,7 +10,7 @@ After deployment the Frank!Console is available on `/iaf/gui`
 ## Helm values
 
 - image.registry=docker.io
-- image.repository=wearefrank/morcore2ultimo
+- image.repository=wearefrank/morcoreintegration
 - image.tag=latest
 - image.pullPolicy=Always
 - connections.create=true

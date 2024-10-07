@@ -1,5 +1,5 @@
-<project default="restart-morcore2ultimo">
-    <target name="restart-morcore2ultimo">
+<project default="restart-morcoreintegration">
+    <target name="restart-morcoreintegration">
         <basename property="project.dir" file="${basedir}"/>
         <condition property="exe" value="../frank-runner/restart.bat" else="/bin/bash">
             <os family="windows"/>
