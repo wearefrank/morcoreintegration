@@ -41,27 +41,9 @@
 
             <XmlIfPipe name="IfResultCount0" xpathExpression="string-length($uuidText) > 0">
                 <Param name="uuidText" sessionKey="uuid" xpathExpression="//uuid" type="STRING"/>
-                <Forward name="then" path="MakeGetMeldingCall" />
+                <Forward name="then" path="GetTaakopdrachtById" />
                 <Forward name="else" path="Send2MSB" />
             </XmlIfPipe>
-
-            <XsltPipe name="MakeGetMeldingCall" getInputFromSessionKey="dummyParam"
-                xpathExpression="concat('&lt;melding>', '${MorCore.taak.API.root-url}', '/api/v1/melding/', $uuid, '&lt;/melding>')">
-                <Param name="uuid" sessionKey="uuid" type="DOMDOC" />
-                <Forward name="success" path="GetMeldingInfo" />
-                <Forward name="exception" path="StoreStackTrace" />
-            </XsltPipe>
-
-            <SenderPipe name="GetMeldingInfo">
-                <IbisLocalSender name="GetMeldingInfo" javaListener="MorCore_GetMelding">
-                    <Param name="uuid" sessionKey="uuid" />
-                </IbisLocalSender>
-                <Forward name="success" path="GetMeldingInfo2Xml" />
-                <Forward name="exception" path="StoreStackTrace" />
-            </SenderPipe>
-
-            <JsonPipe name="GetMeldingInfo2Xml"
-                storeResultInSessionKey="meldingInfo" />
 
             <SenderPipe name="GetTaakopdrachtById" getInputFromSessionKey="xmlInputMessage"
                 storeResultInSessionKey="taakopdracht">
