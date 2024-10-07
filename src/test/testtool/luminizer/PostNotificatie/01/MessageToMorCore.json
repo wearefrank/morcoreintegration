@@ -1,0 +1,11 @@
+{
+    "bijlagen": [
+    ],
+    "taakstatus": {
+        "naam": "voltooid"
+    },
+    "resolutie": "niet_opgelost",
+    "omschrijving_intern": "optionele tekst bijvoorbeeld bij status reject",
+    "gebruiker": "",
+    "resolutie_opgelost_herzien": "false"
+}
