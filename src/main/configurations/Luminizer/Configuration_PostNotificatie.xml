@@ -24,13 +24,7 @@
 
             <JsonPipe name="Json2Xml" getInputFromSessionKey="originalMessage" storeResultInSessionKey="xmlInputMessage" />
 
-            <SenderPipe name="CallMorCore_GetToken" storeResultInSessionKey="MorCoreToken">
-                <IbisLocalSender name="CallMorCore_GetToken" javaListener="MorCore_GetToken" />
-                <Forward name="success" path="GetUuidById" />
-                <Forward name="exception" path="StoreStackTrace" />
-            </SenderPipe>
-
-            <SenderPipe name="GetUuidById" getInputFromSessionKey="xmlInputMessage"
+            <SenderPipe name="GetUuidById"
                 storeResultInSessionKey="uuid">
                 <IbisLocalSender name="GetUuidById" javaListener="Internal_GetUuidById">
                     <Param name="Id" sessionKey="mor_id" />
@@ -62,9 +56,15 @@
             </XsltPipe>
 
             <XmlIfPipe name="CheckTaakopdrachtById" getInputFromSessionKey="taakopdracht" xpathExpression="string-length(taakopdracht) &gt; 0">
-                <Forward name="then" path="Send2MorCore" />
+                <Forward name="then" path="CallMorCore_GetToken" />
                 <Forward name="else" path="Send2MSB" />
             </XmlIfPipe>
+
+            <SenderPipe name="CallMorCore_GetToken" storeResultInSessionKey="MorCoreToken" getInputFromSessionKey="dummyParam">
+                <IbisLocalSender name="CallMorCore_GetToken" javaListener="MorCore_GetToken" />
+                <Forward name="success" path="Send2MorCore" />
+                <Forward name="exception" path="StoreStackTrace" />
+            </SenderPipe>
 
             <SenderPipe name="Send2MorCore" getInputFromSessionKey="RequestJson">
                 <IbisLocalSender name="Send2Morcore" javaListener="MorCore_PostNotificatie">
