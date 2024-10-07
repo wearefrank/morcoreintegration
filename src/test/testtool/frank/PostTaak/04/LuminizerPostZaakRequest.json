@@ -1,12 +1,12 @@
 {
     "mor_id": "1234",
     "malfunction": {
-        "malfunction_type": "lamp defect",
+        "malfunction_type": "mast aangereden",
         "malfunction_remark": "",
         "malfunction_timestamp": "2001-12-17T09:30:47"
     },
     "asset": {
-        "asset_id": null,
+        "asset_id": "123123",
         "asset_latitude": "4.468454",
         "asset_longitude": "51.917085"
     },

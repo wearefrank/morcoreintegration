@@ -42,11 +42,39 @@
                 <Forward name="exception" path="StoreStackTrace" />
             </Json2XmlValidatorPipe>
 
-            <SenderPipe name="SwitchConfiguration">
+            <SenderPipe name="SwitchConfiguration" active="!${enable.pipeset.larva}">
                 <IbisLocalSender javaListener="${target.system}_PostZaak" />
                 <Forward name="success" path="Exit" />
                 <Forward name="exception" path="StoreStackTrace" />
             </SenderPipe>
+
+            <!-- Following 3 adapters: just for testing purposes -->
+            <XmlSwitchPipe name="SwitchPipes"
+                active="${enable.pipeset.larva}" 
+                preserveInput="true"
+                getInputFromFixedValue="&lt;dummy/&gt;"
+                xpathExpression="$larvaTargetSystem">
+                <Param name="larvaTargetSystem" sessionKey="larvaTargetSystem" />
+                <Forward name="Ultimo" path="SwitchConfigurationUltimo" />
+                <Forward name="Luminizer" path="SwitchConfigurationLuminizer" />
+            </XmlSwitchPipe>
+
+            <SenderPipe name="SwitchConfigurationUltimo" active="${enable.pipeset.larva}">
+                <IbisLocalSender javaListener="Ultimo_PostZaak" >
+                    <Param name="larvaTargetSystem" sessionKey="larvaTargetSystem" />
+                </IbisLocalSender>
+                <Forward name="success" path="Exit" />
+                <Forward name="exception" path="StoreStackTrace" />
+            </SenderPipe>
+
+            <SenderPipe name="SwitchConfigurationLuminizer" active="${enable.pipeset.larva}">
+                <IbisLocalSender javaListener="Luminizer_PostZaak" >
+                    <Param name="larvaTargetSystem" sessionKey="larvaTargetSystem" />
+                </IbisLocalSender>
+                <Forward name="success" path="Exit" />
+                <Forward name="exception" path="StoreStackTrace" />
+            </SenderPipe>
+            <!-- END -->
 
             <PutInSessionPipe name="StoreStackTrace" sessionKey="errorStackTrace"/>
             

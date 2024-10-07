@@ -1,0 +1,43 @@
+{
+    "count": "3",
+    "next": "",
+    "previous": "",
+    "results": [
+        {
+            "_links": {
+                "self": "https://localhost/api/taaktypes/69f5ead5-1d53-4398-ac69-a3ca31854125"
+            },
+            "uuid": "69f5ead5-1d53-4398-ac69-a3ca31854125",
+            "omschrijving": "Lichtmast scheef/aangereden",
+            "toelichting": "Lichtmast scheef/aangereden",
+            "additionele_informatie": "",
+            "extra": {
+                "luminizerOnderwerpOmschrijving": "mast aangereden"
+            }
+        },
+        {
+            "_links": {
+                "self": "https://localhost/api/taaktypes/91da0543-0bc1-4fae-9539-0d34d5f94d01"
+            },
+            "uuid": "91da0543-0bc1-4fae-9539-0d34d5f94d01",
+            "omschrijving": "Brand niet",
+            "toelichting": "Brand niet",
+            "additionele_informatie": "",
+            "extra": {
+                "luminizerOnderwerpOmschrijving": "lamp defect"
+            }
+        },
+        {
+            "_links": {
+                "self": "https://localhost/api/taaktypes/dcb55cdb-c969-4582-9bd1-228e830fb25d"
+            },
+            "uuid": "dcb55cdb-c969-4582-9bd1-228e830fb25d",
+            "omschrijving": "Brand overdag",
+            "toelichting": "Brand overdag",
+            "additionele_informatie": "",
+            "extra": {
+                "luminizerOnderwerpOmschrijving": "lamp defect"
+            }
+        }
+    ]
+}

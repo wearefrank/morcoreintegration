@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<xs:element name="malfunction">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="malfunction_type" type="xs:string"/>
+				<xs:element name="malfunction_remark" type="xs:string"/>
+				<xs:element name="malfunction_timestamp" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="asset">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="asset_id" type="xs:string" nillable="true"/>
+				<xs:element name="asset_latitude" type="xs:string"/>
+				<xs:element name="asset_longitude" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="user">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="user_click_latitude" type="xs:string"/>
+				<xs:element name="user_click_longitude" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="root">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="mor_id" type="xs:string"/>
+				<xs:element ref="malfunction"/>
+				<xs:element ref="asset"/>
+				<xs:element ref="user"/>
+				<xs:element name="attachments" maxOccurs="unbounded" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="url" type="xs:string"/>
+							<xs:element name="filename" type="xs:string"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

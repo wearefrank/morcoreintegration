@@ -15,11 +15,11 @@
 
             <ReplacerPipe name="InsertHostName" find="[hostname]" replace="${Frank.API.root-url}"/>
 
-            <XmlValidatorPipe name="ValidateInputMessage" schema="xsd/ValidateGetTaakTypes.xsd" root="root">
+            <!-- <XmlValidatorPipe name="ValidateInputMessage" schema="xsd/ValidateGetTaakTypes.xsd" root="root">
                 <Forward name="success" path="XmlToJson" />
                 <Forward name="exception" path="StoreStackTrace" />
                 <Forward name="failure" path="Reject" />
-            </XmlValidatorPipe>
+            </XmlValidatorPipe> -->
 
             <JsonPipe name="XmlToJson" direction="XML2JSON" prettyPrint="true">
                 <Forward name="success" path="Exit" />

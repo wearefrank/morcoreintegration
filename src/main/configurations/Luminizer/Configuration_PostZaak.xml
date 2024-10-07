@@ -37,6 +37,7 @@
             <SenderPipe name="GetTaakType" getInputFromSessionKey="originalMessage">
                 <IbisLocalSender name="GetTaakType" javaListener="Internal_GetTaakType">
                     <Param name="uuid" xpathExpression="substring-after(//taaktype, 'api/taaktypes/')" />
+                    <Param name="larvaTargetSystem" sessionKey="larvaTargetSystem"  active="${enable.pipeset.larva}"/>
                 </IbisLocalSender>
                 <Forward name="success" path="MakeTaakTypeXML" />
                 <Forward name="exception" path="exception" />
@@ -104,11 +105,23 @@
                 <Param name="opdrachtInfo" sessionKey="opdrachtInfo" type="DOMDOC" />
             </XsltPipe>
 
-            <JsonPipe name="XmlToJson" direction="XML2JSON" storeResultInSessionKey="jsonMessage"
+            <!-- <JsonPipe name="XmlToJson" direction="XML2JSON" storeResultInSessionKey="jsonMessage"
                 prettyPrint="true">
                 <Forward name="success" path="StoreUuidIdMapping" />
                 <Forward name="exception" path="exception" />
-            </JsonPipe>
+            </JsonPipe> -->
+
+            <Json2XmlValidatorPipe 
+                name="XmlToJson"
+                outputFormat="JSON"
+                noNamespaceSchemaLocation="xsd/ValidationPostZaak.xsd" 
+                root="root"
+                throwException="true"
+                storeResultInSessionKey="jsonMessage"
+            >
+                <Forward name="success" path="StoreUuidIdMapping" />
+                <Forward name="exception" path="exception" />
+                </Json2XmlValidatorPipe>	
 
             <!-- <SenderPipe name="ChangeXYValueTypesSender" storeResultInSessionKey="jsonMessage"
                 logIntermediaryResults="true">
@@ -121,7 +134,7 @@
             <SenderPipe name="StoreUuidIdMapping" getInputFromSessionKey="meldingInfo">
                 <IbisLocalSender javaListener="Internal_StoreUuidIdMapping">
                     <Param name="Taakopdracht" sessionKey="originalMessage"
-                        xpathExpression="substring-before(substring-after(/root/taakopdracht, '/api/v1/taakopdracht/'), '/')" />
+                        xpathExpression="tokenize(/root/taakopdracht,'/')[last()]" />
                 </IbisLocalSender>
             </SenderPipe>
 
