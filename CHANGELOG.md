@@ -1,5 +1,11 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.10.1](https://github.com/wearefrank/morcoreintegration/compare/v1.10.0...v1.10.1) (2024-10-07)
+
+### ✅ Tests
+
+* Support running Larva scenarios for both Ultimo and Luminizer, regardless of the value of target.system property ([#43](https://github.com/wearefrank/morcoreintegration/issues/43)) ([8ce58c9](https://github.com/wearefrank/morcoreintegration/commit/8ce58c9e8c85758e3655ffd81bdcc63030f2706b))
+
 ## [1.10.0](https://github.com/wearefrank/morcoreintegration/compare/v1.9.5...v1.10.0) (2024-10-07)
 
 ### 🍕 Features
