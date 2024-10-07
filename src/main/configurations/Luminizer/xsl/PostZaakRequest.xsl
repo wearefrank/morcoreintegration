@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fn="http://www.w3.org/2005/xpath-functions">
+<xsl:stylesheet version="2.0" 
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
+    xmlns:fo="http://www.w3.org/1999/XSL/Format" 
+    xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:fn="http://www.w3.org/2005/xpath-functions">
 	<xsl:param name="uuid"/>
 	<xsl:param name="meldingInfo"/>
 	<xsl:param name="taaktype"/>
@@ -23,11 +28,16 @@
 				</malfunction_timestamp>
 			</malfunction>
 			<asset>
-				<xsl:if test="$meldingInfo/root/locaties_voor_melding/lichtmast_id">
-					<asset_id>
-						<xsl:value-of select="$meldingInfo/root/locaties_voor_melding/lichtmast_id"/>
-					</asset_id>
-				</xsl:if>
+                <xsl:choose>
+                    <xsl:when test="string-length($meldingInfo/root/locaties_voor_melding/lichtmast_id) > 0">
+                        <asset_id>
+                            <xsl:value-of select="$meldingInfo/root/locaties_voor_melding/lichtmast_id"/>
+                        </asset_id>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <asset_id xsi:nil="true"/>
+                    </xsl:otherwise>
+                </xsl:choose>
 				<xsl:if test="$meldingInfo/root/locaties_voor_melding/geometrie/coordinates[1]">
 					<asset_latitude>
 						<xsl:value-of select="$meldingInfo/root/locaties_voor_melding/geometrie/coordinates[1]"/>
@@ -51,18 +61,16 @@
 					</user_click_longitude>
 				</xsl:if>
 			</user>
-			<attachments>
-				<xsl:for-each select="$meldingInfo/root/signalen_voor_melding/bijlagen">
-					<attachment>
-						<url>
-							<xsl:value-of select="./bestand"/>
-						</url>
-						<filename>
-							<xsl:value-of select="tokenize(./bestand,'/')[last()]"/>
-						</filename>
-					</attachment>
-				</xsl:for-each>
-			</attachments>
+            <xsl:for-each select="$meldingInfo/root/signalen_voor_melding/bijlagen">
+                <attachments>
+                    <url>
+                        <xsl:value-of select="./bestand"/>
+                    </url>
+                    <filename>
+                        <xsl:value-of select="tokenize(./bestand,'/')[last()]"/>
+                    </filename>
+                </attachments>
+            </xsl:for-each>
 		</root>
 	</xsl:template>
 </xsl:stylesheet>
