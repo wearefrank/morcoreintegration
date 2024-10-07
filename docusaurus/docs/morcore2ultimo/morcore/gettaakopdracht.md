@@ -9,7 +9,10 @@ sidebar_position: 20
 | --- | --- | --- | 
 | Request available information for a taakopdracht stored in Morcore. | Request-Response | Call to JavaListener
 
-## Detailed Specification
+### Data Model
+No database is associated with actions performed by this adapter.
+
+### Detailed Specification
 ```mermaid
 flowchart TD
     A(JavaListener MorCore_GetTaakOpdracht) -->B[Get token from Morcore]
@@ -25,3 +28,9 @@ flowchart TD
 ```
 
 This adapter sends a request to Morcore for all information about a specific taakopdracht stored in Morcore. 
+
+### Trigger Specification
+This adapter is triggered each time the JavaListener within the adapter receives a message.
+
+## Data Mappings
+The Data Mappings section will list all data transformations that are of importance to the current adapter, if any.

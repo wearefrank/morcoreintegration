@@ -9,7 +9,10 @@ sidebar_position: 20
 | --- | --- | --- | 
 | Inform Morcore that a Zaak in Ultimo has been changed. | Request-Response | Incoming HTTP request
 
-## Detailed Specification
+### Data Model
+No database is associated with actions performed by this adapter.
+
+### Detailed Specification
 ```mermaid
 flowchart TD
     A("POST /Msb.Extern.services/Ultimo/Melding") --> B[Map Ultimo uuid to Morcore uuid]
@@ -36,3 +39,21 @@ When this adapter is called by Ultimo, the Frank will first check if a id mappin
 If an error occurs at any stage of this adapter the fallback system will take over and instead send a postnotificatie message to MSB.
 
 This adapter expects two auth headers: ApiKey and ApplicationElementId.
+
+### Message Specification
+The OpenAPI specification for this adapter is available [here](https://ultimo-koppeling-acc.forzamor.nl/iaf/api/webservices/openapi.json?uri=/Msb.Extern.services/Ultimo/Melding).
+
+### Trigger Specification
+This adapter is triggered each time the HttpListener within the adapter receives a message.
+
+## Data Mappings
+The Data Mappings section will list all data transformations that are of importance to the current adapter, if any.
+### PostNotificatieRequest.xsl
+| **XML Field**| **Mapped JSON Field**| **Transformation**|
+|--------------|----------------------|-------------------|
+| `//status` | `taakstatus.naam` | `if status = 'Nieuw', 'Gemeld', 'In behandeling', or 'Vertraging' -> 'nieuw'`<br/>`if status = 'Afgewezen', 'NietOpTeLossen', or 'Afgehandeld' -> 'voltooid'`<br/>`else -> 'onbekend'` |
+| `//status` | `resolutie`| `if status = 'Afgewezen' or 'NietOpTeLossen' -> 'niet_opgelost'`<br/>`if status = 'Afgehandeld' -> 'opgelost'`<br/>`else -> null` |
+| `//Opmerking`| `omschrijving_intern`| `Direct value-of`|
+| `//Behandelaar`| `gebruiker`| `Direct value-of`|
+| N/A| `bijlagen`| `[] (empty array)`|
+| N/A| `resolutie_opgelost_herzien`| `false (constant)`|
