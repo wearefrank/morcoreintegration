@@ -24,7 +24,9 @@
             </SenderPipe>
 
             <SenderPipe name="RequestMeldingInfo" getInputFromSessionKey="originalMessage">
-                <IbisLocalSender name="RequestGetMelding" javaListener="MorCore_GetMelding"/>
+                <IbisLocalSender name="RequestGetMelding" javaListener="MorCore_GetMelding">
+                    <Param name="MorCoreToken" sessionKey="MorCoreToken" />
+                </IbisLocalSender>
                 <Forward name="success" path="MakeMeldingInfoXML" />
                 <Forward name="exception" path="error" />
             </SenderPipe>
@@ -99,8 +101,6 @@
                 getInputFromSessionKey="originalMessage">
                 <Param name="systemDate" sessionKey="systemDate" />
                 <Param name="meldingInfo" sessionKey="meldingInfo" type="DOMDOC" />
-                <!-- <Param name="bijlage1" sessionKey="bijlage1" type="STRING" />
-                <Param name="bijlage2" sessionKey="bijlage2" type="STRING" /> -->
                 <Param name="taaktype" sessionKey="Taaktype" type="DOMDOC" />
                 <Param name="opdrachtInfo" sessionKey="opdrachtInfo" type="DOMDOC" />
             </XsltPipe>
