@@ -3,10 +3,10 @@ import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const organizationName: String = 'WeAreFrank';
-const projectName: String = 'morcore2ultimo';
+const projectName: String = 'morcoreintegration';
 
 const config: Config = {
-  title: 'morcore2ultimo',
+  title: 'morcoreintegration',
   tagline: '',
   favicon: 'img/waf-logo-favicon-16x16.png',
 
@@ -60,7 +60,7 @@ const config: Config = {
     // Replace with your project's social card
     image: 'img/waf-logo-192x192.png',
     navbar: {
-      title: 'morcore2ultimo',
+      title: 'morcoreintegration',
       logo: {
         alt: 'WeAreFrank',
         src: 'img/waf-logo-192x192.png',
