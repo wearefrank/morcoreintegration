@@ -1,5 +1,11 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.11.5](https://github.com/wearefrank/morcoreintegration/compare/v1.11.4...v1.11.5) (2024-10-08)
+
+### 🐛 Bug Fixes
+
+* property name ([8dc1485](https://github.com/wearefrank/morcoreintegration/commit/8dc148526596d3c14c78e7921610d94e3f78b9c3))
+
 ## [1.11.4](https://github.com/wearefrank/morcoreintegration/compare/v1.11.3...v1.11.4) (2024-10-08)
 
 ### 🐛 Bug Fixes
