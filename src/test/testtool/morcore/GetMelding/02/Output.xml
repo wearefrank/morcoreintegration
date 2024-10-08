@@ -106,7 +106,7 @@
 	at org.frankframework.larva.SenderThread.run(SenderThread.java:65)</details>
   <originalMessage messageId="synthetic-message-id-c0a8b245--6497b7da_1924d570c48_-7f34" receivedTime="Wed Oct 02 15:09:06 CEST 2024">&lt;root&gt;
     &lt;taaktype&gt;
-        https://ultimo-koppeling-acc.forzamor.nl/api/taaktypes/b42801c6-cd66-43df-add7-07b0824852ee&lt;/taaktype&gt;
+        https://ultimo-koppeling-acc.forzamor.nl/api/taaktype/b42801c6-cd66-43df-add7-07b0824852ee&lt;/taaktype&gt;
     &lt;titel&gt;Hoofdriool&lt;/titel&gt;
     &lt;bericht /&gt;
     &lt;taakopdracht&gt;https://mor-core-acc.forzamor.nl/api/v1/taakopdracht/1234-5678/&lt;/taakopdracht&gt;

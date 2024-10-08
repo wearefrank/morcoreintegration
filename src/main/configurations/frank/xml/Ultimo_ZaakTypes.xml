@@ -5,7 +5,7 @@
     <previous />
     <results>
         <_links>
-            <self>[hostname]api/taaktypes/b42801c6-cd66-43df-add7-07b0824852ee</self>
+            <self>[hostname]api/taaktype/b42801c6-cd66-43df-add7-07b0824852ee</self>
         </_links>
         <uuid>b42801c6-cd66-43df-add7-07b0824852ee</uuid>
         <omschrijving>Rioolaansluiting verstopping</omschrijving>
@@ -18,7 +18,7 @@
     </results>
     <results>
         <_links>
-            <self>[hostname]api/taaktypes/ce855971-ed60-4ec0-8a92-37393d914333</self>
+            <self>[hostname]api/taaktype/ce855971-ed60-4ec0-8a92-37393d914333</self>
         </_links>
         <uuid>ce855971-ed60-4ec0-8a92-37393d914333</uuid>
         <omschrijving>Hoofdriool</omschrijving>
@@ -31,7 +31,7 @@
     </results>
     <results>
         <_links>
-            <self>[hostname]api/taaktypes/8d1ff14f-77b9-4e9e-95f3-572c7c88d26f</self>
+            <self>[hostname]api/taaktype/8d1ff14f-77b9-4e9e-95f3-572c7c88d26f</self>
         </_links>
         <uuid>8d1ff14f-77b9-4e9e-95f3-572c7c88d26f</uuid>
         <omschrijving>Stankoverlast</omschrijving>
@@ -44,7 +44,7 @@
     </results>
     <results>
         <_links>
-            <self>[hostname]api/taaktypes/3eeb8f00-89b4-41c5-a219-17811ec52d9c</self>
+            <self>[hostname]api/taaktype/3eeb8f00-89b4-41c5-a219-17811ec52d9c</self>
         </_links>
         <uuid>3eeb8f00-89b4-41c5-a219-17811ec52d9c</uuid>
         <omschrijving>Straatkolk verstopt</omschrijving>

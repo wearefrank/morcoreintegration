@@ -1,5 +1,5 @@
 <root>
-	<taaktype>https://localhost/api/taaktypes/69f5ead5-1d53-4398-ac69-a3ca31854125</taaktype>
+	<taaktype>https://localhost/api/taaktype/69f5ead5-1d53-4398-ac69-a3ca31854125</taaktype>
 	<titel>Lichtmast scheef/aangereden</titel>
 	<bericht/>
 	<taakopdracht>https://mor-core-acc.forzamor.nl/api/v1/taakopdracht/1234-5678/</taakopdracht>

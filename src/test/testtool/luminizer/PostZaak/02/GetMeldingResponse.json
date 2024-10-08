@@ -115,7 +115,7 @@
     ],
     "taakopdrachten_voor_melding": [
         {
-            "taaktype": "https://example.com/api/taaktypes/abcd1234-5678-90ef-ghij-klmnopqrstuv",
+            "taaktype": "https://example.com/api/taaktype/abcd1234-5678-90ef-ghij-klmnopqrstuv",
             "titel": "Main Task",
             "bericht": "",
             "additionele_informatie": {},
