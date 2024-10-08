@@ -15,19 +15,18 @@ No database is associated with actions performed by this adapter.
 ### Detailed Specification
 ```mermaid
 flowchart TD
-    A("POST /api/malfunction/{mor_id}") --> B[Map Luminizer id to Morcore uuid]
-    B -->|Mapping found| C[Request melding info]
-    C -->|Melding found| D[Request taakopdracht info]
-    D -->|Taakopdracht found| E[Make postnotificatie message]
-    E --> F(Send to Morcore)
+    A("POST /api/malfunction/{mor_id}") --> B[Map Luminizer id to Morcore melding id]
+    B -->|Mapping found| C[Map Luminizer id to Morcore TaakOpdracht id]
+    C -->|Mapping found| D[Make postnotificatie message]
+    D --> E(Send to Morcore)
     
-    G(Send original input to MSB)
-    B -->|Mapping not found| G
-    C -->|Melding not found| G
-    D -->|Taakopdracht not found| G
+    F(Send original input to MSB)
+    B -->|Mapping not found| F
+    C -->|Mapping not found| F
+    E -->|Error| F
 ```
 
-This adapter receives a message from Luminizer whenever a Luminizer zaak has been updated. The adapter then sends a notification to Morcore about the change.
+This adapter receives a message from Luminizer whenever a Luminizer zaak has been updated. After obtaining a Morcore melding id, the adapter proceeds to request information relating to  The adapter then sends a notification to Morcore about the change.
 
 ### Trigger Specification
 This adapter is triggered each time the HttpListener within the adapter receives a message.
