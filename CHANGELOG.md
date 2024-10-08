@@ -1,5 +1,11 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.11.6](https://github.com/wearefrank/morcoreintegration/compare/v1.11.5...v1.11.6) (2024-10-08)
+
+### 🐛 Bug Fixes
+
+* taaktype endpoint ([6f10df5](https://github.com/wearefrank/morcoreintegration/commit/6f10df59782e5ba9bb754e47f982c12ae1595d73))
+
 ## [1.11.5](https://github.com/wearefrank/morcoreintegration/compare/v1.11.4...v1.11.5) (2024-10-08)
 
 ### 🐛 Bug Fixes
