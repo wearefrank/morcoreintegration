@@ -123,7 +123,7 @@
             >
                 <Forward name="success" path="StoreUuidIdMapping" />
                 <Forward name="exception" path="error" />
-                </Json2XmlValidatorPipe>	
+            </Json2XmlValidatorPipe>	
 
             <!-- <SenderPipe name="ChangeXYValueTypesSender" storeResultInSessionKey="jsonMessage"
                 logIntermediaryResults="true">
@@ -135,8 +135,7 @@
 
             <SenderPipe name="StoreUuidIdMapping" getInputFromSessionKey="meldingInfo">
                 <IbisLocalSender javaListener="Internal_StoreUuidIdMapping">
-                    <Param name="Taakopdracht" sessionKey="originalMessage"
-                        xpathExpression="tokenize(/root/taakopdracht,'/')[last()]" />
+                    <Param name="Taakopdracht" sessionKey="originalMessage" xpathExpression="tokenize(/root/taakopdracht,'/')[last()-1]" />
                 </IbisLocalSender>
             </SenderPipe>
 
