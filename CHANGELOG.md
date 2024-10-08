@@ -1,5 +1,11 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.11.1](https://github.com/wearefrank/morcoreintegration/compare/v1.11.0...v1.11.1) (2024-10-08)
+
+### 🐛 Bug Fixes
+
+* add property to be false in the environments ([410d164](https://github.com/wearefrank/morcoreintegration/commit/410d1641b0b802ebb5e960d65f1b2fa62c64cbfd))
+
 ## [1.11.0](https://github.com/wearefrank/morcoreintegration/compare/v1.10.1...v1.11.0) (2024-10-08)
 
 ### 🍕 Features
