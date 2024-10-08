@@ -1,5 +1,11 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.11.2](https://github.com/wearefrank/morcoreintegration/compare/v1.11.1...v1.11.2) (2024-10-08)
+
+### 🐛 Bug Fixes
+
+* add token in taakopdracht request ([ade5d12](https://github.com/wearefrank/morcoreintegration/commit/ade5d120dd2d3ab854bdd3859c5096ee5fba307b))
+
 ## [1.11.1](https://github.com/wearefrank/morcoreintegration/compare/v1.11.0...v1.11.1) (2024-10-08)
 
 ### 🐛 Bug Fixes
