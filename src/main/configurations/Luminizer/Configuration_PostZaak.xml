@@ -46,7 +46,7 @@
             </SenderPipe>
 
             <JsonPipe name="MakeTaakTypeXML" storeResultInSessionKey="Taaktype">
-                <Forward name="success" path="RequestOpdrachtInfo" />
+                <Forward name="success" path="GetTaakOpdracht" />
                 <Forward name="exception" path="error" />
             </JsonPipe>
 
@@ -80,9 +80,11 @@
                 <Forward name="exception" path="error" />
             </SenderPipe> -->
 
-            <SenderPipe name="RequestOpdrachtInfo" storeResultInSessionKey="opdrachtInfo"
+            <SenderPipe name="GetTaakOpdracht" storeResultInSessionKey="opdrachtInfo"
                 getInputFromSessionKey="originalMessage">
-                <IbisLocalSender name="RequestGetMelding" javaListener="MorCore_GetTaakOpdracht" />
+                <IbisLocalSender name="GetTaakOpdracht" javaListener="MorCore_GetTaakOpdracht" >
+                    <Param name="MorCoreToken" sessionKey="MorCoreToken" />
+                </IbisLocalSender>
                 <Forward name="success" path="MakeOpdrachtInfoXML" />
                 <Forward name="exception" path="error" />
             </SenderPipe>
