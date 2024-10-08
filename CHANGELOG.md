@@ -1,5 +1,11 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.11.4](https://github.com/wearefrank/morcoreintegration/compare/v1.11.3...v1.11.4) (2024-10-08)
+
+### 🐛 Bug Fixes
+
+* add missing dollar sign ([d8b03de](https://github.com/wearefrank/morcoreintegration/commit/d8b03dec1f1e26a4e449856fd86c19ddf7633ff6))
+
 ## [1.11.3](https://github.com/wearefrank/morcoreintegration/compare/v1.11.2...v1.11.3) (2024-10-08)
 
 ### 🐛 Bug Fixes
