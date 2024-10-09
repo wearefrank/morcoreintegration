@@ -62,10 +62,11 @@ jobs:
       - name: Start Application
         run: |
           export APP_VERSION="${{ needs.version-next.outputs.version-next }}"
-          docker run -d --name morcoreintegration -p 8080:8080 wearefrank/morcoreintegration:${APP_VERSION}
+          docker run -d --name morcoreintegration -p 8080:8080 -e dtap.stage=LOC wearefrank/morcoreintegration:${APP_VERSION}
           sleep 10
           docker exec morcoreintegration ls -la /opt/frank/configurations
           docker exec morcoreintegration ls -la /opt/frank/secrets
+          docker exec morcoreintegration cat /opt/frank/secrets/credentials.properties
 
       # - name: List configurations folder
       #   run: |
