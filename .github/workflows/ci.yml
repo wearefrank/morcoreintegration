@@ -92,6 +92,10 @@ jobs:
             --data-urlencode 'execute=/opt/frank/testtool' \
             --data-urlencode 'submit=start' > results.html
 
+      - name: Print Results
+        run: |
+          cat results.html
+
       - name: Check if all scenarios passed
         run: |
           if ! grep -q 'All scenarios passed' results.html; then
