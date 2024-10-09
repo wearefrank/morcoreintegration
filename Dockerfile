@@ -34,6 +34,10 @@ COPY --chown=tomcat src/main/resources/ /opt/frank/resources/
 COPY --chown=tomcat src/main/secrets/ /opt/frank/secrets/
 COPY --chown=tomcat src/test/testtool/ /opt/frank/testtool/
 
+
+ENV credentialFactory.class=nl.nn.credentialprovider.PropertyFileCredentialFactory
+ENV credentialFactory.map.properties=/opt/frank/secrets/credentials.properties
+
 # # Uncomment this section if the Frank! contains custom classes.
 # # Copy compiled custom classes
 # COPY --from=custom-code-builder --chown=tomcat /tmp/classes/ /usr/local/tomcat/webapps/ROOT/WEB-INF/classes
