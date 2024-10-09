@@ -83,6 +83,7 @@ jobs:
             echo "Waiting for application to be healthy..."
             sleep 5
           done
+        timeout-minutes: 2
 
       - name: Trigger Larva Tool
         run: |
