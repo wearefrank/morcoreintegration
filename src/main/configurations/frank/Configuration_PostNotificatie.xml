@@ -75,6 +75,7 @@
             <SenderPipe name="GetMeldingInfo">
                 <IbisLocalSender name="GetMeldingInfo" javaListener="MorCore_GetMelding">
                     <Param name="uuid" sessionKey="uuid" />
+                    <Param name="MorCoreToken" sessionKey="MorCoreToken" />
                 </IbisLocalSender>
                 <Forward name="success" path="GetMeldingInfo2Xml" />
                 <Forward name="exception" path="StoreStackTrace" />
