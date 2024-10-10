@@ -105,7 +105,7 @@
                 <Forward name="exception" path="StoreStackTrace" />
             </XsltPipe>
 
-            <SenderPipe name="Send2MorCore" getInputFromSessionKey="dummyParam">
+            <SenderPipe name="Send2MorCore" getInputFromSessionKey="RequestJson">
                 <IbisLocalSender name="Send2Morcore" javaListener="MorCore_PostNotificatie">
                     <Param name="RequestJson" sessionKey="RequestJson" />
                     <Param name="dummyParam" sessionKey="dummyParam" />
