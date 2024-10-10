@@ -1,5 +1,11 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.11.7](https://github.com/wearefrank/morcoreintegration/compare/v1.11.6...v1.11.7) (2024-10-10)
+
+### 🐛 Bug Fixes
+
+* use different authalias for requests to msb ([#48](https://github.com/wearefrank/morcoreintegration/issues/48)) ([c1589a9](https://github.com/wearefrank/morcoreintegration/commit/c1589a9352d9c444f25281df49e29254bad3cd3f))
+
 ## [1.11.6](https://github.com/wearefrank/morcoreintegration/compare/v1.11.5...v1.11.6) (2024-10-08)
 
 ### 🐛 Bug Fixes
