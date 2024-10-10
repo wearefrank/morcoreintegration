@@ -1,5 +1,11 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.11.9](https://github.com/wearefrank/morcoreintegration/compare/v1.11.8...v1.11.9) (2024-10-10)
+
+### 🐛 Bug Fixes
+
+* input of morcore postnotificatie ([6180d92](https://github.com/wearefrank/morcoreintegration/commit/6180d92883c22e4097dd0cc1779398bdaf8330cb))
+
 ## [1.11.8](https://github.com/wearefrank/morcoreintegration/compare/v1.11.7...v1.11.8) (2024-10-10)
 
 ### 🐛 Bug Fixes
