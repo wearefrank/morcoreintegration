@@ -1,5 +1,11 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.11.8](https://github.com/wearefrank/morcoreintegration/compare/v1.11.7...v1.11.8) (2024-10-10)
+
+### 🐛 Bug Fixes
+
+* pass morcoretoken to getmelding call ([e6860da](https://github.com/wearefrank/morcoreintegration/commit/e6860da0183f6038a8dfcdf699b0e6fb26141b96))
+
 ## [1.11.7](https://github.com/wearefrank/morcoreintegration/compare/v1.11.6...v1.11.7) (2024-10-10)
 
 ### 🐛 Bug Fixes
