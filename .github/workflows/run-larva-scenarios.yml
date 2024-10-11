@@ -1,6 +1,11 @@
 name: Run Larva Scenarios
 
-on: workflow_call
+on:
+  workflow_call:
+    inputs:
+      APP_VERSION:
+        description: 'The version of the application to run the scenarios against.'
+        required: true
 
 jobs:
   run-larva-scenarios:
@@ -22,7 +27,6 @@ jobs:
 
       - name: Start Application
         run: |
-          export APP_VERSION="${{ needs.version-next.outputs.version-next }}"
           docker run -d --name morcoreintegration -p 8080:8080 -e dtap.stage=LOC wearefrank/morcoreintegration:${APP_VERSION}
         timeout-minutes: 2
 

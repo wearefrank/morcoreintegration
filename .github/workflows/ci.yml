@@ -44,3 +44,5 @@ jobs:
     needs:
       - version-next
       - ci
+    with:
+      APP_VERSION: ${{ needs.version-next.outputs.version-next }}
