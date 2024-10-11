@@ -40,7 +40,7 @@ jobs:
       run-frank-till-healthy-enabled: false
 
   run-larva-scenarios:
-    uses: ./.github/workflows/run-larva-scenarios.yml@main
+    uses: ./.github/workflows/run-larva-scenarios.yml
     needs:
       - version-next
       - ci

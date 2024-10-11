@@ -49,7 +49,7 @@ jobs:
       version: ${{ needs.analyze-commits.outputs.version-next }}
 
   run-larva-scenarios:
-    uses: ./.github/workflows/run-larva-scenarios.yml@main
+    uses: ./.github/workflows/run-larva-scenarios.yml
     needs:
       - version-next
       - ci
