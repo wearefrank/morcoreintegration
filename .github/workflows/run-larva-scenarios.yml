@@ -4,7 +4,7 @@ on:
   workflow_call:
     inputs:
       APP_VERSION:
-        description: 'The version of the application to run the scenarios against.'
+        type: string
         required: true
 
 jobs:
