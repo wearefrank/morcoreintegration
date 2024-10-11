@@ -1,5 +1,11 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.11.10](https://github.com/wearefrank/morcoreintegration/compare/v1.11.9...v1.11.10) (2024-10-11)
+
+### 🐛 Bug Fixes
+
+* postnotificatie returns 200 ([9018248](https://github.com/wearefrank/morcoreintegration/commit/90182483f257e2288e10050eb322fd0b6301f20c))
+
 ## [1.11.9](https://github.com/wearefrank/morcoreintegration/compare/v1.11.8...v1.11.9) (2024-10-10)
 
 ### 🐛 Bug Fixes
