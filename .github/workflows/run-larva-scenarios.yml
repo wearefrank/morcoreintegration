@@ -1,5 +1,13 @@
 name: Run Larva Scenarios
 
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
 jobs:
   run-larva-scenarios:
     runs-on: ubuntu-latest
