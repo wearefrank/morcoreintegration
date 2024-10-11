@@ -13,10 +13,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 #4.1.7
 
       - name: Download Docker tar
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@fa0a91b85d4f404e444e00e005971372dc801d16 #4.1.8
         with:
           name: build-docker-image
 
@@ -37,7 +37,7 @@ jobs:
           start_time=$(date +%s)
           timeout=60
           while true; do
-            if [ "$(curl -s -o /dev/null -w '%{http_code}' http://localhost:8080/iaf/api/server/health)" == "200" ]; then
+            if [ "$(curl -s -o /dev/null -w ''%{http_code}'' http://localhost:8080/iaf/api/server/health)" == "200" ]; then
               echo "Application is healthy."
               break
             fi
@@ -58,7 +58,7 @@ jobs:
             --header 'Content-Type: application/x-www-form-urlencoded' \
             --data-urlencode 'scenariosrootdirectory=/opt/frank/testtool' \
             --data-urlencode 'waitbeforecleanup=100' \
-            --data-urlencode 'loglevel=passed%2Ffailed+messages' \
+            --data-urlencode 'loglevel=WRONG_PIPELINE_MESSAGES_PREPARED_FOR_DIFF' \
             --data-urlencode 'execute=/opt/frank/testtool' \
             --data-urlencode 'submit=start' > results.html
 
@@ -68,3 +68,4 @@ jobs:
             echo "Not all scenarios passed. Failing the job."
             cat results.html
             exit 1
+          fi
