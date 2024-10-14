@@ -48,6 +48,14 @@ jobs:
     with:
       version: ${{ needs.analyze-commits.outputs.version-next }}
 
+  # run-larva-scenarios:
+  #   uses: ./.github/workflows/run-larva-scenarios.yml
+  #   needs:
+  #     - analyze-commits
+  #     - ci
+  #   with:
+  #     APP_VERSION: ${{ needs.analyze-commits.outputs.version-next }}
+
   release:
     runs-on: ubuntu-latest
     needs: 
