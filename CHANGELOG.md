@@ -1,5 +1,11 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.11.11](https://github.com/wearefrank/morcoreintegration/compare/v1.11.10...v1.11.11) (2024-10-14)
+
+### 🐛 Bug Fixes
+
+* composing message to luminizer ([#51](https://github.com/wearefrank/morcoreintegration/issues/51)) ([a5ee709](https://github.com/wearefrank/morcoreintegration/commit/a5ee7099b345ce2b58f06fdd8302abef29cb33d1))
+
 ## [1.11.10](https://github.com/wearefrank/morcoreintegration/compare/v1.11.9...v1.11.10) (2024-10-11)
 
 ### 🐛 Bug Fixes
