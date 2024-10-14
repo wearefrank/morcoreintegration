@@ -1,5 +1,5 @@
 {
-    "mor_id": "1234",
+    "mor_id": 1234,
     "malfunction": {
         "malfunction_type": "lamp defect",
         "malfunction_remark": "",
@@ -7,12 +7,12 @@
     },
     "asset": {
         "asset_id": "1234",
-        "asset_latitude": "4.468454",
-        "asset_longitude": "51.917085"
+        "asset_latitude": 4.468454,
+        "asset_longitude": 51.917085
     },
     "user": {
-        "user_click_latitude": "4.468454",
-        "user_click_longitude": "51.917085"
+        "user_click_latitude": 4.468454,
+        "user_click_longitude": 51.917085
     },
     "attachments": [
         {
