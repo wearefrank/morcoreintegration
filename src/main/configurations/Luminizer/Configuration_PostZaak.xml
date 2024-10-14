@@ -8,19 +8,25 @@
 
         <Pipeline>
             <Exits>
-                <Exit name="Exit" state="SUCCESS" code="201" />
-                <Exit name="BadRequest" state="ERROR" code="400" />
-                <Exit name="Forbidden" state="ERROR" code="403" />
-                <Exit name="Conflict" state="ERROR" code="409" />
-                <Exit name="ServerError" state="ERROR" code="500" />
-            </Exits>
+				<Exit name="EXIT" state="SUCCESS"/>
+				<Exit name="ERROR" state="ERROR"/>
+				<Exit name="NotModified" state="SUCCESS" code="304" />
+				<Exit name="BadRequest" state="ERROR" code="400" />
+				<Exit name="NotAuthorized" state="ERROR" code="401" />
+				<Exit name="NotAllowed" state="ERROR" code="403" />
+				<Exit name="NotFound" state="ERROR" code="404" />
+				<Exit name="PreconditionFailed" state="ERROR" code="412" />
+				<Exit name="UnsupportedMediaType" state="ERROR" code="415" />
+				<Exit name="ServerError" state="ERROR" code="500" />
+				<Exit name="TimeOut" state="ERROR" code="504" />
+			</Exits>
 
             <PutSystemDateInSessionPipe name="StoreSystemDate" />
 
             <SenderPipe name="CallMorCore_GetToken" storeResultInSessionKey="MorCoreToken">
                 <IbisLocalSender name="CallMorCore_GetToken" javaListener="MorCore_GetToken" />
                 <Forward name="success" path="RequestMeldingInfo" />
-                <Forward name="exception" path="error" />
+                <Forward name="exception" path="ERROR" />
             </SenderPipe>
 
             <SenderPipe name="RequestMeldingInfo" getInputFromSessionKey="originalMessage">
@@ -28,12 +34,12 @@
                     <Param name="MorCoreToken" sessionKey="MorCoreToken" />
                 </IbisLocalSender>
                 <Forward name="success" path="MakeMeldingInfoXML" />
-                <Forward name="exception" path="error" />
+                <Forward name="exception" path="ERROR" />
             </SenderPipe>
 
             <JsonPipe name="MakeMeldingInfoXML" storeResultInSessionKey="meldingInfo">
                 <Forward name="success" path="GetTaakType" />
-                <Forward name="exception" path="error" />
+                <Forward name="exception" path="ERROR" />
             </JsonPipe>
 
             <SenderPipe name="GetTaakType" getInputFromSessionKey="originalMessage">
@@ -42,43 +48,13 @@
                     <Param name="larvaTargetSystem" sessionKey="larvaTargetSystem"  active="${enable.pipeset.larva}"/>
                 </IbisLocalSender>
                 <Forward name="success" path="MakeTaakTypeXML" />
-                <Forward name="exception" path="error" />
+                <Forward name="exception" path="ERROR" />
             </SenderPipe>
 
             <JsonPipe name="MakeTaakTypeXML" storeResultInSessionKey="Taaktype">
                 <Forward name="success" path="GetTaakOpdracht" />
-                <Forward name="exception" path="error" />
+                <Forward name="exception" path="ERROR" />
             </JsonPipe>
-
-            <!-- <XmlIfPipe name="IfBijlage1Exists" getInputFromSessionKey="meldingInfo"
-                xpathExpression="boolean(//bijlagen[1]/bestand)">
-                <Forward name="then" path="GetBijlage1" />
-                <Forward name="else" path="RequestOpdrachtInfo" />
-            </XmlIfPipe>
-
-            <SenderPipe name="GetBijlage1" storeResultInSessionKey="bijlage1"
-                getInputFromSessionKey="meldingInfo">
-                <IbisLocalSender name="GetBijlage1" javaListener="MorCore_GetBijlage">
-                    <Param name="bijlageUrl" xpathExpression="//bijlagen[1]/bestand"></Param>
-                </IbisLocalSender>
-                <Forward name="success" path="IfBijlage2Exists" />
-                <Forward name="exception" path="error" />
-            </SenderPipe>
-
-            <XmlIfPipe name="IfBijlage2Exists" getInputFromSessionKey="meldingInfo"
-                xpathExpression="boolean(//bijlagen[2]/bestand)">
-                <Forward name="then" path="GetBijlage2" />
-                <Forward name="else" path="RequestOpdrachtInfo" />
-            </XmlIfPipe>
-
-            <SenderPipe name="GetBijlage2" storeResultInSessionKey="bijlage2"
-                getInputFromSessionKey="meldingInfo">
-                <IbisLocalSender name="GetBijlage1" javaListener="MorCore_GetBijlage">
-                    <Param name="bijlageUrl" xpathExpression="//bijlagen[2]/bestand"></Param>
-                </IbisLocalSender>
-                <Forward name="success" path="RequestOpdrachtInfo" />
-                <Forward name="exception" path="error" />
-            </SenderPipe> -->
 
             <SenderPipe name="GetTaakOpdracht" storeResultInSessionKey="opdrachtInfo"
                 getInputFromSessionKey="originalMessage">
@@ -86,13 +62,13 @@
                     <Param name="MorCoreToken" sessionKey="MorCoreToken" />
                 </IbisLocalSender>
                 <Forward name="success" path="MakeOpdrachtInfoXML" />
-                <Forward name="exception" path="error" />
+                <Forward name="exception" path="ERROR" />
             </SenderPipe>
 
             <JsonPipe name="MakeOpdrachtInfoXML"
                 storeResultInSessionKey="opdrachtInfo">
                 <Forward name="success" path="StoreDateTime" />
-                <Forward name="exception" path="error" />
+                <Forward name="exception" path="ERROR" />
             </JsonPipe>
 
             <PutSystemDateInSessionPipe name="StoreDateTime" preserveInput="true"
@@ -107,12 +83,6 @@
                 <Param name="opdrachtInfo" sessionKey="opdrachtInfo" type="DOMDOC" />
             </XsltPipe>
 
-            <!-- <JsonPipe name="XmlToJson" direction="XML2JSON" storeResultInSessionKey="jsonMessage"
-                prettyPrint="true">
-                <Forward name="success" path="StoreUuidIdMapping" />
-                <Forward name="exception" path="exception" />
-            </JsonPipe> -->
-
             <Json2XmlValidatorPipe 
                 name="XmlToJson"
                 outputFormat="JSON"
@@ -122,16 +92,8 @@
                 storeResultInSessionKey="jsonMessage"
             >
                 <Forward name="success" path="StoreUuidIdMapping" />
-                <Forward name="exception" path="error" />
+                <Forward name="exception" path="ERROR" />
             </Json2XmlValidatorPipe>	
-
-            <!-- <SenderPipe name="ChangeXYValueTypesSender" storeResultInSessionKey="jsonMessage"
-                logIntermediaryResults="true">
-                <JavascriptSender name="ChangeXYValueTypesSender"
-                    jsFileName="js/ChangeXYValueTypes.js" jsFunctionName="changeValueTypes">
-                    <Param name="jsonMessage" sessionKey="jsonMessage" />
-                </JavascriptSender>
-            </SenderPipe> -->
 
             <SenderPipe name="StoreUuidIdMapping" getInputFromSessionKey="meldingInfo">
                 <IbisLocalSender javaListener="Internal_StoreUuidIdMapping">
@@ -140,36 +102,35 @@
             </SenderPipe>
 
             <SenderPipe name="SendToLuminizer" getInputFromSessionKey="jsonMessage">
-                <HttpSender name="SendToLuminizer" methodType="POST" contentType="application/json"
-                    headersParams="ApiKey,ApplicationElementId,Accept-Crs,Content-Crs">
+                <HttpSender name="SendToLuminizer" 
+                    methodType="POST" 
+                    contentType="application/json"
+                    resultStatusCodeSessionKey="ResultCode"
+                    headersParams="Api-key,Accept-Crs,Content-Crs">
                     <Param name="Accept-Crs" value="EPSG:4326" />
                     <Param name="Content-Crs" value="EPSG:4326" />
-                    <Param name="url" value="${Luminizer.ESB.root-url}api/malfunction" />
-                    <Param name="ApiKey" authAlias="Luminizer" pattern="{username}" />
-                    <Param name="ApplicationElementId" authAlias="Luminizer" pattern="{password}" />
+                    <Param name="url" value="${Luminizer.ESB.root-url}${Luminizer.create.api.uri}" />
+                    <Param name="Api-key" authAlias="Luminizer" pattern="{username}" />
                 </HttpSender>
-                <Forward name="success" path="Exit" />
-                <Forward name="exception" path="error" />
-                <Forward name="timeout" path="timeout" />
-                <Forward name="illegalResult" path="illegalResult" />
-                <Forward name="interrupt" path="interrupt" />
+                <Forward name="success" path="SetAdapterExitCode" />
+                <Forward name="exception" path="SetAdapterExitCode" />
             </SenderPipe>
 
-            <FixedResultPipe name="error" filename="./ErrorResponses/BadRequest.json">
-                <Forward name="success" path="BadRequest" />
-            </FixedResultPipe>
-
-            <FixedResultPipe name="timeout" filename="./ErrorResponses/ServerError.json">
-                <Forward name="success" path="ServerError" />
-            </FixedResultPipe>
-
-            <FixedResultPipe name="illegalResult" filename="ErrorResponses/Forbidden.json">
-                <Forward name="success" path="Forbidden" />
-            </FixedResultPipe>
-
-            <FixedResultPipe name="interrupt" filename="ErrorResponses/Conflict.json">
-                <Forward name="success" path="Conflict" />
-            </FixedResultPipe>
+            <XmlSwitchPipe name="SetAdapterExitCode" preserveInput="true" getInputFromFixedValue="&lt;dummy/&gt;"
+				xpathExpression="$ResultCode" notFoundForwardName="NoCodeFound">
+				<Param name="ResultCode" sessionKey="ResultCode" />
+				<Forward name="304" path="ServerError" />
+				<Forward name="400" path="BadRequest" />
+				<Forward name="401" path="ServerError" />
+				<Forward name="404" path="NotFound" />
+				<Forward name="412" path="ServerError" />
+				<Forward name="415" path="UnsupportedMediaType" />
+				<Forward name="500" path="ServerError" />
+				<Forward name="504" path="TimeOut" />
+				<Forward name="200" path="EXIT" />
+				<Forward name="201" path="EXIT" />
+				<Forward name="NoCodeFound" path="EXIT" />
+			</XmlSwitchPipe>
 
         </Pipeline>
     </Adapter>
