@@ -37,6 +37,7 @@
                 root="root" 
                 schema="xsd/ValidatePostTaakInput.xsd"
                 getInputFromSessionKey="originalMessage"
+                failOnWildcards="false"
             >
                 <Forward name="failure" path="Reject" />
                 <Forward name="exception" path="StoreStackTrace" />

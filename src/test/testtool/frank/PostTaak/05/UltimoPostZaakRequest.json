@@ -1,0 +1,26 @@
+{
+    "meldingId": "1001",
+    "behandelaar": "MSB",
+    "afdeling": "",
+    "opmerkingBehandelaar": "",
+    "additionele_informatie": {
+        "additionalProp1": "string",
+        "additionalProp2": "string",
+        "additionalProp3": "string"
+    },
+    "omschrijvingMelding": "Main Task",
+    "datumMeldingUtc": "",
+    "emailMelder": "",
+    "telefoonMelder": "",
+    "adres": "",
+    "plaatsbepaling": "",
+    "onderwerpCode": "12166",
+    "onderwerpOmschrijving": "Rioolaansluiting (verstopping)",
+    "spoed": "Nee",
+    "x": null,
+    "y": null,
+    "foto1": "",
+    "foto1_filename": "",
+    "foto2": "",
+    "foto2_filename": ""
+}
