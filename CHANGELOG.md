@@ -1,5 +1,11 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.11.18](https://github.com/wearefrank/morcoreintegration/compare/v1.11.17...v1.11.18) (2024-10-15)
+
+### 🧑‍💻 Code Refactoring
+
+* return original error message instead of wrapping the message ([#59](https://github.com/wearefrank/morcoreintegration/issues/59)) ([bd97f7d](https://github.com/wearefrank/morcoreintegration/commit/bd97f7db4532902d936d8b396037806001598e1e))
+
 ## [1.11.17](https://github.com/wearefrank/morcoreintegration/compare/v1.11.16...v1.11.17) (2024-10-15)
 
 ### 🐛 Bug Fixes
