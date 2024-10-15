@@ -22,9 +22,10 @@
             <behandelaar>MSB</behandelaar>
             <afdeling></afdeling>
             <opmerkingBehandelaar><xsl:value-of select="/root/omschrijving_intern"/></opmerkingBehandelaar>
+            <!-- Having additionele_informatie in the request to Ultimo will result in an error. 
             <xsl:if test="string-length(/root/additionele_informatie) > 0">
                 <xsl:copy-of select="/root/additionele_informatie"/>
-            </xsl:if>
+            </xsl:if> -->
             <omschrijvingMelding>
                 <xsl:value-of select="$meldingInfo//titel" />
             </omschrijvingMelding>
