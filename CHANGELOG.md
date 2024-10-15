@@ -1,5 +1,11 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.11.16](https://github.com/wearefrank/morcoreintegration/compare/v1.11.15...v1.11.16) (2024-10-15)
+
+### 🐛 Bug Fixes
+
+* ignore additionele_informatie in the request to ultimo ([#57](https://github.com/wearefrank/morcoreintegration/issues/57)) ([a101264](https://github.com/wearefrank/morcoreintegration/commit/a1012640b82620767dbb6e07cc049af746e155e6))
+
 ## [1.11.15](https://github.com/wearefrank/morcoreintegration/compare/v1.11.14...v1.11.15) (2024-10-15)
 
 ### 🧑‍💻 Code Refactoring
