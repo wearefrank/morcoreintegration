@@ -1,5 +1,11 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.11.15](https://github.com/wearefrank/morcoreintegration/compare/v1.11.14...v1.11.15) (2024-10-15)
+
+### 🧑‍💻 Code Refactoring
+
+* adjust PostTaak XSD to allow additionele_informatie ([#54](https://github.com/wearefrank/morcoreintegration/issues/54)) ([1bfa65e](https://github.com/wearefrank/morcoreintegration/commit/1bfa65eb45d9c049c6fc475f324d9e5ee99fd8e3))
+
 ## [1.11.14](https://github.com/wearefrank/morcoreintegration/compare/v1.11.13...v1.11.14) (2024-10-15)
 
 ### 🐛 Bug Fixes
