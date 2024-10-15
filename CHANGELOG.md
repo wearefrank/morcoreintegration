@@ -1,5 +1,11 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.11.17](https://github.com/wearefrank/morcoreintegration/compare/v1.11.16...v1.11.17) (2024-10-15)
+
+### 🐛 Bug Fixes
+
+* map omschrijving_intern to malfunction_remark ([#58](https://github.com/wearefrank/morcoreintegration/issues/58)) ([71ade77](https://github.com/wearefrank/morcoreintegration/commit/71ade77fa17f3bb43c3eb14b23db670afe8dd455))
+
 ## [1.11.16](https://github.com/wearefrank/morcoreintegration/compare/v1.11.15...v1.11.16) (2024-10-15)
 
 ### 🐛 Bug Fixes
