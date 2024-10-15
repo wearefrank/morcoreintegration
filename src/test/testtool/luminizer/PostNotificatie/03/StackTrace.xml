@@ -1,5 +1,4 @@
-Something went wrong. Stack trace: 
-<root><errorMessage timestamp="Fri Oct 04 11:25:22 CEST 2024" originator="IAF 8.3.0-20241003.042327" message="SenderPipe [Send2MSB] msgId [synthetic-message-id-0a0000a9--5fd9a55f_192567df746_-7df4]: exception processing message using request processor [testtool-Send2MSB]: (RequestProcessorException) RequestProcessor [testtool-Send2MSB] caught exception: error processing request: no message in exception: org.frankframework.core.TimeoutException">
+<errorMessage timestamp="Tue Oct 15 16:24:33 CEST 2024" originator="IAF 8.3.0-20241003.042327" message="SenderPipe [Send2MSB] msgId [synthetic-message-id-ac1ae001--c480f5d_192908e9c98_-7e67]: exception processing message using request processor [testtool-Send2MSB]: (RequestProcessorException) RequestProcessor [testtool-Send2MSB] caught exception: error processing request: no message in exception: org.frankframework.core.TimeoutException">
 	<location class="org.frankframework.pipes.SenderPipe" name="Send2MSB"/>
 	<details>org.frankframework.core.SenderException: exception processing message using request processor [testtool-Send2MSB]: (RequestProcessorException) RequestProcessor [testtool-Send2MSB] caught exception: error processing request: no message in exception: org.frankframework.core.TimeoutException
 	at org.frankframework.senders.IbisJavaSender.sendMessage(IbisJavaSender.java:135)
@@ -265,9 +264,9 @@ Caused by: org.frankframework.core.TimeoutException: no message in exception: or
 	at org.frankframework.larva.ListenerMessageHandler.processRequest(ListenerMessageHandler.java:53)
 	... 250 more
 </details>
-	<originalMessage messageId="synthetic-message-id-0a0000a9--5fd9a55f_192567df746_-7df4" receivedTime="Fri Oct 04 11:25:20 CEST 2024">{
+	<originalMessage messageId="synthetic-message-id-ac1ae001--c480f5d_192908e9c98_-7e67" receivedTime="Tue Oct 15 16:24:31 CEST 2024">{
     "expected_resolve_timestamp": "2024-10-04T08:47:59Z",
     "state": "accepted",
     "remark": "optionele tekst bijvoorbeeld bij status reject"
 }</originalMessage>
-</errorMessage></root>
+</errorMessage>
