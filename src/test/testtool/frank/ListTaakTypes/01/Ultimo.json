@@ -5,7 +5,7 @@
     "results": [
         {
             "_links": {
-                "self": "https://localhost/api/taaktype/b42801c6-cd66-43df-add7-07b0824852ee"
+                "self": "https://localhost/api/v1/taaktype/b42801c6-cd66-43df-add7-07b0824852ee"
             },
             "uuid": "b42801c6-cd66-43df-add7-07b0824852ee",
             "omschrijving": "Rioolaansluiting verstopping",
@@ -18,7 +18,7 @@
         },
         {
             "_links": {
-                "self": "https://localhost/api/taaktype/ce855971-ed60-4ec0-8a92-37393d914333"
+                "self": "https://localhost/api/v1/taaktype/ce855971-ed60-4ec0-8a92-37393d914333"
             },
             "uuid": "ce855971-ed60-4ec0-8a92-37393d914333",
             "omschrijving": "Hoofdriool",
@@ -31,7 +31,7 @@
         },
         {
             "_links": {
-                "self": "https://localhost/api/taaktype/8d1ff14f-77b9-4e9e-95f3-572c7c88d26f"
+                "self": "https://localhost/api/v1/taaktype/8d1ff14f-77b9-4e9e-95f3-572c7c88d26f"
             },
             "uuid": "8d1ff14f-77b9-4e9e-95f3-572c7c88d26f",
             "omschrijving": "Stankoverlast",
@@ -44,7 +44,7 @@
         },
         {
             "_links": {
-                "self": "https://localhost/api/taaktype/3eeb8f00-89b4-41c5-a219-17811ec52d9c"
+                "self": "https://localhost/api/v1/taaktype/3eeb8f00-89b4-41c5-a219-17811ec52d9c"
             },
             "uuid": "3eeb8f00-89b4-41c5-a219-17811ec52d9c",
             "omschrijving": "Straatkolk verstopt",
