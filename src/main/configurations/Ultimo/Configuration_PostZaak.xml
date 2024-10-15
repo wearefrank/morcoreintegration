@@ -39,7 +39,7 @@
 
             <SenderPipe name="GetTaakType" getInputFromSessionKey="originalMessage">
                 <IbisLocalSender name="GetTaakType" javaListener="Internal_GetTaakType">
-                    <Param name="uuid" xpathExpression="substring-after(//taaktype, 'api/taaktype/')" />
+                    <Param name="uuid" xpathExpression="substring-after(//taaktype, 'api/v1/taaktype/')" />
                     <Param name="larvaTargetSystem" sessionKey="larvaTargetSystem"  active="${enable.pipeset.larva}"/>
                 </IbisLocalSender>
                 <Forward name="success" path="MakeTaakTypeXML" />

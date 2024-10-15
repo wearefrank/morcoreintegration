@@ -104,7 +104,7 @@
 		}
 	],
 	"taakopdrachten_voor_melding": {
-		"taaktype": "https:/dummy-url-2.nl/api/taaktype/ce855971-ed60-4ec0-8a92-37393d914333",
+		"taaktype": "https:/dummy-url-2.nl/api/v1/taaktype/ce855971-ed60-4ec0-8a92-37393d914333",
 		"titel": "Hoofdriool",
 		"bericht": "",
 		"additionele_informatie": "",

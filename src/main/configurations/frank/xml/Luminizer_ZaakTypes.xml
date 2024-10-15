@@ -5,7 +5,7 @@
     <previous />
     <results>
         <_links>
-            <self>[hostname]api/taaktype/69f5ead5-1d53-4398-ac69-a3ca31854125</self>
+            <self>[hostname]api/v1/taaktype/69f5ead5-1d53-4398-ac69-a3ca31854125</self>
         </_links>
         <uuid>69f5ead5-1d53-4398-ac69-a3ca31854125</uuid>
         <omschrijving>Lichtmast scheef/aangereden</omschrijving>
@@ -17,7 +17,7 @@
     </results>
     <results>
         <_links>
-            <self>[hostname]api/taaktype/91da0543-0bc1-4fae-9539-0d34d5f94d01</self>
+            <self>[hostname]api/v1/taaktype/91da0543-0bc1-4fae-9539-0d34d5f94d01</self>
         </_links>
         <uuid>91da0543-0bc1-4fae-9539-0d34d5f94d01</uuid>
         <omschrijving>Brand niet</omschrijving>
@@ -29,7 +29,7 @@
     </results>
     <results>
         <_links>
-            <self>[hostname]api/taaktype/dcb55cdb-c969-4582-9bd1-228e830fb25d</self>
+            <self>[hostname]api/v1/taaktype/dcb55cdb-c969-4582-9bd1-228e830fb25d</self>
         </_links>
         <uuid>dcb55cdb-c969-4582-9bd1-228e830fb25d</uuid>
         <omschrijving>Brand overdag</omschrijving>

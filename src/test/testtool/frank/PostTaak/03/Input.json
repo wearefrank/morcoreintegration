@@ -1,5 +1,5 @@
 {
-	"taaktype": "https://ultimo-koppeling-acc.forzamor.nl/api/taaktype/69f5ead5-1d53-4398-ac69-a3ca31854125",
+	"taaktype": "https://ultimo-koppeling-acc.forzamor.nl/api/v1/taaktype/69f5ead5-1d53-4398-ac69-a3ca31854125",
 	"titel": "Lichtmast scheef/aangereden",
 	"bericht": "",
 	"taakopdracht": "https://mor-core-acc.forzamor.nl/api/v1/taakopdracht/1234-5678/",
