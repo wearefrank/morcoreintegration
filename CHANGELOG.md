@@ -1,5 +1,11 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.11.14](https://github.com/wearefrank/morcoreintegration/compare/v1.11.13...v1.11.14) (2024-10-15)
+
+### 🐛 Bug Fixes
+
+* include additional fields in request mapping ([#55](https://github.com/wearefrank/morcoreintegration/issues/55)) ([71a7fb6](https://github.com/wearefrank/morcoreintegration/commit/71a7fb651e8ab2df070c9e68c6683857451e88ab))
+
 ## [1.11.13](https://github.com/wearefrank/morcoreintegration/compare/v1.11.12...v1.11.13) (2024-10-15)
 
 ### 🐛 Bug Fixes
