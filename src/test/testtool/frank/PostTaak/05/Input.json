@@ -1,0 +1,14 @@
+{
+	"taaktype": "https://ultimo-koppeling-acc.forzamor.nl/api/v1/taaktype/b42801c6-cd66-43df-add7-07b0824852ee",
+	"titel": "Hoofdriool",
+	"bericht": "",
+	"taakopdracht": "https://mor-core-acc.forzamor.nl/api/v1/taakopdracht/1234-5678/",
+	"melding": "https://mor-core-acc.forzamor.nl/api/v1/melding/1234-5678/",
+	"gebruiker": "123456789@email.dummy",
+	"additionele_informatie": {
+		"additionalProp1": "string",
+    	"additionalProp2": "string",
+    	"additionalProp3": "string"
+	},
+	"omschrijving_intern": ""
+}
