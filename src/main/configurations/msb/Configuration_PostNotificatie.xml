@@ -9,8 +9,8 @@
         <Pipeline>
 
             <Exits>
-                <Exit name="Exit" state="SUCCESS" />
-                <Exit name="Exception" state="ERROR" />
+                <Exit name="Exit" state="SUCCESS" code="200" />
+                <Exit name="Exception" state="ERROR" code="500" />
                 <Exit name="Reject" state="REJECTED" />
             </Exits>
 
