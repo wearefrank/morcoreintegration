@@ -3,6 +3,11 @@
     "behandelaar": "MSB",
     "afdeling": "",
     "opmerkingBehandelaar": "",
+    "additionele_informatie": {
+        "additionalProp1": "string",
+        "additionalProp2": "string",
+        "additionalProp3": "string"
+    },
     "omschrijvingMelding": "Main Task",
     "datumMeldingUtc": "",
     "emailMelder": "",
