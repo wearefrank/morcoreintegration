@@ -14,7 +14,7 @@
 					<xsl:value-of select="$taaktype/root/results/extra/luminizerOnderwerpOmschrijving"/>
 				</malfunction_type>
 				<malfunction_remark>
-					<xsl:value-of select="$meldingInfo/root/malfunction/malfunction_remark"/>
+					<xsl:value-of select="/root/omschrijving_intern"/>
 				</malfunction_remark>
 				<malfunction_timestamp>
 					<xsl:value-of select="$systemDate"/>
