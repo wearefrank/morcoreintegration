@@ -6,5 +6,5 @@
 	<melding>https://mor-core-acc.forzamor.nl/api/v1/melding/1234-5678/</melding>
 	<gebruiker>123456789@email.dummy</gebruiker>
 	<additionele_informatie/>
-	<omschrijving_intern/>
+	<omschrijving_intern>omschrijving_intern</omschrijving_intern>
 </root>
