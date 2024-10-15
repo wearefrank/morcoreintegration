@@ -21,7 +21,10 @@
             <!-- Required -->
             <behandelaar>MSB</behandelaar>
             <afdeling></afdeling>
-            <opmerkingBehandelaar></opmerkingBehandelaar>
+            <opmerkingBehandelaar><xsl:value-of select="/root/omschrijving_intern"/></opmerkingBehandelaar>
+            <xsl:if test="string-length(/root/additionele_informatie) > 0">
+                <xsl:copy-of select="/root/additionele_informatie"/>
+            </xsl:if>
             <omschrijvingMelding>
                 <xsl:value-of select="$meldingInfo//titel" />
             </omschrijvingMelding>
