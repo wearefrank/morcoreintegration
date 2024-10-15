@@ -1,5 +1,11 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.11.13](https://github.com/wearefrank/morcoreintegration/compare/v1.11.12...v1.11.13) (2024-10-15)
+
+### 🐛 Bug Fixes
+
+* taakype urls ([#53](https://github.com/wearefrank/morcoreintegration/issues/53)) ([ce516ff](https://github.com/wearefrank/morcoreintegration/commit/ce516ffbf74d1be466276ed469fb9750fba53d73))
+
 ## [1.11.12](https://github.com/wearefrank/morcoreintegration/compare/v1.11.11...v1.11.12) (2024-10-15)
 
 ### 🧑‍💻 Code Refactoring
