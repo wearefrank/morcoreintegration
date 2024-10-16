@@ -8,9 +8,9 @@
 
         <Pipeline>
             <Exits>
-				<Exit name="EXIT" state="SUCCESS"/>
-				<Exit name="ERROR" state="ERROR"/>
-				<Exit name="NotModified" state="SUCCESS" code="304" />
+                <Exit name="EXIT" state="SUCCESS" />
+                <Exit name="ERROR" state="ERROR" />
+                <Exit name="NotModified" state="SUCCESS" code="304" />
 				<Exit name="BadRequest" state="ERROR" code="400" />
 				<Exit name="NotAuthorized" state="ERROR" code="401" />
 				<Exit name="NotAllowed" state="ERROR" code="403" />
@@ -116,8 +116,11 @@
                 <Forward name="exception" path="SetAdapterExitCode" />
             </SenderPipe>
 
-            <XmlSwitchPipe name="SetAdapterExitCode" preserveInput="true" getInputFromFixedValue="&lt;dummy/&gt;"
-				xpathExpression="$ResultCode" notFoundForwardName="NoCodeFound">
+            <XmlSwitchPipe name="SetAdapterExitCode" 
+                preserveInput="true" 
+                getInputFromFixedValue="&lt;dummy/&gt;"
+				xpathExpression="$ResultCode" 
+                notFoundForwardName="NoCodeFound">
 				<Param name="ResultCode" sessionKey="ResultCode" />
 				<Forward name="304" path="ServerError" />
 				<Forward name="400" path="BadRequest" />
