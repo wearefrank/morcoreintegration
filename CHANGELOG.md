@@ -1,5 +1,11 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.11.19](https://github.com/wearefrank/morcoreintegration/compare/v1.11.18...v1.11.19) (2024-10-16)
+
+### 🧑‍💻 Code Refactoring
+
+* update exit codes ([#60](https://github.com/wearefrank/morcoreintegration/issues/60)) ([5ad5ff1](https://github.com/wearefrank/morcoreintegration/commit/5ad5ff1aa5e6ea3f7be9e1f5d78291fe7e9cf762))
+
 ## [1.11.18](https://github.com/wearefrank/morcoreintegration/compare/v1.11.17...v1.11.18) (2024-10-15)
 
 ### 🧑‍💻 Code Refactoring
