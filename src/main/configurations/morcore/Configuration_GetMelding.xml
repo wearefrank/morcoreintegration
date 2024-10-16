@@ -9,20 +9,51 @@
         <Pipeline>
 
             <Exits>
-                <Exit name="Exit" state="SUCCESS" />
-                <Exit name="Exception" state="ERROR" />
-                <Exit name="Reject" state="REJECTED" />
+                <Exit name="EXIT" state="SUCCESS" />
+                <Exit name="ERROR" state="ERROR" />
+                <Exit name="NotModified" state="SUCCESS" code="304" />
+                <Exit name="BadRequest" state="ERROR" code="400" />
+                <Exit name="NotAuthorized" state="ERROR" code="401" />
+                <Exit name="NotAllowed" state="ERROR" code="403" />
+                <Exit name="NotFound" state="ERROR" code="404" />
+                <Exit name="PreconditionFailed" state="ERROR" code="412" />
+                <Exit name="UnsupportedMediaType" state="ERROR" code="415" />
+                <Exit name="ServerError" state="ERROR" code="500" />
+                <Exit name="TimeOut" state="ERROR" code="504" />
             </Exits>
 
-            <SenderPipe name="Send2MorCore" getInputFromSessionKey="originalMessage" emptyInputReplacement="&lt;NoInput/>">
-                <HttpSender name="Send2MorCore" methodType="GET" headersParams="Authorization" />
+            <SenderPipe name="Send2MorCore" 
+                getInputFromSessionKey="originalMessage"
+                emptyInputReplacement="&lt;NoInput/>">
+                <HttpSender name="Send2MorCore" 
+                    methodType="GET" 
+                    headersParams="Authorization" />
                 <Param name="url" xpathExpression="//melding" />
                 <Param name="Authorization" xpathExpression="concat('Token ', $MorCoreToken)">
                     <Param name="MorCoreToken" sessionKey="MorCoreToken" />
                 </Param>
-                <Forward name="success" path="Exit" />
-                <Forward name="exception" path="Exception" />
+                <Forward name="success" path="SetAdapterExitCode" />
+                <Forward name="exception" path="SetAdapterExitCode" />
             </SenderPipe>
+
+            <XmlSwitchPipe name="SetAdapterExitCode" 
+                preserveInput="true"
+                getInputFromFixedValue="&lt;dummy/&gt;"
+                xpathExpression="$ResultCode" 
+                notFoundForwardName="NoCodeFound">
+                <Param name="ResultCode" sessionKey="ResultCode" />
+                <Forward name="304" path="ServerError" />
+                <Forward name="400" path="BadRequest" />
+                <Forward name="401" path="ServerError" />
+                <Forward name="404" path="NotFound" />
+                <Forward name="412" path="ServerError" />
+                <Forward name="415" path="UnsupportedMediaType" />
+                <Forward name="500" path="ServerError" />
+                <Forward name="504" path="TimeOut" />
+                <Forward name="200" path="EXIT" />
+                <Forward name="201" path="EXIT" />
+                <Forward name="NoCodeFound" path="EXIT" />
+            </XmlSwitchPipe>
 
         </Pipeline>
     </Adapter>
