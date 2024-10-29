@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <root>
-    <count>4</count>
+    <count>7</count>
     <next />
     <previous />
     <results>
@@ -8,8 +8,8 @@
             <self>[hostname]api/v1/taaktype/b42801c6-cd66-43df-add7-07b0824852ee</self>
         </_links>
         <uuid>b42801c6-cd66-43df-add7-07b0824852ee</uuid>
-        <omschrijving>Rioolaansluiting verstopping</omschrijving>
-        <toelichting>Rioolaansluiting verstopping</toelichting>
+        <omschrijving>Rioolaansluiting herstellen</omschrijving>
+        <toelichting>Rioolaansluiting herstellen</toelichting>
         <additionele_informatie />
         <extra>
             <ultimoOnderwerpCode>12166</ultimoOnderwerpCode>
@@ -21,8 +21,8 @@
             <self>[hostname]api/v1/taaktype/ce855971-ed60-4ec0-8a92-37393d914333</self>
         </_links>
         <uuid>ce855971-ed60-4ec0-8a92-37393d914333</uuid>
-        <omschrijving>Hoofdriool</omschrijving>
-        <toelichting>Hoofdriool</toelichting>
+        <omschrijving>Hoofdriool herstellen</omschrijving>
+        <toelichting>Hoofdriool herstellen</toelichting>
         <additionele_informatie />
         <extra>
             <ultimoOnderwerpCode>12164</ultimoOnderwerpCode>
@@ -30,6 +30,19 @@
         </extra>
     </results>
     <results>
+        <_links>
+            <self>[hostname]api/v1/taaktype/0abbca2f-85c7-4359-a66e-5d09eebeb873</self>
+        </_links>
+        <uuid>0abbca2f-85c7-4359-a66e-5d09eebeb873</uuid>
+        <omschrijving>Rioolkapjes herstellen</omschrijving>
+        <toelichting>Rioolkapjes herstellen</toelichting>
+        <additionele_informatie />
+        <extra>
+            <ultimoOnderwerpCode>12164</ultimoOnderwerpCode>
+            <ultimoOnderwerpOmschrijving>hoofdriool</ultimoOnderwerpOmschrijving>
+        </extra>
+    </results>
+    <!--<results>
         <_links>
             <self>[hostname]api/v1/taaktype/8d1ff14f-77b9-4e9e-95f3-572c7c88d26f</self>
         </_links>
@@ -41,14 +54,53 @@
             <ultimoOnderwerpCode>12165</ultimoOnderwerpCode>
             <ultimoOnderwerpOmschrijving>stankoverlast</ultimoOnderwerpOmschrijving>
         </extra>
-    </results>
+    </results>-->
     <results>
         <_links>
             <self>[hostname]api/v1/taaktype/3eeb8f00-89b4-41c5-a219-17811ec52d9c</self>
         </_links>
         <uuid>3eeb8f00-89b4-41c5-a219-17811ec52d9c</uuid>
-        <omschrijving>Straatkolk verstopt</omschrijving>
-        <toelichting>Straatkolk verstopt</toelichting>
+        <omschrijving>Kolkaansluiting herstellen</omschrijving>
+        <toelichting>Kolkaansluiting herstellen</toelichting>
+        <additionele_informatie />
+        <extra>
+            <ultimoOnderwerpCode>12165</ultimoOnderwerpCode>
+            <ultimoOnderwerpOmschrijving>straatkolk (verstopt)</ultimoOnderwerpOmschrijving>
+        </extra>
+    </results>
+    <results>
+        <_links>
+            <self>[hostname]api/v1/taaktype/2d0d6aca-4fd5-44e6-9d9b-7fb3105b56a7</self>
+        </_links>
+        <uuid>2d0d6aca-4fd5-44e6-9d9b-7fb3105b56a7</uuid>
+        <omschrijving>Wortel(s) kolkaansluiting verwijderen</omschrijving>
+        <toelichting>Wortel(s) kolkaansluiting verwijderen</toelichting>
+        <additionele_informatie />
+        <extra>
+            <ultimoOnderwerpCode>12165</ultimoOnderwerpCode>
+            <ultimoOnderwerpOmschrijving>straatkolk (verstopt)</ultimoOnderwerpOmschrijving>
+        </extra>
+    </results>
+    <results>
+        <_links>
+            <self>[hostname]api/v1/taaktype/e071e97e-3bfe-4444-8d90-227822197c3c</self>
+        </_links>
+        <uuid>e071e97e-3bfe-4444-8d90-227822197c3c</uuid>
+        <omschrijving>Lijngoot aansluiting herstellen</omschrijving>
+        <toelichting>Lijngoot aansluiting herstellen</toelichting>
+        <additionele_informatie />
+        <extra>
+            <ultimoOnderwerpCode>12165</ultimoOnderwerpCode>
+            <ultimoOnderwerpOmschrijving>straatkolk (verstopt)</ultimoOnderwerpOmschrijving>
+        </extra>
+    </results>
+    <results>
+        <_links>
+            <self>[hostname]api/v1/taaktype/681d6565-1b46-47d8-8b74-dd4437052e55</self>
+        </_links>
+        <uuid>681d6565-1b46-47d8-8b74-dd4437052e55</uuid>
+        <omschrijving>Wortel(s) in lijngoot (aansluiting) verwijderen</omschrijving>
+        <toelichting>Wortel(s) in lijngoot (aansluiting) verwijderen</toelichting>
         <additionele_informatie />
         <extra>
             <ultimoOnderwerpCode>12165</ultimoOnderwerpCode>
