@@ -1,5 +1,5 @@
 {
-    "count": "4",
+    "count": "7",
     "next": "",
     "previous": "",
     "results": [
@@ -8,8 +8,8 @@
                 "self": "https://localhost/api/v1/taaktype/b42801c6-cd66-43df-add7-07b0824852ee"
             },
             "uuid": "b42801c6-cd66-43df-add7-07b0824852ee",
-            "omschrijving": "Rioolaansluiting verstopping",
-            "toelichting": "Rioolaansluiting verstopping",
+            "omschrijving": "Rioolaansluiting herstellen",
+            "toelichting": "Rioolaansluiting herstellen",
             "additionele_informatie": "",
             "extra": {
                 "ultimoOnderwerpCode": "12166",
@@ -21,8 +21,8 @@
                 "self": "https://localhost/api/v1/taaktype/ce855971-ed60-4ec0-8a92-37393d914333"
             },
             "uuid": "ce855971-ed60-4ec0-8a92-37393d914333",
-            "omschrijving": "Hoofdriool",
-            "toelichting": "Hoofdriool",
+            "omschrijving": "Hoofdriool herstellen",
+            "toelichting": "Hoofdriool herstellen",
             "additionele_informatie": "",
             "extra": {
                 "ultimoOnderwerpCode": "12164",
@@ -31,15 +31,15 @@
         },
         {
             "_links": {
-                "self": "https://localhost/api/v1/taaktype/8d1ff14f-77b9-4e9e-95f3-572c7c88d26f"
+                "self": "https://localhost/api/v1/taaktype/0abbca2f-85c7-4359-a66e-5d09eebeb873"
             },
-            "uuid": "8d1ff14f-77b9-4e9e-95f3-572c7c88d26f",
-            "omschrijving": "Stankoverlast",
-            "toelichting": "Stankoverlast",
+            "uuid": "0abbca2f-85c7-4359-a66e-5d09eebeb873",
+            "omschrijving": "Rioolkapjes herstellen",
+            "toelichting": "Rioolkapjes herstellen",
             "additionele_informatie": "",
             "extra": {
-                "ultimoOnderwerpCode": "12165",
-                "ultimoOnderwerpOmschrijving": "stankoverlast"
+                "ultimoOnderwerpCode": "12164",
+                "ultimoOnderwerpOmschrijving": "hoofdriool"
             }
         },
         {
@@ -47,8 +47,47 @@
                 "self": "https://localhost/api/v1/taaktype/3eeb8f00-89b4-41c5-a219-17811ec52d9c"
             },
             "uuid": "3eeb8f00-89b4-41c5-a219-17811ec52d9c",
-            "omschrijving": "Straatkolk verstopt",
-            "toelichting": "Straatkolk verstopt",
+            "omschrijving": "Kolkaansluiting herstellen",
+            "toelichting": "Kolkaansluiting herstellen",
+            "additionele_informatie": "",
+            "extra": {
+                "ultimoOnderwerpCode": "12165",
+                "ultimoOnderwerpOmschrijving": "straatkolk (verstopt)"
+            }
+        },
+        {
+            "_links": {
+                "self": "https://localhost/api/v1/taaktype/2d0d6aca-4fd5-44e6-9d9b-7fb3105b56a7"
+            },
+            "uuid": "2d0d6aca-4fd5-44e6-9d9b-7fb3105b56a7",
+            "omschrijving": "Wortel(s) kolkaansluiting verwijderen",
+            "toelichting": "Wortel(s) kolkaansluiting verwijderen",
+            "additionele_informatie": "",
+            "extra": {
+                "ultimoOnderwerpCode": "12165",
+                "ultimoOnderwerpOmschrijving": "straatkolk (verstopt)"
+            }
+        },
+        {
+            "_links": {
+                "self": "https://localhost/api/v1/taaktype/e071e97e-3bfe-4444-8d90-227822197c3c"
+            },
+            "uuid": "e071e97e-3bfe-4444-8d90-227822197c3c",
+            "omschrijving": "Lijngoot aansluiting herstellen",
+            "toelichting": "Lijngoot aansluiting herstellen",
+            "additionele_informatie": "",
+            "extra": {
+                "ultimoOnderwerpCode": "12165",
+                "ultimoOnderwerpOmschrijving": "straatkolk (verstopt)"
+            }
+        },
+        {
+            "_links": {
+                "self": "https://localhost/api/v1/taaktype/681d6565-1b46-47d8-8b74-dd4437052e55"
+            },
+            "uuid": "681d6565-1b46-47d8-8b74-dd4437052e55",
+            "omschrijving": "Wortel(s) in lijngoot (aansluiting) verwijderen",
+            "toelichting": "Wortel(s) in lijngoot (aansluiting) verwijderen",
             "additionele_informatie": "",
             "extra": {
                 "ultimoOnderwerpCode": "12165",
