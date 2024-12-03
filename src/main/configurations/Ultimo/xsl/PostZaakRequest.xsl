@@ -42,8 +42,9 @@
             <adres>
                 <xsl:value-of
                     select="concat(
-                    $meldingInfo/root/signalen_voor_melding/locaties_voor_signaal/postcode , ' ',
-                    $meldingInfo/root/signalen_voor_melding/locaties_voor_signaal/huisnummer)" />
+                    $meldingInfo/root/signalen_voor_melding/locaties_voor_signaal/straatnaam , ' ',
+                    $meldingInfo/root/signalen_voor_melding/locaties_voor_signaal/huisnummer, ' ',
+                    $meldingInfo/root/signalen_voor_melding/locaties_voor_signaal/wijknaam)" />
             </adres>
             <plaatsbepaling>
                 <xsl:value-of
