@@ -1,5 +1,11 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.11.22](https://github.com/wearefrank/morcoreintegration/compare/v1.11.21...v1.11.22) (2024-12-17)
+
+### 🐛 Bug Fixes
+
+* mapping related issues ([#71](https://github.com/wearefrank/morcoreintegration/issues/71)) ([3e6a9c3](https://github.com/wearefrank/morcoreintegration/commit/3e6a9c32ab3e8ffdc10f1a8c6cf08de1471ba8b8))
+
 ## [1.11.21](https://github.com/wearefrank/morcoreintegration/compare/v1.11.20...v1.11.21) (2024-12-03)
 
 ### 🧑‍💻 Code Refactoring
