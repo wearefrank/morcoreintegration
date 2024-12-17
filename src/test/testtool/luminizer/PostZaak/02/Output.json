@@ -1,6 +1,6 @@
-<errorMessage timestamp="Mon Oct 14 13:03:56 CEST 2024" originator="IAF 8.3.0-20241003.042327" message="SenderPipe [SendToLuminizer] msgId [synthetic-message-id-ac1fc001--5958be6c_1928aa68ae4_-7ef4]: exceptionOnResult [[error]]">
-	<location class="org.frankframework.pipes.SenderPipe" name="SendToLuminizer"/>
-	<details>org.frankframework.core.SenderException: exceptionOnResult [[error]]
+<errorMessage timestamp="Tue Dec 17 11:44:52 CET 2024" originator="IAF 8.3.0-20241003.042327" message="SenderPipe [SendToLuminizer] msgId [synthetic-message-id-ac146001--7220c5e7_193d433e778_-7df2]: exceptionOnResult [[error]]">
+  <location class="org.frankframework.pipes.SenderPipe" name="SendToLuminizer"/>
+  <details>org.frankframework.core.SenderException: exceptionOnResult [[error]]
 	at org.frankframework.pipes.MessageSendingPipe.sendMessage(MessageSendingPipe.java:777)
 	at org.frankframework.pipes.MessageSendingPipe.sendMessageWithRetries(MessageSendingPipe.java:504)
 	at org.frankframework.pipes.MessageSendingPipe.doPipe(MessageSendingPipe.java:435)
@@ -103,9 +103,8 @@
 	at org.frankframework.receivers.JavaListener.processRequest(JavaListener.java:136)
 	at nl.nn.adapterframework.dispatcher.DispatcherManagerImpl.processRequest(DispatcherManagerImpl.java:123)
 	at org.frankframework.senders.IbisJavaSender.sendMessage(IbisJavaSender.java:131)
-	at org.frankframework.larva.SenderThread.run(SenderThread.java:65)
-</details>
-	<originalMessage messageId="synthetic-message-id-ac1fc001--5958be6c_1928aa68ae4_-7ef4" receivedTime="Mon Oct 14 13:03:55 CEST 2024">{
+	at org.frankframework.larva.SenderThread.run(SenderThread.java:65)</details>
+  <originalMessage messageId="synthetic-message-id-ac146001--7220c5e7_193d433e778_-7df2" receivedTime="Tue Dec 17 11:44:51 CET 2024">{
   "mor_id": 1001,
   "malfunction": {
     "malfunction_type": "mast aangereden",
@@ -114,12 +113,12 @@
   },
   "asset": {
     "asset_id": "1234",
-    "asset_latitude": 5.123456,
-    "asset_longitude": 52.123456
+    "asset_latitude": 52.123456,
+    "asset_longitude": 5.123456
   },
   "user": {
-    "user_click_latitude": 5.123456,
-    "user_click_longitude": 52.123456
+    "user_click_latitude": 52.123456,
+    "user_click_longitude": 5.123456
   }
 }</originalMessage>
 </errorMessage>

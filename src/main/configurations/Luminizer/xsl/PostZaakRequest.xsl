@@ -25,18 +25,18 @@
 					<xsl:value-of select="$meldingInfo/root/locaties_voor_melding/lichtmast_id"/>
 				</asset_id>
 				<asset_latitude>
-					<xsl:value-of select="$meldingInfo/root/locaties_voor_melding/geometrie/coordinates[1]"/>
+					<xsl:value-of select="$meldingInfo/root/locaties_voor_melding/geometrie/coordinates[2]"/>
 				</asset_latitude>
 				<asset_longitude>
-					<xsl:value-of select="$meldingInfo/root/locaties_voor_melding/geometrie/coordinates[2]"/>
+					<xsl:value-of select="$meldingInfo/root/locaties_voor_melding/geometrie/coordinates[1]"/>
 				</asset_longitude>
 			</asset>
 			<user>
 				<user_click_latitude>
-					<xsl:value-of select="$meldingInfo/root/locaties_voor_melding/geometrie/coordinates[1]"/>
+					<xsl:value-of select="$meldingInfo/root/locaties_voor_melding/geometrie/coordinates[2]"/>
 				</user_click_latitude>
 				<user_click_longitude>
-					<xsl:value-of select="$meldingInfo/root/locaties_voor_melding/geometrie/coordinates[2]"/>
+					<xsl:value-of select="$meldingInfo/root/locaties_voor_melding/geometrie/coordinates[1]"/>
 				</user_click_longitude>
 			</user>
 			<xsl:for-each select="$meldingInfo/root/signalen_voor_melding/bijlagen">
