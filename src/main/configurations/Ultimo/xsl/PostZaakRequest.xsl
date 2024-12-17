@@ -40,11 +40,12 @@
                 <xsl:value-of select="$meldingInfo/root/signalen_voor_melding/melder/telefoonnummer" />
             </telefoonMelder>
             <adres>
+				<xsl:variable name="maxGewicht" select="max($meldingInfo/root/signalen_voor_melding/locaties_voor_signaal/gewicht)"/>
                 <xsl:value-of
                     select="concat(
-                    $meldingInfo/root/signalen_voor_melding/locaties_voor_signaal/straatnaam , ' ',
-                    $meldingInfo/root/signalen_voor_melding/locaties_voor_signaal/huisnummer, ' ',
-                    $meldingInfo/root/signalen_voor_melding/locaties_voor_signaal/wijknaam)" />
+                    $meldingInfo/root/signalen_voor_melding/locaties_voor_signaal[gewicht = $maxGewicht][1]/straatnaam , ' ',
+                    $meldingInfo/root/signalen_voor_melding/locaties_voor_signaal[gewicht = $maxGewicht][1]/huisnummer, ' ',
+                    $meldingInfo/root/signalen_voor_melding/locaties_voor_signaal[gewicht = $maxGewicht][1]/wijknaam)" />
             </adres>
             <plaatsbepaling>
                 <xsl:value-of
