@@ -1,0 +1,67 @@
+<Module xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../FrankConfig.xsd">
+
+    <Adapter name="Luminizer_LoadImage" active="${Luminizer_LoadImage.active}">
+        <Receiver>
+            <ApiListener
+                name="Luminizer_LoadImage"
+                uriPattern="/api/media/bestanden/**"
+                headerParams="ApiKey,ApplicationElementId"
+                method="GET"
+                produces="DETECT"/>
+        </Receiver>
+
+        <Pipeline>
+            <Exits>
+                <Exit name="EXIT" state="SUCCESS" />
+                <Exit name="ERROR" state="ERROR" />
+                <Exit name="NotModified" state="SUCCESS" code="304" />
+				<Exit name="BadRequest" state="ERROR" code="400" />
+				<Exit name="NotAuthorized" state="ERROR" code="401" />
+				<Exit name="NotAllowed" state="ERROR" code="403" />
+				<Exit name="NotFound" state="ERROR" code="404" />
+				<Exit name="PreconditionFailed" state="ERROR" code="412" />
+				<Exit name="UnsupportedMediaType" state="ERROR" code="415" />
+				<Exit name="ServerError" state="ERROR" code="500" />
+				<Exit name="TimeOut" state="ERROR" code="504" />
+			</Exits>
+
+           <SenderPipe name="CallMorCore_GetToken" storeResultInSessionKey="MorCoreToken" getInputFromFixedValue="&lt;dummyParam/&gt;">
+                <IbisLocalSender name="CallMorCore_GetToken" javaListener="MorCore_GetToken" />
+                <Forward name="exception" path="ERROR" />
+            </SenderPipe>
+
+             <SenderPipe name="GetImage">
+                <HttpSender resultStatusCodeSessionKey="ResultCode" headersParams="Authorization" />
+                <Param name="url" value="&lt;dummy/&gt;" xpathExpression="concat($morcoreRoot, replace($uri, '/api', ''))" >
+                    <Param name="morcoreRoot" value="${MorCore.taak.API.root-url}"/>
+                    <Param name="uri" sessionKey="uri"/>
+                </Param>
+                <Param name="Authorization" value="&lt;dummy/&gt;" xpathExpression="concat('Token ', $MorCoreToken)">
+                    <Param name="MorCoreToken" sessionKey="MorCoreToken" />
+                </Param>
+                <Forward name="exception" path="SetAdapterExitCode" />
+            </SenderPipe>
+
+            <XmlSwitchPipe name="SetAdapterExitCode" 
+                preserveInput="true" 
+                getInputFromFixedValue="&lt;dummy/&gt;"
+				xpathExpression="$ResultCode" 
+                notFoundForwardName="NoCodeFound">
+				<Param name="ResultCode" sessionKey="ResultCode" />
+				<Forward name="304" path="ServerError" />
+				<Forward name="400" path="BadRequest" />
+				<Forward name="401" path="ServerError" />
+				<Forward name="404" path="NotFound" />
+				<Forward name="412" path="ServerError" />
+				<Forward name="415" path="UnsupportedMediaType" />
+				<Forward name="500" path="ServerError" />
+				<Forward name="504" path="TimeOut" />
+				<Forward name="200" path="EXIT" />
+				<Forward name="201" path="EXIT" />
+				<Forward name="NoCodeFound" path="EXIT" />
+			</XmlSwitchPipe>
+
+        </Pipeline>  
+    </Adapter>
+</Module>

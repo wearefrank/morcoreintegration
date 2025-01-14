@@ -78,6 +78,8 @@
                 styleSheetName="xsl/PostZaakRequest.xsl"
                 getInputFromSessionKey="originalMessage">
                 <Param name="systemDate" sessionKey="systemDate" />
+                <Param name="Frank.API.images.url" value="${Frank.API.root-url}api" />
+                <Param name="MorCore.API.images.url" value="${MorCore.taak.API.root-url}" />
                 <Param name="meldingInfo" sessionKey="meldingInfo" type="DOMDOC" />
                 <Param name="taaktype" sessionKey="Taaktype" type="DOMDOC" />
                 <Param name="opdrachtInfo" sessionKey="opdrachtInfo" type="DOMDOC" />

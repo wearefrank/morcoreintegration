@@ -4,6 +4,8 @@
 	<xsl:param name="meldingInfo"/>
 	<xsl:param name="taaktype"/>
 	<xsl:param name="systemDate"/>
+	<xsl:param name="Frank.API.images.url"/>
+	<xsl:param name="MorCore.API.images.url"/>
 	<xsl:template match="/">
 		<root>
 			<mor_id>
@@ -42,7 +44,7 @@
 			<xsl:for-each select="$meldingInfo/root/signalen_voor_melding/bijlagen">
 				<attachments>
 					<url>
-						<xsl:value-of select="./bestand"/>
+						<xsl:value-of select="replace(./bestand, $MorCore.API.images.url, $Frank.API.images.url)"/>
 					</url>
 					<filename>
 						<xsl:value-of select="tokenize(./bestand,'/')[last()]"/>
