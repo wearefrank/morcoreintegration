@@ -1,5 +1,11 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.12.0](https://github.com/wearefrank/morcoreintegration/compare/v1.11.22...v1.12.0) (2025-01-14)
+
+### 🍕 Features
+
+* provide proxy for accessing images ([#73](https://github.com/wearefrank/morcoreintegration/issues/73)) ([7c228f7](https://github.com/wearefrank/morcoreintegration/commit/7c228f7bb9fb6492a7e730cf7797fd58dbe3ceb0))
+
 ## [1.11.22](https://github.com/wearefrank/morcoreintegration/compare/v1.11.21...v1.11.22) (2024-12-17)
 
 ### 🐛 Bug Fixes
