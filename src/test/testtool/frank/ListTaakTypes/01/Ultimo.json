@@ -1,5 +1,5 @@
 {
-    "count": "7",
+    "count": "10",
     "next": "",
     "previous": "",
     "results": [
@@ -8,8 +8,8 @@
                 "self": "https://localhost/api/v1/taaktype/b42801c6-cd66-43df-add7-07b0824852ee"
             },
             "uuid": "b42801c6-cd66-43df-add7-07b0824852ee",
-            "omschrijving": "Rioolaansluiting herstellen",
-            "toelichting": "Rioolaansluiting herstellen",
+            "omschrijving": "Rioolhuisaansluiting herstellen",
+            "toelichting": "Betreft een vervolgtaak voor UW-Rioolcalamiteiten, geselecteerd na onderzoek door Stedelijk beheer Water. Stedelijk beheer Water heeft onderzoek verricht naar aanleiding van meldingen over een mogelijk kapotte huisaansluiting. Op basis van het onderzoek is Stedelijk beheer Water van mening dat herstelwerkzaamheden aan de huisaansluiting nodig zijn. De bevindingen van hun onderzoek deelt Stedelijk beheer Water bij het aanmaken van deze vervolgtaak voor UW-Rioolcalamiteiten.",
             "additionele_informatie": "",
             "extra": {
                 "ultimoOnderwerpCode": "12166",
@@ -22,7 +22,7 @@
             },
             "uuid": "ce855971-ed60-4ec0-8a92-37393d914333",
             "omschrijving": "Hoofdriool herstellen",
-            "toelichting": "Hoofdriool herstellen",
+            "toelichting": "Betreft een vervolgtaak voor UW-Rioolcalamiteiten, geselecteerd na onderzoek door Stedelijk beheer Water. Stedelijk beheer Water heeft onderzoek verricht naar aanleiding van meldingen over een mogelijk probleem met het hoofdriool, kapotte rioolkapjes of een mogelijk kapotte huisaansluiting. Op basis van het onderzoek is Stedelijk beheer Water van mening dat herstelwerkzaamheden aan het hoofdriool nodig zijn. De bevindingen van hun onderzoek deelt Stedelijk beheer Water bij het aanmaken van deze vervolgtaak voor UW-Rioolcalamiteiten.",
             "additionele_informatie": "",
             "extra": {
                 "ultimoOnderwerpCode": "12164",
@@ -35,7 +35,7 @@
             },
             "uuid": "0abbca2f-85c7-4359-a66e-5d09eebeb873",
             "omschrijving": "Rioolkapjes herstellen",
-            "toelichting": "Rioolkapjes herstellen",
+            "toelichting": "Betreft een vervolgtaak voor UW-Rioolcalamiteiten, geselecteerd na onderzoek door Stedelijk beheer Water. Stedelijk beheer Water heeft onderzoek verricht naar aanleiding van meldingen over kapotte rioolkapjes. Op basis van het onderzoek is Stedelijk beheer Water van mening dat herstelwerkzaamheden aan het hoofdriool nodig zijn. De bevindingen van hun onderzoek deelt Stedelijk beheer Water bij het aanmaken van deze vervolgtaak voor UW-Rioolcalamiteiten.",
             "additionele_informatie": "",
             "extra": {
                 "ultimoOnderwerpCode": "12164",
@@ -88,6 +88,45 @@
             "uuid": "681d6565-1b46-47d8-8b74-dd4437052e55",
             "omschrijving": "Wortel(s) in lijngoot (aansluiting) verwijderen",
             "toelichting": "Wortel(s) in lijngoot (aansluiting) verwijderen",
+            "additionele_informatie": "",
+            "extra": {
+                "ultimoOnderwerpCode": "12165",
+                "ultimoOnderwerpOmschrijving": "straatkolk (verstopt)"
+            }
+        },
+        {
+            "_links": {
+                "self": "https://localhost/api/v1/taaktype/3d88ed2d-c364-4bd6-8071-5647bb2b0af6"
+            },
+            "uuid": "3d88ed2d-c364-4bd6-8071-5647bb2b0af6",
+            "omschrijving": "Bestrating rondom kolk herstellen",
+            "toelichting": "Vervolgtaak voor UW-Rioolcalamiteiten na onderzoek van een melding over verzakt straatwerk rondom een kolk door UW-Rioolreinigingsdienst. Wanneer uit het onderzoek blijkt dat de verzakking van het straat het gevolg is van een kapotte kolkaansluiting dan selecteerd UW-Rioolreinigingsdienst de taak&quot;Kolkaansluiting herstellen&quot;.",
+            "additionele_informatie": "",
+            "extra": {
+                "ultimoOnderwerpCode": "12165",
+                "ultimoOnderwerpOmschrijving": "straatkolk (verstopt)"
+            }
+        },
+        {
+            "_links": {
+                "self": "https://localhost/api/v1/taaktype/0c587051-f326-4cc5-b58d-8ba6147b03bc"
+            },
+            "uuid": "0c587051-f326-4cc5-b58d-8ba6147b03bc",
+            "omschrijving": "Kapotte kolk herstellen",
+            "toelichting": "Vervolgtaak voor UW-Rioolcalamiteiten na onderzoek van een melding over een kapotte kolk door UW-Rioolreinigingsdienst. Wanneer uit het onderzoek blijkt de klep / deksel teruggeplaatst kan worden dan herstelt UW-Rioolreinigingsdienst dit zelf. Wanneer uit onderzoek blijkt dat de kolkkop of de gehele kolk vervangen moet worden dan wordt deze vervolgtaak geselecteerd.",
+            "additionele_informatie": "",
+            "extra": {
+                "ultimoOnderwerpCode": "12165",
+                "ultimoOnderwerpOmschrijving": "straatkolk (verstopt)"
+            }
+        },
+        {
+            "_links": {
+                "self": "https://localhost/api/v1/taaktype/dc183993-0a78-4245-a071-0a37cb7b730d"
+            },
+            "uuid": "dc183993-0a78-4245-a071-0a37cb7b730d",
+            "omschrijving": "Kapotte lijngoot herstellen",
+            "toelichting": "Vervolgtaak voor UW-Rioolcalamiteiten na onderzoek van een melding over een kapotte lijngoot door UW-Rioolreinigingsdienst. Wanneer uit het onderzoek blijkt de klep / deksel teruggeplaatst kan worden dan herstelt UW-Rioolreinigingsdienst dit zelf. Wanneer uit onderzoek blijkt dat de gehele lijngoot vervangen moet worden dan wordt deze vervolgtaak geselecteerd.",
             "additionele_informatie": "",
             "extra": {
                 "ultimoOnderwerpCode": "12165",
