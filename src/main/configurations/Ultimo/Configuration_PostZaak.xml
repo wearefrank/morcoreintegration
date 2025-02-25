@@ -60,7 +60,7 @@
             <SenderPipe name="GetBijlage1" storeResultInSessionKey="bijlage1"
                 getInputFromSessionKey="meldingInfo">
                 <IbisLocalSender name="GetBijlage1" javaListener="MorCore_GetBijlage">
-                    <Param name="bijlageUrl" xpathExpression="//bijlagen[1]/bestand"/>
+                    <Param name="bijlageUrl" xpathExpression="(//bijlagen[1]/bestand)[1]"/>
                     <Param name="MorCoreToken" sessionKey="MorCoreToken"/>
                 </IbisLocalSender>
                 <Forward name="success" path="IfBijlage2Exists" />
@@ -76,7 +76,7 @@
             <SenderPipe name="GetBijlage2" storeResultInSessionKey="bijlage2"
                 getInputFromSessionKey="meldingInfo">
                 <IbisLocalSender name="GetBijlage1" javaListener="MorCore_GetBijlage">
-                    <Param name="bijlageUrl" xpathExpression="//bijlagen[2]/bestand"/>
+                    <Param name="bijlageUrl" xpathExpression="(//bijlagen[2]/bestand)[1]"/>
                     <Param name="MorCoreToken" sessionKey="MorCoreToken"/>
                 </IbisLocalSender>
                 <Forward name="success" path="RequestOpdrachtInfo" />
