@@ -1,5 +1,11 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.12.2](https://github.com/wearefrank/morcoreintegration/compare/v1.12.1...v1.12.2) (2025-02-25)
+
+### 🐛 Bug Fixes
+
+* update bijlageUrl ([475461a](https://github.com/wearefrank/morcoreintegration/commit/475461aaedf321aed83da09a41cfbb43255c7794))
+
 ## [1.12.1](https://github.com/wearefrank/morcoreintegration/compare/v1.12.0...v1.12.1) (2025-02-24)
 
 ### 🐛 Bug Fixes
