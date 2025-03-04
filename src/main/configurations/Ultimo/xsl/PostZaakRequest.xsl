@@ -27,7 +27,7 @@
                 <xsl:copy-of select="/root/additionele_informatie"/>
             </xsl:if> -->
             <omschrijvingMelding>
-                <xsl:value-of select="$meldingInfo//titel" />
+                <xsl:value-of select="/root/titel" />
             </omschrijvingMelding>
             <!-- Required, Format: YYYY-MM-DDTHH:MM:SSZ -->
             <datumMeldingUtc>
@@ -43,9 +43,9 @@
 				<xsl:variable name="maxGewicht" select="max($meldingInfo/root/signalen_voor_melding/locaties_voor_signaal/gewicht)"/>
                 <xsl:value-of
                     select="concat(
-                    $meldingInfo/root/signalen_voor_melding/locaties_voor_signaal[gewicht = $maxGewicht][1]/straatnaam , ' ',
-                    $meldingInfo/root/signalen_voor_melding/locaties_voor_signaal[gewicht = $maxGewicht][1]/huisnummer, ' ',
-                    $meldingInfo/root/signalen_voor_melding/locaties_voor_signaal[gewicht = $maxGewicht][1]/wijknaam)" />
+                    ($meldingInfo/root/signalen_voor_melding/locaties_voor_signaal[gewicht = $maxGewicht])[1]/straatnaam[1] , ' ',
+                    ($meldingInfo/root/signalen_voor_melding/locaties_voor_signaal[gewicht = $maxGewicht])[1]/huisnummer[1], ' ',
+                    ($meldingInfo/root/signalen_voor_melding/locaties_voor_signaal[gewicht = $maxGewicht])[1]/wijknaam[1])" />
             </adres>
             <plaatsbepaling>
                 <xsl:value-of
