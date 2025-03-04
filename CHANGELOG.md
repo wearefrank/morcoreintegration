@@ -1,5 +1,12 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.12.3](https://github.com/wearefrank/morcoreintegration/compare/v1.12.2...v1.12.3) (2025-03-04)
+
+### 🐛 Bug Fixes
+
+* larva test update ([d36752e](https://github.com/wearefrank/morcoreintegration/commit/d36752ef45b678725928e7fc2a9f522706b6ac4b))
+* update omschrijvingMelding and adres ([54d49d2](https://github.com/wearefrank/morcoreintegration/commit/54d49d27d7e4eed18ef8c47de3949e06d94b61ba))
+
 ## [1.12.2](https://github.com/wearefrank/morcoreintegration/compare/v1.12.1...v1.12.2) (2025-02-25)
 
 ### 🐛 Bug Fixes
