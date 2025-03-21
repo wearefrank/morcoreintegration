@@ -19,15 +19,15 @@
                 <xsl:value-of select="$meldingInfo/root/id" />
             </meldingId>
             <!-- Required -->
-            <behandelaar>MSB</behandelaar>
+            <behandelaar><xsl:value-of select="/root/gebruiker" /></behandelaar>
             <afdeling></afdeling>
             <opmerkingBehandelaar><xsl:value-of select="/root/omschrijving_intern"/></opmerkingBehandelaar>
-            <!-- Having additionele_informatie in the request to Ultimo will result in an error. 
+            <!-- Having additionele_informatie in the request to Ultimo will result in an error.
             <xsl:if test="string-length(/root/additionele_informatie) > 0">
                 <xsl:copy-of select="/root/additionele_informatie"/>
             </xsl:if> -->
             <omschrijvingMelding>
-                <xsl:value-of select="/root/titel" />
+                <xsl:value-of select="concat('Taak: ', /root/titel, '&#13;&#10;', 'Melding: ', $meldingInfo/root/signalen_voor_melding/omschrijving_melder, '&#13;&#10;', $meldingInfo/root/signalen_voor_melding/aanvullende_informatie, '&#13;&#10;', 'Kenmerken: ', $meldingInfo/root/signalen_voor_melding/bron_signaal_id)" />
             </omschrijvingMelding>
             <!-- Required, Format: YYYY-MM-DDTHH:MM:SSZ -->
             <datumMeldingUtc>
