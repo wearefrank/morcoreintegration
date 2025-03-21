@@ -1,5 +1,13 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.12.4](https://github.com/wearefrank/morcoreintegration/compare/v1.12.3...v1.12.4) (2025-03-21)
+
+### 🐛 Bug Fixes
+
+* get a single value for latitude and longitude values out of melding info ([f0143cb](https://github.com/wearefrank/morcoreintegration/commit/f0143cb83130af87eb2ecde1dba301e45fc897d9))
+* larva scenario update ([7ae45bc](https://github.com/wearefrank/morcoreintegration/commit/7ae45bc3f87a1537c1a2953009c460005bad1d0c))
+* small fix ([ab85316](https://github.com/wearefrank/morcoreintegration/commit/ab85316339606e9d42d007294f764ecc6a9f20c4))
+
 ## [1.12.3](https://github.com/wearefrank/morcoreintegration/compare/v1.12.2...v1.12.3) (2025-03-04)
 
 ### 🐛 Bug Fixes
