@@ -24,22 +24,50 @@
 			</malfunction>
 			<asset>
 				<asset_id>
-					<xsl:value-of select="$meldingInfo/root/locaties_voor_melding/lichtmast_id"/>
+					<xsl:value-of select="string-join($meldingInfo/root/locaties_voor_melding/lichtmast_id, ',')"/>
 				</asset_id>
 				<asset_latitude>
-					<xsl:value-of select="$meldingInfo/root/locaties_voor_melding/geometrie/coordinates[2]"/>
+                    <xsl:choose>
+                        <xsl:when test="string-length($meldingInfo/root/locaties_voor_melding[primair='true']/geometrie/coordinates[2]) gt 0">
+                            <xsl:value-of select="$meldingInfo/root/locaties_voor_melding[primair='true']/geometrie/coordinates[2]"/>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:attribute name="xsi:nil">true</xsl:attribute>
+                        </xsl:otherwise>
+                    </xsl:choose>
 				</asset_latitude>
 				<asset_longitude>
-					<xsl:value-of select="$meldingInfo/root/locaties_voor_melding/geometrie/coordinates[1]"/>
+                    <xsl:choose>
+                        <xsl:when test="string-length($meldingInfo/root/locaties_voor_melding[primair='true']/geometrie/coordinates[1]) gt 0">
+                            <xsl:value-of select="$meldingInfo/root/locaties_voor_melding[primair='true']/geometrie/coordinates[1]"/>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:attribute name="xsi:nil">true</xsl:attribute>
+                        </xsl:otherwise>
+                    </xsl:choose>
 				</asset_longitude>
 			</asset>
 			<user>
 				<user_click_latitude>
-					<xsl:value-of select="$meldingInfo/root/locaties_voor_melding/geometrie/coordinates[2]"/>
+                    <xsl:choose>
+                        <xsl:when test="string-length($meldingInfo/root/locaties_voor_melding[primair='true']/geometrie/coordinates[2]) gt 0">
+                            <xsl:value-of select="$meldingInfo/root/locaties_voor_melding[primair='true']/geometrie/coordinates[2]"/>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:attribute name="xsi:nil">true</xsl:attribute>
+                        </xsl:otherwise>
+                    </xsl:choose>
 				</user_click_latitude>
 				<user_click_longitude>
-					<xsl:value-of select="$meldingInfo/root/locaties_voor_melding/geometrie/coordinates[1]"/>
-				</user_click_longitude>
+                    <xsl:choose>
+                        <xsl:when test="string-length($meldingInfo/root/locaties_voor_melding[primair='true']/geometrie/coordinates[1]) gt 0">
+                            <xsl:value-of select="$meldingInfo/root/locaties_voor_melding[primair='true']/geometrie/coordinates[1]"/>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:attribute name="xsi:nil">true</xsl:attribute>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </user_click_longitude>
 			</user>
 			<xsl:for-each select="$meldingInfo/root/signalen_voor_melding/bijlagen">
 				<attachments>

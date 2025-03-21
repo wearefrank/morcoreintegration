@@ -7,11 +7,11 @@
     },
     "asset": {
         "asset_id": "1234",
-        "asset_latitude": 52.123456,
-        "asset_longitude": 5.123456
+        "asset_latitude": null,
+        "asset_longitude": null
     },
     "user": {
-        "user_click_latitude": 52.123456,
-        "user_click_longitude": 5.123456
+        "user_click_latitude": null,
+        "user_click_longitude": null
     }
 }

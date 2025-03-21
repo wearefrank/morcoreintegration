@@ -40,6 +40,7 @@
 		"grafnummer": null,
 		"vak": null,
 		"gewicht": "0.2",
+        "primair": "true",
 		"melding": "1234",
 		"signaal": "5678",
 		"gebruiker": null
