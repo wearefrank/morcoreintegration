@@ -27,7 +27,7 @@
                 <xsl:copy-of select="/root/additionele_informatie"/>
             </xsl:if> -->
             <omschrijvingMelding>
-                <xsl:value-of select="concat('Taak: ', /root/titel, '#13;#10;', 'Melding: ', $meldingInfo/root/signalen_voor_melding/omschrijving_melder, '#13;#10;', $meldingInfo/root/signalen_voor_melding/aanvullende_informatie, '#13;#10;', 'Kenmerken: ', $meldingInfo/root/signalen_voor_melding/bron_signaal_id)" />
+                <xsl:value-of select="concat('Taak: ', /root/titel, '&#13;&#10;', 'Melding: ', $meldingInfo/root/signalen_voor_melding/omschrijving_melder, '&#13;&#10;', $meldingInfo/root/signalen_voor_melding/aanvullende_informatie, '&#13;&#10;', 'Kenmerken: ', $meldingInfo/root/signalen_voor_melding/bron_signaal_id)" />
             </omschrijvingMelding>
             <!-- Required, Format: YYYY-MM-DDTHH:MM:SSZ -->
             <datumMeldingUtc>
