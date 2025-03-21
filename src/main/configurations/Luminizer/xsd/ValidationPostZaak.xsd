@@ -50,12 +50,12 @@
           <xs:documentation>Malfunction type</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="asset_latitude" type="xs:string" nillable="true">
+      <xs:element name="asset_latitude" type="xs:decimal" nillable="true">
         <xs:annotation>
           <xs:documentation>Latitude type</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="asset_longitude" type="xs:string" nillable="true">
+      <xs:element name="asset_longitude" type="xs:decimal" nillable="true">
         <xs:annotation>
           <xs:documentation>Longitude type</xs:documentation>
         </xs:annotation>
@@ -65,12 +65,12 @@
 
   <xs:complexType name="MorRotterdamUserDto">
     <xs:sequence>
-      <xs:element name="user_click_latitude" type="xs:string" nillable="true">
+      <xs:element name="user_click_latitude" type="xs:decimal" nillable="true">
         <xs:annotation>
           <xs:documentation>lat from user click</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="user_click_longitude" type="xs:string" nillable="true">
+      <xs:element name="user_click_longitude" type="xs:decimal" nillable="true">
         <xs:annotation>
           <xs:documentation>lon from user click</xs:documentation>
         </xs:annotation>
