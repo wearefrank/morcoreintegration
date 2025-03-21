@@ -44,6 +44,7 @@
             "grafnummer": null,
             "vak": null,
             "gewicht": 0.5,
+            "primair": "true",
             "melding": 1001,
             "signaal": 3001,
             "gebruiker": null
