@@ -64,12 +64,12 @@
             <spoed>Nee</spoed>
             <!-- Coordinates required, Must be a numeric value -->
             <x>
-                <xsl:value-of
-                    select="$meldingInfo/root/signalen_voor_melding[1]/locaties_voor_signaal/geometrie/coordinates[1]" />
+                <xsl:variable name="maxGewicht" select="max($meldingInfo/root/signalen_voor_melding[1]/locaties_voor_signaal/gewicht)"/>
+                <xsl:value-of select="$meldingInfo/root/signalen_voor_melding[1]/locaties_voor_signaal/geometrie/coordinates[1]" />
             </x>
             <y>
-                <xsl:value-of
-                    select="$meldingInfo/root/signalen_voor_melding[1]/locaties_voor_signaal/geometrie/coordinates[2]" />
+                <xsl:variable name="maxGewicht" select="max($meldingInfo/root/signalen_voor_melding[1]/locaties_voor_signaal/gewicht)"/>
+                <xsl:value-of select="$meldingInfo/root/signalen_voor_melding[1]/locaties_voor_signaal/geometrie/coordinates[2]" />
             </y>
 
             <!-- These 4 values might come from GetMeldingInfo -->
