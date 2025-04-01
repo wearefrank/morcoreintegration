@@ -196,37 +196,49 @@
                 "stadsdeelField": "Example District",
                 "adresField": "Example Street 10"
             },
-            "geometrie": {
-                "type": "Point",
-                "coordinates": [
-                    5.123456,
-                    52.123456
-                ]
-            },
-            "status": {
-                "naam": "new",
-                "signaal": 3001
-            },
-            "signaalgebeurtenissen": [
+            "locaties_voor_signaal": [
                 {
-                    "_links": {
-                        "self": "https://example.com/api/v1/signaalgebeurtenis/abcd5678-abcd-1234-ijkl-qrstuvwxyz34/"
-                    },
-                    "aangemaakt_op": "2023-01-01T10:01:00.000000+01:00",
-                    "gebeurtenis_type": "status_change",
-                    "bijlagen": [],
-                    "status": {
-                        "naam": "new",
-                        "signaal": 3001
-                    },
-                    "omschrijving_intern": null,
-                    "omschrijving_extern": "New case created.",
-                    "signaal": 3001,
+                    "aangemaakt_op": "2025-02-26T09:36:02.506638+01:00",
+                    "aangepast_op": "2025-02-26T09:36:02.660661+01:00",
+                    "begraafplaats": null,
+                    "bron": null,
+                    "buurtnaam": "Rubroek",
                     "gebruiker": null,
-                    "locatie": null,
-                    "urgentie": null
+                    "geometrie": {
+                        "coordinates": [
+                            5.123456,
+                            52.123456
+                        ],
+                        "type": "Point"
+                    },
+                    "gewicht": 0.2,
+                    "grafnummer": null,
+                    "huisletter": "",
+                    "huisnummer": 2,
+                    "id": 2376,
+                    "lichtmast_id": null,
+                    "locatie_type": "adres",
+                    "locatie_zoek_field": "Vondelweg 2",
+                    "melding": 2112,
+                    "naam": null,
+                    "plaatsnaam": "Rotterdam",
+                    "postcode": "3031ZJ",
+                    "primair": false,
+                    "signaal": 2153,
+                    "straatnaam": "Vondelweg",
+                    "toevoeging": "",
+                    "uuid": "e872e228-0828-43de-8c7d-95e3a00ee0a6",
+                    "vak": null,
+                    "wijknaam": "Kralingen-Crooswijk"
                 }
             ],
+            "melder": {
+                "naam": "Naam Naam",
+                "voornaam": null,
+                "achternaam": null,
+                "email": "testuser@Test Stad.nl",
+                "telefoonnummer": "Anoniem"
+            },
             "melding": 1001
         }
     ]

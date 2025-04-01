@@ -69,7 +69,7 @@
                     </xsl:choose>
                 </user_click_longitude>
 			</user>
-			<xsl:for-each select="$meldingInfo/root/signalen_voor_melding/bijlagen">
+			<xsl:for-each select="$meldingInfo/root/signalen_voor_melding[1]/bijlagen">
 				<attachments>
 					<url>
 						<xsl:value-of select="replace(./bestand, $MorCore.API.images.url, $Frank.API.images.url)"/>

@@ -27,29 +27,29 @@
                 <xsl:copy-of select="/root/additionele_informatie"/>
             </xsl:if> -->
             <omschrijvingMelding>
-                <xsl:value-of select="concat('Taak: ', /root/titel, '&#13;&#10;', 'Melding: ', $meldingInfo/root/signalen_voor_melding/omschrijving_melder, '&#13;&#10;', $meldingInfo/root/signalen_voor_melding/aanvullende_informatie, '&#13;&#10;', 'Kenmerken: ', $meldingInfo/root/signalen_voor_melding/bron_signaal_id)" />
+                <xsl:value-of select="concat('Taak: ', /root/titel, '&#13;&#10;', 'Melding: ', $meldingInfo/root/signalen_voor_melding[1]/omschrijving_melder, '&#13;&#10;', $meldingInfo/root/signalen_voor_melding[1]/aanvullende_informatie, '&#13;&#10;', 'Kenmerken: ', $meldingInfo/root/signalen_voor_melding[1]/bron_signaal_id)" />
             </omschrijvingMelding>
             <!-- Required, Format: YYYY-MM-DDTHH:MM:SSZ -->
             <datumMeldingUtc>
-                <xsl:value-of select="$meldingInfo/root/signalen_voor_melding/aangemaakt_op" />
+                <xsl:value-of select="$meldingInfo/root/signalen_voor_melding[1]/aangemaakt_op" />
             </datumMeldingUtc>
             <emailMelder>
-                <xsl:value-of select="$meldingInfo/root/signalen_voor_melding/melder/email" />
+                <xsl:value-of select="$meldingInfo/root/signalen_voor_melding[1]/melder/email" />
             </emailMelder>
             <telefoonMelder>
-                <xsl:value-of select="$meldingInfo/root/signalen_voor_melding/melder/telefoonnummer" />
+                <xsl:value-of select="$meldingInfo/root/signalen_voor_melding[1]/melder/telefoonnummer" />
             </telefoonMelder>
             <adres>
-				<xsl:variable name="maxGewicht" select="max($meldingInfo/root/signalen_voor_melding/locaties_voor_signaal/gewicht)"/>
+				<xsl:variable name="maxGewicht" select="max($meldingInfo/root/signalen_voor_melding[1]/locaties_voor_signaal/gewicht)"/>
                 <xsl:value-of
                     select="concat(
-                    ($meldingInfo/root/signalen_voor_melding/locaties_voor_signaal[gewicht = $maxGewicht])[1]/straatnaam[1] , ' ',
-                    ($meldingInfo/root/signalen_voor_melding/locaties_voor_signaal[gewicht = $maxGewicht])[1]/huisnummer[1], ' ',
-                    ($meldingInfo/root/signalen_voor_melding/locaties_voor_signaal[gewicht = $maxGewicht])[1]/wijknaam[1])" />
+                    ($meldingInfo/root/signalen_voor_melding[1]/locaties_voor_signaal[gewicht = $maxGewicht])[1]/straatnaam[1] , ' ',
+                    ($meldingInfo/root/signalen_voor_melding[1]/locaties_voor_signaal[gewicht = $maxGewicht])[1]/huisnummer[1], ' ',
+                    ($meldingInfo/root/signalen_voor_melding[1]/locaties_voor_signaal[gewicht = $maxGewicht])[1]/wijknaam[1])" />
             </adres>
             <plaatsbepaling>
                 <xsl:value-of
-                    select="$meldingInfo/root/signalen_voor_melding/locaties_voor_signaal/plaatsnaam" />
+                    select="$meldingInfo/root/signalen_voor_melding[1]/locaties_voor_signaal/plaatsnaam" />
             </plaatsbepaling>
             <onderwerpCode>
                 <xsl:value-of
@@ -64,12 +64,12 @@
             <spoed>Nee</spoed>
             <!-- Coordinates required, Must be a numeric value -->
             <x>
-                <xsl:value-of
-                    select="$meldingInfo/root/signalen_voor_melding/locaties_voor_signaal/geometrie/coordinates[1]" />
+                <xsl:variable name="maxGewicht" select="max($meldingInfo/root/signalen_voor_melding[1]/locaties_voor_signaal/gewicht)"/>
+                <xsl:value-of select="$meldingInfo/root/signalen_voor_melding[1]/locaties_voor_signaal/geometrie/coordinates[1]" />
             </x>
             <y>
-                <xsl:value-of
-                    select="$meldingInfo/root/signalen_voor_melding/locaties_voor_signaal/geometrie/coordinates[2]" />
+                <xsl:variable name="maxGewicht" select="max($meldingInfo/root/signalen_voor_melding[1]/locaties_voor_signaal/gewicht)"/>
+                <xsl:value-of select="$meldingInfo/root/signalen_voor_melding[1]/locaties_voor_signaal/geometrie/coordinates[2]" />
             </y>
 
             <!-- These 4 values might come from GetMeldingInfo -->
