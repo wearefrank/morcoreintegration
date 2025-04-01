@@ -1,5 +1,12 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.12.5](https://github.com/wearefrank/morcoreintegration/compare/v1.12.4...v1.12.5) (2025-04-01)
+
+### 🐛 Bug Fixes
+
+* get first signal for attachments property of Luminizer ([31fe89e](https://github.com/wearefrank/morcoreintegration/commit/31fe89e69920ae3ae8650d7d24bf7757037e156b))
+* get the first signal in case of multiple, Ultimo ([31efdc1](https://github.com/wearefrank/morcoreintegration/commit/31efdc1f69d78b9684d2db591c245df0e248aadb))
+
 ## [1.12.4](https://github.com/wearefrank/morcoreintegration/compare/v1.12.3...v1.12.4) (2025-03-21)
 
 ### 🐛 Bug Fixes
