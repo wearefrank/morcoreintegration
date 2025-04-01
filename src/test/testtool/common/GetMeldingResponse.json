@@ -232,6 +232,13 @@
                     "wijknaam": "Kralingen-Crooswijk"
                 }
             ],
+            "melder": {
+                "naam": "Naam Naam",
+                "voornaam": null,
+                "achternaam": null,
+                "email": "testuser@Test Stad.nl",
+                "telefoonnummer": "Anoniem"
+            },
             "melding": 1001
         }
     ]

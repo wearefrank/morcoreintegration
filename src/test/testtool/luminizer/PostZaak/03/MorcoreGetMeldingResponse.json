@@ -12,39 +12,41 @@
 	"meta": "",
 	"meta_uitgebreid": "",
 	"onderwerpen": "https://dummy-url-onderwerpen/api/v1/group/41202ca5-929f-423b-9b46-b9127e0a19e0/category/ca1c979e-ab3a-4ca2-8f02-e93fda448c15/",
-	"locaties_voor_melding": {
-		"id": "1367",
-		"uuid": "3014507c-ab5d-42b8-8617-a759185b103b",
-		"aangemaakt_op": "2024-08-12T08:15:02.327024+02:00",
-		"aangepast_op": "2024-08-12T08:15:02.327059+02:00",
-		"locatie_type": "adres",
-		"geometrie": {
-			"type": "Point",
-			"coordinates": [
-				"4.468454",
-				"51.917085"
-			]
-		},
-		"bron": null,
-		"naam": null,
-		"straatnaam": "TestStraat",
-		"huisnummer": "1",
-		"huisletter": "A",
-		"toevoeging": "",
-		"postcode": "1234AB",
-		"wijknaam": "Test Wijk",
-		"buurtnaam": "Test Buurt",
-		"lichtmast_id": 1234,
-		"plaatsnaam": "Test Stad",
-		"begraafplaats": null,
-		"grafnummer": null,
-		"vak": null,
-		"gewicht": "0.2",
-        "primair": "true",
-		"melding": "1234",
-		"signaal": "5678",
-		"gebruiker": null
-	},
+	"locaties_voor_melding": [
+        {
+            "id": "1367",
+            "uuid": "3014507c-ab5d-42b8-8617-a759185b103b",
+            "aangemaakt_op": "2024-08-12T08:15:02.327024+02:00",
+            "aangepast_op": "2024-08-12T08:15:02.327059+02:00",
+            "locatie_type": "adres",
+            "geometrie": {
+                "type": "Point",
+                "coordinates": [
+                    "4.468454",
+                    "51.917085"
+                ]
+            },
+            "bron": null,
+            "naam": null,
+            "straatnaam": "TestStraat",
+            "huisnummer": "1",
+            "huisletter": "A",
+            "toevoeging": "",
+            "postcode": "1234AB",
+            "wijknaam": "Test Wijk",
+            "buurtnaam": "Test Buurt",
+            "lichtmast_id": 1234,
+            "plaatsnaam": "Test Stad",
+            "begraafplaats": null,
+            "grafnummer": null,
+            "vak": null,
+            "gewicht": "0.2",
+            "primair": "true",
+            "melding": "1234",
+            "signaal": "5678",
+            "gebruiker": null
+        }
+    ],
 	"status": {
 		"naam": "in_behandeling",
 		"melding": "1234"
@@ -143,140 +145,144 @@
 		},
 		"taak_url": null
 	},
-	"signalen_voor_melding": {
-		"_links": {
-			"self": "https://dummy-url.nl/api/v1/signaal/8a2174f2-6c68-46ad-8801-256e54fcf3a3/",
-			"melding": "https://dummy-url.nl/api/v1/melding/b26b7a1a-370f-4ac9-90c4-a44fc19f8688/"
-		},
-		"uuid": "8a2174f2-6c68-46ad-8801-256e54fcf3a3",
-		"signaal_url": "https://Bronnaam.TestStad.nl/melding/2024-003657",
-		"signaal_data": "",
-		"bron_id": "Bronnaam",
-		"bron_signaal_id": "2024-003657",
-		"origineel_aangemaakt": "2024-08-12T08:12:12.838000+02:00",
-		"urgentie": "0.2",
-		"omschrijving_melder": "AUTOMATISCHE TEST MELDING TOSCA!",
-		"aanvullende_informatie": "Wat voor grofvuil ligt er?Apparaten&#92;nWaar ligt het grofvuil?Op straat&#92;n",
-		"aanvullende_vragen": [
-			{
-				"answers": "Apparaten",
-				"question": "Wat voor grofvuil ligt er?"
-			},
-			{
-				"answers": "Op straat",
-				"question": "Waar ligt het grofvuil?"
-			}
-		],
-		"meta": {
-			"spoedField": "false",
-			"kanaalField": "Bronnaam-Webformulier",
-			"xCoordField": "91792.0",
-			"yCoordField": "436910.0",
-			"bijlagenField": null,
-			"loginnaamField": "Webformulier",
-			"onderwerpField": "Grofvuil",
-			"huisnummerField": "",
-			"melderNaamField": "Naam Naam",
-			"straatnaamField": "TestStraat",
-			"melderEmailField": "testuser@Test Stad.nl",
-			"aanmaakDatumField": "2024-08-12T06:12:12.838000Z",
-			"omschrijvingField": "AUTOMATISCHE TEST MELDING TOSCA!",
-			"adoptantnummerField": null,
-			"melderTelefoonField": "Anoniem",
-			"meldingsnummerField": "2024-003657",
-			"aanvullendeVragenField": [
-				{
-					"answers": "Apparaten",
-					"question": "Wat voor grofvuil ligt er?"
-				},
-				{
-					"answers": "Op straat",
-					"question": "Waar ligt het grofvuil?"
-				}
-			],
-			"naderePlaatsbepalingField": "",
-			"aanvullendeInformatieField": "Wat voor grofvuil ligt er?Apparaten&#92;nWaar ligt het grofvuil?Op straat&#92;n"
-		},
-		"meta_uitgebreid": "",
-		"onderwerpen": {
-			"_links": {
-				"self": "https://dummy-url-onderwerpen/api/v1/group/41202ca5-929f-423b-9b46-b9127e0a19e0/category/ca1c979e-ab3a-4ca2-8f02-e93fda448c15/"
-			},
-			"naam": "Grofvuil",
-			"bron_url": "https://dummy-url-onderwerpen/api/v1/group/41202ca5-929f-423b-9b46-b9127e0a19e0/category/ca1c979e-ab3a-4ca2-8f02-e93fda448c15/"
-		},
-		"bijlagen": [
-			{
-				"uuid": "a5abb0cc-252e-4902-a3ec-c1a0bce5e8a5",
-				"bestand": "https://dummy-url.nl/media/bestanden/2024/08/12/330392a6-95f8-4e3d-bfbc-276f2d2e79c5.jpg",
-				"afbeelding": "https://dummy-url.nl/media/afbeeldingen/2024/08/12/330392a6-95f8-4e3d-bfbc-276f2d2e79c5_1480x1480.jpg",
-				"afbeelding_verkleind": "https://dummy-url.nl/media/afbeeldingen/2024/08/12/330392a6-95f8-4e3d-bfbc-276f2d2e79c5_128x128.jpg",
-				"mimetype": "image/jpeg",
-				"is_afbeelding": "true",
-				"afbeelding_relative_url": "/media/afbeeldingen/2024/08/12/330392a6-95f8-4e3d-bfbc-276f2d2e79c5_1480x1480.jpg",
-				"afbeelding_verkleind_relative_url": "/media/afbeeldingen/2024/08/12/330392a6-95f8-4e3d-bfbc-276f2d2e79c5_128x128.jpg"
-			},
-			{
-				"uuid": "0cd60c27-e635-40e3-9eaa-29d16cba4cca",
-				"bestand": "https://dummy-url.nl/media/bestanden/2024/08/12/cc4d6dd4-51e-4d9c-ad3c-e7a5be90b6e3.jpg",
-				"afbeelding": "https://dummy-url.nl/media/afbeeldingen/2024/08/12/cc4d6dd4-51e-4d9c-ad3c-e7a5be90b6e3_1480x1480.jpg",
-				"afbeelding_verkleind": "https://dummy-url.nl/media/afbeeldingen/2024/08/12/cc4d6dd4-51e-4d9c-ad3c-e7a5be90b6e3_128x128.jpg",
-				"mimetype": "image/jpeg",
-				"is_afbeelding": "true",
-				"afbeelding_relative_url": "/media/afbeeldingen/2024/08/12/cc4d6dd4-51e-4d9c-ad3c-e7a5be90b6e3_1480x1480.jpg",
-				"afbeelding_verkleind_relative_url": "/media/afbeeldingen/2024/08/12/cc4d6dd4-51e-4d9c-ad3c-e7a5be90b6e3_128x128.jpg"
-			},
-			{
-				"uuid": "78f6e2b8-550e-40f1-9511-4fca2367ba1c",
-				"bestand": "https://dummy-url.nl/media/bestanden/2024/08/12/d4373d03-14ed-46ae-ac01-82fc3864fd55.jpg",
-				"afbeelding": "https://dummy-url.nl/media/afbeeldingen/2024/08/12/d4373d03-14ed-46ae-ac01-82fc3864fd55_1480x1480.jpg",
-				"afbeelding_verkleind": "https://dummy-url.nl/media/afbeeldingen/2024/08/12/d4373d03-14ed-46ae-ac01-82fc3864fd55_128x128.jpg",
-				"mimetype": "image/jpeg",
-				"is_afbeelding": "true",
-				"afbeelding_relative_url": "/media/afbeeldingen/2024/08/12/d4373d03-14ed-46ae-ac01-82fc3864fd55_1480x1480.jpg",
-				"afbeelding_verkleind_relative_url": "/media/afbeeldingen/2024/08/12/d4373d03-14ed-46ae-ac01-82fc3864fd55_128x128.jpg"
-			}
-		],
-		"melder": {
-			"naam": "Naam Naam",
-			"voornaam": null,
-			"achternaam": null,
-			"email": "testuser@Test Stad.nl",
-			"telefoonnummer": "Anoniem"
-		},
-		"aangemaakt_op": "2024-08-12T08:15:02.281108+02:00",
-		"melding": "1234",
-		"locaties_voor_signaal": {
-			"id": "1367",
-			"uuid": "3014507c-ab5d-42b8-8617-a759185b103b",
-			"aangemaakt_op": "2024-08-12T08:15:02.327024+02:00",
-			"aangepast_op": "2024-08-12T08:15:02.327059+02:00",
-			"locatie_type": "adres",
-			"geometrie": {
-				"type": "Point",
-				"coordinates": [
-					"1.21567",
-					"89.01215"
-				]
-			},
-			"bron": null,
-			"naam": null,
-			"straatnaam": "TestStraat",
-			"huisnummer": "1",
-			"huisletter": "A",
-			"toevoeging": "",
-			"postcode": "1234AB",
-			"wijknaam": "Test Wijk",
-			"buurtnaam": "Test Buurt",
-			"lichtmast_id": null,
-			"plaatsnaam": "Test Stad",
-			"begraafplaats": null,
-			"grafnummer": null,
-			"vak": null,
-			"gewicht": "0.2",
-			"melding": "1234",
-			"signaal": "5678",
-			"gebruiker": null
-		}
-	}
+	"signalen_voor_melding": [
+        {
+            "_links": {
+                "self": "https://dummy-url.nl/api/v1/signaal/8a2174f2-6c68-46ad-8801-256e54fcf3a3/",
+                "melding": "https://dummy-url.nl/api/v1/melding/b26b7a1a-370f-4ac9-90c4-a44fc19f8688/"
+            },
+            "uuid": "8a2174f2-6c68-46ad-8801-256e54fcf3a3",
+            "signaal_url": "https://Bronnaam.TestStad.nl/melding/2024-003657",
+            "signaal_data": "",
+            "bron_id": "Bronnaam",
+            "bron_signaal_id": "2024-003657",
+            "origineel_aangemaakt": "2024-08-12T08:12:12.838000+02:00",
+            "urgentie": "0.2",
+            "omschrijving_melder": "AUTOMATISCHE TEST MELDING TOSCA!",
+            "aanvullende_informatie": "Wat voor grofvuil ligt er?Apparaten&#92;nWaar ligt het grofvuil?Op straat&#92;n",
+            "aanvullende_vragen": [
+                {
+                    "answers": "Apparaten",
+                    "question": "Wat voor grofvuil ligt er?"
+                },
+                {
+                    "answers": "Op straat",
+                    "question": "Waar ligt het grofvuil?"
+                }
+            ],
+            "meta": {
+                "spoedField": "false",
+                "kanaalField": "Bronnaam-Webformulier",
+                "xCoordField": "91792.0",
+                "yCoordField": "436910.0",
+                "bijlagenField": null,
+                "loginnaamField": "Webformulier",
+                "onderwerpField": "Grofvuil",
+                "huisnummerField": "",
+                "melderNaamField": "Naam Naam",
+                "straatnaamField": "TestStraat",
+                "melderEmailField": "testuser@Test Stad.nl",
+                "aanmaakDatumField": "2024-08-12T06:12:12.838000Z",
+                "omschrijvingField": "AUTOMATISCHE TEST MELDING TOSCA!",
+                "adoptantnummerField": null,
+                "melderTelefoonField": "Anoniem",
+                "meldingsnummerField": "2024-003657",
+                "aanvullendeVragenField": [
+                    {
+                        "answers": "Apparaten",
+                        "question": "Wat voor grofvuil ligt er?"
+                    },
+                    {
+                        "answers": "Op straat",
+                        "question": "Waar ligt het grofvuil?"
+                    }
+                ],
+                "naderePlaatsbepalingField": "",
+                "aanvullendeInformatieField": "Wat voor grofvuil ligt er?Apparaten&#92;nWaar ligt het grofvuil?Op straat&#92;n"
+            },
+            "meta_uitgebreid": "",
+            "onderwerpen": {
+                "_links": {
+                    "self": "https://dummy-url-onderwerpen/api/v1/group/41202ca5-929f-423b-9b46-b9127e0a19e0/category/ca1c979e-ab3a-4ca2-8f02-e93fda448c15/"
+                },
+                "naam": "Grofvuil",
+                "bron_url": "https://dummy-url-onderwerpen/api/v1/group/41202ca5-929f-423b-9b46-b9127e0a19e0/category/ca1c979e-ab3a-4ca2-8f02-e93fda448c15/"
+            },
+            "bijlagen": [
+                {
+                    "uuid": "a5abb0cc-252e-4902-a3ec-c1a0bce5e8a5",
+                    "bestand": "https://dummy-url.nl/media/bestanden/2024/08/12/330392a6-95f8-4e3d-bfbc-276f2d2e79c5.jpg",
+                    "afbeelding": "https://dummy-url.nl/media/afbeeldingen/2024/08/12/330392a6-95f8-4e3d-bfbc-276f2d2e79c5_1480x1480.jpg",
+                    "afbeelding_verkleind": "https://dummy-url.nl/media/afbeeldingen/2024/08/12/330392a6-95f8-4e3d-bfbc-276f2d2e79c5_128x128.jpg",
+                    "mimetype": "image/jpeg",
+                    "is_afbeelding": "true",
+                    "afbeelding_relative_url": "/media/afbeeldingen/2024/08/12/330392a6-95f8-4e3d-bfbc-276f2d2e79c5_1480x1480.jpg",
+                    "afbeelding_verkleind_relative_url": "/media/afbeeldingen/2024/08/12/330392a6-95f8-4e3d-bfbc-276f2d2e79c5_128x128.jpg"
+                },
+                {
+                    "uuid": "0cd60c27-e635-40e3-9eaa-29d16cba4cca",
+                    "bestand": "https://dummy-url.nl/media/bestanden/2024/08/12/cc4d6dd4-51e-4d9c-ad3c-e7a5be90b6e3.jpg",
+                    "afbeelding": "https://dummy-url.nl/media/afbeeldingen/2024/08/12/cc4d6dd4-51e-4d9c-ad3c-e7a5be90b6e3_1480x1480.jpg",
+                    "afbeelding_verkleind": "https://dummy-url.nl/media/afbeeldingen/2024/08/12/cc4d6dd4-51e-4d9c-ad3c-e7a5be90b6e3_128x128.jpg",
+                    "mimetype": "image/jpeg",
+                    "is_afbeelding": "true",
+                    "afbeelding_relative_url": "/media/afbeeldingen/2024/08/12/cc4d6dd4-51e-4d9c-ad3c-e7a5be90b6e3_1480x1480.jpg",
+                    "afbeelding_verkleind_relative_url": "/media/afbeeldingen/2024/08/12/cc4d6dd4-51e-4d9c-ad3c-e7a5be90b6e3_128x128.jpg"
+                },
+                {
+                    "uuid": "78f6e2b8-550e-40f1-9511-4fca2367ba1c",
+                    "bestand": "https://dummy-url.nl/media/bestanden/2024/08/12/d4373d03-14ed-46ae-ac01-82fc3864fd55.jpg",
+                    "afbeelding": "https://dummy-url.nl/media/afbeeldingen/2024/08/12/d4373d03-14ed-46ae-ac01-82fc3864fd55_1480x1480.jpg",
+                    "afbeelding_verkleind": "https://dummy-url.nl/media/afbeeldingen/2024/08/12/d4373d03-14ed-46ae-ac01-82fc3864fd55_128x128.jpg",
+                    "mimetype": "image/jpeg",
+                    "is_afbeelding": "true",
+                    "afbeelding_relative_url": "/media/afbeeldingen/2024/08/12/d4373d03-14ed-46ae-ac01-82fc3864fd55_1480x1480.jpg",
+                    "afbeelding_verkleind_relative_url": "/media/afbeeldingen/2024/08/12/d4373d03-14ed-46ae-ac01-82fc3864fd55_128x128.jpg"
+                }
+            ],
+            "melder": {
+                "naam": "Naam Naam",
+                "voornaam": null,
+                "achternaam": null,
+                "email": "testuser@Test Stad.nl",
+                "telefoonnummer": "Anoniem"
+            },
+            "aangemaakt_op": "2024-08-12T08:15:02.281108+02:00",
+            "melding": "1234",
+            "locaties_voor_signaal": [
+                {
+                    "id": "1367",
+                    "uuid": "3014507c-ab5d-42b8-8617-a759185b103b",
+                    "aangemaakt_op": "2024-08-12T08:15:02.327024+02:00",
+                    "aangepast_op": "2024-08-12T08:15:02.327059+02:00",
+                    "locatie_type": "adres",
+                    "geometrie": {
+                        "type": "Point",
+                        "coordinates": [
+                            "1.21567",
+                            "89.01215"
+                        ]
+                    },
+                    "bron": null,
+                    "naam": null,
+                    "straatnaam": "TestStraat",
+                    "huisnummer": "1",
+                    "huisletter": "A",
+                    "toevoeging": "",
+                    "postcode": "1234AB",
+                    "wijknaam": "Test Wijk",
+                    "buurtnaam": "Test Buurt",
+                    "lichtmast_id": null,
+                    "plaatsnaam": "Test Stad",
+                    "begraafplaats": null,
+                    "grafnummer": null,
+                    "vak": null,
+                    "gewicht": "0.2",
+                    "melding": "1234",
+                    "signaal": "5678",
+                    "gebruiker": null
+                }
+            ]
+        }
+    ]
 }
