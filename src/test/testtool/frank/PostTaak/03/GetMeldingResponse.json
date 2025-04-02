@@ -12,38 +12,40 @@
 	"meta": "",
 	"meta_uitgebreid": "",
 	"onderwerpen": "https://dummy-url-onderwerpen/api/v1/group/41202ca5-929f-423b-9b46-b9127e0a19e0/category/ca1c979e-ab3a-4ca2-8f02-e93fda448c15/",
-	"locaties_voor_melding": {
-		"id": "1367",
-		"uuid": "3014507c-ab5d-42b8-8617-a759185b103b",
-		"aangemaakt_op": "2024-08-12T08:15:02.327024+02:00",
-		"aangepast_op": "2024-08-12T08:15:02.327059+02:00",
-		"locatie_type": "adres",
-		"geometrie": {
-			"type": "Point",
-			"coordinates": [
-				"4.468454",
-				"51.917085"
-			]
-		},
-		"bron": null,
-		"naam": null,
-		"straatnaam": "TestStraat",
-		"huisnummer": "1",
-		"huisletter": "A",
-		"toevoeging": "",
-		"postcode": "1234AB",
-		"wijknaam": "Test Wijk",
-		"buurtnaam": "Test Buurt",
-		"lichtmast_id": 1367,
-		"plaatsnaam": "Test Stad",
-		"begraafplaats": null,
-		"grafnummer": null,
-		"vak": null,
-		"gewicht": "0.2",
-		"melding": "1234",
-		"signaal": "5678",
-		"gebruiker": null
-	},
+	"locaties_voor_melding": [
+        {
+            "id": "1367",
+            "uuid": "3014507c-ab5d-42b8-8617-a759185b103b",
+            "aangemaakt_op": "2024-08-12T08:15:02.327024+02:00",
+            "aangepast_op": "2024-08-12T08:15:02.327059+02:00",
+            "locatie_type": "adres",
+            "geometrie": {
+                "type": "Point",
+                "coordinates": [
+                    "4.468454",
+                    "51.917085"
+                ]
+            },
+            "bron": null,
+            "naam": null,
+            "straatnaam": "TestStraat",
+            "huisnummer": "1",
+            "huisletter": "A",
+            "toevoeging": "",
+            "postcode": "1234AB",
+            "wijknaam": "Test Wijk",
+            "buurtnaam": "Test Buurt",
+            "lichtmast_id": 1367,
+            "plaatsnaam": "Test Stad",
+            "begraafplaats": null,
+            "grafnummer": null,
+            "vak": null,
+            "gewicht": "0.2",
+            "melding": "1234",
+            "signaal": "5678",
+            "gebruiker": null
+        }
+    ],
 	"status": {
 		"naam": "in_behandeling",
 		"melding": "1234"
@@ -142,7 +144,8 @@
 		},
 		"taak_url": null
 	},
-	"signalen_voor_melding": {
+	"signalen_voor_melding": [
+        {
 		"_links": {
 			"self": "https://dummy-url.nl/api/v1/signaal/8a2174f2-6c68-46ad-8801-256e54fcf3a3/",
 			"melding": "https://dummy-url.nl/api/v1/melding/b26b7a1a-370f-4ac9-90c4-a44fc19f8688/"
@@ -245,37 +248,40 @@
 		},
 		"aangemaakt_op": "2024-08-12T08:15:02.281108+02:00",
 		"melding": "1234",
-		"locaties_voor_signaal": {
-			"id": "1367",
-			"uuid": "3014507c-ab5d-42b8-8617-a759185b103b",
-			"aangemaakt_op": "2024-08-12T08:15:02.327024+02:00",
-			"aangepast_op": "2024-08-12T08:15:02.327059+02:00",
-			"locatie_type": "adres",
-			"geometrie": {
-				"type": "Point",
-				"coordinates": [
-					"1.21567",
-					"89.01215"
-				]
-			},
-			"bron": null,
-			"naam": null,
-			"straatnaam": "TestStraat",
-			"huisnummer": "1",
-			"huisletter": "A",
-			"toevoeging": "",
-			"postcode": "1234AB",
-			"wijknaam": "Test Wijk",
-			"buurtnaam": "Test Buurt",
-			"lichtmast_id": null,
-			"plaatsnaam": "Test Stad",
-			"begraafplaats": null,
-			"grafnummer": null,
-			"vak": null,
-			"gewicht": "0.2",
-			"melding": "1234",
-			"signaal": "5678",
-			"gebruiker": null
-		}
-	}
+		"locaties_voor_signaal": [
+            {
+                "id": "1367",
+                "uuid": "3014507c-ab5d-42b8-8617-a759185b103b",
+                "aangemaakt_op": "2024-08-12T08:15:02.327024+02:00",
+                "aangepast_op": "2024-08-12T08:15:02.327059+02:00",
+                "locatie_type": "adres",
+                "geometrie": {
+                    "type": "Point",
+                    "coordinates": [
+                        "1.21567",
+                        "89.01215"
+                    ]
+                },
+                "bron": null,
+                "naam": null,
+                "straatnaam": "TestStraat",
+                "huisnummer": "1",
+                "huisletter": "A",
+                "toevoeging": "",
+                "postcode": "1234AB",
+                "wijknaam": "Test Wijk",
+                "buurtnaam": "Test Buurt",
+                "lichtmast_id": null,
+                "plaatsnaam": "Test Stad",
+                "begraafplaats": null,
+                "grafnummer": null,
+                "vak": null,
+                "gewicht": "0.2",
+                "melding": "1234",
+                "signaal": "5678",
+                "gebruiker": null
+            }
+        ]
+	    }
+    ]
 }
