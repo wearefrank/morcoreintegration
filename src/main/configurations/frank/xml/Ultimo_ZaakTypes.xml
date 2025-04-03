@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <root>
-    <count>10</count>
+    <count>15</count>
     <next />
     <previous />
     <results>
@@ -144,6 +144,74 @@
         <extra>
             <ultimoOnderwerpCode>12165</ultimoOnderwerpCode>
             <ultimoOnderwerpOmschrijving>straatkolk (verstopt)</ultimoOnderwerpOmschrijving>
+        </extra>
+    </results>
+
+
+
+    <results>
+        <_links>
+            <self>[hostname]api/v1/taaktype/99e62ce5-9edb-40a7-b2a6-648c372961db</self>
+        </_links>
+        <uuid>99e62ce5-9edb-40a7-b2a6-648c372961db</uuid>
+        <omschrijving>Omgevallen boom in verharding verwijderen (geen stormschade)</omschrijving>
+        <toelichting></toelichting>
+        <additionele_informatie />
+        <extra>
+            <ultimoOnderwerpCode>22333</ultimoOnderwerpCode>
+            <ultimoOnderwerpOmschrijving>Boom Verharding</ultimoOnderwerpOmschrijving>
+        </extra>
+    </results>
+    <results>
+        <_links>
+            <self>[hostname]api/v1/taaktype/1732613a-8d83-4f6c-a795-9a9df3b49751</self>
+        </_links>
+        <uuid>1732613a-8d83-4f6c-a795-9a9df3b49751</uuid>
+        <omschrijving>Omgevallen boom in groen verwijderen</omschrijving>
+        <toelichting></toelichting>
+        <additionele_informatie />
+        <extra>
+            <ultimoOnderwerpCode>22334</ultimoOnderwerpCode>
+            <ultimoOnderwerpOmschrijving>Boom Groen</ultimoOnderwerpOmschrijving>
+        </extra>
+    </results>
+    <results>
+        <_links>
+            <self>[hostname]api/v1/taaktype/a72889db-51c4-4885-a2b8-b26236750ef7</self>
+        </_links>
+        <uuid>a72889db-51c4-4885-a2b8-b26236750ef7</uuid>
+        <omschrijving>Veiligstellen buitenruimte door stormschade</omschrijving>
+        <toelichting></toelichting>
+        <additionele_informatie />
+        <extra>
+            <ultimoOnderwerpCode>22335</ultimoOnderwerpCode>
+            <ultimoOnderwerpOmschrijving>Boom Storm</ultimoOnderwerpOmschrijving>
+        </extra>
+    </results>
+    <results>
+        <_links>
+            <self>[hostname]api/v1/taaktype/9bd57bcf-b66d-4b4b-b6a9-193f38cc29c0</self>
+        </_links>
+        <uuid>9bd57bcf-b66d-4b4b-b6a9-193f38cc29c0</uuid>
+        <omschrijving>Snoeien boom</omschrijving>
+        <toelichting></toelichting>
+        <additionele_informatie />
+        <extra>
+            <ultimoOnderwerpCode>22336</ultimoOnderwerpCode>
+            <ultimoOnderwerpOmschrijving>Boom Snoei</ultimoOnderwerpOmschrijving>
+        </extra>
+    </results>
+    <results>
+        <_links>
+            <self>[hostname]api/v1/taaktype/89e441b1-9862-47ba-885c-bd4213719d36</self>
+        </_links>
+        <uuid>89e441b1-9862-47ba-885c-bd4213719d36</uuid>
+        <omschrijving>Boompalen en afrastering herstellen (nazorg)</omschrijving>
+        <toelichting></toelichting>
+        <additionele_informatie />
+        <extra>
+            <ultimoOnderwerpCode>22337</ultimoOnderwerpCode>
+            <ultimoOnderwerpOmschrijving>Boom Nazorg</ultimoOnderwerpOmschrijving>
         </extra>
     </results>
 </root>

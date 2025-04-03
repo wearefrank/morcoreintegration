@@ -1,5 +1,5 @@
 {
-    "count": "10",
+    "count": "15",
     "next": "",
     "previous": "",
     "results": [
@@ -131,6 +131,71 @@
             "extra": {
                 "ultimoOnderwerpCode": "12165",
                 "ultimoOnderwerpOmschrijving": "straatkolk (verstopt)"
+            }
+        },
+        {
+            "_links": {
+                "self": "https://localhost/api/v1/taaktype/99e62ce5-9edb-40a7-b2a6-648c372961db"
+            },
+            "uuid": "99e62ce5-9edb-40a7-b2a6-648c372961db",
+            "omschrijving": "Omgevallen boom in verharding verwijderen (geen stormschade)",
+            "toelichting": "",
+            "additionele_informatie": "",
+            "extra": {
+                "ultimoOnderwerpCode": "22333",
+                "ultimoOnderwerpOmschrijving": "Boom Verharding"
+            }
+        },
+        {
+            "_links": {
+                "self": "https://localhost/api/v1/taaktype/1732613a-8d83-4f6c-a795-9a9df3b49751"
+            },
+            "uuid": "1732613a-8d83-4f6c-a795-9a9df3b49751",
+            "omschrijving": "Omgevallen boom in groen verwijderen",
+            "toelichting": "",
+            "additionele_informatie": "",
+            "extra": {
+                "ultimoOnderwerpCode": "22334",
+                "ultimoOnderwerpOmschrijving": "Boom Groen"
+            }
+        },
+        {
+            "_links": {
+                "self": "https://localhost/api/v1/taaktype/a72889db-51c4-4885-a2b8-b26236750ef7"
+            },
+            "uuid": "a72889db-51c4-4885-a2b8-b26236750ef7",
+            "omschrijving": "Veiligstellen buitenruimte door stormschade",
+            "toelichting": "",
+            "additionele_informatie": "",
+            "extra": {
+                "ultimoOnderwerpCode": "22335",
+                "ultimoOnderwerpOmschrijving": "Boom Storm"
+            }
+        },
+        {
+            "_links": {
+                "self": "https://localhost/api/v1/taaktype/9bd57bcf-b66d-4b4b-b6a9-193f38cc29c0"
+            },
+            "uuid": "9bd57bcf-b66d-4b4b-b6a9-193f38cc29c0",
+            "omschrijving": "Snoeien boom",
+            "toelichting": "",
+            "additionele_informatie": "",
+            "extra": {
+                "ultimoOnderwerpCode": "22336",
+                "ultimoOnderwerpOmschrijving": "Boom Snoei"
+            }
+        },
+        {
+            "_links": {
+                "self": "https://localhost/api/v1/taaktype/89e441b1-9862-47ba-885c-bd4213719d36"
+            },
+            "uuid": "89e441b1-9862-47ba-885c-bd4213719d36",
+            "omschrijving": "Boompalen en afrastering herstellen (nazorg)",
+            "toelichting": "",
+            "additionele_informatie": "",
+            "extra": {
+                "ultimoOnderwerpCode": "22337",
+                "ultimoOnderwerpOmschrijving": "Boom Nazorg"
             }
         }
     ]
