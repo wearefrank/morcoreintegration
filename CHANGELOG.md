@@ -1,5 +1,11 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.12.7](https://github.com/wearefrank/morcoreintegration/compare/v1.12.6...v1.12.7) (2025-04-28)
+
+### 🐛 Bug Fixes
+
+* trigger a new release ([884494d](https://github.com/wearefrank/morcoreintegration/commit/884494dde946e4efd1e78b2b5b9df86ac03b165a))
+
 ## [1.12.6](https://github.com/wearefrank/morcoreintegration/compare/v1.12.5...v1.12.6) (2025-04-03)
 
 ### 🐛 Bug Fixes
