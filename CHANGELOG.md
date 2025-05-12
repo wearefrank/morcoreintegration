@@ -1,5 +1,11 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.12.8](https://github.com/wearefrank/morcoreintegration/compare/v1.12.7...v1.12.8) (2025-05-12)
+
+### 🐛 Bug Fixes
+
+* small fix for attachments ([781dd8d](https://github.com/wearefrank/morcoreintegration/commit/781dd8d39a75adfba10629dbf5842cae96b6884c))
+
 ## [1.12.7](https://github.com/wearefrank/morcoreintegration/compare/v1.12.6...v1.12.7) (2025-04-28)
 
 ### 🐛 Bug Fixes
