@@ -13,5 +13,7 @@
     "user": {
         "user_click_latitude": 52.123456,
         "user_click_longitude": 5.123456
-    }
+    },
+    "attachments": [
+    ]
 }

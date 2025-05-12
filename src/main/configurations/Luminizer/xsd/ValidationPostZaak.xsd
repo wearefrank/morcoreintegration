@@ -3,7 +3,7 @@
   <xs:element name="root">
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="mor_id" type="xs:integer" >
+        <xs:element name="mor_id" type="xs:integer">
           <xs:annotation>
             <xs:documentation>The unique identifier of the workorder.</xs:documentation>
           </xs:annotation>
@@ -11,31 +11,37 @@
         <xs:element name="malfunction" type="MorRotterdamMalfunctionDto" />
         <xs:element name="asset" type="MorRotterdamAssetDto" />
         <xs:element name="user" type="MorRotterdamUserDto" />
-        <xs:element name="attachments" maxOccurs="unbounded" minOccurs="0">
-			<xs:complexType>
-				<xs:sequence>
-					<xs:element name="url" type="xs:string"/>
-					<xs:element name="filename" type="xs:string"/>
-				</xs:sequence>
-			</xs:complexType>
-		</xs:element>
+        <xs:element name="attachments">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="attachment" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="url" type="xs:string" />
+                    <xs:element name="filename" type="xs:string" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:sequence>
     </xs:complexType>
   </xs:element>
 
   <xs:complexType name="MorRotterdamMalfunctionDto">
     <xs:sequence>
-      <xs:element name="malfunction_type" type="xs:string" >
+      <xs:element name="malfunction_type" type="xs:string">
         <xs:annotation>
           <xs:documentation>Malfunction type</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="malfunction_remark" type="xs:string" >
+      <xs:element name="malfunction_remark" type="xs:string">
         <xs:annotation>
           <xs:documentation>Malfunction remark</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="malfunction_timestamp" type="xs:string" >
+      <xs:element name="malfunction_timestamp" type="xs:string">
         <xs:annotation>
           <xs:documentation>Date of malfunction</xs:documentation>
         </xs:annotation>
@@ -45,7 +51,7 @@
 
   <xs:complexType name="MorRotterdamAssetDto">
     <xs:sequence>
-      <xs:element name="asset_id" type="xs:string" >
+      <xs:element name="asset_id" type="xs:string">
         <xs:annotation>
           <xs:documentation>Malfunction type</xs:documentation>
         </xs:annotation>
