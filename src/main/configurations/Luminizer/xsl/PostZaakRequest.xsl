@@ -24,7 +24,7 @@
 			</malfunction>
 			<asset>
 				<asset_id>
-					<xsl:value-of select="string-join($meldingInfo/root/locaties_voor_melding/lichtmast_id, ',')"/>
+					<xsl:value-of select="string-join($meldingInfo/root/locaties_voor_melding/lichtmast_id[normalize-space()], ',')"/>
 				</asset_id>
 				<asset_latitude>
                     <xsl:choose>
@@ -69,16 +69,18 @@
                     </xsl:choose>
                 </user_click_longitude>
 			</user>
+			<attachments>
 			<xsl:for-each select="$meldingInfo/root/signalen_voor_melding[1]/bijlagen">
-				<attachments>
+				<attachment>
 					<url>
 						<xsl:value-of select="replace(./bestand, $MorCore.API.images.url, $Frank.API.images.url)"/>
 					</url>
 					<filename>
 						<xsl:value-of select="tokenize(./bestand,'/')[last()]"/>
 					</filename>
-				</attachments>
+				</attachment>
 			</xsl:for-each>
+			</attachments>
 		</root>
 	</xsl:template>
 </xsl:stylesheet>
