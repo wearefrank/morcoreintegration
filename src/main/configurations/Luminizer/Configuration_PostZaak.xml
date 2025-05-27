@@ -127,6 +127,7 @@
 				<Forward name="304" path="ServerError" />
 				<Forward name="400" path="BadRequest" />
 				<Forward name="401" path="ServerError" />
+                <Forward name="403" path="ServerError" />
 				<Forward name="404" path="NotFound" />
 				<Forward name="412" path="ServerError" />
 				<Forward name="415" path="UnsupportedMediaType" />

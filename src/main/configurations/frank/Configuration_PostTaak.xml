@@ -14,7 +14,7 @@
             <Exits>
                 <Exit name="Exit" state="SUCCESS" code="201"/>
                 <Exit name="Reject" state="REJECTED" />
-                <Exit name="Exception" state="ERROR" />
+                <Exit name="Exception" state="ERROR" code="500" />
             </Exits>
 
             <SenderPipe name="GetToken" storeResultInSessionKey="FrankToken" active="${Token_Authentication.Active}">
