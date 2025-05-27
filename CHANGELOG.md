@@ -1,5 +1,11 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.12.9](https://github.com/wearefrank/morcoreintegration/compare/v1.12.8...v1.12.9) (2025-05-27)
+
+### 🐛 Bug Fixes
+
+* missing forward and exit code ([0963215](https://github.com/wearefrank/morcoreintegration/commit/0963215142681b05967654a3b80a450c9bb4d2ac))
+
 ## [1.12.8](https://github.com/wearefrank/morcoreintegration/compare/v1.12.7...v1.12.8) (2025-05-12)
 
 ### 🐛 Bug Fixes
