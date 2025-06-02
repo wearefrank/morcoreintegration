@@ -1,7 +1,7 @@
 {
     "mor_id": "1001",
     "malfunction": {
-        "malfunction_type": "",
+        "malfunction_type": "Taak aangemaakt door (personeelsnummer): 123456789@email.dummy\nTaak: Brand overdag\nOpmerkingen bij taak: \nKenmerken: 2024-003657\nMelding: AUTOMATISCHE TEST MELDING TOSCA!\nDoor melder opgegeven masten: 1234",
         "malfunction_timestamp": "2001-12-17T09:30:47"
     },
     "asset": {
