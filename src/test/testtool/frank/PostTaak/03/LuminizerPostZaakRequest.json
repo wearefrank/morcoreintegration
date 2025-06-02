@@ -2,7 +2,7 @@
     "mor_id": 1001,
     "malfunction": {
         "malfunction_type": "mast aangereden",
-        "malfunction_remark": "",
+        "malfunction_remark": "Taak aangemaakt door (personeelsnummer): 123456789@email.dummy\nTaak: Lichtmast scheef/aangereden\nOpmerkingen bij taak: \nKenmerken: 2023-123456\nMelding: \nDoor melder opgegeven masten: ",
         "malfunction_timestamp": "2001-12-17T09:30:47"
     },
     "asset": {
