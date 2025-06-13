@@ -1,5 +1,11 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.12.10](https://github.com/wearefrank/morcoreintegration/compare/v1.12.9...v1.12.10) (2025-06-13)
+
+### 🐛 Bug Fixes
+
+* missing state ([5b63b37](https://github.com/wearefrank/morcoreintegration/commit/5b63b376894ea4a62e18b7c527949149d341c129))
+
 ## [1.12.9](https://github.com/wearefrank/morcoreintegration/compare/v1.12.8...v1.12.9) (2025-05-27)
 
 ### 🐛 Bug Fixes
