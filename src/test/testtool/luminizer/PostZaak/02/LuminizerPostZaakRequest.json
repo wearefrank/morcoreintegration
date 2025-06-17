@@ -1,7 +1,7 @@
 {
     "mor_id": 1001,
     "malfunction": {
-        "malfunction_type": "mast aangereden",
+        "malfunction_type": "OVERIG",
         "malfunction_remark": "",
         "malfunction_timestamp": "2001-12-17T09:30:47"
     },
