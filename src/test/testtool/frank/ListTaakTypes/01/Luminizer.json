@@ -1,18 +1,30 @@
 {
-    "count": "3",
+    "count": "11",
     "next": "",
     "previous": "",
     "results": [
         {
             "_links": {
-                "self": "https://localhost/api/v1/taaktype/69f5ead5-1d53-4398-ac69-a3ca31854125"
+                "self": "https://localhost/api/v1/taaktype/7070f8a1-a89c-4915-8a99-10ab09194c65"
             },
-            "uuid": "69f5ead5-1d53-4398-ac69-a3ca31854125",
-            "omschrijving": "Lichtmast scheef/aangereden",
-            "toelichting": "Lichtmast scheef/aangereden",
+            "uuid": "7070f8a1-a89c-4915-8a99-10ab09194c65",
+            "omschrijving": "Verlichting knippert 1 stuk",
+            "toelichting": "Verlichting knippert 1 stuk",
             "additionele_informatie": "",
             "extra": {
-                "luminizerOnderwerpOmschrijving": "mast aangereden"
+                "luminizerOnderwerpOmschrijving": "OVERIG"
+            }
+        },
+        {
+            "_links": {
+                "self": "https://localhost/api/v1/taaktype/a3e2e97b-598a-4d5c-88df-4812f2a2db4e"
+            },
+            "uuid": "a3e2e97b-598a-4d5c-88df-4812f2a2db4e",
+            "omschrijving": "Verlichting knippert 2 of meer stuks",
+            "toelichting": "Verlichting knippert 2 of meer stuks",
+            "additionele_informatie": "",
+            "extra": {
+                "luminizerOnderwerpOmschrijving": "OVERIG"
             }
         },
         {
@@ -20,23 +32,107 @@
                 "self": "https://localhost/api/v1/taaktype/91da0543-0bc1-4fae-9539-0d34d5f94d01"
             },
             "uuid": "91da0543-0bc1-4fae-9539-0d34d5f94d01",
-            "omschrijving": "Brand niet",
-            "toelichting": "Brand niet",
+            "omschrijving": "Verlichting doet het niet 1 stuk",
+            "toelichting": "Verlichting doet het niet 1 stuk",
             "additionele_informatie": "",
             "extra": {
-                "luminizerOnderwerpOmschrijving": "lamp defect"
+                "luminizerOnderwerpOmschrijving": "BRANDT_NIET"
             }
         },
         {
             "_links": {
-                "self": "https://localhost/api/v1/taaktype/dcb55cdb-c969-4582-9bd1-228e830fb25d"
+                "self": "https://localhost/api/v1/taaktype/b9e1532f-9b6a-4553-b130-d9db87a5c944"
             },
-            "uuid": "dcb55cdb-c969-4582-9bd1-228e830fb25d",
-            "omschrijving": "Brand overdag",
-            "toelichting": "Brand overdag",
+            "uuid": "b9e1532f-9b6a-4553-b130-d9db87a5c944",
+            "omschrijving": "Verlichting doet het niet 2 of meer stuks",
+            "toelichting": "Verlichting doet het niet 2 of meer stuks",
             "additionele_informatie": "",
             "extra": {
-                "luminizerOnderwerpOmschrijving": "lamp defect"
+                "luminizerOnderwerpOmschrijving": "OVERIG"
+            }
+        },
+        {
+            "_links": {
+                "self": "https://localhost/api/v1/taaktype/edcb1dac-5786-4483-a0df-be7103406b44"
+            },
+            "uuid": "edcb1dac-5786-4483-a0df-be7103406b44",
+            "omschrijving": "Verlichting brand overdag 1 stuk",
+            "toelichting": "Verlichting brand overdag 1 stuk",
+            "additionele_informatie": "",
+            "extra": {
+                "luminizerOnderwerpOmschrijving": "BRANDT_OVERDAG"
+            }
+        },
+        {
+            "_links": {
+                "self": "https://localhost/api/v1/taaktype/be2fc491-cafc-47ab-a223-3cb50b51842f"
+            },
+            "uuid": "be2fc491-cafc-47ab-a223-3cb50b51842f",
+            "omschrijving": "Verlichting brand overdag 2 of meer stuks",
+            "toelichting": "Verlichting brand overdag 2 of meer stuks",
+            "additionele_informatie": "",
+            "extra": {
+                "luminizerOnderwerpOmschrijving": "OVERIG"
+            }
+        },
+        {
+            "_links": {
+                "self": "https://localhost/api/v1/taaktype/69f5ead5-1d53-4398-ac69-a3ca31854125"
+            },
+            "uuid": "69f5ead5-1d53-4398-ac69-a3ca31854125",
+            "omschrijving": "Lichtmast staat scheef (niet urgent)",
+            "toelichting": "Lichtmast staat scheef (niet urgent)",
+            "additionele_informatie": "",
+            "extra": {
+                "luminizerOnderwerpOmschrijving": "OVERIG"
+            }
+        },
+        {
+            "_links": {
+                "self": "https://localhost/api/v1/taaktype/c6a871b1-ef40-4e3d-8520-490c6c8e91ab"
+            },
+            "uuid": "c6a871b1-ef40-4e3d-8520-490c6c8e91ab",
+            "omschrijving": "Lichtmast staat scheef (urgent)",
+            "toelichting": "Lichtmast staat scheef (urgent)",
+            "additionele_informatie": "",
+            "extra": {
+                "luminizerOnderwerpOmschrijving": "MAST_SCHEEF"
+            }
+        },
+        {
+            "_links": {
+                "self": "https://localhost/api/v1/taaktype/0c018bc0-9c94-459f-89d6-f4124e0aea7d"
+            },
+            "uuid": "0c018bc0-9c94-459f-89d6-f4124e0aea7d",
+            "omschrijving": "Lichtmast is omgevallen (urgent)",
+            "toelichting": "Lichtmast is omgevallen (urgent)",
+            "additionele_informatie": "",
+            "extra": {
+                "luminizerOnderwerpOmschrijving": "MAST_SCHADE"
+            }
+        },
+        {
+            "_links": {
+                "self": "https://localhost/api/v1/taaktype/b3d4a2e1-8a45-48c9-8266-0fc4e170ca7d"
+            },
+            "uuid": "b3d4a2e1-8a45-48c9-8266-0fc4e170ca7d",
+            "omschrijving": "Lichtmastluikje staat open / bedrading zichtbaar (urgent)",
+            "toelichting": "Lichtmastluikje staat open / bedrading zichtbaar (urgent)",
+            "additionele_informatie": "",
+            "extra": {
+                "luminizerOnderwerpOmschrijving": "LUIKJE_OPEN"
+            }
+        },
+        {
+            "_links": {
+                "self": "https://localhost/api/v1/taaktype/2302ca5e-bc66-416d-ae36-7a3e5f1a41fa"
+            },
+            "uuid": "2302ca5e-bc66-416d-ae36-7a3e5f1a41fa",
+            "omschrijving": "Armatuur hangt los (urgent)",
+            "toelichting": "Armatuur hangt los (urgent)",
+            "additionele_informatie": "",
+            "extra": {
+                "luminizerOnderwerpOmschrijving": "OVERIG"
             }
         }
     ]

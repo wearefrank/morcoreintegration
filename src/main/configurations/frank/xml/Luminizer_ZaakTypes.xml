@@ -1,18 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <root>
-    <count>3</count>
+    <count>11</count>
     <next />
     <previous />
+
     <results>
         <_links>
-            <self>[hostname]api/v1/taaktype/69f5ead5-1d53-4398-ac69-a3ca31854125</self>
+            <self>[hostname]api/v1/taaktype/7070f8a1-a89c-4915-8a99-10ab09194c65</self>
         </_links>
-        <uuid>69f5ead5-1d53-4398-ac69-a3ca31854125</uuid>
-        <omschrijving>Lichtmast scheef/aangereden</omschrijving>
-        <toelichting>Lichtmast scheef/aangereden</toelichting>
+        <uuid>7070f8a1-a89c-4915-8a99-10ab09194c65</uuid>
+        <omschrijving>Verlichting knippert 1 stuk</omschrijving>
+        <toelichting>Verlichting knippert 1 stuk</toelichting>
         <additionele_informatie />
         <extra>
-            <luminizerOnderwerpOmschrijving>mast aangereden</luminizerOnderwerpOmschrijving>
+            <luminizerOnderwerpOmschrijving>OVERIG</luminizerOnderwerpOmschrijving>
+        </extra>
+    </results>
+    <results>
+        <_links>
+            <self>[hostname]api/v1/taaktype/a3e2e97b-598a-4d5c-88df-4812f2a2db4e</self>
+        </_links>
+        <uuid>a3e2e97b-598a-4d5c-88df-4812f2a2db4e</uuid>
+        <omschrijving>Verlichting knippert 2 of meer stuks</omschrijving>
+        <toelichting>Verlichting knippert 2 of meer stuks</toelichting>
+        <additionele_informatie />
+        <extra>
+            <luminizerOnderwerpOmschrijving>OVERIG</luminizerOnderwerpOmschrijving>
         </extra>
     </results>
     <results>
@@ -20,23 +33,107 @@
             <self>[hostname]api/v1/taaktype/91da0543-0bc1-4fae-9539-0d34d5f94d01</self>
         </_links>
         <uuid>91da0543-0bc1-4fae-9539-0d34d5f94d01</uuid>
-        <omschrijving>Brand niet</omschrijving>
-        <toelichting>Brand niet</toelichting>
+        <omschrijving>Verlichting doet het niet 1 stuk</omschrijving>
+        <toelichting>Verlichting doet het niet 1 stuk</toelichting>
         <additionele_informatie />
         <extra>
-            <luminizerOnderwerpOmschrijving>lamp defect</luminizerOnderwerpOmschrijving>
+            <luminizerOnderwerpOmschrijving>BRANDT_NIET</luminizerOnderwerpOmschrijving>
         </extra>
     </results>
     <results>
         <_links>
-            <self>[hostname]api/v1/taaktype/dcb55cdb-c969-4582-9bd1-228e830fb25d</self>
+            <self>[hostname]api/v1/taaktype/b9e1532f-9b6a-4553-b130-d9db87a5c944</self>
         </_links>
-        <uuid>dcb55cdb-c969-4582-9bd1-228e830fb25d</uuid>
-        <omschrijving>Brand overdag</omschrijving>
-        <toelichting>Brand overdag</toelichting>
+        <uuid>b9e1532f-9b6a-4553-b130-d9db87a5c944</uuid>
+        <omschrijving>Verlichting doet het niet 2 of meer stuks</omschrijving>
+        <toelichting>Verlichting doet het niet 2 of meer stuks</toelichting>
         <additionele_informatie />
         <extra>
-            <luminizerOnderwerpOmschrijving>lamp defect</luminizerOnderwerpOmschrijving>
+            <luminizerOnderwerpOmschrijving>OVERIG</luminizerOnderwerpOmschrijving>
+        </extra>
+    </results>
+    <results>
+        <_links>
+            <self>[hostname]api/v1/taaktype/edcb1dac-5786-4483-a0df-be7103406b44</self>
+        </_links>
+        <uuid>edcb1dac-5786-4483-a0df-be7103406b44</uuid>
+        <omschrijving>Verlichting brand overdag 1 stuk</omschrijving>
+        <toelichting>Verlichting brand overdag 1 stuk</toelichting>
+        <additionele_informatie />
+        <extra>
+            <luminizerOnderwerpOmschrijving>BRANDT_OVERDAG</luminizerOnderwerpOmschrijving>
+        </extra>
+    </results>
+    <results>
+        <_links>
+            <self>[hostname]api/v1/taaktype/be2fc491-cafc-47ab-a223-3cb50b51842f</self>
+        </_links>
+        <uuid>be2fc491-cafc-47ab-a223-3cb50b51842f</uuid>
+        <omschrijving>Verlichting brand overdag 2 of meer stuks</omschrijving>
+        <toelichting>Verlichting brand overdag 2 of meer stuks</toelichting>
+        <additionele_informatie />
+        <extra>
+            <luminizerOnderwerpOmschrijving>OVERIG</luminizerOnderwerpOmschrijving>
+        </extra>
+    </results>
+    <results>
+        <_links>
+            <self>[hostname]api/v1/taaktype/69f5ead5-1d53-4398-ac69-a3ca31854125</self>
+        </_links>
+        <uuid>69f5ead5-1d53-4398-ac69-a3ca31854125</uuid>
+        <omschrijving>Lichtmast staat scheef (niet urgent)</omschrijving>
+        <toelichting>Lichtmast staat scheef (niet urgent)</toelichting>
+        <additionele_informatie />
+        <extra>
+            <luminizerOnderwerpOmschrijving>OVERIG</luminizerOnderwerpOmschrijving>
+        </extra>
+    </results>
+    <results>
+        <_links>
+            <self>[hostname]api/v1/taaktype/c6a871b1-ef40-4e3d-8520-490c6c8e91ab</self>
+        </_links>
+        <uuid>c6a871b1-ef40-4e3d-8520-490c6c8e91ab</uuid>
+        <omschrijving>Lichtmast staat scheef (urgent)</omschrijving>
+        <toelichting>Lichtmast staat scheef (urgent)</toelichting>
+        <additionele_informatie />
+        <extra>
+            <luminizerOnderwerpOmschrijving>MAST_SCHEEF</luminizerOnderwerpOmschrijving>
+        </extra>
+    </results>
+    <results>
+        <_links>
+            <self>[hostname]api/v1/taaktype/0c018bc0-9c94-459f-89d6-f4124e0aea7d</self>
+        </_links>
+        <uuid>0c018bc0-9c94-459f-89d6-f4124e0aea7d</uuid>
+        <omschrijving>Lichtmast is omgevallen (urgent)</omschrijving>
+        <toelichting>Lichtmast is omgevallen (urgent)</toelichting>
+        <additionele_informatie />
+        <extra>
+            <luminizerOnderwerpOmschrijving>MAST_SCHADE</luminizerOnderwerpOmschrijving>
+        </extra>
+    </results>
+    <results>
+        <_links>
+            <self>[hostname]api/v1/taaktype/b3d4a2e1-8a45-48c9-8266-0fc4e170ca7d</self>
+        </_links>
+        <uuid>b3d4a2e1-8a45-48c9-8266-0fc4e170ca7d</uuid>
+        <omschrijving>Lichtmastluikje staat open / bedrading zichtbaar (urgent)</omschrijving>
+        <toelichting>Lichtmastluikje staat open / bedrading zichtbaar (urgent)</toelichting>
+        <additionele_informatie />
+        <extra>
+            <luminizerOnderwerpOmschrijving>LUIKJE_OPEN</luminizerOnderwerpOmschrijving>
+        </extra>
+    </results>
+    <results>
+        <_links>
+            <self>[hostname]api/v1/taaktype/2302ca5e-bc66-416d-ae36-7a3e5f1a41fa</self>
+        </_links>
+        <uuid>2302ca5e-bc66-416d-ae36-7a3e5f1a41fa</uuid>
+        <omschrijving>Armatuur hangt los (urgent)</omschrijving>
+        <toelichting>Armatuur hangt los (urgent)</toelichting>
+        <additionele_informatie />
+        <extra>
+            <luminizerOnderwerpOmschrijving>OVERIG</luminizerOnderwerpOmschrijving>
         </extra>
     </results>
 </root>
