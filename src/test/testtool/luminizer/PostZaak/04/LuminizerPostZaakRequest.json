@@ -1,8 +1,8 @@
 {
     "mor_id": 1234,
     "malfunction": {
-        "malfunction_type": "lamp defect",
-        "malfunction_remark": "Taak aangemaakt door (personeelsnummer): 123456789@email.dummy\nTaak: Brand overdag\nOpmerkingen bij taak: omschrijving_intern\nKenmerken: 2024-003657\nMelding: AUTOMATISCHE TEST MELDING TOSCA!\nDoor melder opgegeven masten: ",
+        "malfunction_type": "BRANDT_OVERDAG",
+        "malfunction_remark": "Taak aangemaakt door (personeelsnummer): 123456789@email.dummy\nTaak: Verlichting brand overdag 1 stuk\nOpmerkingen bij taak: omschrijving_intern\nKenmerken: 2024-003657\nMelding: AUTOMATISCHE TEST MELDING TOSCA!\nDoor melder opgegeven masten: ",
         "malfunction_timestamp": "2001-12-17T09:30:47"
     },
     "asset": {
