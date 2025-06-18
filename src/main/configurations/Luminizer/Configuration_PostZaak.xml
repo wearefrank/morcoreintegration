@@ -20,7 +20,6 @@
 				<Exit name="ServerError" state="ERROR" code="500" />
 				<Exit name="TimeOut" state="ERROR" code="504" />
 			</Exits>
-
             <PutSystemDateInSessionPipe name="StoreSystemDate" />
 
             <SenderPipe name="CallMorCore_GetToken" storeResultInSessionKey="MorCoreToken">
