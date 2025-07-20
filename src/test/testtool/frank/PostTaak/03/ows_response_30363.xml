@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding="UTF-8" ?>
+<wfs:FeatureCollection
+   xmlns:ms="http://mapserver.gis.umn.edu/mapserver"
+   xmlns:gml="http://www.opengis.net/gml/3.2"
+   xmlns:wfs="http://www.opengis.net/wfs/2.0"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://mapserver.gis.umn.edu/mapserver https://ows.gis.rotterdam.nl/cgi-bin/mapserv.exe?map=d:\gwr\webdata\mapserver\map\BBDWH_pub.map&amp;SERVICE=WFS&amp;VERSION=2.0.0&amp;REQUEST=DescribeFeatureType&amp;TYPENAME=namespace:sdo_gwr_bsb_ovl&amp;OUTPUTFORMAT=application%2Fgml%2Bxml%3B%20version%3D3.2 http://www.opengis.net/wfs/2.0 http://schemas.opengis.net/wfs/2.0/wfs.xsd http://www.opengis.net/gml/3.2 http://schemas.opengis.net/gml/3.2.1/gml.xsd"
+   timeStamp="2025-07-17T14:41:06" numberMatched="1" numberReturned="1">
+    <wfs:boundedBy>
+        <gml:Envelope srsName="urn:ogc:def:crs:EPSG::28992">
+            <gml:lowerCorner>97133.447000 438100.667000</gml:lowerCorner>
+            <gml:upperCorner>97133.447000 438100.667000</gml:upperCorner>
+        </gml:Envelope>
+    </wfs:boundedBy>
+    <wfs:member>
+        <ms:sdo_gwr_bsb_ovl gml:id="sdo_gwr_bsb_ovl.16291">
+            <gml:boundedBy>
+                <gml:Envelope srsName="urn:ogc:def:crs:EPSG::28992">
+                    <gml:lowerCorner>97133.447000 438100.667000</gml:lowerCorner>
+                    <gml:upperCorner>97133.447000 438100.667000</gml:upperCorner>
+                </gml:Envelope>
+            </gml:boundedBy>
+            <ms:GEOM>
+                <gml:Point gml:id="sdo_gwr_bsb_ovl.16291.1" srsName="urn:ogc:def:crs:EPSG::28992">
+                    <gml:pos>97133.447000 438100.667000</gml:pos>
+                </gml:Point>
+            </ms:GEOM>
+            <ms:LAMP_ID>16291</ms:LAMP_ID>
+            <ms:BEHEEROBJECTOMSCHRIJVING>LPT|49565|33-T</ms:BEHEEROBJECTOMSCHRIJVING>
+            <ms:LICHTPUNT_ID>30363</ms:LICHTPUNT_ID>
+            <ms:LICHTPUNTNUMMER>33-T</ms:LICHTPUNTNUMMER>
+            <ms:LAATSTE_MUTATIE_LICHTPUNT>2023-07-31 00:00:00</ms:LAATSTE_MUTATIE_LICHTPUNT>
+            <ms:MAST_ID>70117</ms:MAST_ID>
+            <ms:ARMATUUR_ID>30364</ms:ARMATUUR_ID>
+            <ms:ARMATUUR_NUMMER>1</ms:ARMATUUR_NUMMER>
+            <ms:UITHOUDER_ID>456431</ms:UITHOUDER_ID>
+            <ms:SCHAKELAPPARAAT_ID>30364</ms:SCHAKELAPPARAAT_ID>
+            <ms:WOONPLAATS>Prins Alexander</ms:WOONPLAATS>
+            <ms:WIJK>s Gravenland</ms:WIJK>
+            <ms:BUURT>s Gravenland - 01</ms:BUURT>
+            <ms:STRAAT>Mia van IJperenplein</ms:STRAAT>
+            <ms:BEHEERDER>Openbaar</ms:BEHEERDER>
+            <ms:EIGENAAR>Openbaar Gebied</ms:EIGENAAR>
+            <ms:STRUCTUURGEBIED>woonomgeving</ms:STRUCTUURGEBIED>
+            <ms:AMBITIENIVEAU>B (basis)</ms:AMBITIENIVEAU>
+            <ms:LICHTPUNTTYPE>Straatverlichting</ms:LICHTPUNTTYPE>
+            <ms:MASTTYPE>MAST 4M LPH 4M ST 1X VERJONGD PMF ART.1700533E D76</ms:MASTTYPE>
+            <ms:PLAATSINGSDATUM_MAST>1995-01-01 00:00:00</ms:PLAATSINGSDATUM_MAST>
+            <ms:MASTKLEUR>Rotterdamgrijs RS</ms:MASTKLEUR>
+            <ms:UITHOUDERTYPE>NIET VAN TOEPASSING</ms:UITHOUDERTYPE>
+            <ms:PLAATSINGSDATUM_UITHOUDER>1900-01-01 00:00:00</ms:PLAATSINGSDATUM_UITHOUDER>
+            <ms:VOLGNUMMER_UITHOUDER>1</ms:VOLGNUMMER_UITHOUDER>
+            <ms:ARMATUURTYPE>80233M BDP102 R.grijs LW10 LED25/830 2500lm II DS P Townguide mat</ms:ARMATUURTYPE>
+            <ms:PLAATSINGSDATUM_ARMATUUR>2023-07-31 00:00:00</ms:PLAATSINGSDATUM_ARMATUUR>
+            <ms:VOLGNUMMER_ARMATUUR>1</ms:VOLGNUMMER_ARMATUUR>
+            <ms:ARMATUURKLEUR>Rotterdamgrijs RS</ms:ARMATUURKLEUR>
+            <ms:SYSTEEMVERMOGEN>21</ms:SYSTEEMVERMOGEN>
+            <ms:MONTAGEHOOGTE>4</ms:MONTAGEHOOGTE>
+            <ms:LAATSTE_MUTATIE_ARMATUUR>2023-07-31 00:00:00</ms:LAATSTE_MUTATIE_ARMATUUR>
+            <ms:SCHAKELSYSTEEMTYPE>Driver  </ms:SCHAKELSYSTEEMTYPE>
+            <ms:PLAATSINGSDATUM_SCHAKELSYSTEEM>2023-07-31 00:00:00</ms:PLAATSINGSDATUM_SCHAKELSYSTEEM>
+            <ms:VOLGNUMMER_SCHAKELSYSTEEM>1</ms:VOLGNUMMER_SCHAKELSYSTEEM>
+            <ms:DIMREGIME>Percentage Dimmen: 20% 23:00-06:00 40%</ms:DIMREGIME>
+            <ms:LICHTBRONTYPE>LED 21W</ms:LICHTBRONTYPE>
+            <ms:PLAATSINGSDATUM_LICHTBRON>2023-07-31 00:00:00</ms:PLAATSINGSDATUM_LICHTBRON>
+            <ms:LICHTBRONKLEUR>wit</ms:LICHTBRONKLEUR>
+            <ms:LAATSTE_MUTATIE_LICHTBRON>2023-07-31 00:00:00</ms:LAATSTE_MUTATIE_LICHTBRON>
+            <ms:IND_IN_STORING></ms:IND_IN_STORING>
+            <ms:AANTEKENINGEN></ms:AANTEKENINGEN>
+            <ms:TOEBEHOREN>Telemanagement CityTouch</ms:TOEBEHOREN>
+            <ms:FABRICAGEDATUM></ms:FABRICAGEDATUM>
+            <ms:STORING_OMSCHRIJVING></ms:STORING_OMSCHRIJVING>
+            <ms:STORING_WERKBON></ms:STORING_WERKBON>
+            <ms:STORING_DATUM_REGISTRATIE></ms:STORING_DATUM_REGISTRATIE>
+            <ms:STORING_DATUM_PLANNING></ms:STORING_DATUM_PLANNING>
+            <ms:STORING_STATUS></ms:STORING_STATUS>
+        </ms:sdo_gwr_bsb_ovl>
+    </wfs:member>
+</wfs:FeatureCollection>

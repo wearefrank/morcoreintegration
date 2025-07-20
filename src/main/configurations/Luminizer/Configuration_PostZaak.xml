@@ -2,6 +2,7 @@
     xsi:noNamespaceSchemaLocation="../FrankConfig.xsd">
 
     <Adapter name="Luminizer_PostZaak" active="${Luminizer_PostZaak.active}">
+
         <Receiver name="Luminizer_PostZaak">
             <JavaListener name="Luminizer_PostZaak" />
         </Receiver>
@@ -19,6 +20,7 @@
 				<Exit name="UnsupportedMediaType" state="ERROR" code="415" />
 				<Exit name="ServerError" state="ERROR" code="500" />
 				<Exit name="TimeOut" state="ERROR" code="504" />
+                <Exit name="NoResults" state="SUCCESS"  code="200" />
 			</Exits>
             <PutSystemDateInSessionPipe name="StoreSystemDate" />
 
@@ -73,6 +75,32 @@
             <PutSystemDateInSessionPipe name="StoreDateTime" preserveInput="true"
                 dateFormat="yyyy-MM-dd'T'HH:mm:ss" />
 
+            <ForEachChildElementPipe name="Getlichtmast_id"
+                getInputFromSessionKey="meldingInfo"
+                storeResultInSessionKey="LichtmastResponse"
+                elementXPathExpression="root/locaties_voor_melding/lichtmast_id">
+
+                <IbisLocalSender
+                    name="GetLichtmastnummersender"
+                    javaListener="getlichtpuntnummer"
+                    returnedSessionKeys="Lichtpuntnummer"
+                    >
+                </IbisLocalSender>
+            </ForEachChildElementPipe>  
+            <!-- <results><result>x<result><result>x</result></results> -->
+
+            <XsltPipe name="concatenate" 
+                    xpathExpression="string-join(//result/normalize-space(), ',')" 
+                    outputType="TEXT" 
+                    xsltVersion='2'>
+                <Param name="input" sessionKey="LichtmastResponse" />
+                <Forward name="success" path="Lichtpunt" />
+            </XsltPipe>
+
+            <PutInSessionPipe name="Lichtpunt" sessionKey="Lichtpuntnummer">
+                <Forward name="success" path="CreatePostZaakRequest" />
+            </PutInSessionPipe>
+
             <XsltPipe name="CreatePostZaakRequest"
                 styleSheetName="xsl/PostZaakRequest.xsl"
                 getInputFromSessionKey="originalMessage">
@@ -82,8 +110,9 @@
                 <Param name="meldingInfo" sessionKey="meldingInfo" type="DOMDOC" />
                 <Param name="taaktype" sessionKey="Taaktype" type="DOMDOC" />
                 <Param name="opdrachtInfo" sessionKey="opdrachtInfo" type="DOMDOC" />
+                <Param name="Lichtpuntnummer" sessionKey="Lichtpuntnummer"  />
             </XsltPipe>
-
+            
             <Json2XmlValidatorPipe 
                 name="XmlToJson"
                 outputFormat="JSON"
@@ -139,4 +168,48 @@
 
         </Pipeline>
     </Adapter>
+
+    <Adapter name="makeRequest">
+        <Receiver>
+            <JavaListener name="getlichtpuntnummer" returnedSessionKeys="Lichtpuntnummer" />
+        </Receiver>
+
+        <Pipeline>
+            <PutInSessionPipe name="filterLichtmastnummer">
+                <Param name="lichtmastnummer" />
+                <Forward name="success" path="GETlichtpuntnummer" />
+            </PutInSessionPipe>    
+
+            <SenderPipe name="GETlichtpuntnummer">
+                <HttpSender name="GETlichtpuntnummer">
+                    <Param name="url" value="${Luminizer.get.lichtpunt.base.uri}" />
+                    <Param name="methodType" value="GET" />
+                    <Param name="map" value="d:\gwr\webdata\mapserver\map\bbdwh_pub.map" />
+                    <Param name="service" value="wfs" />
+                    <Param name="version" value="2.0.0" />
+                    <Param name="request" value="GetFeature" />
+                    <Param name="typeNames" value="namespace:sdo_gwr_bsb_ovl" />
+                    <Param name="Filter" xpathExpression="concat('&lt;Filter&gt;&lt;PropertyIsEqualTo&gt;&lt;PropertyName&gt;LICHTPUNT_ID&lt;/PropertyName&gt;&lt;Literal&gt;', ., '&lt;/Literal&gt;&lt;/PropertyIsEqualTo&gt;&lt;/Filter&gt;')" />
+                    <Param name="Accept" value="application/json" />
+                    <Param name="Content-Type" value="application/json" />
+                    <Param name="Accept-Crs" value="EPSG:4326" />
+                    <Param name="Content-Crs" value="EPSG:4326" />  
+                    <Param name="ResultCode" sessionKey="ResultCode" />
+                </HttpSender>
+            </SenderPipe>
+
+                <XsltPipe name="extractLichtpuntnummer" 
+                        styleSheetName="xsl/ExtractLichtPuntNummer.xsl"
+                        omitXmlDeclaration="true"
+                        removeNamespaces="true" />
+
+                <PutInSessionPipe name="PutLichtpuntnummerInSession" sessionKey="Lichtpuntnummer" />
+        </Pipeline>
+    </Adapter>
 </Module>
+
+<!-- GET all lichtmast numbers from the meldingInfo.
+     Call another adapter passing the lichtmast number to it.
+        The other adapter will return the lichtpuntnummer for each lichtmast number.
+        Concatenate the lichtpuntnummers into a single string.
+        Use the concatenated string in the PostZaakRequest. -->
