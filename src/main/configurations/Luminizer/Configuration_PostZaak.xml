@@ -20,7 +20,6 @@
 				<Exit name="UnsupportedMediaType" state="ERROR" code="415" />
 				<Exit name="ServerError" state="ERROR" code="500" />
 				<Exit name="TimeOut" state="ERROR" code="504" />
-                <Exit name="NoResults" state="SUCCESS"  code="200" />
 			</Exits>
             <PutSystemDateInSessionPipe name="StoreSystemDate" />
 
@@ -78,7 +77,9 @@
             <ForEachChildElementPipe name="Getlichtmast_id"
                 getInputFromSessionKey="meldingInfo"
                 storeResultInSessionKey="LichtmastResponse"
-                elementXPathExpression="root/locaties_voor_melding/lichtmast_id">
+                containerElement="locaties_voor_melding"
+                targetElement="lichtmast_id"
+                >
 
                 <IbisLocalSender
                     name="GetLichtmastnummersender"
@@ -87,8 +88,7 @@
                     >
                 </IbisLocalSender>
             </ForEachChildElementPipe>  
-            <!-- <results><result>x<result><result>x</result></results> -->
-
+            
             <XsltPipe name="concatenate" 
                     xpathExpression="string-join(//result/normalize-space(), ',')" 
                     outputType="TEXT" 
