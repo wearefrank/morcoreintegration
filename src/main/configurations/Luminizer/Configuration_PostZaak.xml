@@ -194,22 +194,17 @@
                     <Param name="Content-Type" value="application/json" />
                     <Param name="Accept-Crs" value="EPSG:4326" />
                     <Param name="Content-Crs" value="EPSG:4326" />  
-                    <Param name="ResultCode" sessionKey="ResultCode" />
                 </HttpSender>
+
+                
             </SenderPipe>
 
-                <XsltPipe name="extractLichtpuntnummer" 
-                        styleSheetName="xsl/ExtractLichtPuntNummer.xsl"
-                        omitXmlDeclaration="true"
-                        removeNamespaces="true" />
+            <XsltPipe name="extractLichtpuntnummer" 
+                    styleSheetName="xsl/ExtractLichtPuntNummer.xsl"
+                    omitXmlDeclaration="true"
+                    removeNamespaces="true" />
 
-                <PutInSessionPipe name="PutLichtpuntnummerInSession" sessionKey="Lichtpuntnummer" />
+            <PutInSessionPipe name="PutLichtpuntnummerInSession" sessionKey="Lichtpuntnummer" />
         </Pipeline>
     </Adapter>
 </Module>
-
-<!-- GET all lichtmast numbers from the meldingInfo.
-     Call another adapter passing the lichtmast number to it.
-        The other adapter will return the lichtpuntnummer for each lichtmast number.
-        Concatenate the lichtpuntnummers into a single string.
-        Use the concatenated string in the PostZaakRequest. -->
