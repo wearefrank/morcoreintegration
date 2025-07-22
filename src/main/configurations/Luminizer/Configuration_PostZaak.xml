@@ -84,22 +84,20 @@
                 <IbisLocalSender
                     name="GetLichtmastnummersender"
                     javaListener="getlichtpuntnummer"
-                    returnedSessionKeys="Lichtpuntnummer"
+                    returnedSessionKeys="LichtmastID"
                     >
                 </IbisLocalSender>
-            </ForEachChildElementPipe>  
-            
-            <XsltPipe name="concatenate" 
-                    xpathExpression="string-join(//result/normalize-space(), ',')" 
-                    outputType="TEXT" 
-                    xsltVersion='2'>
-                <Param name="input" sessionKey="LichtmastResponse" />
-                <Forward name="success" path="Lichtpunt" />
-            </XsltPipe>
 
-            <PutInSessionPipe name="Lichtpunt" sessionKey="Lichtpuntnummer">
+            </ForEachChildElementPipe>
+
+            <XsltPipe name="Concatenate" 
+                    xpathExpression="string-join(//result/normalize-space(.), ',')"
+                    outputType="TEXT" 
+                    xsltVersion='2'
+                    getInputFromSessionKey="LichtmastResponse"
+                    storeResultInSessionKey="ConcatenatedLichtmastResponse">
                 <Forward name="success" path="CreatePostZaakRequest" />
-            </PutInSessionPipe>
+            </XsltPipe>
 
             <XsltPipe name="CreatePostZaakRequest"
                 styleSheetName="xsl/PostZaakRequest.xsl"
@@ -110,7 +108,7 @@
                 <Param name="meldingInfo" sessionKey="meldingInfo" type="DOMDOC" />
                 <Param name="taaktype" sessionKey="Taaktype" type="DOMDOC" />
                 <Param name="opdrachtInfo" sessionKey="opdrachtInfo" type="DOMDOC" />
-                <Param name="Lichtpuntnummer" sessionKey="Lichtpuntnummer"  />
+                <Param name="Lichtpuntnummer" sessionKey="ConcatenatedLichtmastResponse"  />
             </XsltPipe>
             
             <Json2XmlValidatorPipe 
@@ -171,17 +169,28 @@
 
     <Adapter name="makeRequest">
         <Receiver>
-            <JavaListener name="getlichtpuntnummer" returnedSessionKeys="Lichtpuntnummer" />
+            <JavaListener name="getlichtpuntnummer" returnedSessionKeys="LichtmastID" />
         </Receiver>
+        
 
         <Pipeline>
-            <PutInSessionPipe name="filterLichtmastnummer">
-                <Param name="lichtmastnummer" />
-                <Forward name="success" path="GETlichtpuntnummer" />
-            </PutInSessionPipe>    
+            <Exits>
+                <Exit name="EXIT" state="SUCCESS" />
+                <Exit name="ERROR" state="ERROR" />
+                <Exit name="retainLichtmastID" state="SUCCESS" code="403" />
+            </Exits>
 
+            <PutInSessionPipe
+                name="StoreLichtmastID"
+                >
+                <Param name="LichtmastID" xpathExpression="/lichtmast_id" />
+                <Param name="LichtmastIDXML"  />
+                <Forward name="success" path="GETlichtpuntnummer" />
+            </PutInSessionPipe>
+            
             <SenderPipe name="GETlichtpuntnummer">
-                <HttpSender name="GETlichtpuntnummer">
+                <HttpSender name="GETlichtpuntnummer"
+                    methodType="GET">
                     <Param name="url" value="${Luminizer.get.lichtpunt.base.uri}" />
                     <Param name="methodType" value="GET" />
                     <Param name="map" value="d:\gwr\webdata\mapserver\map\bbdwh_pub.map" />
@@ -189,22 +198,43 @@
                     <Param name="version" value="2.0.0" />
                     <Param name="request" value="GetFeature" />
                     <Param name="typeNames" value="namespace:sdo_gwr_bsb_ovl" />
-                    <Param name="Filter" xpathExpression="concat('&lt;Filter&gt;&lt;PropertyIsEqualTo&gt;&lt;PropertyName&gt;LICHTPUNT_ID&lt;/PropertyName&gt;&lt;Literal&gt;', ., '&lt;/Literal&gt;&lt;/PropertyIsEqualTo&gt;&lt;/Filter&gt;')" />
+                    <Param name="Filter" xpathExpression="concat('&lt;Filter&gt;&lt;PropertyIsEqualTo&gt;&lt;PropertyName&gt;LICHTPUNT_ID&lt;/PropertyName&gt;&lt;Literal&gt;', $LichtmastID '&lt;/Literal&gt;&lt;/PropertyIsEqualTo&gt;&lt;/Filter&gt;')">
+                        <Param name="LichtmastID" sessionKey="LichtmastID" />
+                    </Param>
                     <Param name="Accept" value="application/json" />
                     <Param name="Content-Type" value="application/json" />
                     <Param name="Accept-Crs" value="EPSG:4326" />
                     <Param name="Content-Crs" value="EPSG:4326" />  
                 </HttpSender>
-
-                
+                <!--Get results from the http response and do the appropiate function based on response. If noresultsfound or invalid id
+                    Retain lichtmast id and dont change it-->
+                <Forward name="success" path="CheckGETlichtpuntnummerResult" />
+                <Forward name="exception" path="ERROR" />
             </SenderPipe>
 
+            <XmlIfPipe name="CheckGETlichtpuntnummerResult"
+                xpathExpression="count(//*:LICHTPUNTNUMMER) gt 0">
+                <Forward name="then" path="extractLichtpuntnummer" />
+                <Forward name="else" path="restoreLichtmastID" />
+            </XmlIfPipe>
+            
             <XsltPipe name="extractLichtpuntnummer" 
                     styleSheetName="xsl/ExtractLichtPuntNummer.xsl"
                     omitXmlDeclaration="true"
-                    removeNamespaces="true" />
+                    removeNamespaces="true" >
 
-            <PutInSessionPipe name="PutLichtpuntnummerInSession" sessionKey="Lichtpuntnummer" />
+                    <Forward name="success" path="EXIT" />
+                    <Forward name="exception" path="ERROR" />
+            </XsltPipe>
+
+            <XsltPipe name="restoreLichtmastID" 
+                    getInputFromSessionKey="LichtmastIDXML"
+                    xpathExpression="/lichtmast_id">
+
+                    <Forward name="success" path="EXIT" />
+                    <Forward name="exception" path="ERROR" />
+            </XsltPipe>
         </Pipeline>
+        
     </Adapter>
 </Module>

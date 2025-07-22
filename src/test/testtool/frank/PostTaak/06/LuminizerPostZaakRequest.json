@@ -1,0 +1,19 @@
+{
+    "mor_id": 1001,
+    "malfunction": {
+        "malfunction_type": "OVERIG",
+        "malfunction_remark": "Taak aangemaakt door (personeelsnummer): 123456789@email.dummy\nTaak: Lichtmast staat scheef (niet urgent)\nOpmerkingen bij taak: \nKenmerken: 2023-123456\nMelding: \nDoor melder opgegeven masten: 03-T,123",
+        "malfunction_timestamp": "2001-12-17T09:30:47"
+    },
+    "asset": {
+        "asset_id": "03-T,123",
+        "asset_latitude": 52.123456,
+        "asset_longitude": 5.123456
+    },
+    "user": {
+        "user_click_latitude": 52.123456,
+        "user_click_longitude": 5.123456
+    },
+    "attachments": [
+    ]
+}
