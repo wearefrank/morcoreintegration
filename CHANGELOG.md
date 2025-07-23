@@ -1,5 +1,11 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.12.12](https://github.com/wearefrank/morcoreintegration/compare/v1.12.11...v1.12.12) (2025-07-23)
+
+### 🐛 Bug Fixes
+
+* Extend luminizer frank ([#93](https://github.com/wearefrank/morcoreintegration/issues/93)) ([efe3c37](https://github.com/wearefrank/morcoreintegration/commit/efe3c37180fce8b6952a890be28b36e65db7fed2))
+
 ## [1.12.11](https://github.com/wearefrank/morcoreintegration/compare/v1.12.10...v1.12.11) (2025-06-18)
 
 ### 🐛 Bug Fixes
