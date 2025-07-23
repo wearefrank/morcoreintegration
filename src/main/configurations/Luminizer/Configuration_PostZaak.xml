@@ -203,7 +203,7 @@
             </XmlIfPipe>
             
             <XsltPipe name="ExtractLichtpuntnummer" 
-                    styleSheetName="xsl/ExtractLichtPuntNummer.xsl"
+                    xpathExpression="//*:LICHTPUNTNUMMER"
                     omitXmlDeclaration="true"
                     removeNamespaces="true" >
 
