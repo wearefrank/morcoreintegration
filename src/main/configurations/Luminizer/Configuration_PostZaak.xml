@@ -78,16 +78,11 @@
                 getInputFromSessionKey="meldingInfo"
                 storeResultInSessionKey="LichtmastResponse"
                 containerElement="locaties_voor_melding"
-                targetElement="lichtmast_id"
-                >
-
+                targetElement="lichtmast_id">
                 <IbisLocalSender
                     name="GetLichtmastnummersender"
-                    javaListener="getlichtpuntnummer"
-                    returnedSessionKeys="LichtmastID"
-                    >
+                    javaListener="Getlichtpuntnummer">
                 </IbisLocalSender>
-
             </ForEachChildElementPipe>
 
             <XsltPipe name="Concatenate" 
@@ -169,56 +164,45 @@
 
     <Adapter name="makeRequest">
         <Receiver>
-            <JavaListener name="getlichtpuntnummer" returnedSessionKeys="LichtmastID" />
+            <JavaListener name="Getlichtpuntnummer" />
         </Receiver>
         
-
         <Pipeline>
             <Exits>
                 <Exit name="EXIT" state="SUCCESS" />
                 <Exit name="ERROR" state="ERROR" />
-                <Exit name="retainLichtmastID" state="SUCCESS" code="403" />
             </Exits>
 
             <PutInSessionPipe
                 name="StoreLichtmastID"
                 >
                 <Param name="LichtmastID" xpathExpression="/lichtmast_id" />
-                <Param name="LichtmastIDXML"  />
                 <Forward name="success" path="GETlichtpuntnummer" />
             </PutInSessionPipe>
             
             <SenderPipe name="GETlichtpuntnummer">
-                <HttpSender name="GETlichtpuntnummer"
-                    methodType="GET">
+                <HttpSender name="GETlichtpuntnummer" methodType="GET">
                     <Param name="url" value="${Luminizer.get.lichtpunt.base.uri}" />
-                    <Param name="methodType" value="GET" />
                     <Param name="map" value="d:\gwr\webdata\mapserver\map\bbdwh_pub.map" />
                     <Param name="service" value="wfs" />
                     <Param name="version" value="2.0.0" />
                     <Param name="request" value="GetFeature" />
                     <Param name="typeNames" value="namespace:sdo_gwr_bsb_ovl" />
-                    <Param name="Filter" xpathExpression="concat('&lt;Filter&gt;&lt;PropertyIsEqualTo&gt;&lt;PropertyName&gt;LICHTPUNT_ID&lt;/PropertyName&gt;&lt;Literal&gt;', $LichtmastID '&lt;/Literal&gt;&lt;/PropertyIsEqualTo&gt;&lt;/Filter&gt;')">
+                    <Param name="Filter" xpathExpression="concat('&lt;Filter&gt;&lt;PropertyIsEqualTo&gt;&lt;PropertyName&gt;LICHTPUNT_ID&lt;/PropertyName&gt;&lt;Literal&gt;', $LichtmastID, '&lt;/Literal&gt;&lt;/PropertyIsEqualTo&gt;&lt;/Filter&gt;')">
                         <Param name="LichtmastID" sessionKey="LichtmastID" />
-                    </Param>
-                    <Param name="Accept" value="application/json" />
-                    <Param name="Content-Type" value="application/json" />
-                    <Param name="Accept-Crs" value="EPSG:4326" />
-                    <Param name="Content-Crs" value="EPSG:4326" />  
+                    </Param> 
                 </HttpSender>
-                <!--Get results from the http response and do the appropiate function based on response. If noresultsfound or invalid id
-                    Retain lichtmast id and dont change it-->
                 <Forward name="success" path="CheckGETlichtpuntnummerResult" />
                 <Forward name="exception" path="ERROR" />
             </SenderPipe>
 
             <XmlIfPipe name="CheckGETlichtpuntnummerResult"
                 xpathExpression="count(//*:LICHTPUNTNUMMER) gt 0">
-                <Forward name="then" path="extractLichtpuntnummer" />
-                <Forward name="else" path="restoreLichtmastID" />
+                <Forward name="then" path="ExtractLichtpuntnummer" />
+                <Forward name="else" path="RestoreLichtmastID" />
             </XmlIfPipe>
             
-            <XsltPipe name="extractLichtpuntnummer" 
+            <XsltPipe name="ExtractLichtpuntnummer" 
                     styleSheetName="xsl/ExtractLichtPuntNummer.xsl"
                     omitXmlDeclaration="true"
                     removeNamespaces="true" >
@@ -227,8 +211,8 @@
                     <Forward name="exception" path="ERROR" />
             </XsltPipe>
 
-            <XsltPipe name="restoreLichtmastID" 
-                    getInputFromSessionKey="LichtmastIDXML"
+            <XsltPipe name="RestoreLichtmastID" 
+                    getInputFromSessionKey="originalMessage"
                     xpathExpression="/lichtmast_id">
 
                     <Forward name="success" path="EXIT" />
