@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding="UTF-8" ?>
+<wfs:FeatureCollection
+   xmlns:ms="http://mapserver.gis.umn.edu/mapserver"
+   xmlns:gml="http://www.opengis.net/gml/3.2"
+   xmlns:wfs="http://www.opengis.net/wfs/2.0"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://mapserver.gis.umn.edu/mapserver https://ows.gis.rotterdam.nl/cgi-bin/mapserv.exe?map=d:\gwr\webdata\mapserver\map\BBDWH_pub.map&amp;SERVICE=WFS&amp;VERSION=2.0.0&amp;REQUEST=DescribeFeatureType&amp;TYPENAME=namespace:sdo_gwr_bsb_ovl&amp;OUTPUTFORMAT=application%2Fgml%2Bxml%3B%20version%3D3.2 http://www.opengis.net/wfs/2.0 http://schemas.opengis.net/wfs/2.0/wfs.xsd http://www.opengis.net/gml/3.2 http://schemas.opengis.net/gml/3.2.1/gml.xsd"
+   timeStamp="2025-07-10T16:38:26" numberMatched="1" numberReturned="1">
+    <wfs:boundedBy>
+        <gml:Envelope srsName="urn:ogc:def:crs:EPSG::28992">
+            <gml:lowerCorner>83910.259000 431160.018000</gml:lowerCorner>
+            <gml:upperCorner>83910.259000 431160.018000</gml:upperCorner>
+        </gml:Envelope>
+    </wfs:boundedBy>
+    <wfs:member>
+        <ms:sdo_gwr_bsb_ovl gml:id="sdo_gwr_bsb_ovl.30485">
+            <gml:boundedBy>
+                <gml:Envelope srsName="urn:ogc:def:crs:EPSG::28992">
+                    <gml:lowerCorner>83910.259000 431160.018000</gml:lowerCorner>
+                    <gml:upperCorner>83910.259000 431160.018000</gml:upperCorner>
+                </gml:Envelope>
+            </gml:boundedBy>
+            <ms:GEOM>
+                <gml:Point gml:id="sdo_gwr_bsb_ovl.30485.1" srsName="urn:ogc:def:crs:EPSG::28992">
+                    <gml:pos>83910.259000 431160.018000</gml:pos>
+                </gml:Point>
+            </ms:GEOM>
+            <ms:LAMP_ID>30485</ms:LAMP_ID>
+            <ms:BEHEEROBJECTOMSCHRIJVING>LPT|17752|009-T</ms:BEHEEROBJECTOMSCHRIJVING>
+            <ms:LICHTPUNT_ID>267653</ms:LICHTPUNT_ID>
+            <ms:LICHTPUNTNUMMER>009-T</ms:LICHTPUNTNUMMER>
+            <ms:LAATSTE_MUTATIE_LICHTPUNT>2020-11-13 00:00:00</ms:LAATSTE_MUTATIE_LICHTPUNT>
+            <ms:MAST_ID>40338</ms:MAST_ID>
+            <ms:ARMATUUR_ID>267654</ms:ARMATUUR_ID>
+            <ms:ARMATUUR_NUMMER>1</ms:ARMATUUR_NUMMER>
+            <ms:UITHOUDER_ID>403354</ms:UITHOUDER_ID>
+            <ms:SCHAKELAPPARAAT_ID>267654</ms:SCHAKELAPPARAAT_ID>
+            <ms:WOONPLAATS>Hoogvliet</ms:WOONPLAATS>
+            <ms:WIJK>Hoogvliet Zuid</ms:WIJK>
+            <ms:BUURT>Hoogvliet Zuid - 52</ms:BUURT>
+            <ms:STRAAT>Bingerden</ms:STRAAT>
+            <ms:BEHEERDER>Openbaar</ms:BEHEERDER>
+            <ms:EIGENAAR>Openbaar Gebied</ms:EIGENAAR>
+            <ms:STRUCTUURGEBIED>woonomgeving</ms:STRUCTUURGEBIED>
+            <ms:AMBITIENIVEAU>B (basis)</ms:AMBITIENIVEAU>
+            <ms:LICHTPUNTTYPE>Straatverlichting</ms:LICHTPUNTTYPE>
+            <ms:MASTTYPE>MAST 6M LPH 6M VERZ CON PT D76 PC VALMONT ART.301254 TEK.200.J.403</ms:MASTTYPE>
+            <ms:PLAATSINGSDATUM_MAST>2008-01-01 00:00:00</ms:PLAATSINGSDATUM_MAST>
+            <ms:MASTKLEUR>9007-94 GRIJS-ALUMINIUM</ms:MASTKLEUR>
+            <ms:UITHOUDERTYPE>Opzetstuk D76 VL</ms:UITHOUDERTYPE>
+            <ms:PLAATSINGSDATUM_UITHOUDER>2020-11-13 00:00:00</ms:PLAATSINGSDATUM_UITHOUDER>
+            <ms:VOLGNUMMER_UITHOUDER>1</ms:VOLGNUMMER_UITHOUDER>
+            <ms:ARMATUURTYPE>80531P Luxis R.grijs LW SRDS2 2x18A/830 6000lm DAME ZHAGA Opsch 60mm</ms:ARMATUURTYPE>
+            <ms:PLAATSINGSDATUM_ARMATUUR>2020-11-13 00:00:00</ms:PLAATSINGSDATUM_ARMATUUR>
+            <ms:VOLGNUMMER_ARMATUUR>1</ms:VOLGNUMMER_ARMATUUR>
+            <ms:ARMATUURKLEUR>Rotterdamgrijs RS</ms:ARMATUURKLEUR>
+            <ms:SYSTEEMVERMOGEN>47</ms:SYSTEEMVERMOGEN>
+            <ms:MONTAGEHOOGTE>6</ms:MONTAGEHOOGTE>
+            <ms:LAATSTE_MUTATIE_ARMATUUR>2020-11-13 00:00:00</ms:LAATSTE_MUTATIE_ARMATUUR>
+            <ms:SCHAKELSYSTEEMTYPE>Driver  </ms:SCHAKELSYSTEEMTYPE>
+            <ms:PLAATSINGSDATUM_SCHAKELSYSTEEM>2020-11-13 00:00:00</ms:PLAATSINGSDATUM_SCHAKELSYSTEEM>
+            <ms:VOLGNUMMER_SCHAKELSYSTEEM>1</ms:VOLGNUMMER_SCHAKELSYSTEEM>
+            <ms:DIMREGIME>Percentage Dimmen: 50%</ms:DIMREGIME>
+            <ms:LICHTBRONTYPE>LED 47W</ms:LICHTBRONTYPE>
+            <ms:PLAATSINGSDATUM_LICHTBRON>2020-11-13 00:00:00</ms:PLAATSINGSDATUM_LICHTBRON>
+            <ms:LICHTBRONKLEUR>wit</ms:LICHTBRONKLEUR>
+            <ms:LAATSTE_MUTATIE_LICHTBRON>2020-11-13 00:00:00</ms:LAATSTE_MUTATIE_LICHTBRON>
+            <ms:IND_IN_STORING>X</ms:IND_IN_STORING>
+            <ms:AANTEKENINGEN></ms:AANTEKENINGEN>
+            <ms:TOEBEHOREN>Telemanagement CityTouch</ms:TOEBEHOREN>
+            <ms:FABRICAGEDATUM>2008-01-01 00:00:00</ms:FABRICAGEDATUM>
+            <ms:STORING_OMSCHRIJVING>BRANDT_NIET</ms:STORING_OMSCHRIJVING>
+            <ms:STORING_WERKBON>8468008</ms:STORING_WERKBON>
+            <ms:STORING_DATUM_REGISTRATIE>2025-06-23 00:00:00</ms:STORING_DATUM_REGISTRATIE>
+            <ms:STORING_DATUM_PLANNING>2025-06-30 08:44:34</ms:STORING_DATUM_PLANNING>
+            <ms:STORING_STATUS>Vervolgwerk aannemer</ms:STORING_STATUS>
+        </ms:sdo_gwr_bsb_ovl>
+    </wfs:member>
+</wfs:FeatureCollection>

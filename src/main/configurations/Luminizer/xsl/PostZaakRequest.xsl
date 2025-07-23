@@ -6,6 +6,7 @@
 	<xsl:param name="systemDate"/>
 	<xsl:param name="Frank.API.images.url"/>
 	<xsl:param name="MorCore.API.images.url"/>
+	<xsl:param name="Lichtpuntnummer"/>
 	<xsl:template match="/">
 		<root>
 			<mor_id>
@@ -16,7 +17,7 @@
 					<xsl:value-of select="$taaktype/root/results/extra/luminizerOnderwerpOmschrijving"/>
 				</malfunction_type>
 				<malfunction_remark>
-					<xsl:value-of select="concat('Taak aangemaakt door (personeelsnummer): ', /root/gebruiker, '&#13;&#10;', 'Taak: ', /root/titel, '&#13;&#10;', 'Opmerkingen bij taak: ', /root/omschrijving_intern, '&#13;&#10;', 'Kenmerken: ', $meldingInfo/root/signalen_voor_melding[1]/bron_signaal_id, '&#13;&#10;', 'Melding: ', $meldingInfo/root/signalen_voor_melding[1]/omschrijving_melder, '&#13;&#10;', 'Door melder opgegeven masten: ', string-join($meldingInfo/root/locaties_voor_melding/lichtmast_id[normalize-space()], ','))"/>
+					<xsl:value-of select="concat('Taak aangemaakt door (personeelsnummer): ', /root/gebruiker, '&#13;&#10;', 'Taak: ', /root/titel, '&#13;&#10;', 'Opmerkingen bij taak: ', /root/omschrijving_intern, '&#13;&#10;', 'Kenmerken: ', $meldingInfo/root/signalen_voor_melding[1]/bron_signaal_id, '&#13;&#10;', 'Melding: ', $meldingInfo/root/signalen_voor_melding[1]/omschrijving_melder, '&#13;&#10;', 'Door melder opgegeven masten: ', $Lichtpuntnummer)"/>
 				</malfunction_remark>
 				<malfunction_timestamp>
 					<xsl:value-of select="$systemDate"/>
