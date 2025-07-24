@@ -77,8 +77,8 @@
             <ForEachChildElementPipe name="Getlichtmast_id"
                 getInputFromSessionKey="meldingInfo"
                 storeResultInSessionKey="LichtmastResponse"
-                containerElement="locaties_voor_melding"
-                targetElement="lichtmast_id">
+                elementXPathExpression="//locaties_voor_melding/lichtmast_id[normalize-space() != '']"
+                >
                 <IbisLocalSender
                     name="GetLichtmastnummersender"
                     javaListener="Getlichtpuntnummer">
