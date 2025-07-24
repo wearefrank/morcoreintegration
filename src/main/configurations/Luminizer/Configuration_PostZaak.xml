@@ -3,6 +3,7 @@
 
     <Adapter name="Luminizer_PostZaak" active="${Luminizer_PostZaak.active}">
 
+
         <Receiver name="Luminizer_PostZaak">
             <JavaListener name="Luminizer_PostZaak" />
         </Receiver>
@@ -77,8 +78,8 @@
             <ForEachChildElementPipe name="Getlichtmast_id"
                 getInputFromSessionKey="meldingInfo"
                 storeResultInSessionKey="LichtmastResponse"
-                containerElement="locaties_voor_melding"
-                targetElement="lichtmast_id">
+                elementXPathExpression="//locaties_voor_melding/lichtmast_id[normalize-space() != '']"
+                >
                 <IbisLocalSender
                     name="GetLichtmastnummersender"
                     javaListener="Getlichtpuntnummer">
