@@ -3,6 +3,7 @@
 
     <Adapter name="Luminizer_PostZaak" active="${Luminizer_PostZaak.active}">
 
+
         <Receiver name="Luminizer_PostZaak">
             <JavaListener name="Luminizer_PostZaak" />
         </Receiver>
