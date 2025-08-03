@@ -62,7 +62,6 @@
             <XmlIfPipe name="IfResultCount0" xpathExpression="string-length($uuidText) > 0">
                 <Param name="uuidText" sessionKey="uuid" xpathExpression="//uuid" type="STRING"/>
                 <Forward name="then" path="MakeGetMeldingCall" />
-                <Forward name="else" path="Send2MSB" />
             </XmlIfPipe>
 
             <XsltPipe name="MakeGetMeldingCall" getInputFromSessionKey="dummyParam"
@@ -95,7 +94,6 @@
             
             <XmlIfPipe name="CheckTaakopdrachtById" getInputFromSessionKey="taakopdracht" xpathExpression="string-length(taakopdracht) &gt; 0">
                 <Forward name="then" path="CreatePostNotificatieRequest" />
-                <Forward name="else" path="Send2MSB" />
             </XmlIfPipe>
 
             <XsltPipe name="CreatePostNotificatieRequest"
@@ -114,7 +112,6 @@
                     <Param name="taakOpdrachtUuid" type="STRING" sessionKey="taakopdracht" xpathExpression="/taakopdracht" />
                 </IbisLocalSender>
                 <Forward name="success" path="Exit" />
-                <Forward name="exception" path="Send2MSB" />
             </SenderPipe>
 
         </Pipeline>

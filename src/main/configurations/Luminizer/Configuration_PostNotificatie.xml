@@ -36,7 +36,6 @@
             <XmlIfPipe name="IfResultCount0" xpathExpression="string-length($uuidText) > 0">
                 <Param name="uuidText" sessionKey="uuid" xpathExpression="//uuid" type="STRING"/>
                 <Forward name="then" path="GetTaakopdrachtById" />
-                <Forward name="else" path="Send2MSB" />
             </XmlIfPipe>
 
             <SenderPipe name="GetTaakopdrachtById" getInputFromSessionKey="xmlInputMessage"
@@ -50,7 +49,6 @@
 
             <XmlIfPipe name="CheckTaakopdrachtById" getInputFromSessionKey="taakopdracht" xpathExpression="string-length(taakopdracht) &gt; 0">
                 <Forward name="then" path="CreatePostNotificatieRequest" />
-                <Forward name="else" path="Send2MSB" />
             </XmlIfPipe>
                        
             <XsltPipe name="CreatePostNotificatieRequest"
