@@ -77,17 +77,6 @@
                 <Forward name="success" path="Exit" />
                 <Forward name="exception" path="Exception" />
             </SenderPipe>
-
-            <SenderPipe name="Send2MSB" getInputFromSessionKey="originalMessage">
-                <IbisLocalSender name="Send2MSB" javaListener="MSB_PostNotificatie">
-                    <!-- Do you need morecore token here -->
-                    <Param name="dummyParam" sessionKey="dummyParam" />
-                    <Param name="MorCoreToken" sessionKey="MorCoreToken" />
-                </IbisLocalSender>
-                <Forward name="success" path="Exit" />
-                <Forward name="exception" path="Exception" />
-            </SenderPipe>
-
         </Pipeline>  
     </Adapter>
 </Module>
