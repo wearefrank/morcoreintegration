@@ -1,5 +1,11 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.13.0](https://github.com/wearefrank/morcoreintegration/compare/v1.12.13...v1.13.0) (2025-08-06)
+
+### 🍕 Features
+
+* Gt 1993 remove fallback to msb in ultimo and luminizer ([#97](https://github.com/wearefrank/morcoreintegration/issues/97)) ([c75a050](https://github.com/wearefrank/morcoreintegration/commit/c75a0504721f59e670f9f3101c41a5391b385da9))
+
 ## [1.12.13](https://github.com/wearefrank/morcoreintegration/compare/v1.12.12...v1.12.13) (2025-08-06)
 
 ### 🐛 Bug Fixes
