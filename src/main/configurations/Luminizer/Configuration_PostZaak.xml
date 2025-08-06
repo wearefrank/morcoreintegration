@@ -219,7 +219,6 @@
                     <Forward name="success" path="EXIT" />
                     <Forward name="exception" path="ERROR" />
             </XsltPipe>
-        </Pipeline>
-        
+        </Pipeline>        
     </Adapter>
 </Module>
