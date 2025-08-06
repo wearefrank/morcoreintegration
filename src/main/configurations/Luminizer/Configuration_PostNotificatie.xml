@@ -14,7 +14,7 @@
             <Exits>
                 <Exit name="Exit" state="SUCCESS" code="200" />
                 <Exit name="Exception" state="ERROR" code="500" />
-                <Exit name="Reject" state="REJECTED" />
+                <Exit name="Reject" state="REJECTED"/>
             </Exits>
 
             <PutInSessionPipe name="dummyInput">
@@ -30,13 +30,13 @@
                     <Param name="Id" sessionKey="mor_id" />
                 </IbisLocalSender>
                 <Forward name="success" path="IfResultCount0" />
-                <Forward name="exception" path="Exception" />
+            <Forward name="exception" path="Exception" />
             </SenderPipe>
 
             <XmlIfPipe name="IfResultCount0" xpathExpression="string-length($uuidText) > 0">
                 <Param name="uuidText" sessionKey="uuid" xpathExpression="//uuid" type="STRING"/>
                 <Forward name="then" path="GetTaakopdrachtById" />
-                <Forward name="else" path="Send2MSB" />
+                <Forward name="else" path="Exit" />
             </XmlIfPipe>
 
             <SenderPipe name="GetTaakopdrachtById" getInputFromSessionKey="xmlInputMessage"
@@ -50,7 +50,7 @@
 
             <XmlIfPipe name="CheckTaakopdrachtById" getInputFromSessionKey="taakopdracht" xpathExpression="string-length(taakopdracht) &gt; 0">
                 <Forward name="then" path="CreatePostNotificatieRequest" />
-                <Forward name="else" path="Send2MSB" />
+                <Forward name="else" path="Exit" />
             </XmlIfPipe>
                        
             <XsltPipe name="CreatePostNotificatieRequest"
@@ -77,17 +77,6 @@
                 <Forward name="success" path="Exit" />
                 <Forward name="exception" path="Exception" />
             </SenderPipe>
-
-            <SenderPipe name="Send2MSB" getInputFromSessionKey="originalMessage">
-                <IbisLocalSender name="Send2MSB" javaListener="MSB_PostNotificatie">
-                    <!-- Do you need morecore token here -->
-                    <Param name="dummyParam" sessionKey="dummyParam" />
-                    <Param name="MorCoreToken" sessionKey="MorCoreToken" />
-                </IbisLocalSender>
-                <Forward name="success" path="Exit" />
-                <Forward name="exception" path="Exception" />
-            </SenderPipe>
-
         </Pipeline>  
     </Adapter>
 </Module>
