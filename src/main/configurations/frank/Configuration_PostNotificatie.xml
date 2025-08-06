@@ -102,7 +102,7 @@
                 styleSheetName="xsl/PostNotificatieRequest.xsl"
                 getInputFromSessionKey="xmlInputMessage" storeResultInSessionKey="RequestJson">
                 <Forward name="success" path="Send2MorCore" />
-                <Forward name="exception" path="Exit" />
+                <Forward name="exception" path="Exception" />
             </XsltPipe>
 
             <SenderPipe name="Send2MorCore" getInputFromSessionKey="RequestJson">
