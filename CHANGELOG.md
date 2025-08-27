@@ -1,5 +1,12 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.14.0](https://github.com/wearefrank/morcoreintegration/compare/v1.13.0...v1.14.0) (2025-08-27)
+
+### 🍕 Features
+
+* Update Luminizer_ZaakTypes simple formatted ([6c70f2d](https://github.com/wearefrank/morcoreintegration/commit/6c70f2d09e03b53188c6992d0a71269202705c90))
+* Update Luminizer_ZaakTypes simple formatted ([b3e657e](https://github.com/wearefrank/morcoreintegration/commit/b3e657e7a8887153ac84b5d09e1776d43a7e32eb))
+
 ## [1.13.0](https://github.com/wearefrank/morcoreintegration/compare/v1.12.13...v1.13.0) (2025-08-06)
 
 ### 🍕 Features
