@@ -1,5 +1,11 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.14.1](https://github.com/wearefrank/morcoreintegration/compare/v1.14.0...v1.14.1) (2025-08-28)
+
+### 🐛 Bug Fixes
+
+* toelichting taak 1 op 1 regel ([477d4af](https://github.com/wearefrank/morcoreintegration/commit/477d4af89c4f995c145f5fb388252308e3e12479))
+
 ## [1.14.0](https://github.com/wearefrank/morcoreintegration/compare/v1.13.0...v1.14.0) (2025-08-27)
 
 ### 🍕 Features
