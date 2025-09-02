@@ -75,11 +75,10 @@
                 <Forward name="success" path="NotFound" />
             </EchoPipe>
 
-            <JsonPipe name="XmlToJson" direction="XML2JSON" prettyPrint="true">
+            <Json2XmlValidatorPipe  name="XmlToJson" outputFormat="JSON" schema="xsd/DummySchema.xsd" throwException="true">
                 <Forward name="success" path="Exit" />
                 <Forward name="exception" path="Exception" />
-            </JsonPipe>
-
+            </Json2XmlValidatorPipe>
         </Pipeline>
     </Adapter>
 </Module>
