@@ -75,7 +75,7 @@
                 <Forward name="success" path="NotFound" />
             </EchoPipe>
 
-            <Json2XmlValidatorPipe name="XmlToJson" outputFormat="JSON" schema="xsd/GetTaakTypeJsonToXml.xsd" throwException="true" root="root">
+            <Json2XmlValidatorPipe  name="XmlToJson" outputFormat="JSON" schema="xsd/DummySchema.xsd" throwException="true">
                 <Forward name="success" path="Exit" />
                 <Forward name="exception" path="Exception" />
             </Json2XmlValidatorPipe>
