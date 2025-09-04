@@ -10,7 +10,12 @@
         </_links>
         <uuid>7070f8a1-a89c-4915-8a99-10ab09194c65</uuid>
         <omschrijving>Verlichting knippert 1 stuk</omschrijving>
-        <toelichting>Deze taak is voor functionele (straat)verlichting waarbij één verlichtingsobject knippert. Onder functionele (straat)verlichting wordt verstaan wandarmaturen, masten, armaturen, brugarmaturen, hangarmaturen, armaturen in de Maastunneltraverse (niet in de Maastunnel zelf).\n Knipperen twee of meer verlichtingsobjecten, selecteer dan de taak "Verlichting knippert 2 of meer stuks".\n Betreft het één of meerdere knipperende niet-functionele verlichting (lees: sierverlichting, monumentverlichting, aanstraling bruggen, klokverlichting of additionele verlichting), selecteer dan de taak "Verstoring niet functionele verlichting" voor Stedelijk beheer Openbare Verlichting.\n Bij twijfel over het type verlichting raadpleeg Gisweb.\n De taak "Verlichting knippert 1 stuk" kan ook als vervolgtaak worden gebruikt door Stedelijk Beheer Openbare Verlichting wanneer taken toch niet over niet-functionele verlichting maar over functionele verlichting gaan en via Uitvoering Werken Elektrotechnische dienst en Luminizer door Citytec moeten worden opgepakt.\n Op deze taak is het proces "Openbare Verlichting incl. spoed" van toepassing.</toelichting>
+        <toelichting>Deze taak is voor functionele (straat)verlichting waarbij één verlichtingsobject knippert. Onder functionele (straat)verlichting wordt verstaan wandarmaturen, masten, armaturen, brugarmaturen, hangarmaturen, armaturen in de Maastunneltraverse (niet in de Maastunnel zelf).
+Knipperen twee of meer verlichtingsobjecten, selecteer dan de taak "Verlichting knippert 2 of meer stuks". 
+Betreft het één of meerdere knipperende niet-functionele verlichting (lees: sierverlichting, monumentverlichting, aanstraling bruggen, klokverlichting of additionele verlichting), selecteer dan de taak "Verstoring niet functionele verlichting" voor Stedelijk beheer Openbare Verlichting. 
+Bij twijfel over het type verlichting raadpleeg Gisweb.
+De taak "Verlichting knippert 1 stuk" kan ook als vervolgtaak worden gebruikt door Stedelijk Beheer Openbare Verlichting wanneer taken toch niet over niet-functionele verlichting maar over functionele verlichting gaan en via Uitvoering Werken Elektrotechnische dienst en Luminizer door Citytec moeten worden opgepakt. 
+Op deze taak is het proces "Openbare Verlichting incl. spoed" van toepassing.</toelichting>
         <additionele_informatie />
         <extra>
             <luminizerOnderwerpOmschrijving>OVERIG</luminizerOnderwerpOmschrijving>
