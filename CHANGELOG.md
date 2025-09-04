@@ -1,5 +1,11 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.14.2](https://github.com/wearefrank/morcoreintegration/compare/v1.14.1...v1.14.2) (2025-09-04)
+
+### 🐛 Bug Fixes
+
+* Luminizer_ZaakTypes.xml taak echte linefeeds ipv /n voor nieuwe Pipe ([5b47832](https://github.com/wearefrank/morcoreintegration/commit/5b4783207d204faa35206217ce68a5b8edb0c92e))
+
 ## [1.14.1](https://github.com/wearefrank/morcoreintegration/compare/v1.14.0...v1.14.1) (2025-08-28)
 
 ### 🐛 Bug Fixes
