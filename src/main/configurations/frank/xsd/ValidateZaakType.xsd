@@ -2,7 +2,7 @@
   <xs:element name="root">
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="results">
+        <xs:element name="results" >
           <xs:complexType>
             <xs:sequence>
               <xs:element name="_links">
