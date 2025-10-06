@@ -1,5 +1,11 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.14.3](https://github.com/wearefrank/morcoreintegration/compare/v1.14.2...v1.14.3) (2025-10-06)
+
+### 🐛 Bug Fixes
+
+* Merge pull request [#102](https://github.com/wearefrank/morcoreintegration/issues/102) from Sharoek/GT-2017-Fix-xml-characters-inside-a-json-file ([1df87da](https://github.com/wearefrank/morcoreintegration/commit/1df87daef960a0da6e04e0a078b03cfb83d5b635))
+
 ## [1.14.2](https://github.com/wearefrank/morcoreintegration/compare/v1.14.1...v1.14.2) (2025-09-04)
 
 ### 🐛 Bug Fixes
