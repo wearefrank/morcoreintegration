@@ -53,7 +53,7 @@
                 <Forward name="failure" path="Reject" />
             </XmlValidatorPipe> -->
 
-            <Json2XmlValidatorPipe  name="XmlToJson" outputFormat="JSON" schema="xsd/ValidateListTaakTypes.xsd" throwException="true" root="root">
+            <Json2XmlValidatorPipe name="XmlToJson" outputFormat="JSON" schema="xsd/ValidateListTaakTypes.xsd" throwException="true" root="root">
                 <Forward name="success" path="Exit" />
                 <Forward name="exception" path="Exception" />
             </Json2XmlValidatorPipe>
