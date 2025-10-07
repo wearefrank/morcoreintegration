@@ -1,5 +1,11 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.14.4](https://github.com/wearefrank/morcoreintegration/compare/v1.14.3...v1.14.4) (2025-10-07)
+
+### 🐛 Bug Fixes
+
+* Merge pull request [#103](https://github.com/wearefrank/morcoreintegration/issues/103) from forza-mor-rotterdam/fix/boolean-fix ([05dd524](https://github.com/wearefrank/morcoreintegration/commit/05dd52434a186460bd7f51b24e8c202644ab6a54))
+
 ## [1.14.3](https://github.com/wearefrank/morcoreintegration/compare/v1.14.2...v1.14.3) (2025-10-06)
 
 ### 🐛 Bug Fixes
