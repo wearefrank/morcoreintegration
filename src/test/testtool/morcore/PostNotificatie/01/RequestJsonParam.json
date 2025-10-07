@@ -1,4 +1,4 @@
-{  
+{
     "bijlagen":[],
     "taakstatus":{
         "naam":"nieuw"
@@ -6,5 +6,5 @@
     "resolutie":null,
     "omschrijving_intern":"test",
     "gebruiker":"Test User",
-    "resolutie_opgelost_herzien":"false"
+    "resolutie_opgelost_herzien":false
 }
