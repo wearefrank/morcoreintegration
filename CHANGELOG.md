@@ -1,5 +1,19 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.14.5](https://github.com/wearefrank/morcoreintegration/compare/v1.14.4...v1.14.5) (2025-10-21)
+
+### 🐛 Bug Fixes
+
+* Merge pull request [#105](https://github.com/wearefrank/morcoreintegration/issues/105) from forza-mor-rotterdam/newlines ([4cdf9bb](https://github.com/wearefrank/morcoreintegration/commit/4cdf9bbc2fb0bc5bba3cf6b53db7ce086b29d5a1))
+
+### 🤖 Build System
+
+* **dependencies:** update node-version in workflow to v24 ([9ccc40f](https://github.com/wearefrank/morcoreintegration/commit/9ccc40fb6629e48ae6f6b8340063c051d6c14ba6))
+
+### 🔁 Continuous Integration
+
+* workflow for cleaning up run artifact after workflow completion ([26112b0](https://github.com/wearefrank/morcoreintegration/commit/26112b075fac36e984f0ea68d5993345e114ccfd))
+
 ## [1.14.4](https://github.com/wearefrank/morcoreintegration/compare/v1.14.3...v1.14.4) (2025-10-07)
 
 ### 🐛 Bug Fixes
