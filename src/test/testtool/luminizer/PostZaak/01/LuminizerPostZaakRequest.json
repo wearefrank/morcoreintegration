@@ -5,11 +5,7 @@
         "malfunction_remark": "Taak aangemaakt door (personeelsnummer): 123456789@email.dummy\nTaak: Lichtmast staat scheef (niet urgent)\nOpmerkingen bij taak: \nKenmerken: 2023-123456\nMelding: \nDoor melder opgegeven masten: 1234",
         "malfunction_timestamp": "2001-12-17T09:30:47"
     },
-    "asset": {
-        "asset_id": "1234",
-        "asset_latitude": null,
-        "asset_longitude": null
-    },
+    "assets": ["1234"],
     "user": {
         "user_click_latitude": null,
         "user_click_longitude": null

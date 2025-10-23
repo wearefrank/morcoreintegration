@@ -110,7 +110,7 @@
             <Json2XmlValidatorPipe 
                 name="XmlToJson"
                 outputFormat="JSON"
-                noNamespaceSchemaLocation="xsd/ValidationPostZaak.xsd" 
+                noNamespaceSchemaLocation="xsd/ValidationPostZaak_v2.xsd" 
                 root="root"
                 throwException="true"
                 storeResultInSessionKey="jsonMessage"

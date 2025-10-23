@@ -1,0 +1,23 @@
+{
+   "state":"planned",
+   "remark":"De aannemer is bezig met het …",
+   "workitems":[
+      {
+         "id":"1234",
+         "state":"resolved",
+         "malfunction_type":"BRANDT_NIET",
+         "asset_id":"123",
+         "expected_resolve_timestamp":"2025-07-07 15:47:12",
+         "remark":"brandt gewoon"
+      },
+      {
+         "id":"5678",
+         "state":"open",
+         "malfunction_type":"BRANDT_NIET",
+         "asset_id":"456",
+         "expected_resolved_timestamp":"2025-07-09 15:47:12",
+         "remark":""
+      }
+   ]
+
+}
