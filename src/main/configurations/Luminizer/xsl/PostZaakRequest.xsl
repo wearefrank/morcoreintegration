@@ -23,7 +23,7 @@
 					<xsl:value-of select="$systemDate"/>
 				</malfunction_timestamp>
 			</malfunction>
-			<asset>
+			<!-- <asset>
 				<asset_id>
 					<xsl:value-of select="string-join($meldingInfo/root/locaties_voor_melding/lichtmast_id[normalize-space()], ',')"/>
 				</asset_id>
@@ -47,7 +47,14 @@
                         </xsl:otherwise>
                     </xsl:choose>
 				</asset_longitude>
-			</asset>
+			</asset> -->
+			<assets>
+			<xsl:for-each select="$meldingInfo/root/locaties_voor_melding/lichtmast_id">
+				<asset_id>
+					<xsl:value-of select="."/>
+				</asset_id>
+			</xsl:for-each>
+			</assets>
 			<user>
 				<user_click_latitude>
                     <xsl:choose>

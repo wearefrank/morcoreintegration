@@ -1,30 +1,26 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
- 
+
   <xs:element name="root">
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="mor_id" type="xs:integer">
-          <xs:annotation>
-            <xs:documentation>The unique identifier of the workorder.</xs:documentation>
-          </xs:annotation>
-        </xs:element>
-        <xs:element name="malfunction" type="MorRotterdamMalfunctionDto" />
+        <xs:element name="mor_id" type="xs:integer"/>
+        <xs:element name="malfunction" type="MorRotterdamMalfunctionDto"/>
         <xs:element name="assets">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="asset" type="MorRotterdamAssetDto" minOccurs="1" maxOccurs="unbounded" />
+              <xs:element name="asset_id" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="user" type="MorRotterdamUserDto" />
+        <xs:element name="user" type="MorRotterdamUserDto"/>
         <xs:element name="attachments">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="attachment" minOccurs="0" maxOccurs="unbounded">
                 <xs:complexType>
                   <xs:sequence>
-                    <xs:element name="url" type="xs:string" />
-                    <xs:element name="filename" type="xs:string" />
+                    <xs:element name="url" type="xs:string"/>
+                    <xs:element name="filename" type="xs:string"/>
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
@@ -34,60 +30,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
- 
+
   <xs:complexType name="MorRotterdamMalfunctionDto">
     <xs:sequence>
-      <xs:element name="malfunction_type" type="xs:string">
-        <xs:annotation>
-          <xs:documentation>Malfunction type</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="malfunction_remark" type="xs:string">
-        <xs:annotation>
-          <xs:documentation>Malfunction remark</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="malfunction_timestamp" type="xs:string">
-        <xs:annotation>
-          <xs:documentation>Date of malfunction</xs:documentation>
-        </xs:annotation>
-      </xs:element>
+      <xs:element name="malfunction_type" type="xs:string"/>
+      <xs:element name="malfunction_remark" type="xs:string"/>
+      <xs:element name="malfunction_timestamp" type="xs:string"/>
     </xs:sequence>
   </xs:complexType>
- 
-  <xs:complexType name="MorRotterdamAssetDto">
-    <xs:sequence>
-      <xs:element name="asset_id" type="xs:string">
-        <xs:annotation>
-          <xs:documentation>Malfunction type</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="asset_latitude" type="xs:decimal" nillable="true">
-        <xs:annotation>
-          <xs:documentation>Latitude type</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="asset_longitude" type="xs:decimal" nillable="true">
-        <xs:annotation>
-          <xs:documentation>Longitude type</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
- 
+
   <xs:complexType name="MorRotterdamUserDto">
     <xs:sequence>
-      <xs:element name="user_click_latitude" type="xs:decimal" nillable="true">
-        <xs:annotation>
-          <xs:documentation>lat from user click</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="user_click_longitude" type="xs:decimal" nillable="true">
-        <xs:annotation>
-          <xs:documentation>lon from user click</xs:documentation>
-        </xs:annotation>
-      </xs:element>
+      <xs:element name="user_click_latitude" type="xs:decimal" nillable="true"/>
+      <xs:element name="user_click_longitude" type="xs:decimal" nillable="true"/>
     </xs:sequence>
   </xs:complexType>
- 
+
 </xs:schema>
