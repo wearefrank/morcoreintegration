@@ -17,11 +17,6 @@
                 <Exit name="Reject" state="REJECTED"/>
             </Exits>
 
-            <PutInSessionPipe name="dummyInput">
-                <Param name="dummyParam" value="&lt;dummy/&gt;" />
-                <Forward name="success" path="Json2Xml" />
-            </PutInSessionPipe>
-
             <JsonPipe name="Json2Xml" getInputFromSessionKey="originalMessage" storeResultInSessionKey="xmlInputMessage" />
 
             <SenderPipe name="GetUuidById"
@@ -60,7 +55,7 @@
                 <Forward name="exception" path="Exception" />
             </XsltPipe>
 
-            <SenderPipe name="CallMorCore_GetToken" storeResultInSessionKey="MorCoreToken" getInputFromSessionKey="dummyParam">
+            <SenderPipe name="CallMorCore_GetToken" storeResultInSessionKey="MorCoreToken">
                 <IbisLocalSender name="CallMorCore_GetToken" javaListener="MorCore_GetToken" />
                 <Forward name="success" path="Send2MorCore" />
                 <Forward name="exception" path="Exception" />
@@ -69,7 +64,6 @@
             <SenderPipe name="Send2MorCore" getInputFromSessionKey="RequestJson">
                 <IbisLocalSender name="Send2Morcore" javaListener="MorCore_PostNotificatie">
                     <Param name="RequestJson" sessionKey="RequestJson" />
-                    <Param name="dummyParam" sessionKey="dummyParam" />
                     <Param name="MorCoreToken" sessionKey="MorCoreToken" />
                     <Param name="meldingUuid" type="STRING" xpathExpression="//uuid" sessionKey="uuid" />
                     <Param name="taakOpdrachtUuid" type="STRING" sessionKey="taakopdracht" xpathExpression="/taakopdracht" />
