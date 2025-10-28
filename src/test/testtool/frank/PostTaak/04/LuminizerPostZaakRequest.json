@@ -5,11 +5,9 @@
         "malfunction_remark": "Taak aangemaakt door (personeelsnummer): \nTaak: Lichtmast staat scheef (niet urgent)\nOpmerkingen bij taak: \nKenmerken: 2024-003657\nMelding: AUTOMATISCHE TEST MELDING TOSCA!\nDoor melder opgegeven masten: 123123",
         "malfunction_timestamp": "2001-12-17T09:30:47"
     },
-    "asset": {
-        "asset_id": "123123",
-        "asset_latitude": 51.917085,
-        "asset_longitude": 4.468454
-    },
+    "assets": [
+        "123123"
+    ],
     "user": {
         "user_click_latitude": 51.917085,
         "user_click_longitude": 4.468454

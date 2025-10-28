@@ -5,11 +5,9 @@
         "malfunction_remark": "",
         "malfunction_timestamp": "2001-12-17T09:30:47"
     },
-    "asset": {
-        "asset_id": "1234",
-        "asset_latitude": 52.123456,
-        "asset_longitude": 5.123456
-    },
+    "assets": [
+        "1234"
+    ],
     "user": {
         "user_click_latitude": 52.123456,
         "user_click_longitude": 5.123456

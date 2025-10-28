@@ -1,0 +1,76 @@
+<Module xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../FrankConfig.xsd">
+
+    <Adapter name="Luminizer_PostNotificatie_v2" active="${Luminizer_PostNotificatie.active}">
+        <Receiver name="Luminizer_PostNotificatie_v2">
+            <ApiListener
+                name="Luminizer_PostNotificatie_v2"
+                uriPattern="/api/v2/malfunction/{mor_id}"
+                headerParams="ApiKey,ApplicationElementId"
+                method="POST" />
+        </Receiver>
+
+        <Pipeline>
+            <Exits>
+                <Exit name="Exit" state="SUCCESS" code="200" />
+                <Exit name="Exception" state="ERROR" code="500" />
+                <Exit name="Reject" state="REJECTED"/>
+            </Exits>
+
+            <JsonPipe name="Json2Xml" getInputFromSessionKey="originalMessage" storeResultInSessionKey="xmlInputMessage" />
+
+            <SenderPipe name="GetUuidById"
+                storeResultInSessionKey="uuid">
+                <IbisLocalSender name="GetUuidById" javaListener="Internal_GetUuidById">
+                    <Param name="Id" sessionKey="mor_id" />
+                </IbisLocalSender>
+                <Forward name="success" path="IfResultCount0" />
+            <Forward name="exception" path="Exception" />
+            </SenderPipe>
+
+            <XmlIfPipe name="IfResultCount0" xpathExpression="string-length($uuidText) > 0">
+                <Param name="uuidText" sessionKey="uuid" xpathExpression="//uuid" type="STRING"/>
+                <Forward name="then" path="GetTaakopdrachtById" />
+                <Forward name="else" path="Exit" />
+            </XmlIfPipe>
+
+            <SenderPipe name="GetTaakopdrachtById" getInputFromSessionKey="xmlInputMessage"
+                storeResultInSessionKey="taakopdracht">
+                <IbisLocalSender name="GetTaakopdrachtById" javaListener="Internal_GetTaakopdrachtById">
+                    <Param name="Id" sessionKey="mor_id"/>
+                </IbisLocalSender>
+                <Forward name="success" path="CheckTaakopdrachtById" />
+                <Forward name="exception" path="Exception" />
+            </SenderPipe>
+
+            <XmlIfPipe name="CheckTaakopdrachtById" getInputFromSessionKey="taakopdracht" xpathExpression="string-length(taakopdracht) &gt; 0">
+                <Forward name="then" path="CreatePostNotificatieRequest" />
+                <Forward name="else" path="Exit" />
+            </XmlIfPipe>
+                       
+            <XsltPipe name="CreatePostNotificatieRequest"
+                styleSheetName="xsl/PostNotificatieRequest_v2.xsl"
+                storeResultInSessionKey="RequestJson" getInputFromSessionKey="xmlInputMessage">
+                <Forward name="success" path="CallMorCore_GetToken" />
+                <Forward name="exception" path="Exception" />
+            </XsltPipe>
+
+            <SenderPipe name="CallMorCore_GetToken" storeResultInSessionKey="MorCoreToken">
+                <IbisLocalSender name="CallMorCore_GetToken" javaListener="MorCore_GetToken" />
+                <Forward name="success" path="Send2MorCore" />
+                <Forward name="exception" path="Exception" />
+            </SenderPipe>
+
+            <SenderPipe name="Send2MorCore" getInputFromSessionKey="RequestJson">
+                <IbisLocalSender name="Send2Morcore" javaListener="MorCore_PostNotificatie">
+                    <Param name="RequestJson" sessionKey="RequestJson" />
+                    <Param name="MorCoreToken" sessionKey="MorCoreToken" />
+                    <Param name="meldingUuid" type="STRING" xpathExpression="//uuid" sessionKey="uuid" />
+                    <Param name="taakOpdrachtUuid" type="STRING" sessionKey="taakopdracht" xpathExpression="/taakopdracht" />
+                </IbisLocalSender>
+                <Forward name="success" path="Exit" />
+                <Forward name="exception" path="Exception" />
+            </SenderPipe>
+        </Pipeline>  
+    </Adapter>
+</Module>
