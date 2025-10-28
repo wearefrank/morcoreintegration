@@ -1,5 +1,11 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.15.0](https://github.com/wearefrank/morcoreintegration/compare/v1.14.5...v1.15.0) (2025-10-28)
+
+### 🍕 Features
+
+* Merge pull request [#106](https://github.com/wearefrank/morcoreintegration/issues/106) from wearefrank/GT-2121-Luminizer-new-endpoints ([abaef84](https://github.com/wearefrank/morcoreintegration/commit/abaef8400cc400a09a040165fccfe455256396b0))
+
 ## [1.14.5](https://github.com/wearefrank/morcoreintegration/compare/v1.14.4...v1.14.5) (2025-10-21)
 
 ### 🐛 Bug Fixes
