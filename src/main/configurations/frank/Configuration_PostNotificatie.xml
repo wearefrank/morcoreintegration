@@ -7,7 +7,8 @@
                 name="Frank_PostNotificatie"
                 uriPattern="/Msb.Extern.services/Ultimo/Melding"
                 headerParams="ApiKey,ApplicationElementId"
-                method="POST" />
+                method="POST"
+                allowAllParams="true" />
         </Receiver>
 
         <Pipeline>
@@ -18,20 +19,20 @@
                 <Exit name="Reject" state="REJECTED" />
             </Exits>
 
-            <XmlIfPipe name="CompareApiKey" getInputFromFixedValue="&lt;dummy/&gt;" xpathExpression="$ClientApiKey = $FrankApiKey" active="${Token_Authentication.Active}">
+            <IfPipe name="CompareApiKey" getInputFromFixedValue="&lt;dummy/&gt;" xpathExpression="$ClientApiKey = $FrankApiKey" active="${Token_Authentication.Active}">
                 <Param name="ClientApiKey" sessionKey="headers" xpathExpression="headers/header[@name='ApiKey']"/>
                 <Param name="FrankApiKey" authAlias="MSB" pattern="{username}" />
                 <Forward name="then" path="CompareApplicationElementId" />
                 <Forward name="else" path="RejectMessage" />
-            </XmlIfPipe>
+            </IfPipe>
 
-            <XmlIfPipe name="CompareApplicationElementId" getInputFromFixedValue="&lt;dummy/&gt;" xpathExpression="$ClientApplicationElementId = $FrankApplicationElementId" 
+            <IfPipe name="CompareApplicationElementId" getInputFromFixedValue="&lt;dummy/&gt;" xpathExpression="$ClientApplicationElementId = $FrankApplicationElementId" 
                 active="${Token_Authentication.Active}">
                 <Param name="ClientApplicationElementId" sessionKey="headers" xpathExpression="headers/header[@name='ApplicationElementId']"/>
                 <Param name="FrankApplicationElementId" authAlias="MSB" pattern="{password}" />
                 <Forward name="then" path="dummyInput" />
                 <Forward name="else" path="RejectMessage" />
-            </XmlIfPipe>
+            </IfPipe>
 
             <EchoPipe name="RejectMessage" getInputFromFixedValue="Authentication headers invalid" active="${Token_Authentication.Active}">
                 <Forward name="success" path="Reject" />
@@ -59,11 +60,11 @@
                 <Forward name="exception" path="Exception" />
             </SenderPipe>
 
-            <XmlIfPipe name="IfResultCount0" xpathExpression="string-length($uuidText) > 0">
+            <IfPipe name="IfResultCount0" xpathExpression="string-length($uuidText) > 0">
                 <Param name="uuidText" sessionKey="uuid" xpathExpression="//uuid" type="STRING"/>
                 <Forward name="then" path="MakeGetMeldingCall" />
                 <Forward name="else" path="Exit" />
-            </XmlIfPipe>
+            </IfPipe>
 
             <XsltPipe name="MakeGetMeldingCall" getInputFromSessionKey="dummyParam"
                 xpathExpression="concat('&lt;melding>', '${MorCore.taak.API.root-url}', '/api/v1/melding/', $uuid, '&lt;/melding>')">
@@ -93,10 +94,10 @@
                 <Forward name="exception" path="Exception" />
             </SenderPipe>
             
-            <XmlIfPipe name="CheckTaakopdrachtById" getInputFromSessionKey="taakopdracht" xpathExpression="string-length(taakopdracht) &gt; 0">
+            <IfPipe name="CheckTaakopdrachtById" getInputFromSessionKey="taakopdracht" xpathExpression="string-length(taakopdracht) &gt; 0">
                 <Forward name="then" path="CreatePostNotificatieRequest" />
                 <Forward name="else" path="Exit" />
-            </XmlIfPipe>
+            </IfPipe>
 
             <XsltPipe name="CreatePostNotificatieRequest"
                 styleSheetName="xsl/PostNotificatieRequest.xsl"

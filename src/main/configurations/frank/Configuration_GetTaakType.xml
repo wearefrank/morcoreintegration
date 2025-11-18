@@ -5,7 +5,9 @@
         <Receiver name="Frank_GetTaakType">
             <ApiListener
                 name="Frank_GetTaakType"
-                uriPattern="/api/v1/taaktype/{uuid}" />
+                uriPattern="/api/v1/taaktype/{uuid}"
+                allowAllParams="true"
+                />
         </Receiver>
         
         <Receiver>
@@ -66,10 +68,10 @@
                 <Param name="uuid" sessionKey="uuid" />
             </XsltPipe>
 
-            <XmlIfPipe name="CheckLength" xpathExpression="string-length(.) = 0">
+            <IfPipe name="CheckLength" xpathExpression="string-length(.) = 0">
                 <Forward name="then" path="TypeNotFound" />
                 <Forward name="else" path="XmlToJson" />
-            </XmlIfPipe>
+            </IfPipe>
 
             <EchoPipe name="TypeNotFound" getInputFromFixedValue="No matching taaktype found.">
                 <Forward name="success" path="NotFound" />

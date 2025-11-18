@@ -7,7 +7,8 @@
                 name="Frank_PostTaak"
                 method="POST"
                 uriPattern="/api/v1/taak"
-                headerParams="Authorization" />
+                headerParams="Authorization"
+                allowAllParams="true" />
         </Receiver>
 
         <Pipeline>
@@ -21,27 +22,42 @@
                 <IbisLocalSender javaListener="Internal_GetToken"/>
             </SenderPipe>
 
-            <XmlIfPipe name="CompareTokens" xpathExpression="substring-after($ClientToken, 'Token ') = $FrankToken" active="${Token_Authentication.Active}">
+            <IfPipe name="CompareTokens" xpathExpression="substring-after($ClientToken, 'Token ') = $FrankToken" active="${Token_Authentication.Active}">
                 <Param name="ClientToken" sessionKey="headers" xpathExpression="headers/header[@name='Authorization']"/>
                 <Param name="FrankToken" sessionKey="FrankToken" xpathExpression="//token"/>
-                <Forward name="then" path="Json2XmlValidator" />
+                <Forward name="then" path="Json2XmlValidatorArray" />
                 <Forward name="else" path="RejectMessage" />
-            </XmlIfPipe>
+            </IfPipe>
 
             <EchoPipe name="RejectMessage" getInputFromFixedValue="Token invalid" active="${Token_Authentication.Active}">
                 <Forward name="success" path="Reject" />
             </EchoPipe>
 
             <Json2XmlValidatorPipe 
-                name="Json2XmlValidator" 
+                name="Json2XmlValidatorArray" 
                 root="root" 
-                schema="xsd/ValidatePostTaakInput.xsd"
+                schema="xsd/ValidatePostTaakArrayInput.xsd"
+                getInputFromSessionKey="originalMessage"
+                failOnWildcards="false"
+            >
+                <Forward name="failure" path="Json2XmlValidatorAnyElement" />
+                <Forward name="exception" path="Exception" />
+                <Forward name="success" path="AnchorPoint"/>   
+            </Json2XmlValidatorPipe>
+
+            <Json2XmlValidatorPipe
+                name="Json2XmlValidatorAnyElement"
+                root="root"
+                schema="xsd/ValidatePostTaakAnyInput.xsd"
                 getInputFromSessionKey="originalMessage"
                 failOnWildcards="false"
             >
                 <Forward name="failure" path="Reject" />
                 <Forward name="exception" path="Exception" />
+                <Forward name="success" path="AnchorPoint"/>  
             </Json2XmlValidatorPipe>
+
+            <EchoPipe name="AnchorPoint" />
 
             <SenderPipe name="SwitchConfiguration" active="!${enable.pipeset.larva}">
                 <IbisLocalSender javaListener="${target.system}_PostZaak" />

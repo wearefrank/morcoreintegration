@@ -8,7 +8,8 @@
                 uriPattern="/api/media/bestanden/**"
                 headerParams="ApiKey,ApplicationElementId"
                 method="GET"
-                produces="DETECT"/>
+                produces="DETECT"
+                allowAllParams="true"/>
         </Receiver>
 
         <Pipeline>

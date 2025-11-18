@@ -6,7 +6,8 @@
             <ApiListener
                 name="Frank_GetToken"
                 uriPattern="/api-token-auth"
-                method="POST" />
+                method="POST"
+                allowAllParams="true" />
         </Receiver>
 
         <Pipeline>
@@ -18,28 +19,28 @@
 
             <JsonPipe name="Json2Xml" emptyInputReplacement="&lt;Empty>EmptyMessage&lt;/Empty>"/>
 
-            <XmlIfPipe name="CheckEmpty" xpathExpression="string-length(//Empty) = 0">
+            <IfPipe name="CheckEmpty" xpathExpression="string-length(//Empty) = 0">
                 <Forward name="then" path="CheckUser" />
                 <Forward name="else" path="RejectMessage" />
-            </XmlIfPipe>
+            </IfPipe>
 
             <EchoPipe name="RejectMessage" getInputFromFixedValue="Username or password missing">
                 <Forward name="success" path="Reject" />
             </EchoPipe>
 
-            <XmlIfPipe name="CheckUser" xpathExpression="$UserSet = $UserReceived">
+            <IfPipe name="CheckUser" xpathExpression="$UserSet = $UserReceived">
                 <Param name="UserSet" pattern="{username}" authAlias="TokenGen" hidden="true"/>
                 <Param name="UserReceived" xpathExpression="//username" hidden="true"/>
                 <Forward name="then" path="CheckPass" />
                 <Forward name="else" path="RejectUser" />
-            </XmlIfPipe>
+            </IfPipe>
 
-            <XmlIfPipe name="CheckPass" xpathExpression="$PassSet = $PassReceived">
+            <IfPipe name="CheckPass" xpathExpression="$PassSet = $PassReceived">
                 <Param name="PassSet" pattern="{password}" authAlias="TokenGen" hidden="true"/>
                 <Param name="PassReceived" xpathExpression="//password" hidden="true"/>
                 <Forward name="then" path="RequestGetToken" />
                 <Forward name="else" path="RejectUser" />
-            </XmlIfPipe>
+            </IfPipe>
 
             <EchoPipe name="RejectUser" getInputFromFixedValue="Username or Password incorrect">
                 <Forward name="success" path="Reject" />

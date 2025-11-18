@@ -7,7 +7,8 @@
             <ApiListener
                 name="Frank_PostTaakCommunicatie"
                 method="POST"
-                uriPattern="/api/v1/taak/{uuid}/communicatie" />
+                uriPattern="/api/v1/taak/{uuid}/communicatie"
+                allowAllParams="true" />
 
         </Receiver>
 

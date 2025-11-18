@@ -5,6 +5,7 @@
         <Receiver name="Frank_DeleteTaak">
             <ApiListener
                 name="Frank_DeleteTaak"
+                allowAllParams="true"
                 method="DELETE"
                 uriPattern="/api/v1/taak/{uuid}"
                 headerParams="Authorization"/>
