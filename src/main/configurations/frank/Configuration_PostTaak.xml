@@ -7,7 +7,8 @@
                 name="Frank_PostTaak"
                 method="POST"
                 uriPattern="/api/v1/taak"
-                headerParams="Authorization" />
+                headerParams="Authorization"
+                allowAllParams="true" />
         </Receiver>
 
         <Pipeline>

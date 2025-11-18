@@ -1,7 +1,7 @@
 <Module xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../FrankConfig.xsd">
     <Adapter name="Frank_ListTaakTypes" active="${Frank_ListTaakTypes.active}">
         <Receiver name="Frank_ListTaakTypes">
-            <ApiListener name="Frank_ListTaakTypes" uriPattern="/api/v1/taaktype" />
+            <ApiListener name="Frank_ListTaakTypes" uriPattern="/api/v1/taaktype" allowAllParams="true" />
         </Receiver>
 
         <Pipeline>

@@ -7,7 +7,8 @@
                 name="Luminizer_PostNotificatie_v2"
                 uriPattern="/api/v2/malfunction/{mor_id}"
                 headerParams="ApiKey,ApplicationElementId"
-                method="POST" />
+                method="POST"
+                allowAllParams="true" />
         </Receiver>
 
         <Pipeline>

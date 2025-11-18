@@ -6,7 +6,9 @@
             <ApiListener
                 name="Frank_GetTaak"
                 uriPattern="/api/v1/taak/{uuid}"
-                headerParams="Authorization"/>
+                headerParams="Authorization"
+                allowAllParams="true"
+                />
 
         </Receiver>
 

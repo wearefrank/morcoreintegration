@@ -6,7 +6,8 @@
             <ApiListener
                 name="Frank_GetToken"
                 uriPattern="/api-token-auth"
-                method="POST" />
+                method="POST"
+                allowAllParams="true" />
         </Receiver>
 
         <Pipeline>
