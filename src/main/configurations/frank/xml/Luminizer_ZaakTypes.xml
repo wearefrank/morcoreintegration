@@ -9,16 +9,15 @@
             <self>[hostname]api/v1/taaktype/7070f8a1-a89c-4915-8a99-10ab09194c65</self>
         </_links>
         <uuid>7070f8a1-a89c-4915-8a99-10ab09194c65</uuid>
-        <omschrijving>Verlichting knippert 1 stuk</omschrijving>
-        <toelichting>Deze taak is voor functionele (straat)verlichting waarbij één verlichtingsobject knippert. Onder functionele (straat)verlichting wordt verstaan wandarmaturen, masten, armaturen, brugarmaturen, hangarmaturen, armaturen in de Maastunneltraverse (niet in de Maastunnel zelf).
-Knipperen twee of meer verlichtingsobjecten, selecteer dan de taak "Verlichting knippert 2 of meer stuks". 
-Betreft het één of meerdere knipperende niet-functionele verlichting (lees: sierverlichting, monumentverlichting, aanstraling bruggen, klokverlichting of additionele verlichting), selecteer dan de taak "Verstoring niet functionele verlichting" voor Stedelijk beheer Openbare Verlichting. 
+        <omschrijving>Verlichting knippert</omschrijving>
+        <toelichting>Deze taak is voor functionele (straat)verlichting waarbij één of meerdere verlichtingsobjecten knipperen. Onder functionele (straat)verlichting wordt verstaan wandarmaturen, masten, armaturen, brugarmaturen, hangarmaturen, armaturen in de Maastunneltraverse (niet in de Maastunnel zelf).
+Betreft het één of meerdere knipperende niet-functionele verlichting (lees: sierverlichting, monumentverlichting, aanstraling bruggen, klokverlichting of additionele verlichting), selecteer dan de taak "Verstoring niet functionele verlichting" voor Stedelijk beheer Openbare Verlichting.
 Bij twijfel over het type verlichting raadpleeg Gisweb.
-De taak "Verlichting knippert 1 stuk" kan ook als vervolgtaak worden gebruikt door Stedelijk Beheer Openbare Verlichting wanneer taken toch niet over niet-functionele verlichting maar over functionele verlichting gaan en via Uitvoering Werken Elektrotechnische dienst en Luminizer door Citytec moeten worden opgepakt. 
+De taak "Verlichting knippert" kan ook als vervolgtaak worden gebruikt door Stedelijk Beheer Openbare Verlichting wanneer taken toch niet over niet-functionele verlichting maar over functionele verlichting gaan en via Uitvoering Werken Elektrotechnische dienst en Luminizer door Citytec moeten worden opgepakt.
 Op deze taak is het proces "Openbare Verlichting incl. spoed" van toepassing.</toelichting>
         <additionele_informatie />
         <extra>
-            <luminizerOnderwerpOmschrijving>OVERIG</luminizerOnderwerpOmschrijving>
+            <luminizerOnderwerpOmschrijving>KNIPPER_LICHT</luminizerOnderwerpOmschrijving>
         </extra>
     </results>
     <results>
@@ -26,7 +25,7 @@ Op deze taak is het proces "Openbare Verlichting incl. spoed" van toepassing.</t
             <self>[hostname]api/v1/taaktype/a3e2e97b-598a-4d5c-88df-4812f2a2db4e</self>
         </_links>
         <uuid>a3e2e97b-598a-4d5c-88df-4812f2a2db4e</uuid>
-        <omschrijving>Verlichting knippert 2 of meer stuks</omschrijving>
+        <omschrijving>Verlichting knippert 2 of meer stuks (niet meer gebruiken)</omschrijving>
         <toelichting>Deze taak is voor functionele (straat)verlichting waarbij twee of meer verlichtingsobjecten knipperen. Onder functionele (straat)verlichting wordt verstaan wandarmaturen, masten, armaturen, brugarmaturen, hangarmaturen, armaturen in de Maastunneltraverse (niet in de Maastunnel zelf).
 Knippert één verlichtingsobject, selecteer dan de taak "Verlichting knippert 1 stuk".
 Betreft het één of meerdere knipperende niet-functionele verlichting (lees: sierverlichting, monumentverlichting, aanstraling bruggen, klokverlichting of additionele verlichting), selecteer dan de taak "Verstoring niet functionele verlichting" voor Stedelijk beheer Openbare Verlichting.
@@ -69,7 +68,7 @@ De taak "Verlichting doet het niet 2 of meer stuks" kan ook als vervolgtaak word
 Op deze taak is het proces "Openbare Verlichting incl. spoed" van toepassing.</toelichting>
         <additionele_informatie />
         <extra>
-            <luminizerOnderwerpOmschrijving>OVERIG</luminizerOnderwerpOmschrijving>
+            <luminizerOnderwerpOmschrijving>BRANDT_NIET_MEER</luminizerOnderwerpOmschrijving>
         </extra>
     </results>
     <results>
@@ -77,12 +76,11 @@ Op deze taak is het proces "Openbare Verlichting incl. spoed" van toepassing.</t
             <self>[hostname]api/v1/taaktype/edcb1dac-5786-4483-a0df-be7103406b44</self>
         </_links>
         <uuid>edcb1dac-5786-4483-a0df-be7103406b44</uuid>
-        <omschrijving>Verlichting brand overdag 1 stuk</omschrijving>
-        <toelichting>Deze taak is voor functionele (straat)verlichting waarbij één verlichtingsobject overdag brand. Onder functionele (straat)verlichting wordt verstaan wandarmaturen, masten, armaturen, brugarmaturen, hangarmaturen, armaturen in de Maastunneltraverse (niet in de Maastunnel zelf).
-Branden twee of meer verlichtingsobjecten overdag, selecteer dan de taak "Verlichting brand overdag 2 of meer stuks".
+        <omschrijving>Verlichting brand overdag</omschrijving>
+        <toelichting>Deze taak is voor functionele (straat)verlichting waarbij één of meerdere verlichtingsobjecten overdag branden. Onder functionele (straat)verlichting wordt verstaan wandarmaturen, masten, armaturen, brugarmaturen, hangarmaturen, armaturen in de Maastunneltraverse (niet in de Maastunnel zelf).
 Betreft het één of meerdere niet-functionele verlichtingsobjecten die overdag branden (lees: sierverlichting, monumentverlichting, aanstraling bruggen, klokverlichting of additionele verlichting), selecteer dan de taak "Verstoring niet functionele verlichting" voor Stedelijk beheer Openbare Verlichting.
 Bij twijfel over het type verlichting raadpleeg Gisweb.
-De taak "Verlichting brand overdag 1 stuk" kan ook als vervolgtaak worden gebruikt door Stedelijk Beheer Openbare Verlichting wanneer taken toch niet over niet-functionele verlichting maar over functionele verlichting gaan en via Uitvoering Werken Elektrotechnische dienst en Luminizer door Citytec moeten worden opgepakt.
+De taak "Verlichting brand overdag" kan ook als vervolgtaak worden gebruikt door Stedelijk Beheer Openbare Verlichting wanneer taken toch niet over niet-functionele verlichting maar over functionele verlichting gaan en via Uitvoering Werken Elektrotechnische dienst en Luminizer door Citytec moeten worden opgepakt.
 Op deze taak is het proces "Openbare Verlichting incl. spoed" van toepassing.</toelichting>
         <additionele_informatie />
         <extra>
@@ -94,7 +92,7 @@ Op deze taak is het proces "Openbare Verlichting incl. spoed" van toepassing.</t
             <self>[hostname]api/v1/taaktype/be2fc491-cafc-47ab-a223-3cb50b51842f</self>
         </_links>
         <uuid>be2fc491-cafc-47ab-a223-3cb50b51842f</uuid>
-        <omschrijving>Verlichting brand overdag 2 of meer stuks</omschrijving>
+        <omschrijving>Verlichting brand overdag 2 of meer stuks (niet meer gebruiken)</omschrijving>
         <toelichting>Deze taak is voor functionele (straat)verlichting waarbij twee of meer verlichtingsobjecten overdag branden. Onder functionele (straat)verlichting wordt verstaan wandarmaturen, masten, armaturen, brugarmaturen, hangarmaturen, armaturen in de Maastunneltraverse (niet in de Maastunnel zelf).
 Brand één verlichtingsobject overdag, selecteer dan de taak "Verlichting brand overdag 1 stuk".
 Betreft het één of meerdere niet-functionele verlichtingsobjecten die overdag branden (lees: sierverlichting, monumentverlichting, aanstraling bruggen, klokverlichting of additionele verlichting), selecteer dan de taak "Verstoring niet functionele verlichting" voor Stedelijk beheer Openbare Verlichting.
@@ -117,7 +115,7 @@ Staat het verlichtingsobject scheef en levert het een gevaar op voor de omgeving
 Op deze taak is het proces "Openbare Verlichting incl. spoed" van toepassing.</toelichting>
         <additionele_informatie />
         <extra>
-            <luminizerOnderwerpOmschrijving>OVERIG</luminizerOnderwerpOmschrijving>
+            <luminizerOnderwerpOmschrijving>MAST_SCHEEF</luminizerOnderwerpOmschrijving>
         </extra>
     </results>
     <results>
@@ -171,7 +169,7 @@ Op deze taak is het proces "Openbare Verlichting incl. spoed" van toepassing.</t
 Op deze taak is het proces "Openbare Verlichting incl. spoed" van toepassing.</toelichting>
         <additionele_informatie />
         <extra>
-            <luminizerOnderwerpOmschrijving>OVERIG</luminizerOnderwerpOmschrijving>
+            <luminizerOnderwerpOmschrijving>MAST_SCHADE</luminizerOnderwerpOmschrijving>
         </extra>
     </results>
     <results>
@@ -185,6 +183,18 @@ Op deze taak is het proces "Klokken" van toepassing.</toelichting>
         <additionele_informatie />
         <extra>
             <luminizerOnderwerpOmschrijving>OVERIG</luminizerOnderwerpOmschrijving>
+        </extra>
+    </results>
+    <results>
+        <_links>
+            <self>[hostname]api/v1/taaktype/50a8dda4-1b9d-4918-abed-76ac3b84c561</self>
+        </_links>
+        <uuid>50a8dda4-1b9d-4918-abed-76ac3b84c561</uuid>
+        <omschrijving>Verlichting maakt geluid (knetterend/zoomend)</omschrijving>
+        <toelichting>Wanneer uit een lichtmast een knetterend en/of zoomend geluid komt, kan er sprake zijn van een ernstig elektrisch probleem, zoals een slechte verbinding of defecte bedrading. De stroom moet onmiddellijk worden uitgeschakeld door een daartoe bevoegde partij. Deze taak landt in Luminizer en wordt door UW-OVL uitgezet bij een contracthouder voor openbare functionele verlichting.</toelichting>
+        <additionele_informatie />
+        <extra>
+            <luminizerOnderwerpOmschrijving>MAAKT_GELUID</luminizerOnderwerpOmschrijving>
         </extra>
     </results>
 </root>

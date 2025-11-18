@@ -154,8 +154,8 @@
             <self>[hostname]api/v1/taaktype/99e62ce5-9edb-40a7-b2a6-648c372961db</self>
         </_links>
         <uuid>99e62ce5-9edb-40a7-b2a6-648c372961db</uuid>
-        <omschrijving>Omgevallen boom in verharding verwijderen (geen stormschade)</omschrijving>
-        <toelichting>Betreft het veiligstellen van de buitenruimte en het verwijderen van een omgevallen boom in verharding. Wanneer de boom is omgewaaide als gevolg van een storm selecteer dan de taak "Veiligstellen buitenruimte door stormschade aan boom".</toelichting>
+        <omschrijving>Omgevallen boom in verharding verwijderen</omschrijving>
+        <toelichting>Betreft het veiligstellen van de buitenruimte en het verwijderen van een omgevallen boom in verharding. Deze taak landt in Ultimo. Wanneer de boom is omgewaaide als gevolg van een storm, selecteer dan de taak "Veiligstellen buitenruimte als gevolg van stormschade aan boom".</toelichting>
         <additionele_informatie />
         <extra>
             <ultimoOnderwerpCode>22333</ultimoOnderwerpCode>
@@ -168,7 +168,7 @@
         </_links>
         <uuid>1732613a-8d83-4f6c-a795-9a9df3b49751</uuid>
         <omschrijving>Omgevallen boom in groen verwijderen</omschrijving>
-        <toelichting></toelichting>
+        <toelichting>Betreft het verwijderen van een omgevallen boom in een groenvak of bosgebied in opdracht van Gebiedsbeheer-Groen in navolging op de taak "Omgevallen boom in groen onderzoeken". Of de boom is omgevallen als gevolg van een storm is niet relevant. Wanneer er sprake is van directe gevaarzetting voor de omgeving dan selecteert de midoffice deze taak zonder een taak voor Gebiedsbeheer-Groen aan te maken. De taak "Omgevallen boom in groen verwijderen" landt in Ultimo.</toelichting>
         <additionele_informatie />
         <extra>
             <ultimoOnderwerpCode>22334</ultimoOnderwerpCode>
@@ -180,8 +180,8 @@
             <self>[hostname]api/v1/taaktype/a72889db-51c4-4885-a2b8-b26236750ef7</self>
         </_links>
         <uuid>a72889db-51c4-4885-a2b8-b26236750ef7</uuid>
-        <omschrijving>Veiligstellen buitenruimte door stormschade</omschrijving>
-        <toelichting>Betreft meldingen over schade aan bomen door storm. Waarbij het veilig kunnen gebruiken van de buitenruimte in gevaar is.</toelichting>
+        <omschrijving>Veiligstellen buitenruimte als gevolg van stormschade aan boom</omschrijving>
+        <toelichting>Betreft schade aan de buitenruimte veroorzaakt door een boom als gevolg van een storm, waarbij de sprake is van directe gevaarzetting in de buitenruimte. Deze taak landt in Ultimo.</toelichting>
         <additionele_informatie />
         <extra>
             <ultimoOnderwerpCode>22335</ultimoOnderwerpCode>
@@ -193,8 +193,8 @@
             <self>[hostname]api/v1/taaktype/9bd57bcf-b66d-4b4b-b6a9-193f38cc29c0</self>
         </_links>
         <uuid>9bd57bcf-b66d-4b4b-b6a9-193f38cc29c0</uuid>
-        <omschrijving>Snoeien boom</omschrijving>
-        <toelichting></toelichting>
+        <omschrijving>Snoeien boom (urgent)</omschrijving>
+        <toelichting>Betreft het met spoed snoeien van een boom bij directe gevaarzetting voor de omgeving. Deze taak landt in Ultimo en kan ook als vervolgtaak worden geselecteerd door Gebiedsbeheer-Groen op de taak "Advies snoeien boom". Wanneer er geen sprake is van directe gevaarzetting maar snoei wel gewenst is, dan neemt Gebiedsbeheer-Groen de betreffende boom op in het lopende of volgende snoeiprogramma.</toelichting>
         <additionele_informatie />
         <extra>
             <ultimoOnderwerpCode>22336</ultimoOnderwerpCode>
@@ -206,12 +206,25 @@
             <self>[hostname]api/v1/taaktype/89e441b1-9862-47ba-885c-bd4213719d36</self>
         </_links>
         <uuid>89e441b1-9862-47ba-885c-bd4213719d36</uuid>
-        <omschrijving>Boompalen en afrastering herstellen (nazorg)</omschrijving>
-        <toelichting></toelichting>
+        <omschrijving>Boompalen herstellen of verwijderen</omschrijving>
+        <toelichting>Betreft een nieuwe boom vanuit een project of het inboetprogramma die voor de stabiliteit voorzien zijn van boompalen. Dergelijke bomen hebben een nazorg van drie jaar, inclusief de boompalen. Door omstandigheden kunnen deze palen scheef staan of kapot zijn. Vanuit de nazorg kunnen ze door een aannemer recht gezet, vervangen of verwijderd worden. Deze taak landt in Ultimo.</toelichting>
         <additionele_informatie />
         <extra>
             <ultimoOnderwerpCode>22337</ultimoOnderwerpCode>
             <ultimoOnderwerpOmschrijving>Boom Nazorg</ultimoOnderwerpOmschrijving>
+        </extra>
+    </results>
+    <results>
+        <_links>
+            <self>[hostname]api/v1/taaktype/325d72e0-e259-4b09-b507-b702afd19eb9</self>
+        </_links>
+        <uuid>325d72e0-e259-4b09-b507-b702afd19eb9</uuid>
+        <omschrijving>Verwijderen afgebroken takken in boom</omschrijving>
+        <toelichting>Betreft het verwijderen van afgebroken takken die nog hangen in de boom. Het kan zijn dat de afgebroken tak nog is verbonden met de stam of dat deze los in de kroon van de boom hangt. Wanneer de afgebroken tak op maaiveld ligt, selecteer dan de taak “Verwijderen afgebroken takken op maaiveld” voor UW-Serviceteams.</toelichting>
+        <additionele_informatie />
+        <extra>
+            <ultimoOnderwerpCode>22656</ultimoOnderwerpCode>
+            <ultimoOnderwerpOmschrijving>Boom AfgebrokenTak</ultimoOnderwerpOmschrijving>
         </extra>
     </results>
 </root>
