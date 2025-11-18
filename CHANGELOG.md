@@ -1,5 +1,11 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.16.0](https://github.com/wearefrank/morcoreintegration/compare/v1.15.1...v1.16.0) (2025-11-18)
+
+### 🍕 Features
+
+* Merge pull request [#109](https://github.com/wearefrank/morcoreintegration/issues/109) from wearefrank/GT-2178-FF-upgrade ([d5d6e7d](https://github.com/wearefrank/morcoreintegration/commit/d5d6e7d92667b79d03c5315c1429eae320c85063))
+
 ## [1.15.1](https://github.com/wearefrank/morcoreintegration/compare/v1.15.0...v1.15.1) (2025-11-07)
 
 ### 🐛 Bug Fixes
