@@ -1,0 +1,234 @@
+{
+    "_links": {
+        "self": "https://example.com/api/v1/melding/abcd1234-5678-90ef-ghij-klmnopqrstuv/"
+    },
+    "id": 1001,
+    "uuid": "abcd1234-5678-90ef-ghij-klmnopqrstuv",
+    "aangemaakt_op": "2023-01-01T10:00:00.000000+01:00",
+    "aangepast_op": "2023-01-02T12:00:00.000000+01:00",
+    "origineel_aangemaakt": "2023-01-01T09:59:00.000000+01:00",
+    "afgesloten_op": null,
+    "urgentie": 0.5,
+    "meta": {},
+    "meta_uitgebreid": {},
+    "onderwerpen": [
+        "https://example.com/api/v1/group/1234abcd-5678-90ef-ghij-klmnopqrstuv/category/12345678-abcd-1234-abcd-1234567890ef/"
+    ],
+    "bijlagen": [],
+    "locaties_voor_melding": [
+        {
+            "id": 2001,
+            "uuid": "defg5678-abcd-1234-ijkl-9876543210op",
+            "aangemaakt_op": "2023-01-01T10:01:00.000000+01:00",
+            "aangepast_op": "2023-01-01T10:01:00.000000+01:00",
+            "locatie_type": "adres",
+            "geometrie": {
+                "type": "Point",
+                "coordinates": [
+                    5.123456,
+                    52.123456
+                ]
+            },
+            "bron": null,
+            "naam": null,
+            "straatnaam": "Example Street",
+            "huisnummer": 10,
+            "huisletter": "",
+            "toevoeging": "",
+            "postcode": "1234AB",
+            "wijknaam": "Example District",
+            "buurtnaam": "Example Neighborhood",
+            "lichtmast_id": "1234",
+            "plaatsnaam": "Example City",
+            "begraafplaats": null,
+            "grafnummer": null,
+            "vak": null,
+            "gewicht": 0.5,
+            "melding": 1001,
+            "signaal": 3001,
+            "gebruiker": null
+        },
+        {"lichtmast_id": ""},
+        {"lichtmast_id": "5678"}
+    ],
+    "status": {
+        "naam": "in_progress",
+        "melding": 1002
+    },
+    "resolutie": "pending",
+    "meldinggebeurtenissen": [
+        {
+            "_links": {
+                "self": "https://example.com/api/v1/meldinggebeurtenis/ijkl5678-abcd-1234-mnop-0987654321qr/"
+            },
+            "aangemaakt_op": "2023-01-02T12:00:00.000000+01:00",
+            "gebeurtenis_type": "status_change",
+            "bijlagen": [],
+            "status": {
+                "naam": "in_progress",
+                "melding": 1001
+            },
+            "omschrijving_intern": null,
+            "omschrijving_extern": "The case is in progress.",
+            "melding": 1001,
+            "taakgebeurtenis": {
+                "_links": {
+                    "self": "https://example.com/api/v1/taakgebeurtenis/abcd1234-5678-efgh-ijkl-qrstuvwxyz12/",
+                    "taakopdracht": "https://example.com/api/v1/taakopdracht/abcd1234-5678-efgh-ijkl-qrstuvwxyz34/"
+                },
+                "aangemaakt_op": "2023-01-02T12:01:00.000000+01:00",
+                "bijlagen": [],
+                "taakstatus": {
+                    "naam": "new",
+                    "aangemaakt_op": "2023-01-02T12:00:00.000000+01:00",
+                    "taakopdracht": 700
+                },
+                "resolutie": null,
+                "omschrijving_intern": "",
+                "taakopdracht": 700,
+                "gebruiker": "user@example.com",
+                "additionele_informatie": {
+                    "taak_url": null
+                }
+            },
+            "gebruiker": "user@example.com",
+            "locatie": null,
+            "urgentie": null
+        },
+        {
+            "_links": {
+                "self": "https://example.com/api/v1/meldinggebeurtenis/mnop5678-abcd-1234-qrst-9876543210uv/"
+            },
+            "aangemaakt_op": "2023-01-01T10:01:00.000000+01:00",
+            "gebeurtenis_type": "case_created",
+            "bijlagen": [],
+            "status": {
+                "naam": "open",
+                "melding": 1001
+            },
+            "omschrijving_intern": "Case created",
+            "omschrijving_extern": null,
+            "melding": 1001,
+            "taakgebeurtenis": null,
+            "gebruiker": null,
+            "locatie": null,
+            "urgentie": null
+        }
+    ],
+    "taakopdrachten_voor_melding": [
+        {
+            "taaktype": "https://example.com/api/v1/taaktype/abcd1234-5678-90ef-ghij-klmnopqrstuv",
+            "titel": "Main Task",
+            "bericht": "",
+            "additionele_informatie": {},
+            "gebruiker": null,
+            "_links": {
+                "self": "https://example.com/api/v1/taakopdracht/abcd1234-5678-90ef-ghij-klmnopqrstuv/",
+                "applicatie": "https://example.com/api/v1/applicatie/abcd1234-5678-90ef-ghij-klmnopqrstuv/",
+                "melding": "https://example.com/api/v1/melding/abcd1234-5678-90ef-ghij-klmnopqrstuv/"
+            },
+            "id": 700,
+            "uuid": "abcd1234-5678-90ef-ghij-klmnopqrstuv",
+            "status": {
+                "naam": "new",
+                "aangemaakt_op": "2023-01-02T12:00:00.000000+01:00",
+                "taakopdracht": 700
+            },
+            "resolutie": null,
+            "melding": 1001,
+            "taakgebeurtenissen_voor_taakopdracht": [
+                {
+                    "_links": {
+                        "self": "https://example.com/api/v1/taakgebeurtenis/abcd1234-5678-efgh-ijkl-mnopqrstuvwx/",
+                        "taakopdracht": "https://example.com/api/v1/taakopdracht/abcd1234-5678-efgh-ijkl-qrstuvwxyz12/"
+                    },
+                    "aangemaakt_op": "2023-01-02T12:01:00.000000+01:00",
+                    "bijlagen": [],
+                    "taakstatus": {
+                        "naam": "new",
+                        "aangemaakt_op": "2023-01-02T12:00:00.000000+01:00",
+                        "taakopdracht": 700
+                    },
+                    "resolutie": null,
+                    "omschrijving_intern": "",
+                    "taakopdracht": 700,
+                    "gebruiker": "user@example.com",
+                    "additionele_informatie": {
+                        "taak_url": null
+                    }
+                }
+            ],
+            "taak_url": null
+        }
+    ],
+    "signalen_voor_melding": [
+        {
+            "_links": {
+                "self": "https://example.com/api/v1/signaal/efgh5678-abcd-1234-ijkl-9876543210wx/",
+                "melding": "https://example.com/api/v1/melding/abcd1234-5678-90ef-ghij-klmnopqrstuv/"
+            },
+            "uuid": "efgh5678-abcd-1234-ijkl-9876543210wx",
+            "signaal_url": "https://example.com/case/2023-123456",
+            "signaal_data": {},
+            "bron_id": "ExampleApp",
+            "bron_signaal_id": "2023-123456",
+            "origineel_aangemaakt": "2023-01-01T09:59:00.000000+01:00",
+            "urgentie": 0.5,
+            "omschrijving_melder": "",
+            "aanvullende_informatie": "What type of waste? Glass\\nWhere is it located? null\\n",
+            "aanvullende_vragen": [
+                {
+                    "answers": [
+                        "Glass"
+                    ],
+                    "question": "What type of waste?"
+                },
+                {
+                    "answers": [],
+                    "question": "Where is it located?"
+                }
+            ],
+            "meta": {
+                "spoedField": false,
+                "kanaalField": "ExampleApp-Webform",
+                "xCoordField": 100000.0,
+                "yCoordField": 500000.0,
+                "datumField": "2023-01-01T09:59:00.000000+01:00",
+                "stadsdeelField": "Example District",
+                "adresField": "Example Street 10"
+            },
+            "geometrie": {
+                "type": "Point",
+                "coordinates": [
+                    5.123456,
+                    52.123456
+                ]
+            },
+            "status": {
+                "naam": "new",
+                "signaal": 3001
+            },
+            "signaalgebeurtenissen": [
+                {
+                    "_links": {
+                        "self": "https://example.com/api/v1/signaalgebeurtenis/abcd5678-abcd-1234-ijkl-qrstuvwxyz34/"
+                    },
+                    "aangemaakt_op": "2023-01-01T10:01:00.000000+01:00",
+                    "gebeurtenis_type": "status_change",
+                    "bijlagen": [],
+                    "status": {
+                        "naam": "new",
+                        "signaal": 3001
+                    },
+                    "omschrijving_intern": null,
+                    "omschrijving_extern": "New case created.",
+                    "signaal": 3001,
+                    "gebruiker": null,
+                    "locatie": null,
+                    "urgentie": null
+                }
+            ],
+            "melding": 1001
+        }
+    ]
+}

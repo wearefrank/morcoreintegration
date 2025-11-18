@@ -1,7 +1,7 @@
 {
     "mor_id": 1234,
     "malfunction": {
-        "malfunction_type": "OVERIG",
+        "malfunction_type": "MAST_SCHEEF",
         "malfunction_remark": "Taak aangemaakt door (personeelsnummer): \nTaak: Lichtmast staat scheef (niet urgent)\nOpmerkingen bij taak: \nKenmerken: 2024-003657\nMelding: AUTOMATISCHE TEST MELDING TOSCA!\nDoor melder opgegeven masten: 123123",
         "malfunction_timestamp": "2001-12-17T09:30:47"
     },

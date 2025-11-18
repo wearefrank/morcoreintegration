@@ -1,5 +1,11 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.15.1](https://github.com/wearefrank/morcoreintegration/compare/v1.15.0...v1.15.1) (2025-11-07)
+
+### 🐛 Bug Fixes
+
+* Merge pull request [#107](https://github.com/wearefrank/morcoreintegration/issues/107) from wearefrank/GT-2166-empty-assets ([b9cad5c](https://github.com/wearefrank/morcoreintegration/commit/b9cad5c3af2d9effff9c4ba4640236f71ef5de31))
+
 ## [1.15.0](https://github.com/wearefrank/morcoreintegration/compare/v1.14.5...v1.15.0) (2025-10-28)
 
 ### 🍕 Features

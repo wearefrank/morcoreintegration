@@ -106,6 +106,8 @@
                 <Param name="opdrachtInfo" sessionKey="opdrachtInfo" type="DOMDOC" />
                 <Param name="Lichtpuntnummer" sessionKey="ConcatenatedLichtmastResponse"  />
             </XsltPipe>
+
+            <XsltPipe name="FilterEmptyValues" styleSheetName="xsl/PostZaakAssetID.xsl"/>
             
             <Json2XmlValidatorPipe 
                 name="XmlToJson"
@@ -117,7 +119,7 @@
             >
                 <Forward name="success" path="StoreUuidIdMapping" />
                 <Forward name="exception" path="ERROR" />
-            </Json2XmlValidatorPipe>	
+            </Json2XmlValidatorPipe>
 
             <SenderPipe name="StoreUuidIdMapping" getInputFromSessionKey="meldingInfo">
                 <IbisLocalSender javaListener="Internal_StoreUuidIdMapping">
@@ -174,9 +176,8 @@
                 <Exit name="ERROR" state="ERROR" />
             </Exits>
 
-            <PutInSessionPipe
-                name="StoreLichtmastID"
-                >
+
+            <PutInSessionPipe name="StoreLichtmastID">
                 <Param name="LichtmastID" xpathExpression="/lichtmast_id" />
                 <Forward name="success" path="GETlichtpuntnummer" />
             </PutInSessionPipe>
