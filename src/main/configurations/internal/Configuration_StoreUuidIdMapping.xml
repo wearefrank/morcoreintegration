@@ -23,10 +23,10 @@
                 </FixedQuerySender>
             </SenderPipe>
 
-            <XmlIfPipe name="IfResultCount0" xpathExpression="count(//row) > 0">
+            <IfPipe name="IfResultCount0" xpathExpression="count(//row) > 0">
                 <Forward name="then" path="RecordAlreadyExists" />
                 <Forward name="else" path="StoreUuidIdMapping" />
-            </XmlIfPipe>
+            </IfPipe>
 
             <SenderPipe name="StoreUuidIdMapping" getInputFromSessionKey="originalMessage">
                 <FixedQuerySender

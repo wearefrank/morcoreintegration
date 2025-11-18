@@ -197,11 +197,11 @@
                 <Forward name="exception" path="ERROR" />
             </SenderPipe>
 
-            <XmlIfPipe name="CheckGETlichtpuntnummerResult"
+            <IfPipe name="CheckGETlichtpuntnummerResult"
                 xpathExpression="count(//*:LICHTPUNTNUMMER) gt 0">
                 <Forward name="then" path="ExtractLichtpuntnummer" />
                 <Forward name="else" path="RestoreLichtmastID" />
-            </XmlIfPipe>
+            </IfPipe>
             
             <XsltPipe name="ExtractLichtpuntnummer" 
                     xpathExpression="//*:LICHTPUNTNUMMER"

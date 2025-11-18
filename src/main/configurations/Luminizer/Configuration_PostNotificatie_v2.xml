@@ -28,11 +28,11 @@
             <Forward name="exception" path="Exception" />
             </SenderPipe>
 
-            <XmlIfPipe name="IfResultCount0" xpathExpression="string-length($uuidText) > 0">
+            <IfPipe name="IfResultCount0" xpathExpression="string-length($uuidText) > 0">
                 <Param name="uuidText" sessionKey="uuid" xpathExpression="//uuid" type="STRING"/>
                 <Forward name="then" path="GetTaakopdrachtById" />
                 <Forward name="else" path="Exit" />
-            </XmlIfPipe>
+            </IfPipe>
 
             <SenderPipe name="GetTaakopdrachtById" getInputFromSessionKey="xmlInputMessage"
                 storeResultInSessionKey="taakopdracht">
@@ -43,10 +43,10 @@
                 <Forward name="exception" path="Exception" />
             </SenderPipe>
 
-            <XmlIfPipe name="CheckTaakopdrachtById" getInputFromSessionKey="taakopdracht" xpathExpression="string-length(taakopdracht) &gt; 0">
+            <IfPipe name="CheckTaakopdrachtById" getInputFromSessionKey="taakopdracht" xpathExpression="string-length(taakopdracht) &gt; 0">
                 <Forward name="then" path="CreatePostNotificatieRequest" />
                 <Forward name="else" path="Exit" />
-            </XmlIfPipe>
+            </IfPipe>
                        
             <XsltPipe name="CreatePostNotificatieRequest"
                 styleSheetName="xsl/PostNotificatieRequest_v2.xsl"
