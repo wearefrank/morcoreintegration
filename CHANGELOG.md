@@ -1,5 +1,11 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.16.1](https://github.com/wearefrank/morcoreintegration/compare/v1.16.0...v1.16.1) (2025-12-19)
+
+### 🐛 Bug Fixes
+
+* Add optional taakopdracht_id field for posttaak xsd ([8ab262c](https://github.com/wearefrank/morcoreintegration/commit/8ab262cc131241295344848c6bebe8f4a563546d))
+
 ## [1.16.0](https://github.com/wearefrank/morcoreintegration/compare/v1.15.1...v1.16.0) (2025-11-18)
 
 ### 🍕 Features
