@@ -78,14 +78,14 @@
                     select="$bijlage1" />
             </foto1>
             <foto1_filename>
-                <xsl:value-of select="substring(substring-after(($bijlagen[1]/bestand[1]/text()[1])[1], 'media/bestanden/'), 12)"/>
+                <xsl:value-of select="substring(substring-after(($meldingInfo//bijlagen[1]/bestand[1]/text()[1])[1], 'media/bestanden/'), 12)"/>
             </foto1_filename>
             <foto2>
                 <xsl:value-of
                     select="$bijlage2" />
             </foto2>
             <foto2_filename>
-                <xsl:value-of select="substring(substring-after(($bijlagen[2]/bestand[1]/text()[1])[1], 'media/bestanden/'), 12)"/>
+                <xsl:value-of select="substring(substring-after(($meldingInfo//bijlagen[2]/bestand[1]/text()[1])[1], 'media/bestanden/'), 12)"/>
             </foto2_filename>
         </root>
     </xsl:template>
