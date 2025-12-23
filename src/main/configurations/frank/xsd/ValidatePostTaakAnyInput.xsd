@@ -6,6 +6,7 @@
         <xs:element name="taaktype" type="xs:string" />
         <xs:element name="titel" type="xs:string" />
         <xs:element name="bericht" type="xs:string" nillable="true" />
+        <xs:element name="taakopdracht_id" type="xs:string" minOccurs="0"/>
         <xs:element name="taakopdracht" type="xs:string" />
         <xs:element name="melding" type="xs:string" />
         <xs:element name="gebruiker" type="xs:string" minOccurs="0" nillable="true" />
