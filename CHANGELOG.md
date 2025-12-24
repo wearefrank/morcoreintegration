@@ -1,5 +1,15 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.16.2](https://github.com/wearefrank/morcoreintegration/compare/v1.16.1...v1.16.2) (2025-12-24)
+
+### 🐛 Bug Fixes
+
+* Revert "removed dummyinput" ([e59868d](https://github.com/wearefrank/morcoreintegration/commit/e59868d8a21e8293fafeffd90e3d72d045c42a14))
+
+### ⏩ Reverts
+
+* Revert "removed dummyinput" ([b9b8bb3](https://github.com/wearefrank/morcoreintegration/commit/b9b8bb3858c945df474bcb76422a6094804278ee))
+
 ## [1.16.1](https://github.com/wearefrank/morcoreintegration/compare/v1.16.0...v1.16.1) (2025-12-19)
 
 ### 🐛 Bug Fixes
