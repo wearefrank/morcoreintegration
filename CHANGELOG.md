@@ -1,5 +1,11 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.16.3](https://github.com/wearefrank/morcoreintegration/compare/v1.16.2...v1.16.3) (2026-01-27)
+
+### 🐛 Bug Fixes
+
+* Ultimo: Use afbeelding field (containing a low res version) ([#110](https://github.com/wearefrank/morcoreintegration/issues/110)) ([1a754f7](https://github.com/wearefrank/morcoreintegration/commit/1a754f7d7f89c34e429c7b111474b7425fe81ef1))
+
 ## [1.16.2](https://github.com/wearefrank/morcoreintegration/compare/v1.16.1...v1.16.2) (2025-12-24)
 
 ### 🐛 Bug Fixes
