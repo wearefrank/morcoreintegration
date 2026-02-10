@@ -34,4 +34,12 @@
         </addColumn>
     </changeSet>
 
+    <changeSet id="3" author="Delano">
+        <addColumn tableName="UUIDIDMAP">
+            <column name="frank_uuid" type="varchar(255)"/>
+            <column name="external_id" type="varchar(255)"/>
+            <column name="raw_response" type="text"/>
+        </addColumn>
+    </changeSet>
+
 </databaseChangeLog>

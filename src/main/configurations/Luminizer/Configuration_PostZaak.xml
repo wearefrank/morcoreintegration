@@ -127,7 +127,7 @@
                 </IbisLocalSender>
             </SenderPipe>
 
-            <SenderPipe name="SendToLuminizer" getInputFromSessionKey="jsonMessage">
+            <SenderPipe name="SendToLuminizer" getInputFromSessionKey="jsonMessage" storeResultInSessionKey="luminizerJsonResponse">
                 <HttpSender name="SendToLuminizer" 
                     methodType="POST" 
                     contentType="application/json"
@@ -138,8 +138,15 @@
                     <Param name="url" value="${Luminizer.ESB.root-url}${Luminizer.create.api.uri}" />
                     <Param name="Api-key" authAlias="Luminizer" pattern="{username}" />
                 </HttpSender>
+                <Forward name="success" path="UpdateUuidIdMapRawResponse" />
+                <Forward name="exception" path="UpdateUuidIdMapRawResponse" />
+            </SenderPipe>
+
+            <SenderPipe name="UpdateUuidIdMapRawResponse" getInputFromSessionKey="meldingInfo" preserveInput="true">
+                <IbisLocalSender javaListener="Internal_UpdateUuidIdMap">
+                    <Param name="Raw_response" sessionKey="luminizerJsonResponse"/>
+                </IbisLocalSender>
                 <Forward name="success" path="SetAdapterExitCode" />
-                <Forward name="exception" path="SetAdapterExitCode" />
             </SenderPipe>
 
             <XmlSwitchPipe name="SetAdapterExitCode" 
@@ -157,10 +164,23 @@
 				<Forward name="415" path="UnsupportedMediaType" />
 				<Forward name="500" path="ServerError" />
 				<Forward name="504" path="TimeOut" />
-				<Forward name="200" path="EXIT" />
-				<Forward name="201" path="EXIT" />
-				<Forward name="NoCodeFound" path="EXIT" />
+				<Forward name="200" path="Json2Xml" />
+				<Forward name="201" path="Json2Xml" />
+				<Forward name="NoCodeFound" path="Json2Xml" />
 			</XmlSwitchPipe>
+
+            <JsonPipe name="Json2Xml" prettyPrint="true" storeResultInSessionKey="luminizerXmlResponse" preserveInput="true">
+                <Forward name="success" path="UpdateUuidIdMapExternalId" />
+                <Forward name="exception" path="ERROR" />
+            </JsonPipe>
+
+            <SenderPipe name="UpdateUuidIdMapExternalId" getInputFromSessionKey="meldingInfo" preserveInput="true">
+                <IbisLocalSender javaListener="Internal_UpdateUuidIdMap">
+                    <Param name="External_id" sessionKey="luminizerXmlResponse"
+                        xpathExpression="replace(/root/data, '.*id\s+(\d+).*', '$1')" xsltVersion="2"/>
+                </IbisLocalSender>
+                <Forward name="success" path="EXIT" />
+            </SenderPipe>
 
         </Pipeline>
     </Adapter>

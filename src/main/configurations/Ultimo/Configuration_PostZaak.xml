@@ -51,7 +51,7 @@
                 <Forward name="exception" path="exception" />
             </JsonPipe>
 
-            <IfPipe name="IfBijlage1Exists" getInputFromSessionKey="meldingInfo"
+            <XmlIfPipe name="IfBijlage1Exists" getInputFromSessionKey="meldingInfo"
                 xpathExpression="boolean(//bijlagen[1]/afbeelding)">
                 <Forward name="then" path="GetBijlage1" />
                 <Forward name="else" path="RequestOpdrachtInfo" />
@@ -75,8 +75,8 @@
 
             <SenderPipe name="GetBijlage2" storeResultInSessionKey="bijlage2"
                 getInputFromSessionKey="meldingInfo">
-                <IbisLocalSender name="GetBijlage1" javaListener="MorCore_GetBijlage">
-                    <Param name="bijlageUrl" xpathExpression="(//bijlagen[2]/afbeelding)[1]"/>
+                <IbisLocalSender name="GetBijlage2" javaListener="MorCore_GetBijlage">
+                    <Param name="bijlageUrl" xpathExpression="(//bijlagen[2]/bestand)[1]"/>
                     <Param name="MorCoreToken" sessionKey="MorCoreToken"/>
                 </IbisLocalSender>
                 <Forward name="success" path="RequestOpdrachtInfo" />
@@ -133,37 +133,79 @@
                 </IbisLocalSender>
             </SenderPipe>
 
-            <SenderPipe name="SendToUltimo" getInputFromSessionKey="jsonMessage">
+            <SenderPipe name="SendToUltimo" getInputFromSessionKey="jsonMessage" storeResultInSessionKey="ultimoJsonResponse">
                 <HttpSender name="SendToUltimo" methodType="POST" contentType="application/json"
-                    headersParams="ApiKey,ApplicationElementId,Accept-Crs,Content-Crs">
+                    headersParams="ApiKey,ApplicationElementId,Accept-Crs,Content-Crs" resultStatusCodeSessionKey="responseCode">
                     <Param name="Accept-Crs" value="EPSG:4326" />
                     <Param name="Content-Crs" value="EPSG:4326" />
                     <Param name="url" value="${Ultimo.ESB.root-url}_REST_MSB_CreateJob" />
                     <Param name="ApiKey" authAlias="Ultimo" pattern="{username}" />
                     <Param name="ApplicationElementId" authAlias="Ultimo" pattern="{password}" />
                 </HttpSender>
-                <Forward name="success" path="Exit" />
+                <Forward name="success" path="Json2Xml" />
                 <Forward name="exception" path="exception" />
                 <Forward name="timeout" path="timeout" />
                 <Forward name="illegalResult" path="illegalResult" />
                 <Forward name="interrupt" path="interrupt" />
             </SenderPipe>
 
+            <JsonPipe name="Json2Xml" prettyPrint="true" storeResultInSessionKey="ultimoXmlResponse" preserveInput="true">
+                <Forward name="success" path="UpdateUuidIdMap" />
+                <Forward name="exception" path="ERROR" />
+            </JsonPipe>
+
+            <SenderPipe name="UpdateUuidIdMap" getInputFromSessionKey="meldingInfo" preserveInput="true">
+                <IbisLocalSender javaListener="Internal_UpdateUuidIdMap">
+                    <Param name="Raw_response" sessionKey="ultimoJsonResponse"/>
+                    <Param name="External_id" sessionKey="ultimoXmlResponse"
+                        xpathExpression="substring-before(/root/properties/Result, ':')" />
+                </IbisLocalSender>
+                <Forward name="success" path="Exit" />
+            </SenderPipe>
+
             <FixedResultPipe name="exception" filename="./ErrorResponses/BadRequest.json">
-                <Forward name="success" path="BadRequest" />
+                <Forward name="success" path="UpdateUuidIdMap_exception" />
             </FixedResultPipe>
+
+            <SenderPipe name="UpdateUuidIdMap_exception" getInputFromSessionKey="meldingInfo" preserveInput="true">
+                <IbisLocalSender javaListener="Internal_UpdateUuidIdMap">
+                    <Param name="Raw_response" sessionKey="ultimoJsonResponse" />
+                </IbisLocalSender>
+                <Forward name="success" path="BadRequest" />
+            </SenderPipe>
 
             <FixedResultPipe name="timeout" filename="./ErrorResponses/ServerError.json">
-                <Forward name="success" path="ServerError" />
+                <Forward name="success" path="UpdateUuidIdMap_timeout" />
             </FixedResultPipe>
+
+            <SenderPipe name="UpdateUuidIdMap_timeout" getInputFromSessionKey="meldingInfo" preserveInput="true">
+                <IbisLocalSender javaListener="Internal_UpdateUuidIdMap">
+                    <Param name="Raw_response" sessionKey="ultimoJsonResponse" />
+                </IbisLocalSender>
+                <Forward name="success" path="ServerError" />
+            </SenderPipe>
 
             <FixedResultPipe name="illegalResult" filename="ErrorResponses/Forbidden.json">
-                <Forward name="success" path="Forbidden" />
+                <Forward name="success" path="UpdateUuidIdMap_illegalResult" />
             </FixedResultPipe>
 
+            <SenderPipe name="UpdateUuidIdMap_illegalResult" getInputFromSessionKey="meldingInfo" preserveInput="true">
+                <IbisLocalSender javaListener="Internal_UpdateUuidIdMap">
+                    <Param name="Raw_response" sessionKey="ultimoJsonResponse" />
+                </IbisLocalSender>
+                <Forward name="success" path="Forbidden" />
+            </SenderPipe>
+
             <FixedResultPipe name="interrupt" filename="ErrorResponses/Conflict.json">
-                <Forward name="success" path="Conflict" />
+                <Forward name="success" path="UpdateUuidIdMap_interrupt" />
             </FixedResultPipe>
+
+            <SenderPipe name="UpdateUuidIdMap_interrupt" getInputFromSessionKey="meldingInfo" preserveInput="true">
+                <IbisLocalSender javaListener="Internal_UpdateUuidIdMap">
+                    <Param name="Raw_response" sessionKey="ultimoJsonResponse" />
+                </IbisLocalSender>
+                <Forward name="success" path="Conflict" />
+            </SenderPipe>
 
         </Pipeline>
     </Adapter>
