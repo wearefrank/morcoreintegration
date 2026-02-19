@@ -20,10 +20,10 @@ flowchart TD
     C -->|Mapping found| D[Make postnotificatie message]
     D --> E(Send to Morcore)
     
-    F(Send original input to MSB)
-    B -->|Mapping not found| F
-    C -->|Mapping not found| F
-    E -->|Error| F
+    I(Exception)
+    E  --> |Error| I
+    B --> |Not Found| I
+    C --> |Not Found| I
 ```
 
 This adapter receives a message from Luminizer whenever a Luminizer zaak has been updated. After obtaining a Morcore melding id, the adapter proceeds to request information relating to  The adapter then sends a notification to Morcore about the change.
