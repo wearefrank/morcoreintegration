@@ -8,7 +8,7 @@
                 method="POST"
                 uriPattern="/api/v1/taak"
                 headerParams="Authorization"
-                allowAllParams="true" />
+                produces="JSON" />
         </Receiver>
 
         <Pipeline>
@@ -17,7 +17,7 @@
                 <Exit name="Reject" state="REJECTED" />
                 <Exit name="Exception" state="ERROR" code="500" />
             </Exits>
-
+            
             <SenderPipe name="GetToken" storeResultInSessionKey="FrankToken" active="${Token_Authentication.Active}">
                 <IbisLocalSender javaListener="Internal_GetToken"/>
             </SenderPipe>
@@ -60,8 +60,8 @@
             <EchoPipe name="AnchorPoint" />
 
             <SenderPipe name="SwitchConfiguration" active="!${enable.pipeset.larva}">
-                <IbisLocalSender javaListener="${target.system}_PostZaak" />
-                <Forward name="success" path="Exit" />
+                <IbisLocalSender javaListener="${target.system}_PostZaak" returnedSessionKeys="Frank_uuid,External_id" />
+                <Forward name="success" path="CreatePostTaakResponse" />
                 <Forward name="exception" path="Exception" />
             </SenderPipe>
 
@@ -77,22 +77,30 @@
             </XmlSwitchPipe>
 
             <SenderPipe name="SwitchConfigurationUltimo" active="${enable.pipeset.larva}">
-                <IbisLocalSender javaListener="Ultimo_PostZaak" >
+                <IbisLocalSender javaListener="Ultimo_PostZaak" returnedSessionKeys="Frank_uuid,External_id" >
                     <Param name="larvaTargetSystem" sessionKey="larvaTargetSystem" />
                 </IbisLocalSender>
-                <Forward name="success" path="Exit" />
+                <Forward name="success" path="CreatePostTaakResponse" />
                 <Forward name="exception" path="Exception" />
             </SenderPipe>
 
             <SenderPipe name="SwitchConfigurationLuminizer" active="${enable.pipeset.larva}">
-                <IbisLocalSender javaListener="Luminizer_PostZaak" >
+                <IbisLocalSender javaListener="Luminizer_PostZaak" returnedSessionKeys="Frank_uuid,External_id" >
                     <Param name="larvaTargetSystem" sessionKey="larvaTargetSystem" />
                 </IbisLocalSender>
-                <Forward name="success" path="Exit" />
+                <Forward name="success" path="CreatePostTaakResponse" />
                 <Forward name="exception" path="Exception" />
             </SenderPipe>
             <!-- END -->
-
+             
+            <DataSonnetPipe name="CreatePostTaakResponse" outputType="JSON"
+                getInputFromFixedValue="&lt;dummy/&gt;" storeResultInSessionKey="taskBody" styleSheetName="jsonnet/PostTaakResponses.jsonnet">
+                <Param name="Frank_uuid" sessionKey="Frank_uuid"/>
+                <Param name="External_id" sessionKey="External_id" />
+                <Param name="TimeStamp" xpathExpression="format-dateTime(current-dateTime(), '[Y0001]-[M01]-[D01]T[H01]:[m01]:[s01]Z')"/>
+                <Param name="base_url" value="${Frank.API.root-url}"/>
+                <Forward name="success" path="Exit" />
+            </DataSonnetPipe>
         </Pipeline>
     </Adapter>
 </Module>

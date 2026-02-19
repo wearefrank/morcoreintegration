@@ -24,7 +24,7 @@
             </SenderPipe>
 
             <XmlIfPipe name="IfResultCount0" xpathExpression="count(//row) > 0">
-                <Forward name="then" path="RecordAlreadyExists" />
+                <Forward name="then" path="putInSessionFrank_uuid" />
                 <Forward name="else" path="generateUUID" />
             </XmlIfPipe>
 
@@ -40,9 +40,26 @@
                     <Param name="Taakopdracht" sessionKey="Taakopdracht" type="STRING" />
                     <Param name="Frank_uuid" sessionKey="Frank_uuid" type="STRING" />
                 </FixedQuerySender>
+                <Forward name="success" path="GetUuidIdMapping2" />
+                <Forward name="exception" path="Exception" />
+            </SenderPipe>
+
+            <SenderPipe name="GetUuidIdMapping2">
+                <FixedQuerySender
+                    name="GetUuidIdMapping"
+                    query="SELECT * FROM UUIDIDMAP WHERE uuid = ?{Uuid} OR id = ?{Id}"
+                    queryType="SELECT">
+                    <Param name="Id" xpathExpression="/root/id" type="INTEGER" />
+                    <Param name="Uuid" xpathExpression="/root/uuid" type="STRING" />
+                </FixedQuerySender>
                 <Forward name="success" path="Exit" />
                 <Forward name="exception" path="Exception" />
             </SenderPipe>
+            
+            <PutInSessionPipe name="putInSessionFrank_uuid">
+                    <Param name="Frank_uuid" xpathExpression="/result/rowset/row/field[@name='FRANK_UUID']" />
+                    <Forward name="success" path="RecordAlreadyExists" />
+            </PutInSessionPipe>
 
             <EchoPipe name="RecordAlreadyExists" getInputFromFixedValue="&lt;result>Record already exists&lt;/result>" />
         </Pipeline>

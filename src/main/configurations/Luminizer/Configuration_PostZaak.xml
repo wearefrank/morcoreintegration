@@ -122,7 +122,7 @@
             </Json2XmlValidatorPipe>
 
             <SenderPipe name="StoreUuidIdMapping" getInputFromSessionKey="meldingInfo">
-                <IbisLocalSender javaListener="Internal_StoreUuidIdMapping">
+                <IbisLocalSender javaListener="Internal_StoreUuidIdMapping" returnedSessionKeys="Frank_uuid">
                     <Param name="Taakopdracht" sessionKey="originalMessage" xpathExpression="tokenize(/root/taakopdracht,'/')[last()-1]" />
                 </IbisLocalSender>
             </SenderPipe>
@@ -175,7 +175,7 @@
             </JsonPipe>
 
             <SenderPipe name="UpdateUuidIdMapExternalId" getInputFromSessionKey="meldingInfo" preserveInput="true">
-                <IbisLocalSender javaListener="Internal_UpdateUuidIdMap">
+                <IbisLocalSender javaListener="Internal_UpdateUuidIdMap" returnedSessionKeys="External_id">
                     <Param name="External_id" sessionKey="luminizerXmlResponse"
                         xpathExpression="replace(/root/data, '.*id\s+(\d+).*', '$1')" xsltVersion="2"/>
                 </IbisLocalSender>

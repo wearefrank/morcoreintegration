@@ -127,7 +127,7 @@
             </SenderPipe>
 
             <SenderPipe name="StoreUuidIdMapping" getInputFromSessionKey="meldingInfo">
-                <IbisLocalSender javaListener="Internal_StoreUuidIdMapping">
+                <IbisLocalSender javaListener="Internal_StoreUuidIdMapping" returnedSessionKeys="Frank_uuid">
                     <Param name="Taakopdracht" sessionKey="originalMessage"
                         xpathExpression="substring-before(substring-after(/root/taakopdracht, '/api/v1/taakopdracht/'), '/')" />
                 </IbisLocalSender>
@@ -155,7 +155,7 @@
             </JsonPipe>
 
             <SenderPipe name="UpdateUuidIdMap" getInputFromSessionKey="meldingInfo" preserveInput="true">
-                <IbisLocalSender javaListener="Internal_UpdateUuidIdMap">
+                <IbisLocalSender javaListener="Internal_UpdateUuidIdMap" returnedSessionKeys="External_id">
                     <Param name="Raw_response" sessionKey="ultimoJsonResponse"/>
                     <Param name="External_id" sessionKey="ultimoXmlResponse"
                         xpathExpression="substring-before(/root/properties/Result, ':')" />
