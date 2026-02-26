@@ -1,8 +1,8 @@
 ---
-sidebar_position: 20
+# sidebar_position: 20
 ---
 
-# MSB_PostNotificatie
+<!-- # MSB_PostNotificatie -->
 
 ## Service Specification
 | Description | Communication Pattern | Trigger | 
