@@ -8,6 +8,7 @@
                 method="POST"
                 uriPattern="/api/v1/taak"
                 headerParams="Authorization"
+                allowAllParams="true"
                 produces="JSON" />
         </Receiver>
 

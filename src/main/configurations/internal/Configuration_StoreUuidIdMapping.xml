@@ -23,10 +23,10 @@
                 </FixedQuerySender>
             </SenderPipe>
 
-            <XmlIfPipe name="IfResultCount0" xpathExpression="count(//row) > 0">
+            <IfPipe name="IfResultCount0" xpathExpression="count(//row) > 0">
                 <Forward name="then" path="putInSessionFrank_uuid" />
                 <Forward name="else" path="generateUUID" />
-            </XmlIfPipe>
+            </IfPipe>
 
 			<UUIDGeneratorPipe name="generateUUID" storeResultInSessionKey="Frank_uuid" preserveInput="true"/>
 

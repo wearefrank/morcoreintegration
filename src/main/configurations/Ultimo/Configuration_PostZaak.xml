@@ -51,7 +51,7 @@
                 <Forward name="exception" path="exception" />
             </JsonPipe>
 
-            <XmlIfPipe name="IfBijlage1Exists" getInputFromSessionKey="meldingInfo"
+            <IfPipe name="IfBijlage1Exists" getInputFromSessionKey="meldingInfo"
                 xpathExpression="boolean(//bijlagen[1]/afbeelding)">
                 <Forward name="then" path="GetBijlage1" />
                 <Forward name="else" path="RequestOpdrachtInfo" />
