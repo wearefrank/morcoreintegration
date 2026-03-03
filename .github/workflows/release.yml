@@ -14,7 +14,7 @@ jobs:
       version-next-tag: ${{ steps.next-version.outputs.release-tag }}
       version-next-type: ${{ steps.next-version.outputs.release-type }}
     steps:
-      - uses: step-security/harden-runner@17d0e2bd7d51742c71671bd19fa12bdc9d40a3d6 # v2.8.1
+      - uses: step-security/harden-runner@a90bcbc6539c36a85cdfeb73f7e2f433735f215b # v2.15.0
         with:
           disable-sudo: true
           egress-policy: audit
@@ -22,10 +22,10 @@ jobs:
             github.com:443
 
       - name: Checkout
-        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 #4.1.7
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd #6.0.2
       
       - name: "Setup Node"
-        uses: actions/setup-node@1e60f620b9541d16bece96c5465dc8ee9832be0b #4.0.3
+        uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 #6.2.0
         with:
           node-version: 24
       
@@ -40,7 +40,7 @@ jobs:
           GH_TOKEN: ${{ secrets.WEAREFRANK_BOT_PAT }}
 
   ci:
-    uses: wearefrank/ci-cd-templates/.github/workflows/ci-generic.yml@e073950d36ffdeb9f018b14b2ca0c13449825b2f #1.0.3
+    uses: wearefrank/ci-cd-templates/.github/workflows/ci-generic.yml@2bdd123ba53833578d6f63e3426c32e0c8e25d67 #2.2.7
     needs: analyze-commits
     secrets:
       token: ${{ secrets.GITHUB_TOKEN }}
@@ -48,43 +48,51 @@ jobs:
     with:
       version: ${{ needs.analyze-commits.outputs.version-next }}
 
-  # run-larva-scenarios:
-  #   uses: ./.github/workflows/run-larva-scenarios.yml
-  #   needs:
-  #     - analyze-commits
-  #     - ci
-  #   with:
-  #     APP_VERSION: ${{ needs.analyze-commits.outputs.version-next }}
+  larva:
+    uses: wearefrank/ci-cd-templates/.github/workflows/larva-testrunner.yml@2824723a572674093bda421842da85b373aaf8a7 #2.4.0
+    needs:
+      - analyze-commits
+      - ci
+    secrets:
+      token: ${{ secrets.GITHUB_TOKEN }}
+    with:
+      image-ref: ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}-staging@${{ needs.ci.outputs.image-digest }}
+      setup-script: |
+        docker run -d --name morcoreintegration -p 8080:8080 -e dtap.stage=LOC "${IMAGE_ID:-${IMAGE_REF}}"
+      teardown-script: |
+        docker stop "${CONTAINER_ID}"
+        docker rm --volumes "${CONTAINER_ID}"
 
   release:
     runs-on: ubuntu-latest
     needs: 
       - analyze-commits
       - ci
+      - larva
     steps:
-      - uses: step-security/harden-runner@17d0e2bd7d51742c71671bd19fa12bdc9d40a3d6 # v2.8.1
+      - uses: step-security/harden-runner@a90bcbc6539c36a85cdfeb73f7e2f433735f215b # v2.15.0
         with:
           egress-policy: audit
 
       - name: Checkout
-        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 #4.1.7
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd #6.0.2
         with:
           token: ${{ secrets.WEAREFRANK_BOT_PAT }}
 
       - name: Download Pre-build Artifacts
-        uses: actions/download-artifact@fa0a91b85d4f404e444e00e005971372dc801d16 #4.1.8
+        uses: actions/download-artifact@70fc10c6e5e1ce46ad2ea6f2b72d43f7d47b13c3 #8.0.0
         with:
           pattern: pre-build-*
           merge-multiple: true
   
       - name: Download Build Artifacts
-        uses: actions/download-artifact@fa0a91b85d4f404e444e00e005971372dc801d16 #4.1.8
+        uses: actions/download-artifact@70fc10c6e5e1ce46ad2ea6f2b72d43f7d47b13c3 #8.0.0
         with:
           pattern: build-*
           merge-multiple: true
 
       - name: Setup Node
-        uses: actions/setup-node@1e60f620b9541d16bece96c5465dc8ee9832be0b #4.0.3
+        uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 #6.2.0
         with:
           node-version: 24
       
@@ -98,16 +106,19 @@ jobs:
           GH_TOKEN: ${{ secrets.WEAREFRANK_BOT_PAT }}
 
   docker-release:
-    uses: wearefrank/ci-cd-templates/.github/workflows/docker-release-generic.yml@e073950d36ffdeb9f018b14b2ca0c13449825b2f #1.0.3
+    uses: wearefrank/ci-cd-templates/.github/workflows/docker-release-generic.yml@2bdd123ba53833578d6f63e3426c32e0c8e25d67 #2.2.7
     needs: 
       - analyze-commits
       - release
     secrets:
       token: ${{ secrets.GITHUB_TOKEN }}
-      dockerhub-username: ${{ secrets.DOCKERHUB_USERNAME }}
-      dockerhub-token: ${{ secrets.DOCKERHUB_TOKEN }}
+      source-registry-username: ${{ github.actor }}
+      source-registry-token: ${{ secrets.GITHUB_TOKEN }}
+      registry-username: ${{ secrets.DOCKERHUB_USERNAME }}
+      registry-token: ${{ secrets.DOCKERHUB_TOKEN }}
     with:
       version: ${{ needs.analyze-commits.outputs.version-next }}
+      image-registry: 'docker.io'
 
   docusaurus-release:
     permissions:
@@ -118,4 +129,4 @@ jobs:
       - release
     # Set to true to enable Docusaurus publishing to GitHub Pages
     if: true
-    uses: wearefrank/ci-cd-templates/.github/workflows/docusaurus-release.yml@e073950d36ffdeb9f018b14b2ca0c13449825b2f #1.0.3
+    uses: wearefrank/ci-cd-templates/.github/workflows/docusaurus-release.yml@2bdd123ba53833578d6f63e3426c32e0c8e25d67 #2.2.7
