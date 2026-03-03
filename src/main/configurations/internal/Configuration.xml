@@ -5,6 +5,7 @@
 	<!ENTITY GetUuidById SYSTEM 			"./Configuration_GetUuidById.xml">
 	<!ENTITY SetToken SYSTEM 				"./Configuration_SetToken.xml">
 	<!ENTITY StoreUuidIdMapping SYSTEM 		"./Configuration_StoreUuidIdMapping.xml">
+	<!ENTITY UpdateUuidIdMap SYSTEM 		"./Configuration_UpdateUuidIdMap.xml">
 ]>
 
 <Configuration name="internal" active="${internal.active}">
@@ -14,4 +15,5 @@
 	&GetUuidById;
 	&SetToken;
 	&StoreUuidIdMapping;
+	&UpdateUuidIdMap;
 </Configuration>

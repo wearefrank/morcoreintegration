@@ -1,0 +1,56 @@
+<Module xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../FrankConfig.xsd">
+
+    <Adapter name="Internal_UpdateUuidIdMap" active="${Internal_UpdateUuidIdMap.active}">
+        <Receiver name="Internal_UpdateUuidIdMap">
+            <JavaListener name="Internal_UpdateUuidIdMap" />
+        </Receiver>
+
+        <Pipeline>
+            <Exits>
+                <Exit name="Exit" state="SUCCESS" />
+                <Exit name="Reject" state="REJECTED" />
+                <Exit name="Exception" state="ERROR" />
+            </Exits>
+
+            <SenderPipe name="GetUuidIdMapping">
+                <FixedQuerySender
+                    name="GetUuidIdMapping"
+                    query="SELECT * FROM UUIDIDMAP WHERE uuid = ?{Uuid} OR id = ?{Id}"
+                    queryType="SELECT">
+                    <Param name="Id" xpathExpression="/root/id" type="INTEGER" />
+                    <Param name="Uuid" xpathExpression="/root/uuid" type="STRING" />
+                </FixedQuerySender>
+            </SenderPipe>
+
+            <IfPipe name="IfResultCount0" xpathExpression="count(//row) > 0">
+                <Forward name="then" path="UpdateUuidIdMap" />
+                <Forward name="else" path="NoRecordExists" />
+            </IfPipe>
+
+            <SenderPipe name="UpdateUuidIdMap" getInputFromSessionKey="originalMessage">
+                <FixedQuerySender
+                    name="UpdateUuidIdMap"
+                    query="
+                    UPDATE uuididmap
+                    SET
+                        taakopdracht = COALESCE(NULLIF(?{Taakopdracht}, ''), taakopdracht),
+                        raw_response = COALESCE(NULLIF(?{Raw_response}, ''), raw_response),
+                        external_id  = COALESCE(NULLIF(?{External_id}, ''), external_id)
+                    WHERE uuid = ?{Uuid} OR id = ?{Id};
+                    "
+                    queryType="OTHER">
+                    <Param name="Id" xpathExpression="/root/id" type="INTEGER" />
+                    <Param name="Uuid" xpathExpression="/root/uuid" type="STRING" />
+                    <Param name="Taakopdracht" sessionKey="Taakopdracht" type="STRING" />
+                    <Param name="Raw_response" sessionKey="Raw_response" type="STRING" />
+                    <Param name="External_id" sessionKey="External_id" type="STRING" />
+                </FixedQuerySender>
+                <Forward name="success" path="Exit" />
+                <Forward name="exception" path="Exception" />
+            </SenderPipe>
+
+            <EchoPipe name="NoRecordExists" getInputFromFixedValue="&lt;result>No Record Matches&lt;/result>" />
+        </Pipeline>
+    </Adapter>
+</Module>

@@ -1,5 +1,4 @@
 {
-    "properties": {
-        "Result": "48998:Inserted"
-    }
+  "status": "success",
+  "data": "Malfunction created with id 3018"
 }
