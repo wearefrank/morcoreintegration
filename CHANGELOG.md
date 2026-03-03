@@ -1,5 +1,15 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.16.5](https://github.com/wearefrank/morcoreintegration/compare/v1.16.4...v1.16.5) (2026-03-03)
+
+### 🤖 Build System
+
+* **dependencies:** bump the github-actions group across 1 directory with 9 updates ([6998b56](https://github.com/wearefrank/morcoreintegration/commit/6998b56fffe0371ec8459497ec31ebf04a7b0494))
+
+### 🔁 Continuous Integration
+
+* replace custom larva workflow with reusable ci-cd-templates larva-testrunner workflow ([d65baa7](https://github.com/wearefrank/morcoreintegration/commit/d65baa783a71fd8943c487164890edb960dfee81))
+
 ## [1.16.4](https://github.com/wearefrank/morcoreintegration/compare/v1.16.3...v1.16.4) (2026-03-03)
 
 ### ✅ Tests
